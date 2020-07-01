@@ -1,0 +1,48 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.2}{Astronomical Photometry}{}% 2
+\BOOKMARK [1][-]{section.3}{Photometry Data Model}{}% 3
+\BOOKMARK [2][-]{subsection.3.1}{PhotometricSystem Class}{section.3}% 4
+\BOOKMARK [3][-]{subsubsection.3.1.1}{PhotometricSystem.description: String}{subsection.3.1}% 5
+\BOOKMARK [3][-]{subsubsection.3.1.2}{PhotometricSystem.detectorType: integer}{subsection.3.1}% 6
+\BOOKMARK [2][-]{subsection.3.2}{PhotometryFilter Class}{section.3}% 7
+\BOOKMARK [3][-]{subsubsection.3.2.1}{PhotometryFilter.identifier: String}{subsection.3.2}% 8
+\BOOKMARK [3][-]{subsubsection.3.2.2}{PhotometryFilter.fpsIdentifier: String}{subsection.3.2}% 9
+\BOOKMARK [3][-]{subsubsection.3.2.3}{PhotometryFilter.name: String}{subsection.3.2}% 10
+\BOOKMARK [3][-]{subsubsection.3.2.4}{PhotometryFilter.description: String}{subsection.3.2}% 11
+\BOOKMARK [3][-]{subsubsection.3.2.5}{PhotometryFilter.bandName: String}{subsection.3.2}% 12
+\BOOKMARK [3][-]{subsubsection.3.2.6}{PhotometryFilter Time Validity Range}{subsection.3.2}% 13
+\BOOKMARK [3][-]{subsubsection.3.2.7}{PhotometryFilter.transmissionCurve}{subsection.3.2}% 14
+\BOOKMARK [3][-]{subsubsection.3.2.8}{PhotometryFilter.spectralLocation.value: double}{subsection.3.2}% 15
+\BOOKMARK [3][-]{subsubsection.3.2.9}{PhotometryFilter.transmissionCurve}{subsection.3.2}% 16
+\BOOKMARK [3][-]{subsubsection.3.2.10}{PhotometryFilter.bandwidth: S\137Bounds}{subsection.3.2}% 17
+\BOOKMARK [2][-]{subsection.3.3}{PhotCal Class}{section.3}% 18
+\BOOKMARK [3][-]{subsubsection.3.3.1}{PhotCal.identifier: String}{subsection.3.3}% 19
+\BOOKMARK [3][-]{subsubsection.3.3.2}{PhotCal.zeroPoint: ZeroPoint}{subsection.3.3}% 20
+\BOOKMARK [3][-]{subsubsection.3.3.3}{PhotCal.magnitudeSystem: MagnitudeSystem}{subsection.3.3}% 21
+\BOOKMARK [2][-]{subsection.3.4}{ZeroPoint Class}{section.3}% 22
+\BOOKMARK [3][-]{subsubsection.3.4.1}{ZeroPoint.flux.value: double}{subsection.3.4}% 23
+\BOOKMARK [3][-]{subsubsection.3.4.2}{ZeroPoint.referenceMagnitude.value: double}{subsection.3.4}% 24
+\BOOKMARK [3][-]{subsubsection.3.4.3}{ZeroPoint.referenceMagnitude.error: double}{subsection.3.4}% 25
+\BOOKMARK [3][-]{subsubsection.3.4.4}{ZeroPoint.type: enum}{subsection.3.4}% 26
+\BOOKMARK [2][-]{subsection.3.5}{PogsonZeroPoint Class}{section.3}% 27
+\BOOKMARK [3][-]{subsubsection.3.5.1}{PogsonZeroPoint.getFluxFromMagnitude\(\)}{subsection.3.5}% 28
+\BOOKMARK [3][-]{subsubsection.3.5.2}{PogsonZeroPoint.getMagnitudeFromFlux\(\)}{subsection.3.5}% 29
+\BOOKMARK [2][-]{subsection.3.6}{AsinhZeroPoint Class}{section.3}% 30
+\BOOKMARK [3][-]{subsubsection.3.6.1}{AsinhZeroPoint.softeningParameter: double}{subsection.3.6}% 31
+\BOOKMARK [3][-]{subsubsection.3.6.2}{AsinhZeroPoint.getFluxFromMagnitude\(\)}{subsection.3.6}% 32
+\BOOKMARK [3][-]{subsubsection.3.6.3}{AsinhZeroPoint.getMagnitudeFromFlux\(\)}{subsection.3.6}% 33
+\BOOKMARK [2][-]{subsection.3.7}{LinearFluxZeroPoint Class}{section.3}% 34
+\BOOKMARK [3][-]{subsubsection.3.7.1}{LinearFluxZeroPoint.getFluxFromMagnitude\(\)}{subsection.3.7}% 35
+\BOOKMARK [3][-]{subsubsection.3.7.2}{LinearFluxZeroPoint.getMagnitudeFromFlux\(\)}{subsection.3.7}% 36
+\BOOKMARK [2][-]{subsection.3.8}{MagnitudeSystem Class}{section.3}% 37
+\BOOKMARK [3][-]{subsubsection.3.8.1}{MagnitudeSystem.type: String}{subsection.3.8}% 38
+\BOOKMARK [3][-]{subsubsection.3.8.2}{MagnitudeSystem.referenceSpectrum: URI}{subsection.3.8}% 39
+\BOOKMARK [1][-]{section.4}{Use Cases}{}% 40
+\BOOKMARK [2][-]{subsection.4.1}{Conversion from magnitude to flux, using a Filter Profile Service}{section.4}% 41
+\BOOKMARK [1][-]{section.5}{Appendix A: Conversions}{}% 42
+\BOOKMARK [2][-]{subsection.5.1}{A.1 Zero point magnitude and zero point flux}{section.5}% 43
+\BOOKMARK [2][-]{subsection.5.2}{A.2 Interrelation between Pogson and Asinh magnitudes}{section.5}% 44
+\BOOKMARK [1][-]{section.6}{Appendix B: Data Model Summary}{}% 45
+\BOOKMARK [1][-]{section.7}{Appendix C: Data Model Serializations}{}% 46
+\BOOKMARK [2][-]{subsection.7.1}{C.1 Filter Profile Service Serialization}{section.7}% 47
+\BOOKMARK [2][-]{subsection.7.2}{C.2 Photometric Data in Cone Search}{section.7}% 48

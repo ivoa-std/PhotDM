@@ -1,0 +1,696 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vo-dml:model xmlns:vo-dml="http://www.ivoa.net/xml/VODML/v1"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://www.ivoa.net/xml/VODML/v1 http://www.ivoa.net/xml/VODML/vo-dml-v1.xsd">
+  <name>PhotDM</name>
+  <description>This is the data model for Photometric Calibration ... </description>
+  <uri/>
+  <title>Photometry Data Model</title>
+  <version>1.1</version>
+  <lastModified>2020-06-08T10:01:35</lastModified>
+  <import>
+    <name>ivoa</name>
+    <url>http://www.ivoa.net/xml/VODML/20180519/IVOA-v1.0.vo-dml.xml</url>
+    <documentationURL>https://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/models/ivoa/vo-dml/IVOA-v1.0.html</documentationURL>
+  </import>
+  <dataType>
+    <vodml-id>PhysicalQuantity</vodml-id>
+    <name>PhysicalQuantity</name>
+    <description>TODO : Missing description : please, update your UML model asap.</description>
+    <attribute>
+      <vodml-id>PhysicalQuantity.unit</vodml-id>
+      <name>unit</name>
+      <description>TODO : Missing description : please, update your UML model asap.</description>
+      <datatype>
+        <vodml-ref>PhotDM:Unit</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>0</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <attribute>
+      <vodml-id>PhysicalQuantity.UCD</vodml-id>
+      <name>UCD</name>
+      <description>TODO : Missing description : please, update your UML model asap.</description>
+      <datatype>
+        <vodml-ref>ivoa:string</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>0</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+  </dataType>
+
+  <dataType>
+    <vodml-id>PhysicalQuantityDouble</vodml-id>
+    <name>PhysicalQuantityDouble</name>
+    <description>TODO : Missing description : please, update your UML model asap.</description>
+    <extends>
+      <vodml-ref>PhotDM:PhysicalQuantity</vodml-ref>
+    </extends>
+    <attribute>
+      <vodml-id>PhysicalQuantityDouble.value</vodml-id>
+      <name>value</name>
+      <description>TODO : Missing description : please, update your UML model asap.</description>
+      <datatype>
+        <vodml-ref>ivoa:real</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <attribute>
+      <vodml-id>PhysicalQuantityDouble.error</vodml-id>
+      <name>error</name>
+      <description>TODO : Missing description : please, update your UML model asap.</description>
+      <datatype>
+        <vodml-ref>ivoa:real</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>0</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+  </dataType>
+
+  <dataType>
+    <vodml-id>PhysicalQuantityInt</vodml-id>
+    <name>PhysicalQuantityInt</name>
+    <description>TODO : Missing description : please, update your UML model asap.</description>
+    <extends>
+      <vodml-ref>PhotDM:PhysicalQuantity</vodml-ref>
+    </extends>
+    <attribute>
+      <vodml-id>PhysicalQuantityInt.value</vodml-id>
+      <name>value</name>
+      <description>TODO : Missing description : please, update your UML model asap.</description>
+      <datatype>
+        <vodml-ref>ivoa:integer</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <attribute>
+      <vodml-id>PhysicalQuantityInt.error</vodml-id>
+      <name>error</name>
+      <description>TODO : Missing description : please, update your UML model asap.</description>
+      <datatype>
+        <vodml-ref>ivoa:integer</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>0</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+  </dataType>
+
+  <dataType>
+    <vodml-id>S_Bounds</vodml-id>
+    <name>S_Bounds</name>
+    <description>Could be datatype</description>
+    <attribute>
+      <vodml-id>S_Bounds.extent</vodml-id>
+      <name>extent</name>
+      <description>TODO : Missing description : please, update your UML model asap.</description>
+      <datatype>
+        <vodml-ref>ivoa:real</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>0</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <attribute>
+      <vodml-id>S_Bounds.start</vodml-id>
+      <name>start</name>
+      <description>TODO : Missing description : please, update your UML model asap.</description>
+      <datatype>
+        <vodml-ref>ivoa:real</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <attribute>
+      <vodml-id>S_Bounds.stop</vodml-id>
+      <name>stop</name>
+      <description>TODO : Missing description : please, update your UML model asap.</description>
+      <datatype>
+        <vodml-ref>ivoa:real</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+  </dataType>
+
+  <dataType>
+    <vodml-id>S_Coverage</vodml-id>
+    <name>S_Coverage</name>
+    <description>Not really necessary, pattern to indicate how location and bounds can be used together.</description>
+    <attribute>
+      <vodml-id>S_Coverage.location</vodml-id>
+      <name>location</name>
+      <description>TODO : Missing description : please, update your UML model asap.</description>
+      <datatype>
+        <vodml-ref>PhotDM:S_Location</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>0</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <attribute>
+      <vodml-id>S_Coverage.bounds</vodml-id>
+      <name>bounds</name>
+      <description>TODO : Missing description : please, update your UML model asap.</description>
+      <datatype>
+        <vodml-ref>PhotDM:S_Bounds</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>0</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+  </dataType>
+
+  <dataType>
+    <vodml-id>S_Location</vodml-id>
+    <name>S_Location</name>
+    <description>Could be datatype</description>
+    <attribute>
+      <vodml-id>S_Location.value</vodml-id>
+      <name>value</name>
+      <description>TODO : Missing description : please, update your UML model asap.</description>
+      <datatype>
+        <vodml-ref>ivoa:integer</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+  </dataType>
+
+  <dataType>
+    <vodml-id>Unit</vodml-id>
+    <name>Unit</name>
+    <description>TODO : Missing description : please, update your UML model asap.</description>
+    <attribute>
+      <vodml-id>Unit.expression</vodml-id>
+      <name>expression</name>
+      <description>TODO : Missing description : please, update your UML model asap.</description>
+      <datatype>
+        <vodml-ref>ivoa:string</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <attribute>
+      <vodml-id>Unit.scaleSI</vodml-id>
+      <name>scaleSI</name>
+      <description>TODO : Missing description : please, update your UML model asap.</description>
+      <datatype>
+        <vodml-ref>ivoa:real</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <attribute>
+      <vodml-id>Unit.dimEquation</vodml-id>
+      <name>dimEquation</name>
+      <description>TODO : Missing description : please, update your UML model asap.</description>
+      <datatype>
+        <vodml-ref>ivoa:string</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>0</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+  </dataType>
+
+  <objectType>
+    <vodml-id>Access</vodml-id>
+    <name>Access</name>
+    <description>TODO : Missing description : please, update your UML model asap.</description>
+    <attribute>
+      <vodml-id>Access.Reference</vodml-id>
+      <name>Reference</name>
+      <description>uri to the effective transmission curve
+NB this description applies to the inherited access atttribute on TransmissionCurve, not really to the one on the base class.</description>
+      <datatype>
+        <vodml-ref>ivoa:anyURI</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <attribute>
+      <vodml-id>Access.Format</vodml-id>
+      <name>Format</name>
+      <description>TODO : Missing description : please, update your UML model asap.</description>
+      <datatype>
+        <vodml-ref>ivoa:string</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <attribute>
+      <vodml-id>Access.Size</vodml-id>
+      <name>Size</name>
+      <description>TODO : Missing description : please, update your UML model asap.</description>
+      <datatype>
+        <vodml-ref>ivoa:real</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>0</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+  </objectType>
+
+  <objectType>
+    <vodml-id>AsinhZeroPoint</vodml-id>
+    <name>AsinhZeroPoint</name>
+    <description>TODO : Missing description : please, update your UML model asap.</description>
+    <extends>
+      <vodml-ref>PhotDM:ZeroPoint</vodml-ref>
+    </extends>
+    <attribute>
+      <vodml-id>AsinhZeroPoint.softeningCoefficient</vodml-id>
+      <name>softeningCoefficient</name>
+      <description>TODO : Missing description : please, update your UML model asap.</description>
+      <datatype>
+        <vodml-ref>ivoa:real</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>0</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+  </objectType>
+
+  <objectType>
+    <vodml-id>LinearFlux</vodml-id>
+    <name>LinearFlux</name>
+    <description>TODO : Missing description : please, update your UML model asap.</description>
+    <extends>
+      <vodml-ref>PhotDM:ZeroPoint</vodml-ref>
+    </extends>
+  </objectType>
+
+  <objectType>
+    <vodml-id>MagnitudeSystem</vodml-id>
+    <name>MagnitudeSystem</name>
+    <description>TODO : Missing description : please, update your UML model asap.</description>
+    <attribute>
+      <vodml-id>MagnitudeSystem.type</vodml-id>
+      <name>type</name>
+      <description>TODO : Missing description : please, update your UML model asap.</description>
+      <datatype>
+        <vodml-ref>ivoa:string</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>0</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <attribute>
+      <vodml-id>MagnitudeSystem.referenceSpectrum</vodml-id>
+      <name>referenceSpectrum</name>
+      <description>TODO : Missing description : please, update your UML model asap.</description>
+      <multiplicity>
+        <minOccurs>0</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <composition>
+      <vodml-id>MagnitudeSystem.source</vodml-id>
+      <name>source</name>
+      <description>TODO : Missing description : please, update your UML model asap.</description>
+      <datatype>
+        <vodml-ref>PhotDM:Source</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>0</minOccurs>
+        <maxOccurs>-1</maxOccurs>
+      </multiplicity>
+    </composition>
+  </objectType>
+
+  <objectType>
+    <vodml-id>PhotCal</vodml-id>
+    <name>PhotCal</name>
+    <description>TODO : Missing description : please, update your UML model asap.</description>
+    <attribute>
+      <vodml-id>PhotCal.uniqueIdentifier</vodml-id>
+      <name>uniqueIdentifier</name>
+      <description>TODO : Missing description : please, update your UML model asap.</description>
+      <datatype>
+        <vodml-ref>ivoa:string</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <composition>
+      <vodml-id>PhotCal.zeroPoint</vodml-id>
+      <name>zeroPoint</name>
+      <description>TODO : Missing description : please, update your UML model asap.</description>
+      <datatype>
+        <vodml-ref>PhotDM:ZeroPoint</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </composition>
+    <composition>
+      <vodml-id>PhotCal.magnitudeSystem</vodml-id>
+      <name>magnitudeSystem</name>
+      <description>TODO : Missing description : please, update your UML model asap.</description>
+      <datatype>
+        <vodml-ref>PhotDM:MagnitudeSystem</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </composition>
+    <reference>
+      <vodml-id>PhotCal.photometryFilter</vodml-id>
+      <name>photometryFilter</name>
+      <description>TODO : Missing description : please, update your UML model asap.</description>
+      <datatype>
+        <vodml-ref>PhotDM:PhotometryFilter</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </reference>
+  </objectType>
+
+  <objectType>
+    <vodml-id>PhotometricSystem</vodml-id>
+    <name>PhotometricSystem</name>
+    <description>TODO : Missing description : please, update your UML model asap.</description>
+    <attribute>
+      <vodml-id>PhotometricSystem.description</vodml-id>
+      <name>description</name>
+      <description>String representation Photometric system</description>
+      <datatype>
+        <vodml-ref>ivoa:string</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>0</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <attribute>
+      <vodml-id>PhotometricSystem.detectorType</vodml-id>
+      <name>detectorType</name>
+      <description>Type of detector (e.g energy or photon counter)</description>
+      <datatype>
+        <vodml-ref>ivoa:integer</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <composition>
+      <vodml-id>PhotometricSystem.contains</vodml-id>
+      <name>contains</name>
+      <description>TODO : Missing description : please, update your UML model asap.</description>
+      <datatype>
+        <vodml-ref>PhotDM:PhotometryFilter</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>-1</maxOccurs>
+      </multiplicity>
+    </composition>
+  </objectType>
+
+  <objectType>
+    <vodml-id>PhotometryFilter</vodml-id>
+    <name>PhotometryFilter</name>
+    <description>TODO : Missing description : please, update your UML model asap.</description>
+    <attribute>
+      <vodml-id>PhotometryFilter.fpsIdentifier</vodml-id>
+      <name>fpsIdentifier</name>
+      <description>IVOA identifier of the Filter Profile Service</description>
+      <datatype>
+        <vodml-ref>ivoa:string</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <attribute>
+      <vodml-id>PhotometryFilter.identifier</vodml-id>
+      <name>identifier</name>
+      <description>TODO : Missing description : please, update your UML model asap.</description>
+      <datatype>
+        <vodml-ref>ivoa:string</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <attribute>
+      <vodml-id>PhotometryFilter.name</vodml-id>
+      <name>name</name>
+      <description>Filter Name in the instrumental
+configuration</description>
+      <datatype>
+        <vodml-ref>ivoa:string</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <attribute>
+      <vodml-id>PhotometryFilter.description</vodml-id>
+      <name>description</name>
+      <description>Text description of the filter band</description>
+      <datatype>
+        <vodml-ref>ivoa:string</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <attribute>
+      <vodml-id>PhotometryFilter.bandName</vodml-id>
+      <name>bandName</name>
+      <description>TODO : Missing description : please, update your UML model asap.</description>
+      <datatype>
+        <vodml-ref>ivoa:string</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <attribute>
+      <vodml-id>PhotometryFilter.DataValidityFrom</vodml-id>
+      <name>DataValidityFrom</name>
+      <description>TODO : Missing description : please, update your UML model asap.</description>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <attribute>
+      <vodml-id>PhotometryFilter.DataValidityTo</vodml-id>
+      <name>DataValidityTo</name>
+      <description>TODO : Missing description : please, update your UML model asap.</description>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <composition>
+      <vodml-id>PhotometryFilter.filterTransmissionCurve</vodml-id>
+      <name>filterTransmissionCurve</name>
+      <description>TODO : Missing description : please, update your UML model asap.</description>
+      <datatype>
+        <vodml-ref>PhotDM:TransmissionCurve</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </composition>
+    <composition>
+      <vodml-id>PhotometryFilter.spectralAxis</vodml-id>
+      <name>spectralAxis</name>
+      <description>TODO : Missing description : please, update your UML model asap.</description>
+      <datatype>
+        <vodml-ref>PhotDM:SpectralAxis</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </composition>
+  </objectType>
+
+  <objectType>
+    <vodml-id>PogsonZeroPoint</vodml-id>
+    <name>PogsonZeroPoint</name>
+    <description>TODO : Missing description : please, update your UML model asap.</description>
+    <extends>
+      <vodml-ref>PhotDM:ZeroPoint</vodml-ref>
+    </extends>
+  </objectType>
+
+  <objectType>
+    <vodml-id>Source</vodml-id>
+    <name>Source</name>
+    <description>TODO : Missing description : please, update your UML model asap.</description>
+  </objectType>
+
+  <objectType>
+    <vodml-id>SpectralAxis</vodml-id>
+    <name>SpectralAxis</name>
+    <description>TODO : Missing description : please, update your UML model asap.</description>
+    <attribute>
+      <vodml-id>SpectralAxis.Unit</vodml-id>
+      <name>Unit</name>
+      <description>TODO : Missing description : please, update your UML model asap.</description>
+      <datatype>
+        <vodml-ref>PhotDM:Unit</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <attribute>
+      <vodml-id>SpectralAxis.CoordSys</vodml-id>
+      <name>CoordSys</name>
+      <description>TODO : Missing description : please, update your UML model asap.</description>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <attribute>
+      <vodml-id>SpectralAxis.UCD</vodml-id>
+      <name>UCD</name>
+      <description>TODO : Missing description : please, update your UML model asap.</description>
+      <datatype>
+        <vodml-ref>ivoa:string</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>0</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <attribute>
+      <vodml-id>SpectralAxis.coverage</vodml-id>
+      <name>coverage</name>
+      <description>TODO : Missing description : please, update your UML model asap.</description>
+      <datatype>
+        <vodml-ref>PhotDM:S_Coverage</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>0</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+  </objectType>
+
+  <objectType>
+    <vodml-id>TransmissionCurve</vodml-id>
+    <name>TransmissionCurve</name>
+    <description>TODO : Missing description : please, update your UML model asap.</description>
+    <attribute>
+      <vodml-id>TransmissionCurve.transmissionCurveSpectrum</vodml-id>
+      <name>transmissionCurveSpectrum</name>
+      <description>TODO : Missing description : please, update your UML model asap.</description>
+      <multiplicity>
+        <minOccurs>0</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <composition>
+      <vodml-id>TransmissionCurve.access</vodml-id>
+      <name>access</name>
+      <description>TODO : Missing description : please, update your UML model asap.</description>
+      <datatype>
+        <vodml-ref>PhotDM:Access</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </composition>
+  </objectType>
+
+  <objectType abstract="true">
+    <vodml-id>ZeroPoint</vodml-id>
+    <name>ZeroPoint</name>
+    <description>TODO : Missing description : please, update your UML model asap.</description>
+    <attribute>
+      <vodml-id>ZeroPoint.ZeroPointFlux</vodml-id>
+      <name>ZeroPointFlux</name>
+      <description>TODO : Missing description : please, update your UML model asap.</description>
+      <datatype>
+        <vodml-ref>PhotDM:PhysicalQuantityDouble</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <attribute>
+      <vodml-id>ZeroPoint.referenceMagnitude</vodml-id>
+      <name>referenceMagnitude</name>
+      <description>TODO : Missing description : please, update your UML model asap.</description>
+      <datatype>
+        <vodml-ref>PhotDM:PhysicalQuantityDouble</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <attribute>
+      <vodml-id>ZeroPoint.type</vodml-id>
+      <name>type</name>
+      <description>TODO : Missing description : please, update your UML model asap.</description>
+      <datatype>
+        <vodml-ref>ivoa:real</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+  </objectType>
+
+</vo-dml:model>

@@ -1,0 +1,2032 @@
+<html xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:vo-dml="http://www.ivoa.net/xml/VODML/v1">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Photometry Data Model</title>
+    <link rel="stylesheet" href="http://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/style/ivoa_wg.css" type="text/css">
+    <link rel="stylesheet" href="http://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/style/xmi.css" type="text/css">
+  </head>
+  <body>
+    <h1>Photometry Data Model</h1>
+    <h2><a id="contents" name="contents">Table of Contents</a></h2>
+    <div class="head">
+      <table class=".toc">
+        <tr>
+          <td>1.</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#model_section">model: PhotDM</a></td>
+        </tr>
+        <tr>
+          <td>2.</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#packages">Packages and Types</a></td>
+        </tr>
+        <tr>
+          <td>2.1</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#rootpackage">[root package]</a></td>
+        </tr>
+        <tr>
+          <td>2.1.1</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Access">objectType:Access</a></td>
+        </tr>
+        <tr>
+          <td>2.1.2</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#AsinhZeroPoint">objectType:AsinhZeroPoint</a></td>
+        </tr>
+        <tr>
+          <td>2.1.3</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#LinearFlux">objectType:LinearFlux</a></td>
+        </tr>
+        <tr>
+          <td>2.1.4</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#MagnitudeSystem">objectType:MagnitudeSystem</a></td>
+        </tr>
+        <tr>
+          <td>2.1.5</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#PhotCal">objectType:PhotCal</a></td>
+        </tr>
+        <tr>
+          <td>2.1.6</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#PhotometricSystem">objectType:PhotometricSystem</a></td>
+        </tr>
+        <tr>
+          <td>2.1.7</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#PhotometryFilter">objectType:PhotometryFilter</a></td>
+        </tr>
+        <tr>
+          <td>2.1.8</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#PhysicalQuantity">dataType:PhysicalQuantity</a></td>
+        </tr>
+        <tr>
+          <td>2.1.9</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#PhysicalQuantityDouble">dataType:PhysicalQuantityDouble</a></td>
+        </tr>
+        <tr>
+          <td>2.1.10</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#PhysicalQuantityInt">dataType:PhysicalQuantityInt</a></td>
+        </tr>
+        <tr>
+          <td>2.1.11</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#PogsonZeroPoint">objectType:PogsonZeroPoint</a></td>
+        </tr>
+        <tr>
+          <td>2.1.12</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#S_Bounds">dataType:S_Bounds</a></td>
+        </tr>
+        <tr>
+          <td>2.1.13</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#S_Coverage">dataType:S_Coverage</a></td>
+        </tr>
+        <tr>
+          <td>2.1.14</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#S_Location">dataType:S_Location</a></td>
+        </tr>
+        <tr>
+          <td>2.1.15</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Source">objectType:Source</a></td>
+        </tr>
+        <tr>
+          <td>2.1.16</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#SpectralAxis">objectType:SpectralAxis</a></td>
+        </tr>
+        <tr>
+          <td>2.1.17</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#TransmissionCurve">objectType:TransmissionCurve</a></td>
+        </tr>
+        <tr>
+          <td>2.1.18</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Unit">dataType:Unit</a></td>
+        </tr>
+        <tr>
+          <td>2.1.19</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#ZeroPoint">objectType:ZeroPoint</a></td>
+        </tr>
+        <tr>
+          <td>3.</td>
+          <td>
+            &nbsp;&nbsp;&nbsp;&nbsp;<a href="#vodml-ids">vodml-id-s</a></td>
+        </tr>
+      </table>
+    </div>
+    <hr>
+    <h1><a name="model_section">1. Model: Photometry Data Model (PhotDM)</a></h1>
+    <table>
+      <tr>
+        <td align="right"><b>Authors</b></td>
+        <td> : </td>
+        <td></td>
+      </tr>
+      <tr>
+        <td align="right"><b>Date</b></td>
+        <td> : </td>
+        <td>2020-06-08T09:43:59</td>
+      </tr>
+      <tr>
+        <td align="right"><b>Version</b></td>
+        <td> : </td>
+        <td>1.1</td>
+      </tr>
+      <tr>
+        <td align="right" valign="top"><b>Abstract</b></td>
+        <td valign="top"> : </td>
+        <td>This is the data model for Photometric Calibration ... </td>
+      </tr>
+    </table>
+    <hr>
+    <h1>2.<a name="packages">Model contents: Packages and Types</a></h1>
+    <p>
+      The following sub-sections present all packages in the model with their types.
+      The packages are listed here in alphabetical order.
+      Each sub-section contains a description of the package and a table containing its various features.
+      
+    </p>
+    <h3><a name="rootpackage"></a>2.1 [root package]
+    </h3>
+    <table border="1" cellspacing="2" width="100%">
+      <tr>
+        <td class="objecttype-title" width="20%">Model</td>
+        <td class="objecttype-name">PhotDM</td>
+      </tr>
+      <tr>
+        <td width="20%" class="info-title">Object types</td>
+        <td colspan="2" class="feature-detail"><a href="#Access">Access</a> <a href="#AsinhZeroPoint">AsinhZeroPoint</a> <a href="#LinearFlux">LinearFlux</a> <a href="#MagnitudeSystem">MagnitudeSystem</a> <a href="#PhotCal">PhotCal</a> <a href="#PhotometricSystem">PhotometricSystem</a> <a href="#PhotometryFilter">PhotometryFilter</a> <a href="#PogsonZeroPoint">PogsonZeroPoint</a> <a href="#Source">Source</a> <a href="#SpectralAxis">SpectralAxis</a> <a href="#TransmissionCurve">TransmissionCurve</a> <a href="#ZeroPoint">ZeroPoint</a> 
+        </td>
+      </tr>
+      <tr>
+        <td width="20%" class="info-title">Data types</td>
+        <td colspan="2" class="feature-detail"><a href="#PhysicalQuantity">PhysicalQuantity</a> <a href="#PhysicalQuantityDouble">PhysicalQuantityDouble</a> <a href="#PhysicalQuantityInt">PhysicalQuantityInt</a> <a href="#S_Bounds">S_Bounds</a> <a href="#S_Coverage">S_Coverage</a> <a href="#S_Location">S_Location</a> <a href="#Unit">Unit</a> 
+        </td>
+      </tr>
+    </table>
+    <h3><a name="Access"></a>2.1.1 objectType: Access
+    </h3>
+    <div align="center">
+      <table border="1" width="100%" cellspacing="2">
+        <tr>
+          <td class="objecttype-title" width="20%">vodml-id</td>
+          <td class="objecttype-name" colspan="1">Access</td>
+        </tr>
+        <tr>
+          <td class="info-title">description</td>
+          <td class="feature-detail" colspan="1">TODO : Missing description : please, update your UML model asap.</td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td colspan="2" bgcolor="#cacaca">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                    <tr>
+                      <td colspan="3" class="info-title">attributes</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading" width="20%">name</td>
+                      <td class="feature-heading" width="10%">feature</td>
+                      <td class="feature-heading" width="70%">value</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="Access.Reference"></a><b>Reference</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="#anyURI">anyURI</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">Access.Reference</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">uri to the effective transmission curve
+                        NB this description applies to the inherited access atttribute on TransmissionCurve, not really to the one on the base class.
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="Access.Format"></a><b>Format</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="#string">string</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">Access.Format</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">TODO : Missing description : please, update your UML model asap.</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="Access.Size"></a><b>Size</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="#real">real</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">Access.Size</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">0..1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">TODO : Missing description : please, update your UML model asap.</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div><br><h3><a name="AsinhZeroPoint"></a>2.1.2 objectType: AsinhZeroPoint
+    </h3>
+    <div align="center">
+      <table border="1" width="100%" cellspacing="2">
+        <tr>
+          <td class="objecttype-title" width="20%">vodml-id</td>
+          <td class="objecttype-name" colspan="1">AsinhZeroPoint</td>
+        </tr>
+        <tr>
+          <td class="info-title">description</td>
+          <td class="feature-detail" colspan="1">TODO : Missing description : please, update your UML model asap.</td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td colspan="2" bgcolor="#cacaca">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                    <tr>
+                      <td width="20%" class="info-title">extends</td>
+                      <td colspan="3" class="feature-detail"><a href="#ZeroPoint">ZeroPoint [PhotDM:ZeroPoint]</a></td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="info-title">attributes</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading" width="20%">name</td>
+                      <td class="feature-heading" width="10%">feature</td>
+                      <td class="feature-heading" width="70%">value</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="AsinhZeroPoint.softeningCoefficient"></a><b>softeningCoefficient</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">AsinhZeroPoint.softeningCoefficient</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">0..1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">TODO : Missing description : please, update your UML model asap.</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div><br><h3><a name="LinearFlux"></a>2.1.3 objectType: LinearFlux
+    </h3>
+    <div align="center">
+      <table border="1" width="100%" cellspacing="2">
+        <tr>
+          <td class="objecttype-title" width="20%">vodml-id</td>
+          <td class="objecttype-name" colspan="1">LinearFlux</td>
+        </tr>
+        <tr>
+          <td class="info-title">description</td>
+          <td class="feature-detail" colspan="1">TODO : Missing description : please, update your UML model asap.</td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td colspan="2" bgcolor="#cacaca">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                    <tr>
+                      <td width="20%" class="info-title">extends</td>
+                      <td colspan="3" class="feature-detail"><a href="#ZeroPoint">ZeroPoint [PhotDM:ZeroPoint]</a></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div><br><h3><a name="MagnitudeSystem"></a>2.1.4 objectType: MagnitudeSystem
+    </h3>
+    <div align="center">
+      <table border="1" width="100%" cellspacing="2">
+        <tr>
+          <td class="objecttype-title" width="20%">vodml-id</td>
+          <td class="objecttype-name" colspan="1">MagnitudeSystem</td>
+        </tr>
+        <tr>
+          <td class="info-title">description</td>
+          <td class="feature-detail" colspan="1">TODO : Missing description : please, update your UML model asap.</td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td colspan="2" bgcolor="#cacaca">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                    <tr>
+                      <td colspan="3" class="info-title">attributes</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading" width="20%">name</td>
+                      <td class="feature-heading" width="10%">feature</td>
+                      <td class="feature-heading" width="70%">value</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="MagnitudeSystem.type"></a><b>type</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="#string">string</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">MagnitudeSystem.type</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">0..1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">TODO : Missing description : please, update your UML model asap.</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="MagnitudeSystem.referenceSpectrum"></a><b>referenceSpectrum</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">MagnitudeSystem.referenceSpectrum</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">0..1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">TODO : Missing description : please, update your UML model asap.</td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="info-title">compositions</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading" width="20%">name</td>
+                      <td class="feature-heading" width="10%">feature</td>
+                      <td class="feature-heading" width="70%">value</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="5"><a name="MagnitudeSystem.source"></a><b>source</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#Source">Source [PhotDM:Source]</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">MagnitudeSystem.source</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">0..*</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">isOrdered</td>
+                      <td class="feature-detail">false</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">TODO : Missing description : please, update your UML model asap.</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div><br><h3><a name="PhotCal"></a>2.1.5 objectType: PhotCal
+    </h3>
+    <div align="center">
+      <table border="1" width="100%" cellspacing="2">
+        <tr>
+          <td class="objecttype-title" width="20%">vodml-id</td>
+          <td class="objecttype-name" colspan="1">PhotCal</td>
+        </tr>
+        <tr>
+          <td class="info-title">description</td>
+          <td class="feature-detail" colspan="1">TODO : Missing description : please, update your UML model asap.</td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td colspan="2" bgcolor="#cacaca">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                    <tr>
+                      <td colspan="3" class="info-title">attributes</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading" width="20%">name</td>
+                      <td class="feature-heading" width="10%">feature</td>
+                      <td class="feature-heading" width="70%">value</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="PhotCal.uniqueIdentifier"></a><b>uniqueIdentifier</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="#string">string</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">PhotCal.uniqueIdentifier</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">TODO : Missing description : please, update your UML model asap.</td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="info-title">references</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading" width="20%">name</td>
+                      <td class="feature-heading" width="10%">feature</td>
+                      <td class="feature-heading" width="70%">value</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="PhotCal.photometryFilter"></a><b>photometryFilter</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#PhotometryFilter">PhotometryFilter [PhotDM:PhotometryFilter]</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">PhotCal.photometryFilter</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">TODO : Missing description : please, update your UML model asap.</td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="info-title">compositions</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading" width="20%">name</td>
+                      <td class="feature-heading" width="10%">feature</td>
+                      <td class="feature-heading" width="70%">value</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="5"><a name="PhotCal.magnitudeSystem"></a><b>magnitudeSystem</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#MagnitudeSystem">MagnitudeSystem [PhotDM:MagnitudeSystem]</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">PhotCal.magnitudeSystem</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">isOrdered</td>
+                      <td class="feature-detail">false</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">TODO : Missing description : please, update your UML model asap.</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="5"><a name="PhotCal.zeroPoint"></a><b>zeroPoint</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ZeroPoint">ZeroPoint [PhotDM:ZeroPoint]</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">PhotCal.zeroPoint</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">isOrdered</td>
+                      <td class="feature-detail">false</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">TODO : Missing description : please, update your UML model asap.</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div><br><h3><a name="PhotometricSystem"></a>2.1.6 objectType: PhotometricSystem
+    </h3>
+    <div align="center">
+      <table border="1" width="100%" cellspacing="2">
+        <tr>
+          <td class="objecttype-title" width="20%">vodml-id</td>
+          <td class="objecttype-name" colspan="1">PhotometricSystem</td>
+        </tr>
+        <tr>
+          <td class="info-title">description</td>
+          <td class="feature-detail" colspan="1">TODO : Missing description : please, update your UML model asap.</td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td colspan="2" bgcolor="#cacaca">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                    <tr>
+                      <td colspan="3" class="info-title">attributes</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading" width="20%">name</td>
+                      <td class="feature-heading" width="10%">feature</td>
+                      <td class="feature-heading" width="70%">value</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="PhotometricSystem.description"></a><b>description</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="#string">string</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">PhotometricSystem.description</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">0..1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">String representation Photometric system</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="PhotometricSystem.detectorType"></a><b>detectorType</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="#integer">integer</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">PhotometricSystem.detectorType</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">Type of detector (e.g energy or photon counter)</td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="info-title">compositions</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading" width="20%">name</td>
+                      <td class="feature-heading" width="10%">feature</td>
+                      <td class="feature-heading" width="70%">value</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="5"><a name="PhotometricSystem.contains"></a><b>contains</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#PhotometryFilter">PhotometryFilter [PhotDM:PhotometryFilter]</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">PhotometricSystem.contains</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1..*</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">isOrdered</td>
+                      <td class="feature-detail">false</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">TODO : Missing description : please, update your UML model asap.</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div><br><h3><a name="PhotometryFilter"></a>2.1.7 objectType: PhotometryFilter
+    </h3>
+    <div align="center">
+      <table border="1" width="100%" cellspacing="2">
+        <tr>
+          <td class="objecttype-title" width="20%">vodml-id</td>
+          <td class="objecttype-name" colspan="1">PhotometryFilter</td>
+        </tr>
+        <tr>
+          <td class="info-title">description</td>
+          <td class="feature-detail" colspan="1">TODO : Missing description : please, update your UML model asap.</td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td colspan="2" bgcolor="#cacaca">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                    <tr>
+                      <td class="info-title">referrers</td>
+                      <td class="feature-detail" colspan="3"><a href="#PhotCal">PhotCal</a> 
+                      </td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="info-title">attributes</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading" width="20%">name</td>
+                      <td class="feature-heading" width="10%">feature</td>
+                      <td class="feature-heading" width="70%">value</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="PhotometryFilter.fpsIdentifier"></a><b>fpsIdentifier</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="#string">string</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">PhotometryFilter.fpsIdentifier</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">IVOA identifier of the Filter Profile Service</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="PhotometryFilter.identifier"></a><b>identifier</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="#string">string</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">PhotometryFilter.identifier</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">TODO : Missing description : please, update your UML model asap.</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="PhotometryFilter.name"></a><b>name</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="#string">string</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">PhotometryFilter.name</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">Filter Name in the instrumental
+                        configuration
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="PhotometryFilter.description"></a><b>description</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="#string">string</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">PhotometryFilter.description</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">Text description of the filter band</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="PhotometryFilter.bandName"></a><b>bandName</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="#string">string</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">PhotometryFilter.bandName</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">TODO : Missing description : please, update your UML model asap.</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="PhotometryFilter.DataValidityFrom"></a><b>DataValidityFrom</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">PhotometryFilter.DataValidityFrom</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">TODO : Missing description : please, update your UML model asap.</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="PhotometryFilter.DataValidityTo"></a><b>DataValidityTo</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">PhotometryFilter.DataValidityTo</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">TODO : Missing description : please, update your UML model asap.</td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="info-title">compositions</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading" width="20%">name</td>
+                      <td class="feature-heading" width="10%">feature</td>
+                      <td class="feature-heading" width="70%">value</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="5"><a name="PhotometryFilter.filterTransmissionCurve"></a><b>filterTransmissionCurve</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#TransmissionCurve">TransmissionCurve [PhotDM:TransmissionCurve]</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">PhotometryFilter.filterTransmissionCurve</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">isOrdered</td>
+                      <td class="feature-detail">false</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">TODO : Missing description : please, update your UML model asap.</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="5"><a name="PhotometryFilter.spectralAxis"></a><b>spectralAxis</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#SpectralAxis">SpectralAxis [PhotDM:SpectralAxis]</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">PhotometryFilter.spectralAxis</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">isOrdered</td>
+                      <td class="feature-detail">false</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">TODO : Missing description : please, update your UML model asap.</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div><br><h3><a name="PhysicalQuantity"></a>2.1.8 dataType: PhysicalQuantity
+    </h3>
+    <div align="center">
+      <table border="1" width="100%" cellspacing="2">
+        <tr>
+          <td class="objecttype-title" width="20%">vodml-id</td>
+          <td class="objecttype-name" colspan="1">PhysicalQuantity</td>
+        </tr>
+        <tr>
+          <td class="info-title">description</td>
+          <td class="feature-detail" colspan="1">TODO : Missing description : please, update your UML model asap.</td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td colspan="2" bgcolor="#cacaca">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                    <tr>
+                      <td class="info-title" width="20%">Subclasses in this model</td>
+                      <td class="feature-detail" colspan="3"><a href="#PhysicalQuantityDouble">PhysicalQuantityDouble</a> <a href="#PhysicalQuantityInt">PhysicalQuantityInt</a> 
+                      </td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="info-title">attributes</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading" width="20%">name</td>
+                      <td class="feature-heading" width="10%">feature</td>
+                      <td class="feature-heading" width="70%">value</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="PhysicalQuantity.unit"></a><b>unit</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#Unit">Unit [PhotDM:Unit]</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">PhysicalQuantity.unit</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">0..1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">TODO : Missing description : please, update your UML model asap.</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="PhysicalQuantity.UCD"></a><b>UCD</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="#string">string</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">PhysicalQuantity.UCD</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">0..1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">TODO : Missing description : please, update your UML model asap.</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div><br><h3><a name="PhysicalQuantityDouble"></a>2.1.9 dataType: PhysicalQuantityDouble
+    </h3>
+    <div align="center">
+      <table border="1" width="100%" cellspacing="2">
+        <tr>
+          <td class="objecttype-title" width="20%">vodml-id</td>
+          <td class="objecttype-name" colspan="1">PhysicalQuantityDouble</td>
+        </tr>
+        <tr>
+          <td class="info-title">description</td>
+          <td class="feature-detail" colspan="1">TODO : Missing description : please, update your UML model asap.</td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td colspan="2" bgcolor="#cacaca">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                    <tr>
+                      <td width="20%" class="info-title">extends</td>
+                      <td colspan="3" class="feature-detail"><a href="#PhysicalQuantity">PhysicalQuantity [PhotDM:PhysicalQuantity]</a></td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="info-title">attributes</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading" width="20%">name</td>
+                      <td class="feature-heading" width="10%">feature</td>
+                      <td class="feature-heading" width="70%">value</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="PhysicalQuantityDouble.value"></a><b>value</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="#real">real</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">PhysicalQuantityDouble.value</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">TODO : Missing description : please, update your UML model asap.</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="PhysicalQuantityDouble.error"></a><b>error</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">PhysicalQuantityDouble.error</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">0..1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">TODO : Missing description : please, update your UML model asap.</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div><br><h3><a name="PhysicalQuantityInt"></a>2.1.10 dataType: PhysicalQuantityInt
+    </h3>
+    <div align="center">
+      <table border="1" width="100%" cellspacing="2">
+        <tr>
+          <td class="objecttype-title" width="20%">vodml-id</td>
+          <td class="objecttype-name" colspan="1">PhysicalQuantityInt</td>
+        </tr>
+        <tr>
+          <td class="info-title">description</td>
+          <td class="feature-detail" colspan="1">TODO : Missing description : please, update your UML model asap.</td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td colspan="2" bgcolor="#cacaca">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                    <tr>
+                      <td width="20%" class="info-title">extends</td>
+                      <td colspan="3" class="feature-detail"><a href="#PhysicalQuantity">PhysicalQuantity [PhotDM:PhysicalQuantity]</a></td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="info-title">attributes</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading" width="20%">name</td>
+                      <td class="feature-heading" width="10%">feature</td>
+                      <td class="feature-heading" width="70%">value</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="PhysicalQuantityInt.value"></a><b>value</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="#integer">integer</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">PhysicalQuantityInt.value</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">TODO : Missing description : please, update your UML model asap.</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="PhysicalQuantityInt.error"></a><b>error</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="#integer">integer</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">PhysicalQuantityInt.error</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">0..1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">TODO : Missing description : please, update your UML model asap.</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div><br><h3><a name="PogsonZeroPoint"></a>2.1.11 objectType: PogsonZeroPoint
+    </h3>
+    <div align="center">
+      <table border="1" width="100%" cellspacing="2">
+        <tr>
+          <td class="objecttype-title" width="20%">vodml-id</td>
+          <td class="objecttype-name" colspan="1">PogsonZeroPoint</td>
+        </tr>
+        <tr>
+          <td class="info-title">description</td>
+          <td class="feature-detail" colspan="1">TODO : Missing description : please, update your UML model asap.</td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td colspan="2" bgcolor="#cacaca">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                    <tr>
+                      <td width="20%" class="info-title">extends</td>
+                      <td colspan="3" class="feature-detail"><a href="#ZeroPoint">ZeroPoint [PhotDM:ZeroPoint]</a></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div><br><h3><a name="S_Bounds"></a>2.1.12 dataType: S_Bounds
+    </h3>
+    <div align="center">
+      <table border="1" width="100%" cellspacing="2">
+        <tr>
+          <td class="objecttype-title" width="20%">vodml-id</td>
+          <td class="objecttype-name" colspan="1">S_Bounds</td>
+        </tr>
+        <tr>
+          <td class="info-title">description</td>
+          <td class="feature-detail" colspan="1">Could be datatype</td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td colspan="2" bgcolor="#cacaca">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                    <tr>
+                      <td colspan="3" class="info-title">attributes</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading" width="20%">name</td>
+                      <td class="feature-heading" width="10%">feature</td>
+                      <td class="feature-heading" width="70%">value</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="S_Bounds.extent"></a><b>extent</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="#real">real</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">S_Bounds.extent</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">0..1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">TODO : Missing description : please, update your UML model asap.</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="S_Bounds.start"></a><b>start</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="#real">real</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">S_Bounds.start</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">TODO : Missing description : please, update your UML model asap.</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="S_Bounds.stop"></a><b>stop</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="#real">real</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">S_Bounds.stop</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">TODO : Missing description : please, update your UML model asap.</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div><br><h3><a name="S_Coverage"></a>2.1.13 dataType: S_Coverage
+    </h3>
+    <div align="center">
+      <table border="1" width="100%" cellspacing="2">
+        <tr>
+          <td class="objecttype-title" width="20%">vodml-id</td>
+          <td class="objecttype-name" colspan="1">S_Coverage</td>
+        </tr>
+        <tr>
+          <td class="info-title">description</td>
+          <td class="feature-detail" colspan="1">Not really necessary, pattern to indicate how location and bounds can be used together.</td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td colspan="2" bgcolor="#cacaca">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                    <tr>
+                      <td colspan="3" class="info-title">attributes</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading" width="20%">name</td>
+                      <td class="feature-heading" width="10%">feature</td>
+                      <td class="feature-heading" width="70%">value</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="S_Coverage.location"></a><b>location</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#S_Location">S_Location [PhotDM:S_Location]</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">S_Coverage.location</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">0..1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">TODO : Missing description : please, update your UML model asap.</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="S_Coverage.bounds"></a><b>bounds</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#S_Bounds">S_Bounds [PhotDM:S_Bounds]</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">S_Coverage.bounds</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">0..1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">TODO : Missing description : please, update your UML model asap.</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div><br><h3><a name="S_Location"></a>2.1.14 dataType: S_Location
+    </h3>
+    <div align="center">
+      <table border="1" width="100%" cellspacing="2">
+        <tr>
+          <td class="objecttype-title" width="20%">vodml-id</td>
+          <td class="objecttype-name" colspan="1">S_Location</td>
+        </tr>
+        <tr>
+          <td class="info-title">description</td>
+          <td class="feature-detail" colspan="1">Could be datatype</td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td colspan="2" bgcolor="#cacaca">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                    <tr>
+                      <td colspan="3" class="info-title">attributes</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading" width="20%">name</td>
+                      <td class="feature-heading" width="10%">feature</td>
+                      <td class="feature-heading" width="70%">value</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="S_Location.value"></a><b>value</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="#integer">integer</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">S_Location.value</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">TODO : Missing description : please, update your UML model asap.</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div><br><h3><a name="Source"></a>2.1.15 objectType: Source
+    </h3>
+    <div align="center">
+      <table border="1" width="100%" cellspacing="2">
+        <tr>
+          <td class="objecttype-title" width="20%">vodml-id</td>
+          <td class="objecttype-name" colspan="1">Source</td>
+        </tr>
+        <tr>
+          <td class="info-title">description</td>
+          <td class="feature-detail" colspan="1">TODO : Missing description : please, update your UML model asap.</td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td colspan="2" bgcolor="#cacaca">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="1"></table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div><br><h3><a name="SpectralAxis"></a>2.1.16 objectType: SpectralAxis
+    </h3>
+    <div align="center">
+      <table border="1" width="100%" cellspacing="2">
+        <tr>
+          <td class="objecttype-title" width="20%">vodml-id</td>
+          <td class="objecttype-name" colspan="1">SpectralAxis</td>
+        </tr>
+        <tr>
+          <td class="info-title">description</td>
+          <td class="feature-detail" colspan="1">TODO : Missing description : please, update your UML model asap.</td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td colspan="2" bgcolor="#cacaca">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                    <tr>
+                      <td colspan="3" class="info-title">attributes</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading" width="20%">name</td>
+                      <td class="feature-heading" width="10%">feature</td>
+                      <td class="feature-heading" width="70%">value</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="SpectralAxis.Unit"></a><b>Unit</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#Unit">Unit [PhotDM:Unit]</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">SpectralAxis.Unit</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">TODO : Missing description : please, update your UML model asap.</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="SpectralAxis.CoordSys"></a><b>CoordSys</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">SpectralAxis.CoordSys</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">TODO : Missing description : please, update your UML model asap.</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="SpectralAxis.UCD"></a><b>UCD</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="#string">string</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">SpectralAxis.UCD</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">0..1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">TODO : Missing description : please, update your UML model asap.</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="SpectralAxis.coverage"></a><b>coverage</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#S_Coverage">S_Coverage [PhotDM:S_Coverage]</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">SpectralAxis.coverage</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">0..1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">TODO : Missing description : please, update your UML model asap.</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div><br><h3><a name="TransmissionCurve"></a>2.1.17 objectType: TransmissionCurve
+    </h3>
+    <div align="center">
+      <table border="1" width="100%" cellspacing="2">
+        <tr>
+          <td class="objecttype-title" width="20%">vodml-id</td>
+          <td class="objecttype-name" colspan="1">TransmissionCurve</td>
+        </tr>
+        <tr>
+          <td class="info-title">description</td>
+          <td class="feature-detail" colspan="1">TODO : Missing description : please, update your UML model asap.</td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td colspan="2" bgcolor="#cacaca">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                    <tr>
+                      <td colspan="3" class="info-title">attributes</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading" width="20%">name</td>
+                      <td class="feature-heading" width="10%">feature</td>
+                      <td class="feature-heading" width="70%">value</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="TransmissionCurve.transmissionCurveSpectrum"></a><b>transmissionCurveSpectrum</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">TransmissionCurve.transmissionCurveSpectrum</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">0..1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">TODO : Missing description : please, update your UML model asap.</td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="info-title">compositions</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading" width="20%">name</td>
+                      <td class="feature-heading" width="10%">feature</td>
+                      <td class="feature-heading" width="70%">value</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="5"><a name="TransmissionCurve.access"></a><b>access</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#Access">Access [PhotDM:Access]</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">TransmissionCurve.access</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">isOrdered</td>
+                      <td class="feature-detail">false</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">TODO : Missing description : please, update your UML model asap.</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div><br><h3><a name="Unit"></a>2.1.18 dataType: Unit
+    </h3>
+    <div align="center">
+      <table border="1" width="100%" cellspacing="2">
+        <tr>
+          <td class="objecttype-title" width="20%">vodml-id</td>
+          <td class="objecttype-name" colspan="1">Unit</td>
+        </tr>
+        <tr>
+          <td class="info-title">description</td>
+          <td class="feature-detail" colspan="1">TODO : Missing description : please, update your UML model asap.</td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td colspan="2" bgcolor="#cacaca">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                    <tr>
+                      <td colspan="3" class="info-title">attributes</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading" width="20%">name</td>
+                      <td class="feature-heading" width="10%">feature</td>
+                      <td class="feature-heading" width="70%">value</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="Unit.expression"></a><b>expression</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="#string">string</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">Unit.expression</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">TODO : Missing description : please, update your UML model asap.</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="Unit.scaleSI"></a><b>scaleSI</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="#real">real</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">Unit.scaleSI</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">TODO : Missing description : please, update your UML model asap.</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="Unit.dimEquation"></a><b>dimEquation</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="#string">string</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">Unit.dimEquation</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">0..1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">TODO : Missing description : please, update your UML model asap.</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div><br><h3><a name="ZeroPoint"></a>2.1.19 objectType: ZeroPoint
+    </h3>
+    <div align="center">
+      <table border="1" width="100%" cellspacing="2">
+        <tr>
+          <td class="objecttype-title" width="20%">vodml-id</td>
+          <td class="objecttype-name" colspan="1">ZeroPoint</td>
+        </tr>
+        <tr>
+          <td class="info-title">description</td>
+          <td class="feature-detail" colspan="1">TODO : Missing description : please, update your UML model asap.</td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td colspan="2" bgcolor="#cacaca">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                    <tr>
+                      <td class="info-title" width="20%">abstract</td>
+                      <td class="feature-detail" colspan="3">True</td>
+                    </tr>
+                    <tr>
+                      <td class="info-title" width="20%">Subclasses in this model</td>
+                      <td class="feature-detail" colspan="3"><a href="#AsinhZeroPoint">AsinhZeroPoint</a> <a href="#LinearFlux">LinearFlux</a> <a href="#PogsonZeroPoint">PogsonZeroPoint</a> 
+                      </td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="info-title">attributes</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading" width="20%">name</td>
+                      <td class="feature-heading" width="10%">feature</td>
+                      <td class="feature-heading" width="70%">value</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="ZeroPoint.ZeroPointFlux"></a><b>ZeroPointFlux</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#PhysicalQuantityDouble">PhysicalQuantityDouble [PhotDM:PhysicalQuantityDouble]</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">ZeroPoint.ZeroPointFlux</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">TODO : Missing description : please, update your UML model asap.</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="ZeroPoint.referenceMagnitude"></a><b>referenceMagnitude</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#PhysicalQuantityDouble">PhysicalQuantityDouble [PhotDM:PhysicalQuantityDouble]</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">ZeroPoint.referenceMagnitude</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">TODO : Missing description : please, update your UML model asap.</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="ZeroPoint.type"></a><b>type</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="#real">real</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">ZeroPoint.type</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">TODO : Missing description : please, update your UML model asap.</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div><br><hr>
+    <h1>3.<a name="vodml-ids">Element Identifiers/VO-DMLrefs</a></h1>  
+    The following table shows all fully qualified vodml-ids for this data model.
+    It is ordered alphabetically and the identifiers are hyper-linked to the location
+    in the document where the actual element is fully defined.
+    
+    
+    <table style="border-style:solid;border-width:1px;" border="1" cellspacing="0" cellpadding="0">
+      <tr>
+        <td class="feature-heading">vodml-id</td>
+        <td class="feature-heading">feature type</td>
+        <td class="feature-heading">description</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#"></a></td>
+        <td class="feature-detail">vo-dml:model</td>
+        <td class="feature-detail">This is the data model for Photometric Calibration ... </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#Access">Access</a></td>
+        <td class="feature-detail">objectType</td>
+        <td class="feature-detail">TODO : Missing description : please, update your UML model asap.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#Access.Format">Access.Format</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">TODO : Missing description : please, update your UML model asap.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#Access.Reference">Access.Reference</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">uri to the effective transmission curve
+          NB this description applies to the inherited access atttribute on TransmissionCurve, not really to the one on the base class.
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#Access.Size">Access.Size</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">TODO : Missing description : please, update your UML model asap.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#AsinhZeroPoint">AsinhZeroPoint</a></td>
+        <td class="feature-detail">objectType</td>
+        <td class="feature-detail">TODO : Missing description : please, update your UML model asap.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#AsinhZeroPoint.softeningCoefficient">AsinhZeroPoint.softeningCoefficient</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">TODO : Missing description : please, update your UML model asap.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#LinearFlux">LinearFlux</a></td>
+        <td class="feature-detail">objectType</td>
+        <td class="feature-detail">TODO : Missing description : please, update your UML model asap.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#MagnitudeSystem">MagnitudeSystem</a></td>
+        <td class="feature-detail">objectType</td>
+        <td class="feature-detail">TODO : Missing description : please, update your UML model asap.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#MagnitudeSystem.referenceSpectrum">MagnitudeSystem.referenceSpectrum</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">TODO : Missing description : please, update your UML model asap.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#MagnitudeSystem.source">MagnitudeSystem.source</a></td>
+        <td class="feature-detail">composition</td>
+        <td class="feature-detail">TODO : Missing description : please, update your UML model asap.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#MagnitudeSystem.type">MagnitudeSystem.type</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">TODO : Missing description : please, update your UML model asap.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#PhotCal">PhotCal</a></td>
+        <td class="feature-detail">objectType</td>
+        <td class="feature-detail">TODO : Missing description : please, update your UML model asap.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#PhotCal.magnitudeSystem">PhotCal.magnitudeSystem</a></td>
+        <td class="feature-detail">composition</td>
+        <td class="feature-detail">TODO : Missing description : please, update your UML model asap.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#PhotCal.photometryFilter">PhotCal.photometryFilter</a></td>
+        <td class="feature-detail">reference</td>
+        <td class="feature-detail">TODO : Missing description : please, update your UML model asap.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#PhotCal.uniqueIdentifier">PhotCal.uniqueIdentifier</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">TODO : Missing description : please, update your UML model asap.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#PhotCal.zeroPoint">PhotCal.zeroPoint</a></td>
+        <td class="feature-detail">composition</td>
+        <td class="feature-detail">TODO : Missing description : please, update your UML model asap.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#PhotometricSystem">PhotometricSystem</a></td>
+        <td class="feature-detail">objectType</td>
+        <td class="feature-detail">TODO : Missing description : please, update your UML model asap.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#PhotometricSystem.contains">PhotometricSystem.contains</a></td>
+        <td class="feature-detail">composition</td>
+        <td class="feature-detail">TODO : Missing description : please, update your UML model asap.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#PhotometricSystem.description">PhotometricSystem.description</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">String representation Photometric system</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#PhotometricSystem.detectorType">PhotometricSystem.detectorType</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">Type of detector (e.g energy or photon counter)</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#PhotometryFilter">PhotometryFilter</a></td>
+        <td class="feature-detail">objectType</td>
+        <td class="feature-detail">TODO : Missing description : please, update your UML model asap.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#PhotometryFilter.DataValidityFrom">PhotometryFilter.DataValidityFrom</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">TODO : Missing description : please, update your UML model asap.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#PhotometryFilter.DataValidityTo">PhotometryFilter.DataValidityTo</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">TODO : Missing description : please, update your UML model asap.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#PhotometryFilter.bandName">PhotometryFilter.bandName</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">TODO : Missing description : please, update your UML model asap.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#PhotometryFilter.description">PhotometryFilter.description</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">Text description of the filter band</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#PhotometryFilter.filterTransmissionCurve">PhotometryFilter.filterTransmissionCurve</a></td>
+        <td class="feature-detail">composition</td>
+        <td class="feature-detail">TODO : Missing description : please, update your UML model asap.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#PhotometryFilter.fpsIdentifier">PhotometryFilter.fpsIdentifier</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">IVOA identifier of the Filter Profile Service</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#PhotometryFilter.identifier">PhotometryFilter.identifier</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">TODO : Missing description : please, update your UML model asap.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#PhotometryFilter.name">PhotometryFilter.name</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">Filter Name in the instrumental
+          configuration
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#PhotometryFilter.spectralAxis">PhotometryFilter.spectralAxis</a></td>
+        <td class="feature-detail">composition</td>
+        <td class="feature-detail">TODO : Missing description : please, update your UML model asap.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#PhysicalQuantity">PhysicalQuantity</a></td>
+        <td class="feature-detail">dataType</td>
+        <td class="feature-detail">TODO : Missing description : please, update your UML model asap.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#PhysicalQuantity.UCD">PhysicalQuantity.UCD</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">TODO : Missing description : please, update your UML model asap.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#PhysicalQuantity.unit">PhysicalQuantity.unit</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">TODO : Missing description : please, update your UML model asap.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#PhysicalQuantityDouble">PhysicalQuantityDouble</a></td>
+        <td class="feature-detail">dataType</td>
+        <td class="feature-detail">TODO : Missing description : please, update your UML model asap.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#PhysicalQuantityDouble.error">PhysicalQuantityDouble.error</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">TODO : Missing description : please, update your UML model asap.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#PhysicalQuantityDouble.value">PhysicalQuantityDouble.value</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">TODO : Missing description : please, update your UML model asap.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#PhysicalQuantityInt">PhysicalQuantityInt</a></td>
+        <td class="feature-detail">dataType</td>
+        <td class="feature-detail">TODO : Missing description : please, update your UML model asap.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#PhysicalQuantityInt.error">PhysicalQuantityInt.error</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">TODO : Missing description : please, update your UML model asap.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#PhysicalQuantityInt.value">PhysicalQuantityInt.value</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">TODO : Missing description : please, update your UML model asap.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#PogsonZeroPoint">PogsonZeroPoint</a></td>
+        <td class="feature-detail">objectType</td>
+        <td class="feature-detail">TODO : Missing description : please, update your UML model asap.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#S_Bounds">S_Bounds</a></td>
+        <td class="feature-detail">dataType</td>
+        <td class="feature-detail">Could be datatype</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#S_Bounds.extent">S_Bounds.extent</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">TODO : Missing description : please, update your UML model asap.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#S_Bounds.start">S_Bounds.start</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">TODO : Missing description : please, update your UML model asap.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#S_Bounds.stop">S_Bounds.stop</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">TODO : Missing description : please, update your UML model asap.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#S_Coverage">S_Coverage</a></td>
+        <td class="feature-detail">dataType</td>
+        <td class="feature-detail">Not really necessary, pattern to indicate how location and bounds can be used together.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#S_Coverage.bounds">S_Coverage.bounds</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">TODO : Missing description : please, update your UML model asap.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#S_Coverage.location">S_Coverage.location</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">TODO : Missing description : please, update your UML model asap.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#S_Location">S_Location</a></td>
+        <td class="feature-detail">dataType</td>
+        <td class="feature-detail">Could be datatype</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#S_Location.value">S_Location.value</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">TODO : Missing description : please, update your UML model asap.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#Source">Source</a></td>
+        <td class="feature-detail">objectType</td>
+        <td class="feature-detail">TODO : Missing description : please, update your UML model asap.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#SpectralAxis">SpectralAxis</a></td>
+        <td class="feature-detail">objectType</td>
+        <td class="feature-detail">TODO : Missing description : please, update your UML model asap.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#SpectralAxis.CoordSys">SpectralAxis.CoordSys</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">TODO : Missing description : please, update your UML model asap.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#SpectralAxis.UCD">SpectralAxis.UCD</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">TODO : Missing description : please, update your UML model asap.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#SpectralAxis.Unit">SpectralAxis.Unit</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">TODO : Missing description : please, update your UML model asap.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#SpectralAxis.coverage">SpectralAxis.coverage</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">TODO : Missing description : please, update your UML model asap.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#TransmissionCurve">TransmissionCurve</a></td>
+        <td class="feature-detail">objectType</td>
+        <td class="feature-detail">TODO : Missing description : please, update your UML model asap.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#TransmissionCurve.access">TransmissionCurve.access</a></td>
+        <td class="feature-detail">composition</td>
+        <td class="feature-detail">TODO : Missing description : please, update your UML model asap.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#TransmissionCurve.transmissionCurveSpectrum">TransmissionCurve.transmissionCurveSpectrum</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">TODO : Missing description : please, update your UML model asap.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#Unit">Unit</a></td>
+        <td class="feature-detail">dataType</td>
+        <td class="feature-detail">TODO : Missing description : please, update your UML model asap.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#Unit.dimEquation">Unit.dimEquation</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">TODO : Missing description : please, update your UML model asap.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#Unit.expression">Unit.expression</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">TODO : Missing description : please, update your UML model asap.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#Unit.scaleSI">Unit.scaleSI</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">TODO : Missing description : please, update your UML model asap.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#ZeroPoint">ZeroPoint</a></td>
+        <td class="feature-detail">objectType</td>
+        <td class="feature-detail">TODO : Missing description : please, update your UML model asap.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#ZeroPoint.ZeroPointFlux">ZeroPoint.ZeroPointFlux</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">TODO : Missing description : please, update your UML model asap.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#ZeroPoint.referenceMagnitude">ZeroPoint.referenceMagnitude</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">TODO : Missing description : please, update your UML model asap.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#ZeroPoint.type">ZeroPoint.type</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">TODO : Missing description : please, update your UML model asap.</td>
+      </tr>
+    </table>
+  </body>
+</html>

@@ -1,0 +1,1156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vo-dml:model xmlns:vo-dml="http://volute.googlecode.com/dm/vo-dml/v0.9">
+  <identifier id="eee_1045467100313_135436_1">
+    <utype>phot</utype>
+  </identifier>
+  <name>PhotDM</name>
+  <description>This is the data model for Photometric Calibration ... </description>
+  <title>PhotCalDM-v1.0</title>
+  <author>Gerard Lemson</author>
+  <author>Laurent Bourges</author>
+  <version>0.x</version>
+  <lastModified>2013-03-24T06:58:05</lastModified>
+  <import>
+    <identifier id="_12_1_1dfa04c4_1352280071015_567597_517">
+      <utype>ivoa_1.0</utype>
+    </identifier>
+    <name>IVOA_Profile</name>
+    <url>https://volute.googlecode.com/svn/trunk/projects/dm/vo-dml/models/profile/IVOA_Profile.vo-dml.xml</url>
+    <documentationURL>http://volute.googlecode.com/svn/trunk/projects/dm/vo-dml/models/profile/IVOA_Profile.html</documentationURL>
+  </import>
+  <objectType>
+    <identifier id="_12_1_1dfa04c4_1360936562294_700984_289">
+      <utype>phot:S_Data</utype>
+    </identifier>
+    <name>S_Data</name>
+    <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+    <container>
+      <identifier id="_12_1_1dfa04c4_1360936562294_700984_289_CONTAINER">
+        <utype>phot:S_Data.CONTAINER</utype>
+      </identifier>
+      <datatype idref="_12_1_1dfa04c4_1348847234962_762390_883">
+        <utyperef>phot:S_BaseSPS</utyperef>
+      </datatype>
+      <collection idref="_12_1_1dfa04c4_1360936562325_219238_292">
+        <utyperef>phot:S_BaseSPS.data</utyperef>
+      </collection>
+    </container>
+    <collection>
+      <identifier id="_12_1_1dfa04c4_1360936721757_647139_413">
+        <utype>phot:S_Data.spectralAxis</utype>
+      </identifier>
+      <datatype idref="_12_1_1dfa04c4_1360936671572_170635_367">
+        <utyperef>phot:S_SpectralAxis</utyperef>
+      </datatype>
+      <name>spectralAxis</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <multiplicity>1</multiplicity>
+    </collection>
+    <collection>
+      <identifier id="_12_1_1dfa04c4_1360936735501_834155_422">
+        <utype>phot:S_Data.fluxAxis</utype>
+      </identifier>
+      <datatype idref="_12_1_1dfa04c4_1360936735485_382431_419">
+        <utyperef>phot:S_FluxAxis</utyperef>
+      </datatype>
+      <name>fluxAxis</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <multiplicity>1</multiplicity>
+    </collection>
+  </objectType>
+
+  <objectType>
+    <identifier id="_12_1_1dfa04c4_1360936671572_170635_367">
+      <utype>phot:S_SpectralAxis</utype>
+    </identifier>
+    <name>S_SpectralAxis</name>
+    <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+    <extends>
+      <identifier id="_12_1_1dfa04c4_1360936712069_102137_387">
+        <utype>phot:S_SpectralAxis.EXTENDS</utype>
+      </identifier>
+      <datatype idref="_12_1_1dfa04c4_1348152724860_600998_627">
+        <utyperef>phot:S_Axis</utyperef>
+      </datatype>
+    </extends>
+    <container>
+      <identifier id="_12_1_1dfa04c4_1360936671572_170635_367_CONTAINER">
+        <utype>phot:S_SpectralAxis.CONTAINER</utype>
+      </identifier>
+      <datatype idref="_12_1_1dfa04c4_1360936562294_700984_289">
+        <utyperef>phot:S_Data</utyperef>
+      </datatype>
+      <collection idref="_12_1_1dfa04c4_1360936721757_647139_413">
+        <utyperef>phot:S_Data.spectralAxis</utyperef>
+      </collection>
+    </container>
+  </objectType>
+
+  <objectType>
+    <identifier id="_12_1_1dfa04c4_1360936735485_382431_419">
+      <utype>phot:S_FluxAxis</utype>
+    </identifier>
+    <name>S_FluxAxis</name>
+    <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+    <extends>
+      <identifier id="_12_1_1dfa04c4_1360936767668_695460_491">
+        <utype>phot:S_FluxAxis.EXTENDS</utype>
+      </identifier>
+      <datatype idref="_12_1_1dfa04c4_1348152724860_600998_627">
+        <utyperef>phot:S_Axis</utyperef>
+      </datatype>
+    </extends>
+    <container>
+      <identifier id="_12_1_1dfa04c4_1360936735485_382431_419_CONTAINER">
+        <utype>phot:S_FluxAxis.CONTAINER</utype>
+      </identifier>
+      <datatype idref="_12_1_1dfa04c4_1360936562294_700984_289">
+        <utyperef>phot:S_Data</utyperef>
+      </datatype>
+      <collection idref="_12_1_1dfa04c4_1360936735501_834155_422">
+        <utyperef>phot:S_Data.fluxAxis</utyperef>
+      </collection>
+    </container>
+  </objectType>
+
+  <objectType>
+    <identifier id="_12_1_1dfa04c4_1348847287617_821150_933">
+      <utype>phot:Access</utype>
+    </identifier>
+    <name>Access</name>
+    <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+    <container>
+      <identifier id="_12_1_1dfa04c4_1348847287617_821150_933_CONTAINER">
+        <utype>phot:Access.CONTAINER</utype>
+      </identifier>
+      <datatype idref="_12_1_1dfa04c4_1348152850179_403523_773">
+        <utyperef>phot:TransmissionCurve</utyperef>
+      </datatype>
+      <collection idref="_12_1_1dfa04c4_1360936501890_65769_178">
+        <utyperef>phot:TransmissionCurve.access</utyperef>
+      </collection>
+    </container>
+    <attribute>
+      <identifier id="_12_1_1dfa04c4_1348847315952_955161_1002">
+        <utype>phot:Access.reference</utype>
+      </identifier>
+      <datatype idref="_12_1_1dfa04c4_1352280071018_33260_518">
+        <modelUtypeRef>ivoa_1.0</modelUtypeRef>
+        <utyperef>ivoa_1.0:stdtypes/string</utyperef>
+      </datatype>
+      <name>reference</name>
+      <description>uri to the effective transmission curve
+NB this description applies to the inherited access atttribute on TransmissionCurve, not really to the one on the base class.</description>
+      <multiplicity>1</multiplicity>
+    </attribute>
+    <attribute>
+      <identifier id="_12_1_1dfa04c4_1348847327864_452909_1006">
+        <utype>phot:Access.format</utype>
+      </identifier>
+      <datatype idref="_12_1_1dfa04c4_1352280071018_33260_518">
+        <modelUtypeRef>ivoa_1.0</modelUtypeRef>
+        <utyperef>ivoa_1.0:stdtypes/string</utyperef>
+      </datatype>
+      <name>format</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <multiplicity>1</multiplicity>
+    </attribute>
+    <attribute>
+      <identifier id="_12_1_1dfa04c4_1348847339519_129125_1010">
+        <utype>phot:Access.size</utype>
+      </identifier>
+      <datatype idref="_12_1_1dfa04c4_1352280071024_736495_526">
+        <modelUtypeRef>ivoa_1.0</modelUtypeRef>
+        <utyperef>ivoa_1.0:stdtypes/nonnegativeInteger</utyperef>
+      </datatype>
+      <name>size</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <multiplicity>0..1</multiplicity>
+    </attribute>
+  </objectType>
+
+  <objectType>
+    <identifier id="_12_1_1dfa04c4_1348847486184_886531_1066">
+      <utype>phot:AsinhZeroPoint</utype>
+    </identifier>
+    <name>AsinhZeroPoint</name>
+    <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+    <extends>
+      <identifier id="_12_1_1dfa04c4_1348847486206_565801_1068">
+        <utype>phot:AsinhZeroPoint.EXTENDS</utype>
+      </identifier>
+      <datatype idref="_12_1_1dfa04c4_1348153578854_341173_1129">
+        <utyperef>phot:ZeroPoint</utyperef>
+      </datatype>
+    </extends>
+    <attribute>
+      <identifier id="_12_1_1dfa04c4_1348153237400_773419_1046">
+        <utype>phot:AsinhZeroPoint.softeningCoefficient</utype>
+      </identifier>
+      <datatype idref="_12_1_1dfa04c4_1352280071024_136938_525">
+        <modelUtypeRef>ivoa_1.0</modelUtypeRef>
+        <utyperef>ivoa_1.0:stdtypes/real</utyperef>
+      </datatype>
+      <name>softeningCoefficient</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <multiplicity>0..1</multiplicity>
+    </attribute>
+  </objectType>
+
+  <objectType>
+    <identifier id="_12_1_1dfa04c4_1348847753710_414357_1212">
+      <utype>phot:LinearFlux</utype>
+    </identifier>
+    <name>LinearFlux</name>
+    <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+    <extends>
+      <identifier id="_12_1_1dfa04c4_1348847753733_924369_1214">
+        <utype>phot:LinearFlux.EXTENDS</utype>
+      </identifier>
+      <datatype idref="_12_1_1dfa04c4_1348153578854_341173_1129">
+        <utyperef>phot:ZeroPoint</utyperef>
+      </datatype>
+    </extends>
+  </objectType>
+
+  <objectType>
+    <identifier id="_12_1_1dfa04c4_1348153628884_240682_1203">
+      <utype>phot:MagnitudeSystem</utype>
+    </identifier>
+    <name>MagnitudeSystem</name>
+    <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+    <container>
+      <identifier id="_12_1_1dfa04c4_1348153628884_240682_1203_CONTAINER">
+        <utype>phot:MagnitudeSystem.CONTAINER</utype>
+      </identifier>
+      <datatype idref="_12_1_1dfa04c4_1348152586902_950888_550">
+        <utyperef>phot:PhotCal</utyperef>
+      </datatype>
+      <collection idref="_12_1_1dfa04c4_1348153628890_762137_1206">
+        <utyperef>phot:PhotCal.magnitudeSystem</utyperef>
+      </collection>
+    </container>
+    <attribute>
+      <identifier id="_12_1_1dfa04c4_1348153325095_195552_1050">
+        <utype>phot:MagnitudeSystem.type</utype>
+      </identifier>
+      <datatype idref="_12_1_1dfa04c4_1352280071018_33260_518">
+        <modelUtypeRef>ivoa_1.0</modelUtypeRef>
+        <utyperef>ivoa_1.0:stdtypes/string</utyperef>
+      </datatype>
+      <name>type</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <multiplicity>0..1</multiplicity>
+    </attribute>
+    <attribute>
+      <identifier id="_12_1_1dfa04c4_1348153346798_610170_1052">
+        <utype>phot:MagnitudeSystem.referenceSpectrum</utype>
+      </identifier>
+      <datatype idref="_12_1_1dfa04c4_1352280071018_33260_518">
+        <modelUtypeRef>ivoa_1.0</modelUtypeRef>
+        <utyperef>ivoa_1.0:stdtypes/string</utyperef>
+      </datatype>
+      <name>referenceSpectrum</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <multiplicity>0..1</multiplicity>
+    </attribute>
+    <collection>
+      <identifier id="_12_1_1dfa04c4_1360941833346_992102_912">
+        <utype>phot:MagnitudeSystem.source</utype>
+      </identifier>
+      <datatype idref="_12_1_1dfa04c4_1360941761968_254612_836">
+        <utyperef>phot:Source</utyperef>
+      </datatype>
+      <name>source</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <multiplicity>0..*</multiplicity>
+    </collection>
+  </objectType>
+
+  <objectType>
+    <identifier id="_12_1_1dfa04c4_1348152586902_950888_550">
+      <utype>phot:PhotCal</utype>
+    </identifier>
+    <name>PhotCal</name>
+    <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+    <collection>
+      <identifier id="_12_1_1dfa04c4_1348153578876_282349_1132">
+        <utype>phot:PhotCal.zeroPoint</utype>
+      </identifier>
+      <datatype idref="_12_1_1dfa04c4_1348153578854_341173_1129">
+        <utyperef>phot:ZeroPoint</utyperef>
+      </datatype>
+      <name>zeroPoint</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <multiplicity>1</multiplicity>
+    </collection>
+    <collection>
+      <identifier id="_12_1_1dfa04c4_1348153628890_762137_1206">
+        <utype>phot:PhotCal.magnitudeSystem</utype>
+      </identifier>
+      <datatype idref="_12_1_1dfa04c4_1348153628884_240682_1203">
+        <utyperef>phot:MagnitudeSystem</utyperef>
+      </datatype>
+      <name>magnitudeSystem</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <multiplicity>1</multiplicity>
+    </collection>
+    <reference>
+      <identifier id="_12_1_1dfa04c4_1349192280683_602593_824">
+        <utype>phot:PhotCal.photometryFilter</utype>
+      </identifier>
+      <datatype idref="_12_1_1dfa04c4_1348152525455_268767_480">
+        <utyperef>phot:PhotometryFilter</utyperef>
+      </datatype>
+      <name>photometryFilter</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <multiplicity>1</multiplicity>
+    </reference>
+  </objectType>
+
+  <objectType>
+    <identifier id="_12_1_1dfa04c4_1348152514372_880643_458">
+      <utype>phot:PhotometricSystem</utype>
+    </identifier>
+    <name>PhotometricSystem</name>
+    <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+    <attribute>
+      <identifier id="_12_1_1dfa04c4_1348846881210_711416_481">
+        <utype>phot:PhotometricSystem.description</utype>
+      </identifier>
+      <datatype idref="_12_1_1dfa04c4_1352280071018_33260_518">
+        <modelUtypeRef>ivoa_1.0</modelUtypeRef>
+        <utyperef>ivoa_1.0:stdtypes/string</utyperef>
+      </datatype>
+      <name>description</name>
+      <description>String representation Photometric system</description>
+      <multiplicity>0..1</multiplicity>
+      <constraints>
+        <maxLength>-1</maxLength>
+      </constraints>
+    </attribute>
+    <attribute>
+      <identifier id="_12_1_1dfa04c4_1348846904387_928616_488">
+        <utype>phot:PhotometricSystem.detectorType</utype>
+      </identifier>
+      <datatype idref="_12_1_1dfa04c4_1352280071022_679349_521">
+        <modelUtypeRef>ivoa_1.0</modelUtypeRef>
+        <utyperef>ivoa_1.0:stdtypes/integer</utyperef>
+      </datatype>
+      <name>detectorType</name>
+      <description>Type of detector (e.g energy or photon counter)</description>
+      <multiplicity>1</multiplicity>
+    </attribute>
+    <collection>
+      <identifier id="_12_1_1dfa04c4_1348152525485_995078_483">
+        <utype>phot:PhotometricSystem.photometryFilter</utype>
+      </identifier>
+      <datatype idref="_12_1_1dfa04c4_1348152525455_268767_480">
+        <utyperef>phot:PhotometryFilter</utyperef>
+      </datatype>
+      <name>photometryFilter</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <multiplicity>1..*</multiplicity>
+    </collection>
+  </objectType>
+
+  <objectType>
+    <identifier id="_12_1_1dfa04c4_1348152525455_268767_480">
+      <utype>phot:PhotometryFilter</utype>
+    </identifier>
+    <name>PhotometryFilter</name>
+    <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+    <container>
+      <identifier id="_12_1_1dfa04c4_1348152525455_268767_480_CONTAINER">
+        <utype>phot:PhotometryFilter.CONTAINER</utype>
+      </identifier>
+      <datatype idref="_12_1_1dfa04c4_1348152514372_880643_458">
+        <utyperef>phot:PhotometricSystem</utyperef>
+      </datatype>
+      <collection idref="_12_1_1dfa04c4_1348152525485_995078_483">
+        <utyperef>phot:PhotometricSystem.photometryFilter</utyperef>
+      </collection>
+    </container>
+    <attribute>
+      <identifier id="_12_1_1dfa04c4_1348846762080_718292_454">
+        <utype>phot:PhotometryFilter.fpsIdentifier</utype>
+      </identifier>
+      <datatype idref="_12_1_1dfa04c4_1352280071018_33260_518">
+        <modelUtypeRef>ivoa_1.0</modelUtypeRef>
+        <utyperef>ivoa_1.0:stdtypes/string</utyperef>
+      </datatype>
+      <name>fpsIdentifier</name>
+      <description>IVOA identifier of the Filter Profile Service</description>
+      <multiplicity>1</multiplicity>
+    </attribute>
+    <attribute>
+      <identifier id="_12_1_1dfa04c4_1360937023618_738244_684">
+        <utype>phot:PhotometryFilter.identifier</utype>
+      </identifier>
+      <datatype idref="_12_1_1dfa04c4_1352280071018_33260_518">
+        <modelUtypeRef>ivoa_1.0</modelUtypeRef>
+        <utyperef>ivoa_1.0:stdtypes/string</utyperef>
+      </datatype>
+      <name>identifier</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <multiplicity>1</multiplicity>
+    </attribute>
+    <attribute>
+      <identifier id="_12_1_1dfa04c4_1348846783116_826027_458">
+        <utype>phot:PhotometryFilter.name</utype>
+      </identifier>
+      <datatype idref="_12_1_1dfa04c4_1352280071018_33260_518">
+        <modelUtypeRef>ivoa_1.0</modelUtypeRef>
+        <utyperef>ivoa_1.0:stdtypes/string</utyperef>
+      </datatype>
+      <name>name</name>
+      <description>Filter Name in the instrumental
+configuration</description>
+      <multiplicity>1</multiplicity>
+    </attribute>
+    <attribute>
+      <identifier id="_12_1_1dfa04c4_1348846795211_922844_462">
+        <utype>phot:PhotometryFilter.description</utype>
+      </identifier>
+      <datatype idref="_12_1_1dfa04c4_1352280071018_33260_518">
+        <modelUtypeRef>ivoa_1.0</modelUtypeRef>
+        <utyperef>ivoa_1.0:stdtypes/string</utyperef>
+      </datatype>
+      <name>description</name>
+      <description>Text description of the filter band</description>
+      <multiplicity>1</multiplicity>
+      <constraints>
+        <maxLength>-1</maxLength>
+      </constraints>
+    </attribute>
+    <attribute>
+      <identifier id="_12_1_1dfa04c4_1348846824659_135675_469">
+        <utype>phot:PhotometryFilter.bandName</utype>
+      </identifier>
+      <datatype idref="_12_1_1dfa04c4_1352280071018_33260_518">
+        <modelUtypeRef>ivoa_1.0</modelUtypeRef>
+        <utyperef>ivoa_1.0:stdtypes/string</utyperef>
+      </datatype>
+      <name>bandName</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <multiplicity>1</multiplicity>
+    </attribute>
+    <attribute>
+      <identifier id="_12_1_1dfa04c4_1348846840187_239091_473">
+        <utype>phot:PhotometryFilter.dataValidityFrom</utype>
+      </identifier>
+      <datatype idref="_12_1_1dfa04c4_1352280071023_795723_522">
+        <modelUtypeRef>ivoa_1.0</modelUtypeRef>
+        <utyperef>ivoa_1.0:stdtypes/datetime</utyperef>
+      </datatype>
+      <name>dataValidityFrom</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <multiplicity>1</multiplicity>
+    </attribute>
+    <attribute>
+      <identifier id="_12_1_1dfa04c4_1348846856301_59179_477">
+        <utype>phot:PhotometryFilter.dataValidityTo</utype>
+      </identifier>
+      <datatype idref="_12_1_1dfa04c4_1352280071023_795723_522">
+        <modelUtypeRef>ivoa_1.0</modelUtypeRef>
+        <utyperef>ivoa_1.0:stdtypes/datetime</utyperef>
+      </datatype>
+      <name>dataValidityTo</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <multiplicity>1</multiplicity>
+    </attribute>
+    <collection>
+      <identifier id="_12_1_1dfa04c4_1348152850204_650670_776">
+        <utype>phot:PhotometryFilter.filterTransmissionCurve</utype>
+      </identifier>
+      <datatype idref="_12_1_1dfa04c4_1348152850179_403523_773">
+        <utyperef>phot:TransmissionCurve</utyperef>
+      </datatype>
+      <name>filterTransmissionCurve</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <multiplicity>1</multiplicity>
+    </collection>
+  </objectType>
+
+  <objectType>
+    <identifier id="_12_1_1dfa04c4_1348847472208_11313_1022">
+      <utype>phot:PogsonZeroPoint</utype>
+    </identifier>
+    <name>PogsonZeroPoint</name>
+    <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+    <extends>
+      <identifier id="_12_1_1dfa04c4_1348847472230_201563_1024">
+        <utype>phot:PogsonZeroPoint.EXTENDS</utype>
+      </identifier>
+      <datatype idref="_12_1_1dfa04c4_1348153578854_341173_1129">
+        <utyperef>phot:ZeroPoint</utyperef>
+      </datatype>
+    </extends>
+  </objectType>
+
+  <objectType>
+    <identifier id="_12_1_1dfa04c4_1348847234962_762390_883">
+      <utype>phot:S_BaseSPS</utype>
+    </identifier>
+    <name>S_BaseSPS</name>
+    <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+    <collection>
+      <identifier id="_12_1_1dfa04c4_1360936562325_219238_292">
+        <utype>phot:S_BaseSPS.data</utype>
+      </identifier>
+      <datatype idref="_12_1_1dfa04c4_1360936562294_700984_289">
+        <utyperef>phot:S_Data</utyperef>
+      </datatype>
+      <name>data</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <multiplicity>1</multiplicity>
+    </collection>
+  </objectType>
+
+  <objectType abstract="true">
+    <identifier id="_12_1_1dfa04c4_1348152724860_600998_627">
+      <utype>phot:S_Axis</utype>
+    </identifier>
+    <name>S_Axis</name>
+    <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+    <attribute>
+      <identifier id="_12_1_1dfa04c4_1348846966658_588080_625">
+        <utype>phot:S_Axis.unit</utype>
+      </identifier>
+      <datatype idref="_12_1_1dfa04c4_1348847615712_101605_1149">
+        <utyperef>phot:Unit</utyperef>
+      </datatype>
+      <name>unit</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <multiplicity>1</multiplicity>
+    </attribute>
+    <attribute>
+      <identifier id="_12_1_1dfa04c4_1348846978467_837168_629">
+        <utype>phot:S_Axis.coordSys</utype>
+      </identifier>
+      <datatype idref="_12_1_1dfa04c4_1352280071018_33260_518">
+        <modelUtypeRef>ivoa_1.0</modelUtypeRef>
+        <utyperef>ivoa_1.0:stdtypes/string</utyperef>
+      </datatype>
+      <name>coordSys</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <multiplicity>1</multiplicity>
+    </attribute>
+    <attribute>
+      <identifier id="_12_1_1dfa04c4_1348846996122_766133_633">
+        <utype>phot:S_Axis.ucd</utype>
+      </identifier>
+      <datatype idref="_12_1_1dfa04c4_1352280071018_33260_518">
+        <modelUtypeRef>ivoa_1.0</modelUtypeRef>
+        <utyperef>ivoa_1.0:stdtypes/string</utyperef>
+      </datatype>
+      <name>ucd</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <multiplicity>0..1</multiplicity>
+    </attribute>
+    <attribute>
+      <identifier id="_12_1_1dfa04c4_1352273833461_546118_431">
+        <utype>phot:S_Axis.coverage</utype>
+      </identifier>
+      <datatype idref="_12_1_1dfa04c4_1352271173612_804788_267">
+        <utyperef>phot:S_Coverage</utyperef>
+      </datatype>
+      <name>coverage</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <multiplicity>0..1</multiplicity>
+    </attribute>
+    <attribute>
+      <identifier id="_12_1_1dfa04c4_1360936811863_510899_516">
+        <utype>phot:S_Axis.value</utype>
+      </identifier>
+      <datatype idref="_12_1_1dfa04c4_1360943905855_177723_177">
+        <utyperef>phot:Value</utyperef>
+      </datatype>
+      <name>value</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <multiplicity>0..*</multiplicity>
+    </attribute>
+  </objectType>
+
+  <objectType>
+    <identifier id="_12_1_1dfa04c4_1348152850179_403523_773">
+      <utype>phot:TransmissionCurve</utype>
+    </identifier>
+    <name>TransmissionCurve</name>
+    <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+    <extends>
+      <identifier id="_12_1_1dfa04c4_1360936551873_768896_262">
+        <utype>phot:TransmissionCurve.EXTENDS</utype>
+      </identifier>
+      <datatype idref="_12_1_1dfa04c4_1348847234962_762390_883">
+        <utyperef>phot:S_BaseSPS</utyperef>
+      </datatype>
+    </extends>
+    <container>
+      <identifier id="_12_1_1dfa04c4_1348152850179_403523_773_CONTAINER">
+        <utype>phot:TransmissionCurve.CONTAINER</utype>
+      </identifier>
+      <datatype idref="_12_1_1dfa04c4_1348152525455_268767_480">
+        <utyperef>phot:PhotometryFilter</utyperef>
+      </datatype>
+      <collection idref="_12_1_1dfa04c4_1348152850204_650670_776">
+        <utyperef>phot:PhotometryFilter.filterTransmissionCurve</utyperef>
+      </collection>
+    </container>
+    <collection>
+      <identifier id="_12_1_1dfa04c4_1360936501890_65769_178">
+        <utype>phot:TransmissionCurve.access</utype>
+      </identifier>
+      <datatype idref="_12_1_1dfa04c4_1348847287617_821150_933">
+        <utyperef>phot:Access</utyperef>
+      </datatype>
+      <name>access</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <multiplicity>1</multiplicity>
+    </collection>
+    <collection>
+      <identifier id="_12_1_1dfa04c4_1361195504344_344350_207">
+        <utype>phot:TransmissionCurve.pixel</utype>
+      </identifier>
+      <datatype idref="_12_1_1dfa04c4_1361195450945_464049_176">
+        <utyperef>phot:Pixel</utyperef>
+      </datatype>
+      <name>pixel</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <multiplicity>0..*</multiplicity>
+    </collection>
+  </objectType>
+
+  <objectType abstract="true">
+    <identifier id="_12_1_1dfa04c4_1348153578854_341173_1129">
+      <utype>phot:ZeroPoint</utype>
+    </identifier>
+    <name>ZeroPoint</name>
+    <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+    <container>
+      <identifier id="_12_1_1dfa04c4_1348153578854_341173_1129_CONTAINER">
+        <utype>phot:ZeroPoint.CONTAINER</utype>
+      </identifier>
+      <datatype idref="_12_1_1dfa04c4_1348152586902_950888_550">
+        <utyperef>phot:PhotCal</utyperef>
+      </datatype>
+      <collection idref="_12_1_1dfa04c4_1348153578876_282349_1132">
+        <utyperef>phot:PhotCal.zeroPoint</utyperef>
+      </collection>
+    </container>
+    <attribute>
+      <identifier id="_12_1_1dfa04c4_1348153036136_5247_1000">
+        <utype>phot:ZeroPoint.flux</utype>
+      </identifier>
+      <datatype idref="_12_1_1dfa04c4_1348847539617_388098_1114">
+        <utyperef>phot:PhysicalQuantityDouble</utyperef>
+      </datatype>
+      <name>flux</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <multiplicity>1</multiplicity>
+    </attribute>
+    <attribute>
+      <identifier id="_12_1_1dfa04c4_1348153074665_12634_1008">
+        <utype>phot:ZeroPoint.referenceMagnitude</utype>
+      </identifier>
+      <datatype idref="_12_1_1dfa04c4_1348847539617_388098_1114">
+        <utyperef>phot:PhysicalQuantityDouble</utyperef>
+      </datatype>
+      <name>referenceMagnitude</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <multiplicity>1</multiplicity>
+    </attribute>
+    <attribute>
+      <identifier id="_12_1_1dfa04c4_1348153104904_5028_1016">
+        <utype>phot:ZeroPoint.type</utype>
+      </identifier>
+      <datatype idref="_12_1_1dfa04c4_1352280071022_679349_521">
+        <modelUtypeRef>ivoa_1.0</modelUtypeRef>
+        <utyperef>ivoa_1.0:stdtypes/integer</utyperef>
+      </datatype>
+      <name>type</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <multiplicity>1</multiplicity>
+    </attribute>
+  </objectType>
+
+  <objectType>
+    <identifier id="_12_1_1dfa04c4_1360941761968_254612_836">
+      <utype>phot:Source</utype>
+    </identifier>
+    <name>Source</name>
+    <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+    <container>
+      <identifier id="_12_1_1dfa04c4_1360941761968_254612_836_CONTAINER">
+        <utype>phot:Source.CONTAINER</utype>
+      </identifier>
+      <datatype idref="_12_1_1dfa04c4_1348153628884_240682_1203">
+        <utyperef>phot:MagnitudeSystem</utyperef>
+      </datatype>
+      <collection idref="_12_1_1dfa04c4_1360941833346_992102_912">
+        <utyperef>phot:MagnitudeSystem.source</utyperef>
+      </collection>
+    </container>
+  </objectType>
+
+  <objectType>
+    <identifier id="_12_1_1dfa04c4_1361195450945_464049_176">
+      <utype>phot:Pixel</utype>
+    </identifier>
+    <name>Pixel</name>
+    <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+    <container>
+      <identifier id="_12_1_1dfa04c4_1361195450945_464049_176_CONTAINER">
+        <utype>phot:Pixel.CONTAINER</utype>
+      </identifier>
+      <datatype idref="_12_1_1dfa04c4_1348152850179_403523_773">
+        <utyperef>phot:TransmissionCurve</utyperef>
+      </datatype>
+      <collection idref="_12_1_1dfa04c4_1361195504344_344350_207">
+        <utyperef>phot:TransmissionCurve.pixel</utyperef>
+      </collection>
+    </container>
+    <attribute>
+      <identifier id="_12_1_1dfa04c4_1361195459712_396219_195">
+        <utype>phot:Pixel.independent</utype>
+      </identifier>
+      <datatype idref="_12_1_1dfa04c4_1348847539617_388098_1114">
+        <utyperef>phot:PhysicalQuantityDouble</utyperef>
+      </datatype>
+      <name>independent</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <multiplicity>1</multiplicity>
+    </attribute>
+    <attribute>
+      <identifier id="_12_1_1dfa04c4_1361195475780_518837_199">
+        <utype>phot:Pixel.dependent</utype>
+      </identifier>
+      <datatype idref="_12_1_1dfa04c4_1348847539617_388098_1114">
+        <utyperef>phot:PhysicalQuantityDouble</utyperef>
+      </datatype>
+      <name>dependent</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <multiplicity>1</multiplicity>
+    </attribute>
+  </objectType>
+
+  <dataType>
+    <identifier id="_12_1_1dfa04c4_1352271152726_169026_211">
+      <utype>phot:S_Bounds</utype>
+    </identifier>
+    <name>S_Bounds</name>
+    <description>Could be datatype</description>
+    <attribute>
+      <identifier id="_12_1_1dfa04c4_1348847133153_879630_863">
+        <utype>phot:S_Bounds.extent</utype>
+      </identifier>
+      <datatype idref="_12_1_1dfa04c4_1352280071024_136938_525">
+        <modelUtypeRef>ivoa_1.0</modelUtypeRef>
+        <utyperef>ivoa_1.0:stdtypes/real</utyperef>
+      </datatype>
+      <name>extent</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <multiplicity>0..1</multiplicity>
+    </attribute>
+    <attribute>
+      <identifier id="_12_1_1dfa04c4_1348847152353_586236_867">
+        <utype>phot:S_Bounds.start</utype>
+      </identifier>
+      <datatype idref="_12_1_1dfa04c4_1352280071024_136938_525">
+        <modelUtypeRef>ivoa_1.0</modelUtypeRef>
+        <utyperef>ivoa_1.0:stdtypes/real</utyperef>
+      </datatype>
+      <name>start</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <multiplicity>1</multiplicity>
+    </attribute>
+    <attribute>
+      <identifier id="_12_1_1dfa04c4_1348847167657_336423_871">
+        <utype>phot:S_Bounds.stop</utype>
+      </identifier>
+      <datatype idref="_12_1_1dfa04c4_1352280071024_136938_525">
+        <modelUtypeRef>ivoa_1.0</modelUtypeRef>
+        <utyperef>ivoa_1.0:stdtypes/real</utyperef>
+      </datatype>
+      <name>stop</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <multiplicity>1</multiplicity>
+    </attribute>
+  </dataType>
+
+  <dataType>
+    <identifier id="_12_1_1dfa04c4_1352271173612_804788_267">
+      <utype>phot:S_Coverage</utype>
+    </identifier>
+    <name>S_Coverage</name>
+    <description>Not really necessary, pattern to indicate how location and bounds can be used together.</description>
+    <attribute>
+      <identifier id="_12_1_1dfa04c4_1352273874443_666709_482">
+        <utype>phot:S_Coverage.location</utype>
+      </identifier>
+      <datatype idref="_12_1_1dfa04c4_1352271159856_408288_240">
+        <utyperef>phot:S_Location</utyperef>
+      </datatype>
+      <name>location</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <multiplicity>0..1</multiplicity>
+    </attribute>
+    <attribute>
+      <identifier id="_12_1_1dfa04c4_1352273886045_536489_486">
+        <utype>phot:S_Coverage.bounds</utype>
+      </identifier>
+      <datatype idref="_12_1_1dfa04c4_1352271152726_169026_211">
+        <utyperef>phot:S_Bounds</utyperef>
+      </datatype>
+      <name>bounds</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <multiplicity>0..1</multiplicity>
+    </attribute>
+  </dataType>
+
+  <dataType>
+    <identifier id="_12_1_1dfa04c4_1352271159856_408288_240">
+      <utype>phot:S_Location</utype>
+    </identifier>
+    <name>S_Location</name>
+    <description>Could be datatype</description>
+    <attribute>
+      <identifier id="_12_1_1dfa04c4_1348847096770_925823_787">
+        <utype>phot:S_Location.value</utype>
+      </identifier>
+      <datatype idref="_12_1_1dfa04c4_1352280071024_136938_525">
+        <modelUtypeRef>ivoa_1.0</modelUtypeRef>
+        <utyperef>ivoa_1.0:stdtypes/real</utyperef>
+      </datatype>
+      <name>value</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <multiplicity>1</multiplicity>
+    </attribute>
+  </dataType>
+
+  <dataType>
+    <identifier id="_12_1_1dfa04c4_1348847539617_388098_1114">
+      <utype>phot:PhysicalQuantityDouble</utype>
+    </identifier>
+    <name>PhysicalQuantityDouble</name>
+    <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+    <extends>
+      <identifier id="_12_1_1dfa04c4_1360937445427_160562_738">
+        <utype>phot:PhysicalQuantityDouble.EXTENDS</utype>
+      </identifier>
+      <datatype idref="_12_1_1dfa04c4_1360937294028_205359_692">
+        <utyperef>phot:PhysicalQuantity</utyperef>
+      </datatype>
+    </extends>
+    <attribute>
+      <identifier id="_12_1_1dfa04c4_1348847581822_218854_1138">
+        <utype>phot:PhysicalQuantityDouble.value</utype>
+      </identifier>
+      <datatype idref="_12_1_1dfa04c4_1352280071024_136938_525">
+        <modelUtypeRef>ivoa_1.0</modelUtypeRef>
+        <utyperef>ivoa_1.0:stdtypes/real</utyperef>
+      </datatype>
+      <name>value</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <multiplicity>1</multiplicity>
+    </attribute>
+    <attribute>
+      <identifier id="_12_1_1dfa04c4_1348847594118_851754_1142">
+        <utype>phot:PhysicalQuantityDouble.error</utype>
+      </identifier>
+      <datatype idref="_12_1_1dfa04c4_1352280071024_136938_525">
+        <modelUtypeRef>ivoa_1.0</modelUtypeRef>
+        <utyperef>ivoa_1.0:stdtypes/real</utyperef>
+      </datatype>
+      <name>error</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <multiplicity>0..1</multiplicity>
+    </attribute>
+  </dataType>
+
+  <dataType>
+    <identifier id="_12_1_1dfa04c4_1348847699690_928034_1179">
+      <utype>phot:PhysicalQuantityInt</utype>
+    </identifier>
+    <name>PhysicalQuantityInt</name>
+    <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+    <extends>
+      <identifier id="_12_1_1dfa04c4_1360937443055_267692_713">
+        <utype>phot:PhysicalQuantityInt.EXTENDS</utype>
+      </identifier>
+      <datatype idref="_12_1_1dfa04c4_1360937294028_205359_692">
+        <utyperef>phot:PhysicalQuantity</utyperef>
+      </datatype>
+    </extends>
+    <attribute>
+      <identifier id="_12_1_1dfa04c4_1348847699692_940926_1182">
+        <utype>phot:PhysicalQuantityInt.value</utype>
+      </identifier>
+      <datatype idref="_12_1_1dfa04c4_1352280071022_679349_521">
+        <modelUtypeRef>ivoa_1.0</modelUtypeRef>
+        <utyperef>ivoa_1.0:stdtypes/integer</utyperef>
+      </datatype>
+      <name>value</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <multiplicity>1</multiplicity>
+    </attribute>
+    <attribute>
+      <identifier id="_12_1_1dfa04c4_1348847699692_864558_1183">
+        <utype>phot:PhysicalQuantityInt.error</utype>
+      </identifier>
+      <datatype idref="_12_1_1dfa04c4_1352280071024_136938_525">
+        <modelUtypeRef>ivoa_1.0</modelUtypeRef>
+        <utyperef>ivoa_1.0:stdtypes/real</utyperef>
+      </datatype>
+      <name>error</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <multiplicity>0..1</multiplicity>
+    </attribute>
+  </dataType>
+
+  <dataType>
+    <identifier id="_12_1_1dfa04c4_1348847615712_101605_1149">
+      <utype>phot:Unit</utype>
+    </identifier>
+    <name>Unit</name>
+    <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+    <attribute>
+      <identifier id="_12_1_1dfa04c4_1348847622670_833671_1167">
+        <utype>phot:Unit.expression</utype>
+      </identifier>
+      <datatype idref="_12_1_1dfa04c4_1352280071018_33260_518">
+        <modelUtypeRef>ivoa_1.0</modelUtypeRef>
+        <utyperef>ivoa_1.0:stdtypes/string</utyperef>
+      </datatype>
+      <name>expression</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <multiplicity>1</multiplicity>
+    </attribute>
+    <attribute>
+      <identifier id="_12_1_1dfa04c4_1348847639694_894794_1171">
+        <utype>phot:Unit.scaleSI</utype>
+      </identifier>
+      <datatype idref="_12_1_1dfa04c4_1352280071024_136938_525">
+        <modelUtypeRef>ivoa_1.0</modelUtypeRef>
+        <utyperef>ivoa_1.0:stdtypes/real</utyperef>
+      </datatype>
+      <name>scaleSI</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <multiplicity>1</multiplicity>
+    </attribute>
+    <attribute>
+      <identifier id="_12_1_1dfa04c4_1348847655782_516626_1175">
+        <utype>phot:Unit.dimEquation</utype>
+      </identifier>
+      <datatype idref="_12_1_1dfa04c4_1352280071018_33260_518">
+        <modelUtypeRef>ivoa_1.0</modelUtypeRef>
+        <utyperef>ivoa_1.0:stdtypes/string</utyperef>
+      </datatype>
+      <name>dimEquation</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <multiplicity>0..1</multiplicity>
+    </attribute>
+  </dataType>
+
+  <dataType>
+    <identifier id="_12_1_1dfa04c4_1360937294028_205359_692">
+      <utype>phot:PhysicalQuantity</utype>
+    </identifier>
+    <name>PhysicalQuantity</name>
+    <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+    <attribute>
+      <identifier id="_12_1_1dfa04c4_1348847555990_698169_1132">
+        <utype>phot:PhysicalQuantity.unit</utype>
+      </identifier>
+      <datatype idref="_12_1_1dfa04c4_1348847615712_101605_1149">
+        <utyperef>phot:Unit</utyperef>
+      </datatype>
+      <name>unit</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <multiplicity>0..1</multiplicity>
+    </attribute>
+    <attribute>
+      <identifier id="_12_1_1dfa04c4_1348847567046_593270_1134">
+        <utype>phot:PhysicalQuantity.ucd</utype>
+      </identifier>
+      <datatype idref="_12_1_1dfa04c4_1352280071018_33260_518">
+        <modelUtypeRef>ivoa_1.0</modelUtypeRef>
+        <utyperef>ivoa_1.0:stdtypes/string</utyperef>
+      </datatype>
+      <name>ucd</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <multiplicity>0..1</multiplicity>
+    </attribute>
+  </dataType>
+
+  <dataType>
+    <identifier id="_12_1_1dfa04c4_1360943905855_177723_177">
+      <utype>phot:Value</utype>
+    </identifier>
+    <name>Value</name>
+    <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+    <attribute>
+      <identifier id="_12_1_1dfa04c4_1360943928069_208174_195">
+        <utype>phot:Value.value</utype>
+      </identifier>
+      <datatype idref="_12_1_1dfa04c4_1352280071024_136938_525">
+        <modelUtypeRef>ivoa_1.0</modelUtypeRef>
+        <utyperef>ivoa_1.0:stdtypes/real</utyperef>
+      </datatype>
+      <name>value</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <multiplicity>1</multiplicity>
+    </attribute>
+    <attribute>
+      <identifier id="_12_1_1dfa04c4_1360943940128_236052_199">
+        <utype>phot:Value.error</utype>
+      </identifier>
+      <datatype idref="_12_1_1dfa04c4_1352280071024_136938_525">
+        <modelUtypeRef>ivoa_1.0</modelUtypeRef>
+        <utyperef>ivoa_1.0:stdtypes/real</utyperef>
+      </datatype>
+      <name>error</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <multiplicity>0..1</multiplicity>
+    </attribute>
+  </dataType>
+
+</vo-dml:model>

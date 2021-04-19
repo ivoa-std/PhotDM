@@ -6,4 +6,5 @@ Mireille Louys - Jan -April 2021
 - Generate class diagrammes 
 - Fill in descriptions fields for all attributes and classes 
     Borrow most content from REcommendation Phot DM1.0 when possible
-- Translation using the BuildModel script from Laurent Michel. PhotDMv1-1.xmi ----> html, PhotDMv1-1-VODML.xml, etc . 
+- Translation using the BuildModel script from Laurent Michel. 
+   PhotDMv1-1.xmi ----> description in html, PhotDMv1-1-VODML.xml, etc. 

@@ -1,0 +1,2174 @@
+<html xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:vo-dml="http://www.ivoa.net/xml/VODML/v1">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>PhotDM</title>
+    <link rel="stylesheet" href="http://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/style/ivoa_wg.css" type="text/css">
+    <link rel="stylesheet" href="http://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/style/xmi.css" type="text/css">
+  </head>
+  <body>
+    <h1>PhotDM</h1>
+    <h2><a id="contents" name="contents">Table of Contents</a></h2>
+    <div class="head">
+      <table class=".toc">
+        <tr>
+          <td>1.</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#model_section">model: Phot</a></td>
+        </tr>
+        <tr>
+          <td>2.</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#packages">Packages and Types</a></td>
+        </tr>
+        <tr>
+          <td>2.1</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#rootpackage">[root package]</a></td>
+        </tr>
+        <tr>
+          <td>2.1.1</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Access">objectType:Access</a></td>
+        </tr>
+        <tr>
+          <td>2.1.2</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#AsinhZeropoint">objectType:AsinhZeropoint</a></td>
+        </tr>
+        <tr>
+          <td>2.1.3</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Bandwidth">objectType:Bandwidth</a></td>
+        </tr>
+        <tr>
+          <td>2.1.4</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Flux">objectType:Flux</a></td>
+        </tr>
+        <tr>
+          <td>2.1.5</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#LinearFluxZeropoint">objectType:LinearFluxZeropoint</a></td>
+        </tr>
+        <tr>
+          <td>2.1.6</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#MagnitudeSystem">objectType:MagnitudeSystem</a></td>
+        </tr>
+        <tr>
+          <td>2.1.7</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#PhotCal">objectType:PhotCal</a></td>
+        </tr>
+        <tr>
+          <td>2.1.8</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#PhotometricSystem">objectType:PhotometricSystem</a></td>
+        </tr>
+        <tr>
+          <td>2.1.9</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#PhotometryFilter">objectType:PhotometryFilter</a></td>
+        </tr>
+        <tr>
+          <td>2.1.10</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#PogsonZeropoint">objectType:PogsonZeropoint</a></td>
+        </tr>
+        <tr>
+          <td>2.1.11</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#SpectralLocation">objectType:SpectralLocation</a></td>
+        </tr>
+        <tr>
+          <td>2.1.12</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#TransmissionCurve">objectType:TransmissionCurve</a></td>
+        </tr>
+        <tr>
+          <td>2.1.13</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#TransmissionPoint">objectType:TransmissionPoint</a></td>
+        </tr>
+        <tr>
+          <td>2.1.14</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#TypeOfMagSystem">enumeration:TypeOfMagSystem</a></td>
+        </tr>
+        <tr>
+          <td>2.1.15</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#UCD">primitiveType:UCD</a></td>
+        </tr>
+        <tr>
+          <td>2.1.16</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#ZeroPoint">objectType:ZeroPoint</a></td>
+        </tr>
+        <tr>
+          <td>3.</td>
+          <td>
+            &nbsp;&nbsp;&nbsp;&nbsp;<a href="#vodml-ids">vodml-id-s</a></td>
+        </tr>
+        <tr>
+          <td>4.</td>
+          <td>
+            &nbsp;&nbsp;&nbsp;&nbsp;<a href="#modelimports">Imported Models</a></td>
+        </tr>
+        <tr>
+          <td>4.1</td>
+          <td>
+            &nbsp;&nbsp;&nbsp;&nbsp;<a href="#ivoa">ivoa</a></td>
+        </tr>
+      </table>
+    </div>
+    <hr>
+    <h1><a name="model_section">1. Model: PhotDM (Phot)</a></h1>
+    <table>
+      <tr>
+        <td align="right"><b>Authors</b></td>
+        <td> : </td>
+        <td>Jesús Salgado, Carlos Rodrigo, Pedro Osuna, Mark Allen, Mireille Louys, Jonathan McDowell, Deborah Baines, Jesús Maíz Apellániz,
+          Evanthia Hatziminaoglou, Sebastien Derriere, Gerard Lemson
+        </td>
+      </tr>
+      <tr>
+        <td align="right"><b>Date</b></td>
+        <td> : </td>
+        <td>2021-04-19T16:14:18</td>
+      </tr>
+      <tr>
+        <td align="right"><b>Version</b></td>
+        <td> : </td>
+        <td>1.1</td>
+      </tr>
+      <tr>
+        <td align="right">Previous version:</td>
+        <td> : </td>
+        <td><a href="1.0">1.0</a></td>
+      </tr>
+      <tr>
+        <td align="right" valign="top"><b>Abstract</b></td>
+        <td valign="top"> : </td>
+        <td>Data model describing  data sets Photometric properties and used for data calibration, comparison or reprocessing. 
+          
+        </td>
+      </tr>
+      <tr>
+        <td align="right" valign="top"><b>Diagram</b></td>
+        <td valign="top"> : </td>
+        <td>The following diagram has been generated from the model using the <a href="http://www.graphviz.org/" target="_blank">GraphViz</a> tool.<br>
+          The classes and packages in the diagram can be clicked and are mapped to the descriptions of the corresponding element elsewhere
+          in the document. 
+          
+        </td>
+      </tr>
+      <tr>
+        <td colspan="3"></td>
+      </tr>
+    </table><img src="PhotDMv1-1.png" usemap="#GVmap"><map id="GVmap" name="GVmap">
+<area shape="rect" id="node1" href="https://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/models/ivoa/vo-dml/IVOA-v1.0.html#string" title="{ivoa:string}" alt="" coords="23,185,95,235"/>
+<area shape="rect" id="node2" href="#UCD" title="{&lt;&lt;primitive type&gt;&gt;\nUCD}" alt="" coords="5,22,112,71"/>
+<area shape="rect" id="node3" href="#TypeOfMagSystem" title="{&lt;&lt;enumeration&gt;&gt;\nTypeOfMagSystem|+VEGAmag\l+ABmag\l+STmag\l}" alt="" coords="137,5,242,88"/>
+<area shape="rect" id="node4" href="#PhotometricSystem" title="{PhotometricSystem|+description : ivoa:string\l+detectorType : ivoa:integer\l}" alt="" coords="267,17,411,76"/>
+<area shape="rect" id="node5" href="#PhotometryFilter" title="{PhotometryFilter|+fpsidentifier : ivoa:string\l+identifier : ivoa:string\l+name : ivoa:string\l+description : ivoa:string\l+bandname : ivoa:string\l+dateValidityFrom : ivoa:datetime\l+dateValidityTo : ivoa:datetime\l}" alt="" coords="281,151,450,269"/>
+<area shape="rect" id="node12" href="#Bandwidth" title="{Bandwidth|+ucd : Phot:UCD\l+unitexpression : ivoa:Unit\l+extent : ivoa:real\l+start : ivoa:real\l+stop : ivoa:real\l}" alt="" coords="151,332,289,427"/>
+<area shape="rect" id="node15" href="#TransmissionCurve" title="{TransmissionCurve}" alt="" coords="314,355,417,404"/>
+<area shape="rect" id="node16" href="#SpectralLocation" title="{SpectralLocation|+ucd : Phot:UCD\l+unitexpression : ivoa:Unit\l+value : ivoa:real\l}" alt="" coords="441,344,580,415"/>
+<area shape="rect" id="node6" href="#PhotCal" title="{PhotCal|+identifier : ivoa:string\l}" alt="" coords="526,22,647,71"/>
+<area shape="rect" id="node7" href="#ZeroPoint" title="{ZeroPoint|+type : ivoa:integer\l+referenceMagnitudeValue : ivoa:real\l+referenceMagnitudeError : ivoa:real\l}" alt="" coords="755,175,941,245"/>
+<area shape="rect" id="node11" href="#MagnitudeSystem" title="{MagnitudeSystem|+type : Phot:TypeOfMagSystem\l+referenceSpectrum : ivoa:anyURI\l}" alt="" coords="499,181,674,239"/>
+<area shape="rect" id="node17" href="#Flux" title="{Flux|+ucd : Phot:UCD\l+unitexpression : ivoa:Unit\l+value : ivoa:real\l+error : ivoa:real\l}" alt="" coords="779,338,917,421"/>
+<area shape="rect" id="node8" href="#PogsonZeropoint" title="{PogsonZeropoint}" alt="" coords="706,22,801,71"/>
+<area shape="rect" id="node9" href="#AsinhZeropoint" title="{AsinhZeropoint|+softeningParameter : ivoa:real\l}" alt="" coords="825,22,983,71"/>
+<area shape="rect" id="node10" href="#LinearFluxZeropoint" title="{LinearFluxZeropoint}" alt="" coords="1008,22,1120,71"/>
+<area shape="rect" id="node13" href="#TransmissionPoint" title="{TransmissionPoint|+ucd : Phot:UCD\l+unit : ivoa:Unit\l+transmissionValue : ivoa:real\l+spectralValue : ivoa:real\l+spectralErrorValue : ivoa:real\l}" alt="" coords="201,489,359,584"/>
+<area shape="rect" id="node14" href="#Access" title="{Access|+reference : ivoa:anyURI\l+size : ivoa:integer\l+format : ivoa:string\l}" alt="" coords="383,501,518,572"/>
+</map>
+
+    <hr>
+    <h1>2.<a name="packages">Model contents: Packages and Types</a></h1>
+    <p>
+      The following sub-sections present all packages in the model with their types.
+      The packages are listed here in alphabetical order.
+      Each sub-section contains a description of the package and a table containing its various features.
+      
+    </p>
+    <h3><a name="rootpackage"></a>2.1 [root package]
+    </h3>
+    <table border="1" cellspacing="2" width="100%">
+      <tr>
+        <td class="objecttype-title" width="20%">Model</td>
+        <td class="objecttype-name">Phot</td>
+      </tr>
+      <tr>
+        <td width="20%" class="info-title">Object types</td>
+        <td colspan="2" class="feature-detail"><a href="#Access">Access</a> <a href="#AsinhZeropoint">AsinhZeropoint</a> <a href="#Bandwidth">Bandwidth</a> <a href="#Flux">Flux</a> <a href="#LinearFluxZeropoint">LinearFluxZeropoint</a> <a href="#MagnitudeSystem">MagnitudeSystem</a> <a href="#PhotCal">PhotCal</a> <a href="#PhotometricSystem">PhotometricSystem</a> <a href="#PhotometryFilter">PhotometryFilter</a> <a href="#PogsonZeropoint">PogsonZeropoint</a> <a href="#SpectralLocation">SpectralLocation</a> <a href="#TransmissionCurve">TransmissionCurve</a> <a href="#TransmissionPoint">TransmissionPoint</a> <a href="#ZeroPoint">ZeroPoint</a> 
+        </td>
+      </tr>
+      <tr>
+        <td width="20%" class="info-title">Enumerations</td>
+        <td colspan="2" class="feature-detail"><a href="#TypeOfMagSystem">TypeOfMagSystem</a> 
+        </td>
+      </tr>
+      <tr>
+        <td width="20%" class="info-title">Primitive types</td>
+        <td colspan="2" class="feature-detail"><a href="#UCD">UCD</a> 
+        </td>
+      </tr>
+    </table>
+    <h3><a name="Access"></a>2.1.1 objectType: Access
+    </h3>
+    <div align="center">
+      <table border="1" width="100%" cellspacing="2">
+        <tr>
+          <td class="objecttype-title" width="20%">vodml-id</td>
+          <td class="objecttype-name" colspan="1">Access</td>
+        </tr>
+        <tr>
+          <td class="info-title">description</td>
+          <td class="feature-detail" colspan="1">Gathers all properties to access a resource : uri, format and size . 
+            
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td colspan="2" bgcolor="#cacaca">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                    <tr>
+                      <td colspan="3" class="info-title">attributes</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading" width="20%">name</td>
+                      <td class="feature-heading" width="10%">feature</td>
+                      <td class="feature-heading" width="70%">value</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="Access.reference"></a><b>reference</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="https://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/models/ivoa/vo-dml/IVOA-v1.0.html#anyURI">anyURI</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">Access.reference</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">URI to access the resource.</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="Access.size"></a><b>size</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="https://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/models/ivoa/vo-dml/IVOA-v1.0.html#integer">integer</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">Access.size</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">Approximate estimated size of the dataset, specified in kilobytes.</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="Access.format"></a><b>format</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="https://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/models/ivoa/vo-dml/IVOA-v1.0.html#string">string</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">Access.format</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">Format of the accessed resource.  typically : application/fits, application/x-votable+xml, text/csv, text/xml.</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div><br><h3><a name="AsinhZeropoint"></a>2.1.2 objectType: AsinhZeropoint
+    </h3>
+    <div align="center">
+      <table border="1" width="100%" cellspacing="2">
+        <tr>
+          <td class="objecttype-title" width="20%">vodml-id</td>
+          <td class="objecttype-name" colspan="1">AsinhZeropoint</td>
+        </tr>
+        <tr>
+          <td class="info-title">description</td>
+          <td class="feature-detail" colspan="1">Extension of ZeroPoint to describe asinh magnitudes, a.k.a. luptitudes.</td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td colspan="2" bgcolor="#cacaca">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                    <tr>
+                      <td width="20%" class="info-title">extends</td>
+                      <td colspan="3" class="feature-detail"><a href="#ZeroPoint">ZeroPoint [Phot:ZeroPoint]</a></td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="info-title">attributes</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading" width="20%">name</td>
+                      <td class="feature-heading" width="10%">feature</td>
+                      <td class="feature-heading" width="70%">value</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="AsinhZeropoint.softeningParameter"></a><b>softeningParameter</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="https://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/models/ivoa/vo-dml/IVOA-v1.0.html#real">real</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">AsinhZeropoint.softeningParameter</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">Parameter used to correct the calculation of magnitudes for faint sources. Usually called 'b'. See (Lupton and Gunn et al.
+                        [1999]) for a formal explanation.
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div><br><h3><a name="Bandwidth"></a>2.1.3 objectType: Bandwidth
+    </h3>
+    <div align="center">
+      <table border="1" width="100%" cellspacing="2">
+        <tr>
+          <td class="objecttype-title" width="20%">vodml-id</td>
+          <td class="objecttype-name" colspan="1">Bandwidth</td>
+        </tr>
+        <tr>
+          <td class="info-title">description</td>
+          <td class="feature-detail" colspan="1">This class is used to characterize the spectral properties of a filter. 
+            
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td colspan="2" bgcolor="#cacaca">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                    <tr>
+                      <td colspan="3" class="info-title">attributes</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading" width="20%">name</td>
+                      <td class="feature-heading" width="10%">feature</td>
+                      <td class="feature-heading" width="70%">value</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="Bandwidth.ucd"></a><b>ucd</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#UCD">UCD [Phot:UCD]</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">Bandwidth.ucd</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">Unified Content Description (UCD) string that specifies the nature of the bandwidth object.</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="Bandwidth.unitexpression"></a><b>unitexpression</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="https://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/models/ivoa/vo-dml/IVOA-v1.0.html#Unit">Unit</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">Bandwidth.unitexpression</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">Unit string  that specifies the spectral units for this filter.</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="Bandwidth.extent"></a><b>extent</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="https://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/models/ivoa/vo-dml/IVOA-v1.0.html#real">real</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">Bandwidth.extent</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">0..1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">Bandwidth’s extent of the filter , as length of the covered spectral interval , or effective width following appropriate filter
+                        type.
+                        
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="Bandwidth.start"></a><b>start</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="https://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/models/ivoa/vo-dml/IVOA-v1.0.html#real">real</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">Bandwidth.start</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">In practice, this could be taken as the minimum value of the filter transmission curve.</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="Bandwidth.stop"></a><b>stop</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="https://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/models/ivoa/vo-dml/IVOA-v1.0.html#real">real</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">Bandwidth.stop</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">In practice, this could be taken as the maximum value of the filter transmission curve.</td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="info-title">constraints</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" colspan="3">One association at the time
+                        
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div><br><h3><a name="Flux"></a>2.1.4 objectType: Flux
+    </h3>
+    <div align="center">
+      <table border="1" width="100%" cellspacing="2">
+        <tr>
+          <td class="objecttype-title" width="20%">vodml-id</td>
+          <td class="objecttype-name" colspan="1">Flux</td>
+        </tr>
+        <tr>
+          <td class="info-title">description</td>
+          <td class="feature-detail" colspan="1">This class is used to characterize the spectral properties of a filter. 
+            
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td colspan="2" bgcolor="#cacaca">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                    <tr>
+                      <td colspan="3" class="info-title">attributes</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading" width="20%">name</td>
+                      <td class="feature-heading" width="10%">feature</td>
+                      <td class="feature-heading" width="70%">value</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="Flux.ucd"></a><b>ucd</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#UCD">UCD [Phot:UCD]</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">Flux.ucd</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">Unified Content Description (UCD) string that specifies the nature of the spectral location for this filter.</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="Flux.unitexpression"></a><b>unitexpression</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="https://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/models/ivoa/vo-dml/IVOA-v1.0.html#Unit">Unit</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">Flux.unitexpression</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">Unit string  that specifies the spectral units for this filter.</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="Flux.value"></a><b>value</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="https://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/models/ivoa/vo-dml/IVOA-v1.0.html#real">real</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">Flux.value</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">A spectral coordinate value that can be considered by the data provider as the most representative for this specific filter
+                        bandpass. 
+                        as an example effective wavelength in optical.
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="Flux.error"></a><b>error</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="https://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/models/ivoa/vo-dml/IVOA-v1.0.html#real">real</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">Flux.error</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">Flux value error corresponding to the reference magnitude value  of the calibrating object. </td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="info-title">constraints</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" colspan="3">One association at the time
+                        
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div><br><h3><a name="LinearFluxZeropoint"></a>2.1.5 objectType: LinearFluxZeropoint
+    </h3>
+    <div align="center">
+      <table border="1" width="100%" cellspacing="2">
+        <tr>
+          <td class="objecttype-title" width="20%">vodml-id</td>
+          <td class="objecttype-name" colspan="1">LinearFluxZeropoint</td>
+        </tr>
+        <tr>
+          <td class="info-title">description</td>
+          <td class="feature-detail" colspan="1">Extension of ZeroPoint to describe simple linear flux photometry, commonly used in Radio, Far Infrared and X-ray spectral
+            ranges. Although not being magnitudes as such, relative linear flux measurements can be included as a special and trivial
+            case of magnitude.
+            
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td colspan="2" bgcolor="#cacaca">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                    <tr>
+                      <td width="20%" class="info-title">extends</td>
+                      <td colspan="3" class="feature-detail"><a href="#ZeroPoint">ZeroPoint [Phot:ZeroPoint]</a></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div><br><h3><a name="MagnitudeSystem"></a>2.1.6 objectType: MagnitudeSystem
+    </h3>
+    <div align="center">
+      <table border="1" width="100%" cellspacing="2">
+        <tr>
+          <td class="objecttype-title" width="20%">vodml-id</td>
+          <td class="objecttype-name" colspan="1">MagnitudeSystem</td>
+        </tr>
+        <tr>
+          <td class="info-title">description</td>
+          <td class="feature-detail" colspan="1">A class to describe the Magnitude system, the reference spectrum attached and the type .</td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td colspan="2" bgcolor="#cacaca">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                    <tr>
+                      <td colspan="3" class="info-title">attributes</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading" width="20%">name</td>
+                      <td class="feature-heading" width="10%">feature</td>
+                      <td class="feature-heading" width="70%">value</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="MagnitudeSystem.type"></a><b>type</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#TypeOfMagSystem">TypeOfMagSystem [Phot:TypeOfMagSystem]</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">MagnitudeSystem.type</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">Type of magnitude system used to compute the the associated zeropoint . Typical values are : VEGAmag, ABmag, STmag .
+                        
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="MagnitudeSystem.referenceSpectrum"></a><b>referenceSpectrum</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="https://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/models/ivoa/vo-dml/IVOA-v1.0.html#anyURI">anyURI</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">MagnitudeSystem.referenceSpectrum</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">Link to the reference spectrum as a URI.</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div><br><h3><a name="PhotCal"></a>2.1.7 objectType: PhotCal
+    </h3>
+    <div align="center">
+      <table border="1" width="100%" cellspacing="2">
+        <tr>
+          <td class="objecttype-title" width="20%">vodml-id</td>
+          <td class="objecttype-name" colspan="1">PhotCal</td>
+        </tr>
+        <tr>
+          <td class="info-title">description</td>
+          <td class="feature-detail" colspan="1">A class to bind together all  photometic calibration reference information: a photometry filter, a certain magnitude system
+            configuration and a certain zero point object.
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td colspan="2" bgcolor="#cacaca">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                    <tr>
+                      <td colspan="3" class="info-title">attributes</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading" width="20%">name</td>
+                      <td class="feature-heading" width="10%">feature</td>
+                      <td class="feature-heading" width="70%">value</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="PhotCal.identifier"></a><b>identifier</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="https://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/models/ivoa/vo-dml/IVOA-v1.0.html#string">string</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">PhotCal.identifier</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">A unique identifier of the Photometry calibration intance within the project  and a filterprofile service . Suggested syntax
+                        would be:
+                        Facility/Subcategory/Band/Photometric System Type[/Suffix]
+                      </td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="info-title">references</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading" width="20%">name</td>
+                      <td class="feature-heading" width="10%">feature</td>
+                      <td class="feature-heading" width="70%">value</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="PhotCal.photometryFilter"></a><b>photometryFilter</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#PhotometryFilter">PhotometryFilter [Phot:PhotometryFilter]</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">PhotCal.photometryFilter</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">0..1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">Each Photcal element is related to one single Filter .</td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="info-title">compositions</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading" width="20%">name</td>
+                      <td class="feature-heading" width="10%">feature</td>
+                      <td class="feature-heading" width="70%">value</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="5"><a name="PhotCal.magnitudeSystem"></a><b>magnitudeSystem</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#MagnitudeSystem">MagnitudeSystem [Phot:MagnitudeSystem]</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">PhotCal.magnitudeSystem</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">isOrdered</td>
+                      <td class="feature-detail">false</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">Each ZeroPoint values are given with one computation method corresponding to a defined Magnitude system.
+                        
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="5"><a name="PhotCal.zeroPoint"></a><b>zeroPoint</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ZeroPoint">ZeroPoint [Phot:ZeroPoint]</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">PhotCal.zeroPoint</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">isOrdered</td>
+                      <td class="feature-detail">false</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">The ZeroPoint values for the flux to mag translation belongs to a Photcal element and is defined for one Filter element and
+                        one MagnitudeSystem .
+                      </td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="info-title">constraints</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" colspan="3">One association at the time
+                        
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div><br><h3><a name="PhotometricSystem"></a>2.1.8 objectType: PhotometricSystem
+    </h3>
+    <div align="center">
+      <table border="1" width="100%" cellspacing="2">
+        <tr>
+          <td class="objecttype-title" width="20%">vodml-id</td>
+          <td class="objecttype-name" colspan="1">PhotometricSystem</td>
+        </tr>
+        <tr>
+          <td class="info-title">description</td>
+          <td class="feature-detail" colspan="1">The reference photometric system used to interpret photometic measurements.</td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td colspan="2" bgcolor="#cacaca">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                    <tr>
+                      <td colspan="3" class="info-title">attributes</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading" width="20%">name</td>
+                      <td class="feature-heading" width="10%">feature</td>
+                      <td class="feature-heading" width="70%">value</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="PhotometricSystem.description"></a><b>description</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="https://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/models/ivoa/vo-dml/IVOA-v1.0.html#string">string</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">PhotometricSystem.description</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">This string contains a human readable short-text representation of the photometric system. This will allow client applications
+                        to display textual information to final users.
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="PhotometricSystem.detectorType"></a><b>detectorType</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="https://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/models/ivoa/vo-dml/IVOA-v1.0.html#integer">integer</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">PhotometricSystem.detectorType</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">Detector type associated to this photometric system. Possible values are: 0 for Energy counter ( amplifiers ), 1 for Photon
+                        counter ( CCDs, Photomultipliers).
+                      </td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="info-title">compositions</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading" width="20%">name</td>
+                      <td class="feature-heading" width="10%">feature</td>
+                      <td class="feature-heading" width="70%">value</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="5"><a name="PhotometricSystem.photometryFilter"></a><b>photometryFilter</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#PhotometryFilter">PhotometryFilter [Phot:PhotometryFilter]</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">PhotometricSystem.photometryFilter</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1..*</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">isOrdered</td>
+                      <td class="feature-detail">false</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">The Photometric information is related to a Photometric system, and gathers filter descriptions, for one or several . 
+                        
+                      </td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="info-title">constraints</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" colspan="3">One association at the time
+                        
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div><br><h3><a name="PhotometryFilter"></a>2.1.9 objectType: PhotometryFilter
+    </h3>
+    <div align="center">
+      <table border="1" width="100%" cellspacing="2">
+        <tr>
+          <td class="objecttype-title" width="20%">vodml-id</td>
+          <td class="objecttype-name" colspan="1">PhotometryFilter</td>
+        </tr>
+        <tr>
+          <td class="info-title">description</td>
+          <td class="feature-detail" colspan="1">The reference photometric system used to interpret photometic measurements.</td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td colspan="2" bgcolor="#cacaca">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                    <tr>
+                      <td class="info-title">referrers</td>
+                      <td class="feature-detail" colspan="3"><a href="#PhotCal">PhotCal</a> 
+                      </td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="info-title">attributes</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading" width="20%">name</td>
+                      <td class="feature-heading" width="10%">feature</td>
+                      <td class="feature-heading" width="70%">value</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="PhotometryFilter.fpsidentifier"></a><b>fpsidentifier</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="https://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/models/ivoa/vo-dml/IVOA-v1.0.html#string">string</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">PhotometryFilter.fpsidentifier</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">IVOA identifier of the filter profile service where this photometry filter is registered to be used in the discovery of all
+                        the relevant photometry filter properties.
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="PhotometryFilter.identifier"></a><b>identifier</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="https://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/models/ivoa/vo-dml/IVOA-v1.0.html#string">string</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">PhotometryFilter.identifier</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">This field identifies, in a unique way, within a certain Photometry Filter Profile service, a filter.
+                        example : Facility/Subcategory/Band[/Suffix] like SDSS/SDSS.G/G
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="PhotometryFilter.name"></a><b>name</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="https://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/models/ivoa/vo-dml/IVOA-v1.0.html#string">string</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">PhotometryFilter.name</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">A human readable string to represent the filter name.</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="PhotometryFilter.description"></a><b>description</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="https://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/models/ivoa/vo-dml/IVOA-v1.0.html#string">string</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">PhotometryFilter.description</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">This string contains a verbose human readable label for the filter. This will allow client applications to display textual
+                        information to final users.
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="PhotometryFilter.bandname"></a><b>bandname</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="https://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/models/ivoa/vo-dml/IVOA-v1.0.html#string">string</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">PhotometryFilter.bandname</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">A standard label representing of the spectral band associated to this filter (if any).</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="PhotometryFilter.dateValidityFrom"></a><b>dateValidityFrom</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="https://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/models/ivoa/vo-dml/IVOA-v1.0.html#datetime">datetime</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">PhotometryFilter.dateValidityFrom</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">Start time of the time coverage when this filter configuration is applicable. String time format accepted is ISO8601.</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="PhotometryFilter.dateValidityTo"></a><b>dateValidityTo</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="https://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/models/ivoa/vo-dml/IVOA-v1.0.html#datetime">datetime</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">PhotometryFilter.dateValidityTo</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">End time of the time coverage when this filter configuration is applicable. String time format accepted is ISO8601.</td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="info-title">compositions</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading" width="20%">name</td>
+                      <td class="feature-heading" width="10%">feature</td>
+                      <td class="feature-heading" width="70%">value</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="5"><a name="PhotometryFilter.bandwidth"></a><b>bandwidth</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#Bandwidth">Bandwidth [Phot:Bandwidth]</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">PhotometryFilter.bandwidth</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">isOrdered</td>
+                      <td class="feature-detail">false</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">Relation to the spectral coverage of the Filter.
+                        
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="5"><a name="PhotometryFilter.spectralLocation"></a><b>spectralLocation</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#SpectralLocation">SpectralLocation [Phot:SpectralLocation]</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">PhotometryFilter.spectralLocation</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">isOrdered</td>
+                      <td class="feature-detail">false</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">
+                        TODO : Missing description : please, update your UML model asap.
+                        
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="5"><a name="PhotometryFilter.transmissionCurve"></a><b>transmissionCurve</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#TransmissionCurve">TransmissionCurve [Phot:TransmissionCurve]</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">PhotometryFilter.transmissionCurve</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">0..1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">isOrdered</td>
+                      <td class="feature-detail">false</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">Link to the Transmission Curve of the Filter, when this is described.</td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="info-title">constraints</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" colspan="3">One association at the time
+                        
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div><br><h3><a name="PogsonZeropoint"></a>2.1.10 objectType: PogsonZeropoint
+    </h3>
+    <div align="center">
+      <table border="1" width="100%" cellspacing="2">
+        <tr>
+          <td class="objecttype-title" width="20%">vodml-id</td>
+          <td class="objecttype-name" colspan="1">PogsonZeropoint</td>
+        </tr>
+        <tr>
+          <td class="info-title">description</td>
+          <td class="feature-detail" colspan="1">Extension of ZeroPoint to accommodate standard logarithm magnitudes. It has no supplementary attributes but specific conversion
+            functions.
+            
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td colspan="2" bgcolor="#cacaca">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                    <tr>
+                      <td width="20%" class="info-title">extends</td>
+                      <td colspan="3" class="feature-detail"><a href="#ZeroPoint">ZeroPoint [Phot:ZeroPoint]</a></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div><br><h3><a name="SpectralLocation"></a>2.1.11 objectType: SpectralLocation
+    </h3>
+    <div align="center">
+      <table border="1" width="100%" cellspacing="2">
+        <tr>
+          <td class="objecttype-title" width="20%">vodml-id</td>
+          <td class="objecttype-name" colspan="1">SpectralLocation</td>
+        </tr>
+        <tr>
+          <td class="info-title">description</td>
+          <td class="feature-detail" colspan="1">This class is used to characterize the spectral properties of a filter. 
+            
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td colspan="2" bgcolor="#cacaca">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                    <tr>
+                      <td colspan="3" class="info-title">attributes</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading" width="20%">name</td>
+                      <td class="feature-heading" width="10%">feature</td>
+                      <td class="feature-heading" width="70%">value</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="SpectralLocation.ucd"></a><b>ucd</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#UCD">UCD [Phot:UCD]</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">SpectralLocation.ucd</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">Unified Content Description (UCD) string that specifies the nature of the spectral location for this filter.</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="SpectralLocation.unitexpression"></a><b>unitexpression</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="https://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/models/ivoa/vo-dml/IVOA-v1.0.html#Unit">Unit</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">SpectralLocation.unitexpression</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">Unit string  that specifies the spectral units for this filter.</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="SpectralLocation.value"></a><b>value</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="https://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/models/ivoa/vo-dml/IVOA-v1.0.html#real">real</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">SpectralLocation.value</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">A spectral coordinate value that can be considered by the data provider as the most representative for this specific filter
+                        bandpass. 
+                        as an example effective wavelength in optical.
+                      </td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="info-title">constraints</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" colspan="3">One association at the time
+                        
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div><br><h3><a name="TransmissionCurve"></a>2.1.12 objectType: TransmissionCurve
+    </h3>
+    <div align="center">
+      <table border="1" width="100%" cellspacing="2">
+        <tr>
+          <td class="objecttype-title" width="20%">vodml-id</td>
+          <td class="objecttype-name" colspan="1">TransmissionCurve</td>
+        </tr>
+        <tr>
+          <td class="info-title">description</td>
+          <td class="feature-detail" colspan="1">A collection of points along the spectral axis to indicate how flux are transmitted by a filter. 
+            the transmission profile can be described by an external file and accessed through the Access instance, or can be stored as
+            a collection of transmission points stored in the instance.
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td colspan="2" bgcolor="#cacaca">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                    <tr>
+                      <td colspan="3" class="info-title">compositions</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading" width="20%">name</td>
+                      <td class="feature-heading" width="10%">feature</td>
+                      <td class="feature-heading" width="70%">value</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="5"><a name="TransmissionCurve.access"></a><b>access</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#Access">Access [Phot:Access]</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">TransmissionCurve.access</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">0..1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">isOrdered</td>
+                      <td class="feature-detail">false</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">Access to an external file containing the set of Transmission Points.</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="5"><a name="TransmissionCurve.transmissionPoint"></a><b>transmissionPoint</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#TransmissionPoint">TransmissionPoint [Phot:TransmissionPoint]</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">TransmissionCurve.transmissionPoint</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1..*</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">isOrdered</td>
+                      <td class="feature-detail">false</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">Set of points of the transmission curve.</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div><br><h3><a name="TransmissionPoint"></a>2.1.13 objectType: TransmissionPoint
+    </h3>
+    <div align="center">
+      <table border="1" width="100%" cellspacing="2">
+        <tr>
+          <td class="objecttype-title" width="20%">vodml-id</td>
+          <td class="objecttype-name" colspan="1">TransmissionPoint</td>
+        </tr>
+        <tr>
+          <td class="info-title">description</td>
+          <td class="feature-detail" colspan="1">This class is used to represent a point in the transmission function of a Filter.
+            
+            
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td colspan="2" bgcolor="#cacaca">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                    <tr>
+                      <td colspan="3" class="info-title">attributes</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading" width="20%">name</td>
+                      <td class="feature-heading" width="10%">feature</td>
+                      <td class="feature-heading" width="70%">value</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="TransmissionPoint.ucd"></a><b>ucd</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#UCD">UCD [Phot:UCD]</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">TransmissionPoint.ucd</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">Unified Content Description (UCD) string that specifies the nature of the spectral axis in the transmission curve.</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="TransmissionPoint.unit"></a><b>unit</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="https://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/models/ivoa/vo-dml/IVOA-v1.0.html#Unit">Unit</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">TransmissionPoint.unit</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">Unit string  that specifies the spectral units for this filter.</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="TransmissionPoint.transmissionValue"></a><b>transmissionValue</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="https://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/models/ivoa/vo-dml/IVOA-v1.0.html#real">real</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">TransmissionPoint.transmissionValue</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">Transmitted value for the filter at this point of the transmission curve. Usually between 0 and 1. 
+                        
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="TransmissionPoint.spectralValue"></a><b>spectralValue</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="https://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/models/ivoa/vo-dml/IVOA-v1.0.html#real">real</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">TransmissionPoint.spectralValue</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">Spectral coordinate value for the transmission point.</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="TransmissionPoint.spectralErrorValue"></a><b>spectralErrorValue</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="https://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/models/ivoa/vo-dml/IVOA-v1.0.html#real">real</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">TransmissionPoint.spectralErrorValue</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">0..1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">Error on the spectral coordinate value for the transmission point.</td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="info-title">constraints</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" colspan="3">One association at the time
+                        
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div><br><h3><a name="TypeOfMagSystem"></a>2.1.14 enumeration: TypeOfMagSystem
+    </h3>
+    <table border="1" width="100%" cellspacing="2">
+      <tr>
+        <td class="objecttype-title" width="20%">vodml-id</td>
+        <td class="objecttype-name" colspan="2">TypeOfMagSystem</td>
+      </tr>
+      <tr>
+        <td class="info-title">description</td>
+        <td class="feature-detail" colspan="2">The type of System used to compute magnitude for this photometric calibration procedure .</td>
+      </tr>
+      <tr>
+        <td colspan="3" class="info-title" align="center">literals</td>
+      </tr>
+      <tr>
+        <td class="feature-heading" width="25%">name</td>
+        <td class="feature-heading" width="25%">feature</td>
+        <td class="feature-heading" width="50%">value</td>
+      </tr>
+      <tr>
+        <td class="feature-detail" rowspan="2" valign="top"><a name="TypeOfMagSystem.VEGAmag"></a>VEGAmag
+        </td>
+        <td class="feature-heading">vodml-id</td>
+        <td class="feature-detail">TypeOfMagSystem.VEGAmag</td>
+      </tr>
+      <tr>
+        <td class="feature-heading">description</td>
+        <td class="feature-detail">Magnitude system related to VEGA.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail" rowspan="2" valign="top"><a name="TypeOfMagSystem.ABmag"></a>ABmag
+        </td>
+        <td class="feature-heading">vodml-id</td>
+        <td class="feature-detail">TypeOfMagSystem.ABmag</td>
+      </tr>
+      <tr>
+        <td class="feature-heading">description</td>
+        <td class="feature-detail">AB magnitude system.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail" rowspan="2" valign="top"><a name="TypeOfMagSystem.STmag"></a>STmag
+        </td>
+        <td class="feature-heading">vodml-id</td>
+        <td class="feature-detail">TypeOfMagSystem.STmag</td>
+      </tr>
+      <tr>
+        <td class="feature-heading">description</td>
+        <td class="feature-detail">ST magnitude system.</td>
+      </tr>
+    </table><br><h3><a name="UCD"></a>2.1.15 primitiveType: UCD
+    </h3>
+    <table border="1" width="100%" cellspacing="2">
+      <tr>
+        <td class="objecttype-title" width="20%">vodml-id</td>
+        <td class="objecttype-name" colspan="1">UCD</td>
+      </tr>
+      <tr>
+        <td class="info-title">description</td>
+        <td class="feature-detail" colspan="1">Controlled vocabulary to tag measurements in table columns . See UCD IVOA Recommendation .
+          
+        </td>
+      </tr>
+    </table><br><h3><a name="ZeroPoint"></a>2.1.16 objectType: ZeroPoint
+    </h3>
+    <div align="center">
+      <table border="1" width="100%" cellspacing="2">
+        <tr>
+          <td class="objecttype-title" width="20%">vodml-id</td>
+          <td class="objecttype-name" colspan="1">ZeroPoint</td>
+        </tr>
+        <tr>
+          <td class="info-title">description</td>
+          <td class="feature-detail" colspan="1">This class is used to characterize a zero point flux obtained during the calibration of a certain photometry filter on a certain
+            photometric system configuration.
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td colspan="2" bgcolor="#cacaca">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                    <tr>
+                      <td class="info-title" width="20%">Subclasses in this model</td>
+                      <td class="feature-detail" colspan="3"><a href="#AsinhZeropoint">AsinhZeropoint</a> <a href="#LinearFluxZeropoint">LinearFluxZeropoint</a> <a href="#PogsonZeropoint">PogsonZeropoint</a> 
+                      </td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="info-title">attributes</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading" width="20%">name</td>
+                      <td class="feature-heading" width="10%">feature</td>
+                      <td class="feature-heading" width="70%">value</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="ZeroPoint.type"></a><b>type</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="https://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/models/ivoa/vo-dml/IVOA-v1.0.html#integer">integer</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">ZeroPoint.type</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">Type describing the way the zeropoint value is defined . Is an integer value : {0=Pogson, 1=Asinh, 2=Linear} corresponding
+                        to zero point definitions.
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="ZeroPoint.referenceMagnitudeValue"></a><b>referenceMagnitudeValue</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="https://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/models/ivoa/vo-dml/IVOA-v1.0.html#real">real</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">ZeroPoint.referenceMagnitudeValue</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">Reference magnitude value  of the calibrating object as a  double number to get the maximum precision. 
+                        Default value is zero, but sometimes the reference mag measured is slightly above.
+                        
+                        
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="ZeroPoint.referenceMagnitudeError"></a><b>referenceMagnitudeError</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="https://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/models/ivoa/vo-dml/IVOA-v1.0.html#real">real</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">ZeroPoint.referenceMagnitudeError</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">Total error estimated on the reference magnitude value whenever applicable. 
+                        
+                      </td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="info-title">compositions</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading" width="20%">name</td>
+                      <td class="feature-heading" width="10%">feature</td>
+                      <td class="feature-heading" width="70%">value</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="5"><a name="ZeroPoint.flux"></a><b>flux</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#Flux">Flux [Phot:Flux]</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">ZeroPoint.flux</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">0..1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">isOrdered</td>
+                      <td class="feature-detail">false</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">
+                        TODO : Missing description : please, update your UML model asap.
+                        
+                      </td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="info-title">constraints</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" colspan="3">One association at the time
+                        
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div><br><hr>
+    <h1>3.<a name="vodml-ids">Element Identifiers/VO-DMLrefs</a></h1>  
+    The following table shows all fully qualified vodml-ids for this data model.
+    It is ordered alphabetically and the identifiers are hyper-linked to the location
+    in the document where the actual element is fully defined.
+    
+    
+    <table style="border-style:solid;border-width:1px;" border="1" cellspacing="0" cellpadding="0">
+      <tr>
+        <td class="feature-heading">vodml-id</td>
+        <td class="feature-heading">feature type</td>
+        <td class="feature-heading">description</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#"></a></td>
+        <td class="feature-detail">vo-dml:model</td>
+        <td class="feature-detail">Data model describing  data sets Photometric properties and used for data calibration, comparison or reprocessing. 
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#Access">Access</a></td>
+        <td class="feature-detail">objectType</td>
+        <td class="feature-detail">Gathers all properties to access a resource : uri, format and size . 
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#Access.format">Access.format</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">Format of the accessed resource.  typically : application/fits, application/x-votable+xml, text/csv, text/xml.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#Access.reference">Access.reference</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">URI to access the resource.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#Access.size">Access.size</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">Approximate estimated size of the dataset, specified in kilobytes.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#AsinhZeropoint">AsinhZeropoint</a></td>
+        <td class="feature-detail">objectType</td>
+        <td class="feature-detail">Extension of ZeroPoint to describe asinh magnitudes, a.k.a. luptitudes.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#AsinhZeropoint.softeningParameter">AsinhZeropoint.softeningParameter</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">Parameter used to correct the calculation of magnitudes for faint sources. Usually called 'b'. See (Lupton and Gunn et al.
+          [1999]) for a formal explanation.
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#Bandwidth">Bandwidth</a></td>
+        <td class="feature-detail">objectType</td>
+        <td class="feature-detail">This class is used to characterize the spectral properties of a filter. 
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#Bandwidth.extent">Bandwidth.extent</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">Bandwidth’s extent of the filter , as length of the covered spectral interval , or effective width following appropriate filter
+          type.
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#Bandwidth.start">Bandwidth.start</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">In practice, this could be taken as the minimum value of the filter transmission curve.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#Bandwidth.stop">Bandwidth.stop</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">In practice, this could be taken as the maximum value of the filter transmission curve.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#Bandwidth.ucd">Bandwidth.ucd</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">Unified Content Description (UCD) string that specifies the nature of the bandwidth object.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#Bandwidth.unitexpression">Bandwidth.unitexpression</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">Unit string  that specifies the spectral units for this filter.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#Flux">Flux</a></td>
+        <td class="feature-detail">objectType</td>
+        <td class="feature-detail">This class is used to characterize the spectral properties of a filter. 
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#Flux.error">Flux.error</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">Flux value error corresponding to the reference magnitude value  of the calibrating object. </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#Flux.ucd">Flux.ucd</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">Unified Content Description (UCD) string that specifies the nature of the spectral location for this filter.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#Flux.unitexpression">Flux.unitexpression</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">Unit string  that specifies the spectral units for this filter.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#Flux.value">Flux.value</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">A spectral coordinate value that can be considered by the data provider as the most representative for this specific filter
+          bandpass. 
+          as an example effective wavelength in optical.
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#LinearFluxZeropoint">LinearFluxZeropoint</a></td>
+        <td class="feature-detail">objectType</td>
+        <td class="feature-detail">Extension of ZeroPoint to describe simple linear flux photometry, commonly used in Radio, Far Infrared and X-ray spectral
+          ranges. Although not being magnitudes as such, relative linear flux measurements can be included as a special and trivial
+          case of magnitude.
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#MagnitudeSystem">MagnitudeSystem</a></td>
+        <td class="feature-detail">objectType</td>
+        <td class="feature-detail">A class to describe the Magnitude system, the reference spectrum attached and the type .</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#MagnitudeSystem.referenceSpectrum">MagnitudeSystem.referenceSpectrum</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">Link to the reference spectrum as a URI.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#MagnitudeSystem.type">MagnitudeSystem.type</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">Type of magnitude system used to compute the the associated zeropoint . Typical values are : VEGAmag, ABmag, STmag .
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#PhotCal">PhotCal</a></td>
+        <td class="feature-detail">objectType</td>
+        <td class="feature-detail">A class to bind together all  photometic calibration reference information: a photometry filter, a certain magnitude system
+          configuration and a certain zero point object.
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#PhotCal.identifier">PhotCal.identifier</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">A unique identifier of the Photometry calibration intance within the project  and a filterprofile service . Suggested syntax
+          would be:
+          Facility/Subcategory/Band/Photometric System Type[/Suffix]
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#PhotCal.magnitudeSystem">PhotCal.magnitudeSystem</a></td>
+        <td class="feature-detail">composition</td>
+        <td class="feature-detail">Each ZeroPoint values are given with one computation method corresponding to a defined Magnitude system.
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#PhotCal.photometryFilter">PhotCal.photometryFilter</a></td>
+        <td class="feature-detail">reference</td>
+        <td class="feature-detail">Each Photcal element is related to one single Filter .</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#PhotCal.zeroPoint">PhotCal.zeroPoint</a></td>
+        <td class="feature-detail">composition</td>
+        <td class="feature-detail">The ZeroPoint values for the flux to mag translation belongs to a Photcal element and is defined for one Filter element and
+          one MagnitudeSystem .
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#PhotometricSystem">PhotometricSystem</a></td>
+        <td class="feature-detail">objectType</td>
+        <td class="feature-detail">The reference photometric system used to interpret photometic measurements.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#PhotometricSystem.description">PhotometricSystem.description</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">This string contains a human readable short-text representation of the photometric system. This will allow client applications
+          to display textual information to final users.
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#PhotometricSystem.detectorType">PhotometricSystem.detectorType</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">Detector type associated to this photometric system. Possible values are: 0 for Energy counter ( amplifiers ), 1 for Photon
+          counter ( CCDs, Photomultipliers).
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#PhotometricSystem.photometryFilter">PhotometricSystem.photometryFilter</a></td>
+        <td class="feature-detail">composition</td>
+        <td class="feature-detail">The Photometric information is related to a Photometric system, and gathers filter descriptions, for one or several . 
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#PhotometryFilter">PhotometryFilter</a></td>
+        <td class="feature-detail">objectType</td>
+        <td class="feature-detail">The reference photometric system used to interpret photometic measurements.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#PhotometryFilter.bandname">PhotometryFilter.bandname</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">A standard label representing of the spectral band associated to this filter (if any).</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#PhotometryFilter.bandwidth">PhotometryFilter.bandwidth</a></td>
+        <td class="feature-detail">composition</td>
+        <td class="feature-detail">Relation to the spectral coverage of the Filter.
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#PhotometryFilter.dateValidityFrom">PhotometryFilter.dateValidityFrom</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">Start time of the time coverage when this filter configuration is applicable. String time format accepted is ISO8601.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#PhotometryFilter.dateValidityTo">PhotometryFilter.dateValidityTo</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">End time of the time coverage when this filter configuration is applicable. String time format accepted is ISO8601.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#PhotometryFilter.description">PhotometryFilter.description</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">This string contains a verbose human readable label for the filter. This will allow client applications to display textual
+          information to final users.
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#PhotometryFilter.fpsidentifier">PhotometryFilter.fpsidentifier</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">IVOA identifier of the filter profile service where this photometry filter is registered to be used in the discovery of all
+          the relevant photometry filter properties.
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#PhotometryFilter.identifier">PhotometryFilter.identifier</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">This field identifies, in a unique way, within a certain Photometry Filter Profile service, a filter.
+          example : Facility/Subcategory/Band[/Suffix] like SDSS/SDSS.G/G
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#PhotometryFilter.name">PhotometryFilter.name</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">A human readable string to represent the filter name.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#PhotometryFilter.spectralLocation">PhotometryFilter.spectralLocation</a></td>
+        <td class="feature-detail">composition</td>
+        <td class="feature-detail">
+          TODO : Missing description : please, update your UML model asap.
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#PhotometryFilter.transmissionCurve">PhotometryFilter.transmissionCurve</a></td>
+        <td class="feature-detail">composition</td>
+        <td class="feature-detail">Link to the Transmission Curve of the Filter, when this is described.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#PogsonZeropoint">PogsonZeropoint</a></td>
+        <td class="feature-detail">objectType</td>
+        <td class="feature-detail">Extension of ZeroPoint to accommodate standard logarithm magnitudes. It has no supplementary attributes but specific conversion
+          functions.
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#SpectralLocation">SpectralLocation</a></td>
+        <td class="feature-detail">objectType</td>
+        <td class="feature-detail">This class is used to characterize the spectral properties of a filter. 
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#SpectralLocation.ucd">SpectralLocation.ucd</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">Unified Content Description (UCD) string that specifies the nature of the spectral location for this filter.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#SpectralLocation.unitexpression">SpectralLocation.unitexpression</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">Unit string  that specifies the spectral units for this filter.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#SpectralLocation.value">SpectralLocation.value</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">A spectral coordinate value that can be considered by the data provider as the most representative for this specific filter
+          bandpass. 
+          as an example effective wavelength in optical.
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#TransmissionCurve">TransmissionCurve</a></td>
+        <td class="feature-detail">objectType</td>
+        <td class="feature-detail">A collection of points along the spectral axis to indicate how flux are transmitted by a filter. 
+          the transmission profile can be described by an external file and accessed through the Access instance, or can be stored as
+          a collection of transmission points stored in the instance.
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#TransmissionCurve.access">TransmissionCurve.access</a></td>
+        <td class="feature-detail">composition</td>
+        <td class="feature-detail">Access to an external file containing the set of Transmission Points.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#TransmissionCurve.transmissionPoint">TransmissionCurve.transmissionPoint</a></td>
+        <td class="feature-detail">composition</td>
+        <td class="feature-detail">Set of points of the transmission curve.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#TransmissionPoint">TransmissionPoint</a></td>
+        <td class="feature-detail">objectType</td>
+        <td class="feature-detail">This class is used to represent a point in the transmission function of a Filter.
+          
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#TransmissionPoint.spectralErrorValue">TransmissionPoint.spectralErrorValue</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">Error on the spectral coordinate value for the transmission point.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#TransmissionPoint.spectralValue">TransmissionPoint.spectralValue</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">Spectral coordinate value for the transmission point.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#TransmissionPoint.transmissionValue">TransmissionPoint.transmissionValue</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">Transmitted value for the filter at this point of the transmission curve. Usually between 0 and 1. 
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#TransmissionPoint.ucd">TransmissionPoint.ucd</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">Unified Content Description (UCD) string that specifies the nature of the spectral axis in the transmission curve.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#TransmissionPoint.unit">TransmissionPoint.unit</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">Unit string  that specifies the spectral units for this filter.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#TypeOfMagSystem">TypeOfMagSystem</a></td>
+        <td class="feature-detail">enumeration</td>
+        <td class="feature-detail">The type of System used to compute magnitude for this photometric calibration procedure .</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#TypeOfMagSystem.ABmag">TypeOfMagSystem.ABmag</a></td>
+        <td class="feature-detail">literal</td>
+        <td class="feature-detail">AB magnitude system.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#TypeOfMagSystem.STmag">TypeOfMagSystem.STmag</a></td>
+        <td class="feature-detail">literal</td>
+        <td class="feature-detail">ST magnitude system.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#TypeOfMagSystem.VEGAmag">TypeOfMagSystem.VEGAmag</a></td>
+        <td class="feature-detail">literal</td>
+        <td class="feature-detail">Magnitude system related to VEGA.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#UCD">UCD</a></td>
+        <td class="feature-detail">primitiveType</td>
+        <td class="feature-detail">Controlled vocabulary to tag measurements in table columns . See UCD IVOA Recommendation .
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#ZeroPoint">ZeroPoint</a></td>
+        <td class="feature-detail">objectType</td>
+        <td class="feature-detail">This class is used to characterize a zero point flux obtained during the calibration of a certain photometry filter on a certain
+          photometric system configuration.
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#ZeroPoint.flux">ZeroPoint.flux</a></td>
+        <td class="feature-detail">composition</td>
+        <td class="feature-detail">
+          TODO : Missing description : please, update your UML model asap.
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#ZeroPoint.referenceMagnitudeError">ZeroPoint.referenceMagnitudeError</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">Total error estimated on the reference magnitude value whenever applicable. 
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#ZeroPoint.referenceMagnitudeValue">ZeroPoint.referenceMagnitudeValue</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">Reference magnitude value  of the calibrating object as a  double number to get the maximum precision. 
+          Default value is zero, but sometimes the reference mag measured is slightly above.
+          
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#ZeroPoint.type">ZeroPoint.type</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">Type describing the way the zeropoint value is defined . Is an integer value : {0=Pogson, 1=Asinh, 2=Linear} corresponding
+          to zero point definitions.
+        </td>
+      </tr>
+    </table>
+    <hr>
+    <h1>4.<a name="modelimports">Imported Models</a></h1>
+    <p>This section lists the external models imported by the current data model.
+      For each imported model we list URLs to the VO-DML and HTML representations and the prefix used for vodml-ids from inside
+      the model.
+    </p>
+    <h2><a name="ivoa"></a>4.1 ivoa
+    </h2>
+    <table border="1" cellspacing="2" width="100%">
+      <tr>
+        <td class="objecttype-title" width="20%">Model vodml-id</td>
+        <td class="objecttype-name">ivoa</td>
+      </tr>
+      <tr>
+        <td width="30%" class="info-title">url</td>
+        <td><a href="http://www.ivoa.net/xml/VODML/IVOA-v1.vo-dml.xml">http://www.ivoa.net/xml/VODML/IVOA-v1.vo-dml.xml</a></td>
+      </tr>
+      <tr>
+        <td width="30%" class="info-title">documentation url</td>
+        <td><a href="https://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/models/ivoa/vo-dml/IVOA-v1.0.html">https://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/models/ivoa/vo-dml/IVOA-v1.0.html</a></td>
+      </tr>
+    </table>
+  </body>
+</html>

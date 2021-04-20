@@ -8,3 +8,4 @@ Mireille Louys - Jan -April 2021
     Borrow most content from REcommendation Phot DM1.0 when possible
 - Translation using the BuildModel script from Laurent Michel. 
    PhotDMv1-1.xmi ----> description in html, PhotDMv1-1-VODML.xml, etc. 
+

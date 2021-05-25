@@ -1,2 +1,4 @@
-# ObsLocTAP
-Discovery metadata about planned observations for a given Astronomical Observatory through a uniform interface within the VO framework
+#PhotDM update for VODML support 
+- new class diagram in modelio 3.8
+- slight text updates 
+

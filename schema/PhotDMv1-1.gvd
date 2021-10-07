@@ -1,0 +1,134 @@
+
+digraph GVmap {  
+	label = "\n\nPhot data model"
+	rankdir=TB
+	
+	node [ 
+	  shape=tab
+	  style=filled
+	]
+	subgraph cluster_packages {
+	  label="Model"
+	  rankdir=TB
+      style=filled
+      fillcolor="/set312/1"
+	  
+	}
+	
+	node [
+	shape=record
+	fontsize=8
+	style=filled] 
+    
+  "ivoa:string" [
+    URL="https://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/models/ivoa/vo-dml/IVOA-v1.0.html#string"
+    label = "{ivoa:string}"
+    fillcolor="grey"
+    ] ;
+      
+    "Phot:UCD"[
+    URL="#UCD"
+    label = "{&lt;&lt;primitive type&gt;&gt;\nUCD}"
+    fillcolor="/set312/1"
+    ] ;
+  "Phot:TypeOfMagSystem" [
+    URL="#TypeOfMagSystem"
+    label = "{&lt;&lt;enumeration&gt;&gt;\nTypeOfMagSystem|+VEGAmag\l+ABmag\l+STmag\l}"
+    fillcolor="/set312/1"
+    ] ;
+  "Phot:PhotometricSystem" [
+    URL="#PhotometricSystem"
+    label = "{PhotometricSystem|+description : ivoa:string\l+detectorType : ivoa:integer\l}"
+    fillcolor="/set312/1"
+    ] ;
+  "Phot:PhotometryFilter" [
+    URL="#PhotometryFilter"
+    label = "{PhotometryFilter|+fpsidentifier : ivoa:string\l+identifier : ivoa:string\l+name : ivoa:string\l+description : ivoa:string\l+bandname : ivoa:string\l+dateValidityFrom : ivoa:datetime\l+dateValidityTo : ivoa:datetime\l}"
+    fillcolor="/set312/1"
+    ] ;
+  "Phot:PhotCal" [
+    URL="#PhotCal"
+    label = "{PhotCal|+identifier : ivoa:string\l}"
+    fillcolor="/set312/1"
+    ] ;
+  "Phot:ZeroPoint" [
+    URL="#ZeroPoint"
+    label = "{ZeroPoint|+type : ivoa:integer\l+referenceMagnitudeValue : ivoa:real\l+referenceMagnitudeError : ivoa:real\l}"
+    fillcolor="/set312/1"
+    ] ;
+  "Phot:PogsonZeropoint" [
+    URL="#PogsonZeropoint"
+    label = "{PogsonZeropoint}"
+    fillcolor="/set312/1"
+    ] ;
+  "Phot:AsinhZeropoint" [
+    URL="#AsinhZeropoint"
+    label = "{AsinhZeropoint|+softeningParameter : ivoa:real\l}"
+    fillcolor="/set312/1"
+    ] ;
+  "Phot:LinearFluxZeropoint" [
+    URL="#LinearFluxZeropoint"
+    label = "{LinearFluxZeropoint}"
+    fillcolor="/set312/1"
+    ] ;
+  "Phot:MagnitudeSystem" [
+    URL="#MagnitudeSystem"
+    label = "{MagnitudeSystem|+type : Phot:TypeOfMagSystem\l+referenceSpectrum : ivoa:anyURI\l}"
+    fillcolor="/set312/1"
+    ] ;
+  "Phot:Bandwidth" [
+    URL="#Bandwidth"
+    label = "{Bandwidth|+ucd : Phot:UCD\l+unitexpression : ivoa:Unit\l+extent : ivoa:real\l+start : ivoa:real\l+stop : ivoa:real\l}"
+    fillcolor="/set312/1"
+    ] ;
+  "Phot:TransmissionPoint" [
+    URL="#TransmissionPoint"
+    label = "{TransmissionPoint|+ucd : Phot:UCD\l+unit : ivoa:Unit\l+transmissionValue : ivoa:real\l+spectralValue : ivoa:real\l+spectralErrorValue : ivoa:real\l}"
+    fillcolor="/set312/1"
+    ] ;
+  "Phot:Access" [
+    URL="#Access"
+    label = "{Access|+reference : ivoa:anyURI\l+size : ivoa:integer\l+format : ivoa:string\l}"
+    fillcolor="/set312/1"
+    ] ;
+  "Phot:TransmissionCurve" [
+    URL="#TransmissionCurve"
+    label = "{TransmissionCurve}"
+    fillcolor="/set312/1"
+    ] ;
+  "Phot:SpectralLocation" [
+    URL="#SpectralLocation"
+    label = "{SpectralLocation|+ucd : Phot:UCD\l+unitexpression : ivoa:Unit\l+value : ivoa:real\l}"
+    fillcolor="/set312/1"
+    ] ;
+  "Phot:Flux" [
+    URL="#Flux"
+    label = "{Flux|+ucd : Phot:UCD\l+unitexpression : ivoa:Unit\l+value : ivoa:real\l+error : ivoa:real\l}"
+    fillcolor="/set312/1"
+    ] ;
+  
+ 
+    edge [color="red", arrowtail="none", arrowhead="empty"]
+    "Phot:UCD" -> "ivoa:string" ;
+  "Phot:PogsonZeropoint" -> "Phot:ZeroPoint" ;
+  "Phot:AsinhZeropoint" -> "Phot:ZeroPoint" ;
+  "Phot:LinearFluxZeropoint" -> "Phot:ZeroPoint" ;
+  
+ 
+    edge [color="blue", arrowhead="open", arrowtail="diamond",dir="both",fontsize="10"]
+    "Phot:PhotometricSystem" -> "Phot:PhotometryFilter" [headlabel="1..*",label="photometryFilter",labelfontsize=10] ;
+  "Phot:PhotometryFilter" -> "Phot:Bandwidth" [headlabel="1",label="bandwidth",labelfontsize=10] ;
+  "Phot:PhotometryFilter" -> "Phot:TransmissionCurve" [headlabel="0..1",label="transmissionCurve",labelfontsize=10] ;
+  "Phot:PhotometryFilter" -> "Phot:SpectralLocation" [headlabel="1",label="spectralLocation",labelfontsize=10] ;
+  "Phot:PhotCal" -> "Phot:ZeroPoint" [headlabel="1",label="zeroPoint",labelfontsize=10] ;
+  "Phot:PhotCal" -> "Phot:MagnitudeSystem" [headlabel="1",label="magnitudeSystem",labelfontsize=10] ;
+  "Phot:ZeroPoint" -> "Phot:Flux" [headlabel="0..1",label="flux",labelfontsize=10] ;
+  "Phot:TransmissionCurve" -> "Phot:TransmissionPoint" [headlabel="1..*",label="transmissionPoint",labelfontsize=10] ;
+  "Phot:TransmissionCurve" -> "Phot:Access" [headlabel="0..1",label="access",labelfontsize=10] ;
+  
+ 
+    edge [color="green", arrowhead="open", arrowtail="none"]
+    "Phot:PhotCal" -> "Phot:PhotometryFilter" [headlabel="0..1",label="photometryFilter",labelfontsize=10] ;
+    
+}
+  

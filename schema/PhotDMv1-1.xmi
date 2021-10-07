@@ -1,0 +1,534 @@
+<?xml version="1.0" encoding="UTF-8"?><xmi:XMI xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:IVOA_UML_Profile="http:///schemas/IVOA_UML_Profile/_a0-SQJuoEeuPC8Zybn6WEw/0" xmlns:default="http:///schemas/default/_a1HcMJuoEeuPC8Zybn6WEw/0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.omg.org/spec/UML/20110701" xmi:version="2.1" xsi:schemaLocation="http://www.eclipse.org/uml2/3.0.0/UML http://schema.omg.org/spec/UML/20110701 http:///schemas/IVOA_UML_Profile/_a0-SQJuoEeuPC8Zybn6WEw/0 IVOA_UML_Profile.profile.xmi#_a1Kfh5uoEeuPC8Zybn6WEw http:///schemas/default/_a1HcMJuoEeuPC8Zybn6WEw/0 default.profile.xmi#_a5Umx5uoEeuPC8Zybn6WEw">
+  <uml:Model xmi:id="_a01vYJuoEeuPC8Zybn6WEw" name="Phot">
+    <eAnnotations xmi:id="_a01vYZuoEeuPC8Zybn6WEw" source="Objing">
+      <contents xmi:type="uml:Property" xmi:id="_a01vYpuoEeuPC8Zybn6WEw" name="exporterVersion">
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_a01vY5uoEeuPC8Zybn6WEw" value="3.0.0"/>
+      </contents>
+    </eAnnotations>
+    <ownedComment xmi:type="uml:Comment" xmi:id="_a01vZJuoEeuPC8Zybn6WEw">
+      <body>Data model describing  data sets Photometric properties and used for data calibration, comparison or reprocessing. 
+</body>
+    </ownedComment>
+    <ownedRule xmi:type="uml:Constraint" xmi:id="_a01vZZuoEeuPC8Zybn6WEw" constrainedElement="_a01vj5uoEeuPC8Zybn6WEw">
+      <specification xmi:type="uml:LiteralString" xmi:id="_a01vZpuoEeuPC8Zybn6WEw" value="One association at the time&#10;"/>
+    </ownedRule>
+    <ownedRule xmi:type="uml:Constraint" xmi:id="_a01vZ5uoEeuPC8Zybn6WEw" constrainedElement="_a01vmpuoEeuPC8Zybn6WEw">
+      <specification xmi:type="uml:LiteralString" xmi:id="_a01vaJuoEeuPC8Zybn6WEw" value="One association at the time&#10;"/>
+    </ownedRule>
+    <ownedRule xmi:type="uml:Constraint" xmi:id="_a01vaZuoEeuPC8Zybn6WEw" constrainedElement="_a01vuJuoEeuPC8Zybn6WEw">
+      <specification xmi:type="uml:LiteralString" xmi:id="_a01vapuoEeuPC8Zybn6WEw" value="One association at the time&#10;"/>
+    </ownedRule>
+    <ownedRule xmi:type="uml:Constraint" xmi:id="_a01va5uoEeuPC8Zybn6WEw" constrainedElement="_a01vypuoEeuPC8Zybn6WEw">
+      <specification xmi:type="uml:LiteralString" xmi:id="_a01vbJuoEeuPC8Zybn6WEw" value="One association at the time&#10;"/>
+    </ownedRule>
+    <ownedRule xmi:type="uml:Constraint" xmi:id="_a01vbZuoEeuPC8Zybn6WEw" constrainedElement="_a01v7puoEeuPC8Zybn6WEw">
+      <specification xmi:type="uml:LiteralString" xmi:id="_a01vbpuoEeuPC8Zybn6WEw" value="One association at the time&#10;"/>
+    </ownedRule>
+    <ownedRule xmi:type="uml:Constraint" xmi:id="_a01vb5uoEeuPC8Zybn6WEw" name="ivoa:string" constrainedElement="_a01v-5uoEeuPC8Zybn6WEw">
+      <specification xmi:type="uml:LiteralString" xmi:id="_a01vcJuoEeuPC8Zybn6WEw" value="UCD is an ivoa:string  , with definition in IVOA UCD standard."/>
+    </ownedRule>
+    <ownedRule xmi:type="uml:Constraint" xmi:id="_a01vcZuoEeuPC8Zybn6WEw" constrainedElement="_a01v_puoEeuPC8Zybn6WEw">
+      <specification xmi:type="uml:LiteralString" xmi:id="_a01vcpuoEeuPC8Zybn6WEw" value="One association at the time&#10;"/>
+    </ownedRule>
+    <ownedRule xmi:type="uml:Constraint" xmi:id="_a01vc5uoEeuPC8Zybn6WEw" constrainedElement="_a01wJ5uoEeuPC8Zybn6WEw">
+      <specification xmi:type="uml:LiteralString" xmi:id="_a01vdJuoEeuPC8Zybn6WEw" value="One association at the time&#10;"/>
+    </ownedRule>
+    <ownedRule xmi:type="uml:Constraint" xmi:id="_a01vdZuoEeuPC8Zybn6WEw" constrainedElement="_a01wL5uoEeuPC8Zybn6WEw">
+      <specification xmi:type="uml:LiteralString" xmi:id="_a01vdpuoEeuPC8Zybn6WEw" value="One association at the time&#10;"/>
+    </ownedRule>
+    <packagedElement xmi:type="uml:Package" xmi:id="_a01vd5uoEeuPC8Zybn6WEw" name="ivoa">
+      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_a01veJuoEeuPC8Zybn6WEw" name="real"/>
+      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_a01veZuoEeuPC8Zybn6WEw" name="datetime"/>
+      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_a01vepuoEeuPC8Zybn6WEw" name="anyURI">
+        <generalization xmi:type="uml:Generalization" xmi:id="_a01ve5uoEeuPC8Zybn6WEw" general="_a01vfJuoEeuPC8Zybn6WEw"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_a01vfJuoEeuPC8Zybn6WEw" name="string"/>
+      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_a01vfZuoEeuPC8Zybn6WEw" name="nonnegativeInteger"/>
+      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_a01vfpuoEeuPC8Zybn6WEw" name="boolean"/>
+      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_a01vf5uoEeuPC8Zybn6WEw" name="integer"/>
+      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_a01vgJuoEeuPC8Zybn6WEw" name="rational"/>
+      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_a01vgZuoEeuPC8Zybn6WEw" name="complex"/>
+      <packagedElement xmi:type="uml:InformationItem" xmi:id="_a01vgpuoEeuPC8Zybn6WEw" name="IVOA Base Types V1.0 (2016)"/>
+      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_a01vg5uoEeuPC8Zybn6WEw" name="Unit">
+        <generalization xmi:type="uml:Generalization" xmi:id="_a01vhJuoEeuPC8Zybn6WEw" general="_a01vfJuoEeuPC8Zybn6WEw"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_a01vhZuoEeuPC8Zybn6WEw" name="Quantity" isAbstract="true">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_a01vhpuoEeuPC8Zybn6WEw" name="unit" visibility="public" type="_a01vg5uoEeuPC8Zybn6WEw" isUnique="false">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_a01vh5uoEeuPC8Zybn6WEw"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_a01viJuoEeuPC8Zybn6WEw" name="IntegerQuantity">
+        <generalization xmi:type="uml:Generalization" xmi:id="_a01viZuoEeuPC8Zybn6WEw" general="_a01vhZuoEeuPC8Zybn6WEw"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_a01vipuoEeuPC8Zybn6WEw" name="value" visibility="public" type="_a01vf5uoEeuPC8Zybn6WEw" isUnique="false"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_a01vi5uoEeuPC8Zybn6WEw" name="RealQuantity">
+        <generalization xmi:type="uml:Generalization" xmi:id="_a01vjJuoEeuPC8Zybn6WEw" general="_a01vhZuoEeuPC8Zybn6WEw"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_a01vjZuoEeuPC8Zybn6WEw" name="value" visibility="public" type="_a01veJuoEeuPC8Zybn6WEw" isUnique="false"/>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:InformationItem" xmi:id="_a01vjpuoEeuPC8Zybn6WEw" name="Template Model V1.0 (2018)"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_a01vj5uoEeuPC8Zybn6WEw" name="PhotometricSystem">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_a01vkJuoEeuPC8Zybn6WEw">
+        <body>The reference photometric system used to interpret photometic measurements.</body>
+      </ownedComment>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_a01vkZuoEeuPC8Zybn6WEw" name="photometryFilter" visibility="public" type="_a01vmpuoEeuPC8Zybn6WEw" aggregation="composite" association="_a01vmJuoEeuPC8Zybn6WEw">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_a01vkpuoEeuPC8Zybn6WEw">
+          <body>The Photometric information is related to a Photometric system, and gathers filter descriptions, for one or several . 
+</body>
+        </ownedComment>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_a01vk5uoEeuPC8Zybn6WEw" value="*"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_a01vlJuoEeuPC8Zybn6WEw" name="description" visibility="public" type="_a01vfJuoEeuPC8Zybn6WEw" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_a01vlZuoEeuPC8Zybn6WEw">
+          <body>This string contains a human readable short-text representation of the photometric system. This will allow client applications to display textual information to final users.</body>
+        </ownedComment>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_a01vlpuoEeuPC8Zybn6WEw" name="detectorType" visibility="public" type="_a01vf5uoEeuPC8Zybn6WEw" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_a01vl5uoEeuPC8Zybn6WEw">
+          <body>Detector type associated to this photometric system. Possible values are: 0 for Energy counter ( amplifiers ), 1 for Photon counter ( CCDs, Photomultipliers).</body>
+        </ownedComment>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_a01vmJuoEeuPC8Zybn6WEw" name="contains" memberEnd="_a01vkZuoEeuPC8Zybn6WEw _a01vmZuoEeuPC8Zybn6WEw">
+      <ownedEnd xmi:type="uml:Property" xmi:id="_a01vmZuoEeuPC8Zybn6WEw" visibility="public" type="_a01vj5uoEeuPC8Zybn6WEw" association="_a01vmJuoEeuPC8Zybn6WEw"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_a01vmpuoEeuPC8Zybn6WEw" name="PhotometryFilter">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_a01vm5uoEeuPC8Zybn6WEw">
+        <body>The reference photometric system used to interpret photometic measurements.</body>
+      </ownedComment>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_a01vnJuoEeuPC8Zybn6WEw" name="bandwidth" visibility="public" type="_a01v7puoEeuPC8Zybn6WEw" aggregation="composite" association="_a01vsJuoEeuPC8Zybn6WEw">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_a01vnZuoEeuPC8Zybn6WEw">
+          <body>Relation to the spectral coverage of the Filter.
+</body>
+        </ownedComment>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_a01vnpuoEeuPC8Zybn6WEw" name="transmissionCurve" visibility="public" type="_a01wE5uoEeuPC8Zybn6WEw" aggregation="composite" association="_a01vs5uoEeuPC8Zybn6WEw">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_a01vn5uoEeuPC8Zybn6WEw">
+          <body>Link to the Transmission Curve of the Filter, when this is described.</body>
+        </ownedComment>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_a01voJuoEeuPC8Zybn6WEw"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_a01voZuoEeuPC8Zybn6WEw" name="spectralLocation" visibility="public" type="_a01wJ5uoEeuPC8Zybn6WEw" aggregation="composite" association="_a01vtZuoEeuPC8Zybn6WEw"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_a01vopuoEeuPC8Zybn6WEw" name="fpsidentifier" visibility="public" type="_a01vfJuoEeuPC8Zybn6WEw" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_a01vo5uoEeuPC8Zybn6WEw">
+          <body>IVOA identifier of the filter profile service where this photometry filter is registered to be used in the discovery of all the relevant photometry filter properties.</body>
+        </ownedComment>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_a01vpJuoEeuPC8Zybn6WEw" name="identifier" visibility="public" type="_a01vfJuoEeuPC8Zybn6WEw" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_a01vpZuoEeuPC8Zybn6WEw">
+          <body>This field identifies, in a unique way, within a certain Photometry Filter Profile service, a filter.
+example : Facility/Subcategory/Band[/Suffix] like SDSS/SDSS.G/G</body>
+        </ownedComment>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_a01vppuoEeuPC8Zybn6WEw" name="name" visibility="public" type="_a01vfJuoEeuPC8Zybn6WEw" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_a01vp5uoEeuPC8Zybn6WEw">
+          <body>A human readable string to represent the filter name.</body>
+        </ownedComment>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_a01vqJuoEeuPC8Zybn6WEw" name="description" visibility="public" type="_a01vfJuoEeuPC8Zybn6WEw" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_a01vqZuoEeuPC8Zybn6WEw">
+          <body>This string contains a verbose human readable label for the filter. This will allow client applications to display textual information to final users.</body>
+        </ownedComment>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_a01vqpuoEeuPC8Zybn6WEw" name="bandname" visibility="public" type="_a01vfJuoEeuPC8Zybn6WEw" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_a01vq5uoEeuPC8Zybn6WEw">
+          <body>A standard label representing of the spectral band associated to this filter (if any).</body>
+        </ownedComment>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_a01vrJuoEeuPC8Zybn6WEw" name="dateValidityFrom" visibility="public" type="_a01veZuoEeuPC8Zybn6WEw" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_a01vrZuoEeuPC8Zybn6WEw">
+          <body>Start time of the time coverage when this filter configuration is applicable. String time format accepted is ISO8601.</body>
+        </ownedComment>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_a01vrpuoEeuPC8Zybn6WEw" name="dateValidityTo" visibility="public" type="_a01veZuoEeuPC8Zybn6WEw" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_a01vr5uoEeuPC8Zybn6WEw">
+          <body>End time of the time coverage when this filter configuration is applicable. String time format accepted is ISO8601.</body>
+        </ownedComment>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_a01vsJuoEeuPC8Zybn6WEw" memberEnd="_a01vnJuoEeuPC8Zybn6WEw _a01vsZuoEeuPC8Zybn6WEw">
+      <ownedEnd xmi:type="uml:Property" xmi:id="_a01vsZuoEeuPC8Zybn6WEw" visibility="public" type="_a01vmpuoEeuPC8Zybn6WEw" association="_a01vsJuoEeuPC8Zybn6WEw">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_a01vspuoEeuPC8Zybn6WEw"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_a01vs5uoEeuPC8Zybn6WEw" memberEnd="_a01vnpuoEeuPC8Zybn6WEw _a01vtJuoEeuPC8Zybn6WEw">
+      <ownedEnd xmi:type="uml:Property" xmi:id="_a01vtJuoEeuPC8Zybn6WEw" visibility="public" type="_a01vmpuoEeuPC8Zybn6WEw" association="_a01vs5uoEeuPC8Zybn6WEw"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_a01vtZuoEeuPC8Zybn6WEw" memberEnd="_a01voZuoEeuPC8Zybn6WEw _a01vtpuoEeuPC8Zybn6WEw">
+      <ownedEnd xmi:type="uml:Property" xmi:id="_a01vtpuoEeuPC8Zybn6WEw" visibility="public" type="_a01vmpuoEeuPC8Zybn6WEw" association="_a01vtZuoEeuPC8Zybn6WEw">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_a01vt5uoEeuPC8Zybn6WEw"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_a01vuJuoEeuPC8Zybn6WEw" name="PhotCal">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_a01vuZuoEeuPC8Zybn6WEw">
+        <body>A class to bind together all  photometic calibration reference information: a photometry filter, a certain magnitude system configuration and a certain zero point object.</body>
+      </ownedComment>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_a01vupuoEeuPC8Zybn6WEw" name="photometryFilter" visibility="public" type="_a01vmpuoEeuPC8Zybn6WEw" association="_a01vw5uoEeuPC8Zybn6WEw">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_a01vu5uoEeuPC8Zybn6WEw">
+          <body>Each Photcal element is related to one single Filter .</body>
+        </ownedComment>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_a01vvJuoEeuPC8Zybn6WEw"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_a01vvZuoEeuPC8Zybn6WEw" name="zeroPoint" visibility="public" type="_a01vypuoEeuPC8Zybn6WEw" aggregation="composite" association="_a01vxpuoEeuPC8Zybn6WEw">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_a01vvpuoEeuPC8Zybn6WEw">
+          <body>The ZeroPoint values for the flux to mag translation belongs to a Photcal element and is defined for one Filter element and one MagnitudeSystem .</body>
+        </ownedComment>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_a01vv5uoEeuPC8Zybn6WEw" name="magnitudeSystem" visibility="public" type="_a01v6JuoEeuPC8Zybn6WEw" aggregation="composite" association="_a01vyJuoEeuPC8Zybn6WEw">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_a01vwJuoEeuPC8Zybn6WEw">
+          <body>Each ZeroPoint values are given with one computation method corresponding to a defined Magnitude system.
+</body>
+        </ownedComment>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_a01vwZuoEeuPC8Zybn6WEw" name="identifier" visibility="public" type="_a01vfJuoEeuPC8Zybn6WEw" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_a01vwpuoEeuPC8Zybn6WEw">
+          <body>A unique identifier of the Photometry calibration intance within the project  and a filterprofile service . Suggested syntax would be:
+Facility/Subcategory/Band/Photometric System Type[/Suffix]</body>
+        </ownedComment>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_a01vw5uoEeuPC8Zybn6WEw" memberEnd="_a01vupuoEeuPC8Zybn6WEw _a01vxJuoEeuPC8Zybn6WEw">
+      <ownedEnd xmi:type="uml:Property" xmi:id="_a01vxJuoEeuPC8Zybn6WEw" visibility="public" type="_a01vuJuoEeuPC8Zybn6WEw" association="_a01vw5uoEeuPC8Zybn6WEw">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_a01vxZuoEeuPC8Zybn6WEw"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_a01vxpuoEeuPC8Zybn6WEw" memberEnd="_a01vvZuoEeuPC8Zybn6WEw _a01vx5uoEeuPC8Zybn6WEw">
+      <ownedEnd xmi:type="uml:Property" xmi:id="_a01vx5uoEeuPC8Zybn6WEw" visibility="public" type="_a01vuJuoEeuPC8Zybn6WEw" association="_a01vxpuoEeuPC8Zybn6WEw"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_a01vyJuoEeuPC8Zybn6WEw" memberEnd="_a01vv5uoEeuPC8Zybn6WEw _a01vyZuoEeuPC8Zybn6WEw">
+      <ownedEnd xmi:type="uml:Property" xmi:id="_a01vyZuoEeuPC8Zybn6WEw" visibility="public" type="_a01vuJuoEeuPC8Zybn6WEw" association="_a01vyJuoEeuPC8Zybn6WEw"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_a01vypuoEeuPC8Zybn6WEw" name="ZeroPoint">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_a01vy5uoEeuPC8Zybn6WEw">
+        <body>This class is used to characterize a zero point flux obtained during the calibration of a certain photometry filter on a certain photometric system configuration.</body>
+      </ownedComment>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_a01vzJuoEeuPC8Zybn6WEw" name="flux" visibility="public" type="_a01wL5uoEeuPC8Zybn6WEw" aggregation="composite" association="_a01v2JuoEeuPC8Zybn6WEw">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_a01vzZuoEeuPC8Zybn6WEw"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_a01vzpuoEeuPC8Zybn6WEw" name="type" visibility="public" type="_a01vf5uoEeuPC8Zybn6WEw" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_a01vz5uoEeuPC8Zybn6WEw">
+          <body>Type describing the way the zeropoint value is defined . Is an integer value : {0=Pogson, 1=Asinh, 2=Linear} corresponding to zero point definitions.</body>
+        </ownedComment>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_a01v0JuoEeuPC8Zybn6WEw" name="referenceMagnitudeValue" visibility="public" type="_a01veJuoEeuPC8Zybn6WEw" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_a01v0ZuoEeuPC8Zybn6WEw">
+          <body>Reference magnitude value  of the calibrating object as a  double number to get the maximum precision. 
+Default value is zero, but sometimes the reference mag measured is slightly above.
+
+</body>
+        </ownedComment>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_a01v0puoEeuPC8Zybn6WEw" name="referenceMagnitudeError" visibility="public" type="_a01veJuoEeuPC8Zybn6WEw" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_a01v05uoEeuPC8Zybn6WEw">
+          <body>Total error estimated on the reference magnitude value whenever applicable. 
+</body>
+        </ownedComment>
+      </ownedAttribute>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_a01v1JuoEeuPC8Zybn6WEw" name="getFluxFromMagnitude" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_a01v1ZuoEeuPC8Zybn6WEw">
+          <body>Operator to convert from a flux to a magnitude.
+</body>
+        </ownedComment>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_a01v1puoEeuPC8Zybn6WEw" name="getMagnitudeFromFlux" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_a01v15uoEeuPC8Zybn6WEw">
+          <body>&lt;Enter note text here&gt;</body>
+        </ownedComment>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_a01v2JuoEeuPC8Zybn6WEw" memberEnd="_a01vzJuoEeuPC8Zybn6WEw _a01v2ZuoEeuPC8Zybn6WEw">
+      <ownedEnd xmi:type="uml:Property" xmi:id="_a01v2ZuoEeuPC8Zybn6WEw" visibility="public" type="_a01vypuoEeuPC8Zybn6WEw" association="_a01v2JuoEeuPC8Zybn6WEw"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_a01v2puoEeuPC8Zybn6WEw" name="PogsonZeropoint">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_a01v25uoEeuPC8Zybn6WEw">
+        <body>Extension of ZeroPoint to accommodate standard logarithm magnitudes. It has no supplementary attributes but specific conversion functions.
+</body>
+      </ownedComment>
+      <generalization xmi:type="uml:Generalization" xmi:id="_a01v3JuoEeuPC8Zybn6WEw" general="_a01vypuoEeuPC8Zybn6WEw">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_a01v3ZuoEeuPC8Zybn6WEw">
+          <body>Generalisation to mother class ZeroPoint.</body>
+        </ownedComment>
+      </generalization>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_a01v3puoEeuPC8Zybn6WEw" name="AsinhZeropoint">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_a01v35uoEeuPC8Zybn6WEw">
+        <body>Extension of ZeroPoint to describe asinh magnitudes, a.k.a. luptitudes.</body>
+      </ownedComment>
+      <generalization xmi:type="uml:Generalization" xmi:id="_a01v4JuoEeuPC8Zybn6WEw" general="_a01vypuoEeuPC8Zybn6WEw">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_a01v4ZuoEeuPC8Zybn6WEw">
+          <body>Generalisation to mother class ZeroPoint .</body>
+        </ownedComment>
+      </generalization>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_a01v4puoEeuPC8Zybn6WEw" name="softeningParameter" visibility="public" type="_a01veJuoEeuPC8Zybn6WEw" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_a01v45uoEeuPC8Zybn6WEw">
+          <body>Parameter used to correct the calculation of magnitudes for faint sources. Usually called 'b'. See (Lupton and Gunn et al. [1999]) for a formal explanation.</body>
+        </ownedComment>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_a01v5JuoEeuPC8Zybn6WEw" name="LinearFluxZeropoint">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_a01v5ZuoEeuPC8Zybn6WEw">
+        <body>Extension of ZeroPoint to describe simple linear flux photometry, commonly used in Radio, Far Infrared and X-ray spectral ranges. Although not being magnitudes as such, relative linear flux measurements can be included as a special and trivial case of magnitude.
+</body>
+      </ownedComment>
+      <generalization xmi:type="uml:Generalization" xmi:id="_a01v5puoEeuPC8Zybn6WEw" general="_a01vypuoEeuPC8Zybn6WEw">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_a01v55uoEeuPC8Zybn6WEw">
+          <body>Generalisation to mother class ZeroPoint .</body>
+        </ownedComment>
+      </generalization>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_a01v6JuoEeuPC8Zybn6WEw" name="MagnitudeSystem">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_a01v6ZuoEeuPC8Zybn6WEw">
+        <body>A class to describe the Magnitude system, the reference spectrum attached and the type .</body>
+      </ownedComment>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_a01v6puoEeuPC8Zybn6WEw" name="type" visibility="public" type="_a01wH5uoEeuPC8Zybn6WEw" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_a01v65uoEeuPC8Zybn6WEw">
+          <body>Type of magnitude system used to compute the the associated zeropoint . Typical values are : VEGAmag, ABmag, STmag .
+</body>
+        </ownedComment>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_a01v7JuoEeuPC8Zybn6WEw" name="referenceSpectrum" visibility="public" type="_a01vepuoEeuPC8Zybn6WEw" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_a01v7ZuoEeuPC8Zybn6WEw">
+          <body>Link to the reference spectrum as a URI.</body>
+        </ownedComment>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_a01v7puoEeuPC8Zybn6WEw" name="Bandwidth">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_a01v75uoEeuPC8Zybn6WEw">
+        <body>This class is used to characterize the spectral properties of a filter. 
+</body>
+      </ownedComment>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_a01v8JuoEeuPC8Zybn6WEw" name="ucd" visibility="public" type="_a01v-5uoEeuPC8Zybn6WEw" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_a01v8ZuoEeuPC8Zybn6WEw">
+          <body>Unified Content Description (UCD) string that specifies the nature of the bandwidth object.</body>
+        </ownedComment>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_a01v8puoEeuPC8Zybn6WEw" name="unitexpression" visibility="public" type="_a01vg5uoEeuPC8Zybn6WEw" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_a01v85uoEeuPC8Zybn6WEw">
+          <body>Unit string  that specifies the spectral units for this filter.</body>
+        </ownedComment>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_a01v9JuoEeuPC8Zybn6WEw" name="extent" visibility="public" type="_a01veJuoEeuPC8Zybn6WEw" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_a01v9ZuoEeuPC8Zybn6WEw">
+          <body>Bandwidth’s extent of the filter , as length of the covered spectral interval , or effective width following appropriate filter type.
+</body>
+        </ownedComment>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_a01v9puoEeuPC8Zybn6WEw"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_a01v95uoEeuPC8Zybn6WEw" name="start" visibility="public" type="_a01veJuoEeuPC8Zybn6WEw" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_a01v-JuoEeuPC8Zybn6WEw">
+          <body>In practice, this could be taken as the minimum value of the filter transmission curve.</body>
+        </ownedComment>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_a01v-ZuoEeuPC8Zybn6WEw" name="stop" visibility="public" type="_a01veJuoEeuPC8Zybn6WEw" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_a01v-puoEeuPC8Zybn6WEw">
+          <body>In practice, this could be taken as the maximum value of the filter transmission curve.</body>
+        </ownedComment>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_a01v-5uoEeuPC8Zybn6WEw" name="UCD">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_a01v_JuoEeuPC8Zybn6WEw">
+        <body>Controlled vocabulary to tag measurements in table columns . See UCD IVOA Recommendation .
+</body>
+      </ownedComment>
+      <generalization xmi:type="uml:Generalization" xmi:id="_a01v_ZuoEeuPC8Zybn6WEw" general="_a01vfJuoEeuPC8Zybn6WEw"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_a01v_puoEeuPC8Zybn6WEw" name="TransmissionPoint">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_a01v_5uoEeuPC8Zybn6WEw">
+        <body>This class is used to represent a point in the transmission function of a Filter.
+
+</body>
+      </ownedComment>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_a01wAJuoEeuPC8Zybn6WEw" name="ucd" visibility="public" type="_a01v-5uoEeuPC8Zybn6WEw" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_a01wAZuoEeuPC8Zybn6WEw">
+          <body>Unified Content Description (UCD) string that specifies the nature of the spectral axis in the transmission curve.</body>
+        </ownedComment>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_a01wApuoEeuPC8Zybn6WEw" name="unit" visibility="public" type="_a01vg5uoEeuPC8Zybn6WEw" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_a01wA5uoEeuPC8Zybn6WEw">
+          <body>Unit string  that specifies the spectral units for this filter.</body>
+        </ownedComment>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_a01wBJuoEeuPC8Zybn6WEw" name="transmissionValue" visibility="public" type="_a01veJuoEeuPC8Zybn6WEw" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_a01wBZuoEeuPC8Zybn6WEw">
+          <body>Transmitted value for the filter at this point of the transmission curve. Usually between 0 and 1. 
+</body>
+        </ownedComment>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_a01wBpuoEeuPC8Zybn6WEw" name="spectralValue" visibility="public" type="_a01veJuoEeuPC8Zybn6WEw" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_a01wB5uoEeuPC8Zybn6WEw">
+          <body>Spectral coordinate value for the transmission point.</body>
+        </ownedComment>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_a01wCJuoEeuPC8Zybn6WEw" name="spectralErrorValue" visibility="public" type="_a01veJuoEeuPC8Zybn6WEw" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_a01wCZuoEeuPC8Zybn6WEw">
+          <body>Error on the spectral coordinate value for the transmission point.</body>
+        </ownedComment>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_a01wCpuoEeuPC8Zybn6WEw"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_a01wC5uoEeuPC8Zybn6WEw" name="Access">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_a01wDJuoEeuPC8Zybn6WEw">
+        <body>Gathers all properties to access a resource : uri, format and size . 
+</body>
+      </ownedComment>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_a01wDZuoEeuPC8Zybn6WEw" name="reference" visibility="public" type="_a01vepuoEeuPC8Zybn6WEw" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_a01wDpuoEeuPC8Zybn6WEw">
+          <body>URI to access the resource.</body>
+        </ownedComment>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_a01wD5uoEeuPC8Zybn6WEw" name="size" visibility="public" type="_a01vf5uoEeuPC8Zybn6WEw" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_a01wEJuoEeuPC8Zybn6WEw">
+          <body>Approximate estimated size of the dataset, specified in kilobytes.</body>
+        </ownedComment>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_a01wEZuoEeuPC8Zybn6WEw" name="format" visibility="public" type="_a01vfJuoEeuPC8Zybn6WEw" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_a01wEpuoEeuPC8Zybn6WEw">
+          <body>Format of the accessed resource.  typically : application/fits, application/x-votable+xml, text/csv, text/xml.</body>
+        </ownedComment>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_a01wE5uoEeuPC8Zybn6WEw" name="TransmissionCurve">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_a01wFJuoEeuPC8Zybn6WEw">
+        <body>A collection of points along the spectral axis to indicate how flux are transmitted by a filter. 
+the transmission profile can be described by an external file and accessed through the Access instance, or can be stored as a collection of transmission points stored in the instance.</body>
+      </ownedComment>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_a01wFZuoEeuPC8Zybn6WEw" name="transmissionPoint" visibility="public" type="_a01v_puoEeuPC8Zybn6WEw" aggregation="composite" association="_a01wG5uoEeuPC8Zybn6WEw">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_a01wFpuoEeuPC8Zybn6WEw">
+          <body>Set of points of the transmission curve.</body>
+        </ownedComment>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_a01wF5uoEeuPC8Zybn6WEw" value="*"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_a01wGJuoEeuPC8Zybn6WEw" name="access" visibility="public" type="_a01wC5uoEeuPC8Zybn6WEw" aggregation="composite" association="_a01wHZuoEeuPC8Zybn6WEw">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_a01wGZuoEeuPC8Zybn6WEw">
+          <body>Access to an external file containing the set of Transmission Points.</body>
+        </ownedComment>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_a01wGpuoEeuPC8Zybn6WEw"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_a01wG5uoEeuPC8Zybn6WEw" memberEnd="_a01wFZuoEeuPC8Zybn6WEw _a01wHJuoEeuPC8Zybn6WEw">
+      <ownedEnd xmi:type="uml:Property" xmi:id="_a01wHJuoEeuPC8Zybn6WEw" visibility="public" type="_a01wE5uoEeuPC8Zybn6WEw" association="_a01wG5uoEeuPC8Zybn6WEw"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_a01wHZuoEeuPC8Zybn6WEw" memberEnd="_a01wGJuoEeuPC8Zybn6WEw _a01wHpuoEeuPC8Zybn6WEw">
+      <ownedEnd xmi:type="uml:Property" xmi:id="_a01wHpuoEeuPC8Zybn6WEw" visibility="public" type="_a01wE5uoEeuPC8Zybn6WEw" association="_a01wHZuoEeuPC8Zybn6WEw"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Enumeration" xmi:id="_a01wH5uoEeuPC8Zybn6WEw" name="TypeOfMagSystem">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_a01wIJuoEeuPC8Zybn6WEw">
+        <body>The type of System used to compute magnitude for this photometric calibration procedure .</body>
+      </ownedComment>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_a01wIZuoEeuPC8Zybn6WEw" name="VEGAmag">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_a01wIpuoEeuPC8Zybn6WEw">
+          <body>Magnitude system related to VEGA.</body>
+        </ownedComment>
+      </ownedLiteral>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_a01wI5uoEeuPC8Zybn6WEw" name="ABmag">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_a01wJJuoEeuPC8Zybn6WEw">
+          <body>AB magnitude system.</body>
+        </ownedComment>
+      </ownedLiteral>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_a01wJZuoEeuPC8Zybn6WEw" name="STmag">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_a01wJpuoEeuPC8Zybn6WEw">
+          <body>ST magnitude system.</body>
+        </ownedComment>
+      </ownedLiteral>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_a01wJ5uoEeuPC8Zybn6WEw" name="SpectralLocation">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_a01wKJuoEeuPC8Zybn6WEw">
+        <body>This class is used to characterize the spectral properties of a filter. 
+</body>
+      </ownedComment>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_a01wKZuoEeuPC8Zybn6WEw" name="ucd" visibility="public" type="_a01v-5uoEeuPC8Zybn6WEw" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_a01wKpuoEeuPC8Zybn6WEw">
+          <body>Unified Content Description (UCD) string that specifies the nature of the spectral location for this filter.</body>
+        </ownedComment>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_a01wK5uoEeuPC8Zybn6WEw" name="unitexpression" visibility="public" type="_a01vg5uoEeuPC8Zybn6WEw" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_a01wLJuoEeuPC8Zybn6WEw">
+          <body>Unit string  that specifies the spectral units for this filter.</body>
+        </ownedComment>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_a01wLZuoEeuPC8Zybn6WEw" name="value" visibility="public" type="_a01veJuoEeuPC8Zybn6WEw" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_a01wLpuoEeuPC8Zybn6WEw">
+          <body>A spectral coordinate value that can be considered by the data provider as the most representative for this specific filter bandpass. 
+as an example effective wavelength in optical.</body>
+        </ownedComment>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_a01wL5uoEeuPC8Zybn6WEw" name="Flux">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_a01wMJuoEeuPC8Zybn6WEw">
+        <body>This class is used to characterize the spectral properties of a filter. 
+</body>
+      </ownedComment>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_a01wMZuoEeuPC8Zybn6WEw" name="ucd" visibility="public" type="_a01v-5uoEeuPC8Zybn6WEw" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_a01wMpuoEeuPC8Zybn6WEw">
+          <body>Unified Content Description (UCD) string that specifies the nature of the spectral location for this filter.</body>
+        </ownedComment>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_a01wM5uoEeuPC8Zybn6WEw" name="unitexpression" visibility="public" type="_a01vg5uoEeuPC8Zybn6WEw" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_a01wNJuoEeuPC8Zybn6WEw">
+          <body>Unit string  that specifies the spectral units for this filter.</body>
+        </ownedComment>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_a01wNZuoEeuPC8Zybn6WEw" name="value" visibility="public" type="_a01veJuoEeuPC8Zybn6WEw" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_a01wNpuoEeuPC8Zybn6WEw">
+          <body>A spectral coordinate value that can be considered by the data provider as the most representative for this specific filter bandpass. 
+as an example effective wavelength in optical.</body>
+        </ownedComment>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_a01wN5uoEeuPC8Zybn6WEw" name="error" visibility="public" type="_a01veJuoEeuPC8Zybn6WEw" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_a01wOJuoEeuPC8Zybn6WEw">
+          <body>Flux value error corresponding to the reference magnitude value  of the calibrating object. </body>
+        </ownedComment>
+      </ownedAttribute>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:applyingPackage="_a01vYJuoEeuPC8Zybn6WEw" xmi:id="_a6dPMJuoEeuPC8Zybn6WEw">
+      <eAnnotations xmi:id="_a6frcJuoEeuPC8Zybn6WEw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="IVOA_UML_Profile.profile.xmi#_a1Kfh5uoEeuPC8Zybn6WEw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" xmi:applyingPackage="_a6dPMJuoEeuPC8Zybn6WEw" href="IVOA_UML_Profile.profile.xmi#_a1KfgJuoEeuPC8Zybn6WEw"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:applyingPackage="_a01vYJuoEeuPC8Zybn6WEw" xmi:id="_a6hgoJuoEeuPC8Zybn6WEw">
+      <eAnnotations xmi:id="_a6iHsJuoEeuPC8Zybn6WEw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="default.profile.xmi#_a5Umx5uoEeuPC8Zybn6WEw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" xmi:applyingPackage="_a6hgoJuoEeuPC8Zybn6WEw" href="default.profile.xmi#_a5UmwJuoEeuPC8Zybn6WEw"/>
+    </profileApplication>
+  </uml:Model>
+  <IVOA_UML_Profile:model xmi:id="_a6kj8JuoEeuPC8Zybn6WEw" base_Package="_a01vYJuoEeuPC8Zybn6WEw" title="PhotDM" version="1.1" authors="Jesús Salgado, Carlos Rodrigo, Pedro Osuna, Mark Allen, Mireille Louys, Jonathan McDowell, Deborah Baines, Jesús Maíz Apellániz,&#10;Evanthia Hatziminaoglou, Sebastien Derriere, Gerard Lemson" previousVersion="1.0"/>
+  <IVOA_UML_Profile:modelimport xmi:id="_a6lLAJuoEeuPC8Zybn6WEw" base_Package="_a01vd5uoEeuPC8Zybn6WEw" name="ivoa" version="1.0" url="http://www.ivoa.net/xml/VODML/IVOA-v1.vo-dml.xml" documentationURL="https://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/models/ivoa/vo-dml/IVOA-v1.0.html"/>
+  <IVOA_UML_Profile:primitive xmi:id="_a6lyEJuoEeuPC8Zybn6WEw" base_DataType="_a01veJuoEeuPC8Zybn6WEw" base_PrimitiveType="_a01veJuoEeuPC8Zybn6WEw"/>
+  <IVOA_UML_Profile:modelelement xmi:id="_a6lyEZuoEeuPC8Zybn6WEw" base_NamedElement="_a01veJuoEeuPC8Zybn6WEw" vodmlid="real"/>
+  <IVOA_UML_Profile:primitive xmi:id="_a6lyEpuoEeuPC8Zybn6WEw" base_DataType="_a01veZuoEeuPC8Zybn6WEw" base_PrimitiveType="_a01veZuoEeuPC8Zybn6WEw"/>
+  <IVOA_UML_Profile:modelelement xmi:id="_a6lyE5uoEeuPC8Zybn6WEw" base_NamedElement="_a01veZuoEeuPC8Zybn6WEw" vodmlid="datetime"/>
+  <IVOA_UML_Profile:primitive xmi:id="_a6lyFJuoEeuPC8Zybn6WEw" base_DataType="_a01vepuoEeuPC8Zybn6WEw" base_PrimitiveType="_a01vepuoEeuPC8Zybn6WEw"/>
+  <IVOA_UML_Profile:modelelement xmi:id="_a6mZIJuoEeuPC8Zybn6WEw" base_NamedElement="_a01vepuoEeuPC8Zybn6WEw" vodmlid="anyURI"/>
+  <IVOA_UML_Profile:primitive xmi:id="_a6mZIZuoEeuPC8Zybn6WEw" base_DataType="_a01vfJuoEeuPC8Zybn6WEw" base_PrimitiveType="_a01vfJuoEeuPC8Zybn6WEw"/>
+  <IVOA_UML_Profile:modelelement xmi:id="_a6mZIpuoEeuPC8Zybn6WEw" base_NamedElement="_a01vfJuoEeuPC8Zybn6WEw" vodmlid="string"/>
+  <IVOA_UML_Profile:primitive xmi:id="_a6mZI5uoEeuPC8Zybn6WEw" base_DataType="_a01vfZuoEeuPC8Zybn6WEw" base_PrimitiveType="_a01vfZuoEeuPC8Zybn6WEw"/>
+  <IVOA_UML_Profile:modelelement xmi:id="_a6mZJJuoEeuPC8Zybn6WEw" base_NamedElement="_a01vfZuoEeuPC8Zybn6WEw" vodmlid="nonnegativeInteger"/>
+  <IVOA_UML_Profile:primitive xmi:id="_a6mZJZuoEeuPC8Zybn6WEw" base_DataType="_a01vfpuoEeuPC8Zybn6WEw" base_PrimitiveType="_a01vfpuoEeuPC8Zybn6WEw"/>
+  <IVOA_UML_Profile:modelelement xmi:id="_a6nAMJuoEeuPC8Zybn6WEw" base_NamedElement="_a01vfpuoEeuPC8Zybn6WEw" vodmlid="boolean"/>
+  <IVOA_UML_Profile:primitive xmi:id="_a6nAMZuoEeuPC8Zybn6WEw" base_DataType="_a01vf5uoEeuPC8Zybn6WEw" base_PrimitiveType="_a01vf5uoEeuPC8Zybn6WEw"/>
+  <IVOA_UML_Profile:modelelement xmi:id="_a6nAMpuoEeuPC8Zybn6WEw" base_NamedElement="_a01vf5uoEeuPC8Zybn6WEw" vodmlid="integer"/>
+  <IVOA_UML_Profile:primitive xmi:id="_a6nAM5uoEeuPC8Zybn6WEw" base_DataType="_a01vgJuoEeuPC8Zybn6WEw" base_PrimitiveType="_a01vgJuoEeuPC8Zybn6WEw"/>
+  <IVOA_UML_Profile:modelelement xmi:id="_a6nANJuoEeuPC8Zybn6WEw" base_NamedElement="_a01vgJuoEeuPC8Zybn6WEw" vodmlid="rational"/>
+  <IVOA_UML_Profile:primitive xmi:id="_a6nANZuoEeuPC8Zybn6WEw" base_DataType="_a01vgZuoEeuPC8Zybn6WEw" base_PrimitiveType="_a01vgZuoEeuPC8Zybn6WEw"/>
+  <IVOA_UML_Profile:modelelement xmi:id="_a6nANpuoEeuPC8Zybn6WEw" base_NamedElement="_a01vgZuoEeuPC8Zybn6WEw" vodmlid="complex"/>
+  <IVOA_UML_Profile:primitive xmi:id="_a6nAN5uoEeuPC8Zybn6WEw" base_DataType="_a01vg5uoEeuPC8Zybn6WEw" base_PrimitiveType="_a01vg5uoEeuPC8Zybn6WEw"/>
+  <IVOA_UML_Profile:modelelement xmi:id="_a6nAOJuoEeuPC8Zybn6WEw" base_NamedElement="_a01vg5uoEeuPC8Zybn6WEw" vodmlid="quantity.Unit"/>
+  <IVOA_UML_Profile:modelelement xmi:id="_a6nnQJuoEeuPC8Zybn6WEw" base_NamedElement="_a01vhZuoEeuPC8Zybn6WEw" vodmlid="Quantity"/>
+  <IVOA_UML_Profile:modelelement xmi:id="_a6nnQZuoEeuPC8Zybn6WEw" base_NamedElement="_a01viJuoEeuPC8Zybn6WEw" vodmlid="IntegerQuantity"/>
+  <IVOA_UML_Profile:modelelement xmi:id="_a6nnQpuoEeuPC8Zybn6WEw" base_NamedElement="_a01vi5uoEeuPC8Zybn6WEw" vodmlid="RealQuantity"/>
+  <default:xor xmi:id="_a6nnQ5uoEeuPC8Zybn6WEw" base_Constraint="_a01vZZuoEeuPC8Zybn6WEw"/>
+  <default:xor xmi:id="_a6nnRJuoEeuPC8Zybn6WEw" base_Constraint="_a01vZ5uoEeuPC8Zybn6WEw"/>
+  <IVOA_UML_Profile:semanticconcept xmi:id="_a6nnRZuoEeuPC8Zybn6WEw" base_NamedElement="_a01vpJuoEeuPC8Zybn6WEw"/>
+  <IVOA_UML_Profile:semanticconcept xmi:id="_a6oOUJuoEeuPC8Zybn6WEw" base_NamedElement="_a01vppuoEeuPC8Zybn6WEw"/>
+  <IVOA_UML_Profile:semanticconcept xmi:id="_a6oOUZuoEeuPC8Zybn6WEw" base_NamedElement="_a01vqpuoEeuPC8Zybn6WEw"/>
+  <default:xor xmi:id="_a6oOUpuoEeuPC8Zybn6WEw" base_Constraint="_a01vaZuoEeuPC8Zybn6WEw"/>
+  <default:xor xmi:id="_a6oOU5uoEeuPC8Zybn6WEw" base_Constraint="_a01va5uoEeuPC8Zybn6WEw"/>
+  <default:xor xmi:id="_a6oOVJuoEeuPC8Zybn6WEw" base_Constraint="_a01vbZuoEeuPC8Zybn6WEw"/>
+  <IVOA_UML_Profile:modelelement xmi:id="_a6oOVZuoEeuPC8Zybn6WEw" base_NamedElement="_a01v-5uoEeuPC8Zybn6WEw" vodmlid="ivoa:ucd"/>
+  <default:subset xmi:id="_a6oOVpuoEeuPC8Zybn6WEw" base_Constraint="_a01vb5uoEeuPC8Zybn6WEw"/>
+  <default:xor xmi:id="_a6oOV5uoEeuPC8Zybn6WEw" base_Constraint="_a01vcZuoEeuPC8Zybn6WEw"/>
+  <default:xor xmi:id="_a6oOWJuoEeuPC8Zybn6WEw" base_Constraint="_a01vc5uoEeuPC8Zybn6WEw"/>
+  <default:xor xmi:id="_a6o1YJuoEeuPC8Zybn6WEw" base_Constraint="_a01vdZuoEeuPC8Zybn6WEw"/>
+</xmi:XMI>

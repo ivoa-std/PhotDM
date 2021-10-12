@@ -12,6 +12,7 @@
 *.cb2
 .*.lb
 tthdefs.tex
+.DS_Store
 
 ## Intermediate documents:
 *.dvi

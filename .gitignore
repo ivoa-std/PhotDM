@@ -5,6 +5,7 @@
 **/*.dvi
 **/*.log
 **/*.out
+**/*.toc
 **/PhotDM.synctex.gz
 **/PhotDM.ps
 **/PhotDM.pdf

@@ -57,7 +57,7 @@ with missing dependencies.
 	<rec name="CharDM" x="450" y="255"/>
 	<rec name="SSLDM" x="550" y="255"/>
 	<rec name="SpectralDM" x="450" y="280"/>
-	<wd name="PhotDM" x="550" y="280"/>
+	<prerec name="PhotDM" x="550" y="280"/>
 	<prerec name="DatasetDM" x="450" y="305"/>
 	<prerec name="CubeDM" x="550" y="305"/>
 	<prerec name="ProvDM" x="450" y="330"/>

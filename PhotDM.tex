@@ -31,6 +31,8 @@
 \fi
 
 \newcommand{\angstrom}{\mbox{\normalfont\AA}}
+\newcommand\mynotes[1]{\textcolor{red}{#1}}
+
 
 \title{IVOA Photometry Data Model}
 
@@ -240,7 +242,7 @@ A Spectrum would have a Characterization Coordsys element that will have associa
 
 \begin{figure}[H]
 \includegraphics[angle=90,width=5.98in,height=7.19in]{./schema/PhotDMv1-1.png}
-\caption{Class diagram of the Photometry Calibration Data Model: All classes are defined in VO/DML view at: \url{https://github.com/ivoa-std/PhotDM/photdm/schema/}}
+\caption{Class diagram of the Photometry Calibration Data Model: All classes are defined in VO/DML view at: \url{https://github.com/ivoa-std/PhotDM/tree/master/schema}}
 \end{figure}
 
 
@@ -262,7 +264,7 @@ In order to fully describe values of the magnitudes inside photometry point inst
 This class briefly describes the photometric system that contains a set of photometry filters. Photometry filters can be contained in a certain photometric system as part of the same observatory/telescope or as part of a known system.
 \par
 
-\subsubsection{PhotometricSystem.description: String}
+\subsubsection{PhotometricSystem.description: ivoa:string}
 This String contains a human readable short-text representation of the photometric system. This will allow client applications to display textual information to final users.
 \par
 
@@ -287,7 +289,7 @@ Johnson
 %%%%%%%%%%%%%%%%%%%% Table No: 2 ends here %%%%%%%%%%%%%%%%%%%%
 
 
-\subsubsection{PhotometricSystem.detectorType: integer}
+\subsubsection{PhotometricSystem.detectorType: ivoa:integer}
 Detector type associated to this photometric system. Possible values are:
 
 
@@ -327,7 +329,7 @@ This will be used in order to decide how to calculate the flux average in, e.g.,
 This is the main class that describes a photometry filter.
 \par
 
-\subsubsection{PhotometryFilter.identifier: String}
+\subsubsection{PhotometryFilter.identifier: ivoa:string}
 This field identifies, in a unique way, within a certain Photometry Filter Profile service, a filter. Although the main requirement of this data model field is to be unique within a Filter Profile Service, the suggested syntax would be:
 \par
 
@@ -366,8 +368,8 @@ SDSS/SDSS.G/G
 \bigskip
 
 %%%%%%%%%%%%%%%%%%%% Table No: 5 ends here %%%%%%%%%%%%%%%%%%%%
-
-\subsubsection{PhotometryFilter.fpsIdentifier: String}
+\mynotes{Change on case from fpsIdentifier to fpsidentifier}
+\subsubsection{PhotometryFilter.fpsidentifier: ivoa:string}
 IVOA identifier of the filter profile service where this photometry filter is registered to be used in the discovery of all the relevant photometry filter properties.
 \par
 
@@ -427,7 +429,7 @@ http://svo.cab.inta-csic.es/theory/fps/
 
 %%%%%%%%%%%%%%%%%%%% Table No: 8 ends here %%%%%%%%%%%%%%%%%%%%
 
-\subsubsection{PhotometryFilter.name: String}
+\subsubsection{PhotometryFilter.name: ivoa:string}
 This String contains a human readable representation of the filter name. This will allow client applications to display information to the final user.
 \par
 
@@ -449,11 +451,12 @@ SDSS.G
 
 %%%%%%%%%%%%%%%%%%%% Table No: 9 ends here %%%%%%%%%%%%%%%%%%%%
 
-\subsubsection{PhotometryFilter.description: String}
+\subsubsection{PhotometryFilter.description: ivoa:string}
 This String contains a verbose human readable string description of the filter. This will allow client applications to display text information to the final user.
 \par
 
-\subsubsection{PhotometryFilter.bandName: String}
+\mynotes{Change on case from bandName to bandname}
+\subsubsection{PhotometryFilter.bandname: ivoa:string}
 This String contains a standard representation of the spectral band associated to this filter (if any). This information is useful for human interpretation but it is discourage to use it for discovery purposes. The reason is that a filter is not always properly represented by a standard band so filters could be lost in a query response.
 \par
 
@@ -480,8 +483,8 @@ Where U,B,V corresponds to ultraviolet, blue and visible respectively.
 \subsubsection{PhotometryFilter Time Validity Range}
 The following fields will be used to characterize the validity range of this specific photometry filter configuration. This is particularly useful for ground based telescopes where filter, electronics, etc could easily change generating versions of the same photometry filter.
 \par
-
-\paragraph{PhotometryFilter.dateValidityFrom: ISOTime}
+\mynotes{Change to ISOTime to ivoa:datetime... is the format equivalent?}
+\paragraph{PhotometryFilter.dateValidityFrom: ivoa:datetime}
 Start time of the time coverage when this filter configuration is applicable. String time format accepted, ISO8601:\par
 
 %%%%%%%%%%%%%%%%%%%% Table No: 11 starts here %%%%%%%%%%%%%%%%%%%%
@@ -498,8 +501,9 @@ YYYY-MM-DD[T[hh[:mm[:ss[.s]]]]]
 
 
 %%%%%%%%%%%%%%%%%%%% Table No: 11 ends here %%%%%%%%%%%%%%%%%%%%
+\mynotes{Change to ISOTime to ivoa:datetime... is the format equivalent?}
 
-\paragraph{PhotometryFilter.dateValidityTo: ISOTime}
+\paragraph{PhotometryFilter.dateValidityTo: ivoa:datetime}
 End time of the time coverage when this filter configuration is applicable. String time format accepted, ISO8601:\par
 
 %%%%%%%%%%%%%%%%%%%% Table No: 12 starts here %%%%%%%%%%%%%%%%%%%%
@@ -533,7 +537,7 @@ It is composed of a spectral coordinate in the x-axis and a scalar in the y-axis
 %%%%%%%%%%%%%%%%%%%% Figure/Image No: 3 starts here %%%%%%%%%%%%%%%%%%%%
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[width=4.24in,height=3.12in]{./media/image25.png}
+		\includegraphics[width=4.24in,height=3.12in]{./media/TransmissionCurve.png}
 		\caption{Transmission Curve example}
 	\end{center}
 \end{figure}
@@ -565,7 +569,7 @@ The transmission curve can be closely (although not fully) identified as an arra
 Spectral and transmission coordinates can be gathered directly as a table using TransmissionPoint utypes (see 3.3.3)\textit{.}.
 \par
 
-\subsubsection{PhotometryFilter.spectralLocation.value: double}
+\subsubsection{PhotometryFilter.spectralLocation.value: ivoa:real}
 A spectral coordinate value that can be considered by the data provider as the most representative for this specific filter band-pass. The selection of this value should take into account the filter transmission curve profile and in general should be close to the wavelength mean value, defined (\cite{1982AJ.....87..670O}) as: 
 \par
 \[
@@ -617,10 +621,10 @@ This data model field stores points of the curve in place in a simple table usin
 If the transmission curve is hooked as an external file, we use the \textit{Access} class defined in the Observation CoreComponents data model (\cite{louys2011ivoa}) and inherited from the SSA specification (\cite{2012ivoatody}).
 \par
 
-\subparagraph{3.2.9.1.1 PhotometryFilter.transmissionCurve.access.reference} \hspace{0pt} \\
+\subparagraph{3.2.9.1.1 PhotometryFilter.transmissionCurve.access.reference ivoa:anyURI} \hspace{0pt} \\
 The access reference is a URI (typically a URL) which can be used to retrieve the specific dataset described in a row of the query table response. \par
 
-\subparagraph{3.2.9.1.2 PhotometryFilter.transmissionCurve.access.format} \hspace{0pt} \\
+\subparagraph{3.2.9.1.2 PhotometryFilter.transmissionCurve.access.format ivoa:string} \hspace{0pt} \\
 The PhotometryFilter.transmissionCurve.access.format data model field tells the MIME type of the file pointed to and used to store the curve points. Values for this string can generally be:\par
 
 %%%%%%%%%%%%%%%%%%%% Table No: 13 starts here %%%%%%%%%%%%%%%%%%%%
@@ -644,7 +648,7 @@ text/xml
 The file content will be a spectrum serialization with \textit{PhotometryFilter.transmissionCurve.spectrum.Dataset.DataModel }set to $``$Spectrum1.1$"$  for instance , and all necessary fields for the spectral and flux coordinates.
 \par
 
-\subparagraph{3.2.9.1.3 PhotometryFilter.transmissionCurve.access.size} \hspace{0pt} \\
+\subparagraph{3.2.9.1.3 PhotometryFilter.transmissionCurve.access.size ivoa:integer} \hspace{0pt} \\
 Approximate estimated size of the dataset, specified in kilobytes. This would help the client estimate download times and storage requirements when generating execution plans. Only an approximate, order of magnitude value is required (a value rounded up to the nearest hundred kB would be sufficient).\par
 
 \paragraph{3.2.9.2 PhotometryFilter.transmissionCurve.transmissionPoint} \hspace{0pt} \\
@@ -667,9 +671,10 @@ transmissionPoint.spectralValue}}\par}
 transmissionPoint.transmissionValu}e}\par}
 \end{center}\par
 
+\mynotes{Phot.UCD?}
 \subparagraph{3.2.9.2.1
 PhotometryFilter.transmissionCurve.transmissionPoint.
-spectralValue.UCD: String} \hspace{0pt} \\
+spectralValue.UCD: Phot:UCD} \hspace{0pt} \\
 This data model field contains a Unified Content Description string (UCD) (\cite{2007ivoa.spec.0402M}) that specifies the nature of the spectral axis for this filter. This applies to the full spectral axis description of the filter.
 \par
 
@@ -720,12 +725,12 @@ Unified Content Description (UCD) string that specifies the nature of the bandwi
 \par
 
 \paragraph{3.2.10.2
-PhotometryFilter.bandwith.unit: IVOA.Unit} \hspace{0pt} \\
+PhotometryFilter.bandwith.unit: ivoa:Unit} \hspace{0pt} \\
 Field that specifies the units of the bandwidth object.
 \par
 
 \paragraph{3.2.10.3
-PhotometryFilter.bandwith.extent: double} \hspace{0pt} \\
+PhotometryFilter.bandwith.extent: ivoa:real} \hspace{0pt} \\
 For square filters (100$\%$  between the minimum and maximum wavelength and 0$\%$  otherwise), the bandwidth could be described as $\lambda_{max} - \lambda_{min}$. 
 \par
 
@@ -739,7 +744,7 @@ where $w$ is the effective width, $T(\lambda)$ is the transmission curve (see be
 \par
 
 \paragraph{3.2.10.4
-PhotometryFilter.bandwith.start: double } \hspace{0pt} \\
+PhotometryFilter.bandwith.start: ivoa:real } \hspace{0pt} \\
 Also called in the rest of the document, this is a spectral value that better describes the minimum value of the spectral range of the filter band-pass. In general, although this will not be imposed in order to allow a better description for different types of transmission curves, this quantity will be close to:
 \par
 \[
@@ -748,7 +753,7 @@ Also called in the rest of the document, this is a spectral value that better de
 In practice, this could be taken as the minimum value of the filter transmission curve. 
 \par
 
-\paragraph{PhotometryFilter.bandwith.stop: double} \hspace{0pt} \\
+\paragraph{PhotometryFilter.bandwith.stop: ivoa:real} \hspace{0pt} \\
 Also called $\lambda_{max}$ in the rest of the document, this is a spectral value that better describes the maximum value of the spectral range of the filter band-pass. In general, although this will not be imposed in order to allow a better description for different types of transmission curves, this quantity will be close to:
 \par
 \[
@@ -760,7 +765,7 @@ In practice, this could be taken as the maximum value of the filter transmission
 Class to describe the use of a photometry filter by using a certain magnitude system configuration. It has associated a certain zero point object.
 \par
 
-\subsubsection{PhotCal.identifier: String}
+\subsubsection{PhotCal.identifier: ivoa:string}
 This field identifies, in a unique way, within a certain Photometry Filter Profile service, a zero point assigned to a filter and a certain photometric system type. Although the main requirement of the uniqueIdentifier is to be unique within a Filter Profile Service, the suggested syntax would be:
 \par
 
@@ -817,7 +822,7 @@ Magnitude system object associated to this phot cal instance.
 This class is used to characterize a zero point flux obtained during the calibration of a certain photometry filter on a certain photometric system configuration. This object includes references to the relevant Photometric System and Photometry Filter objects.
 \par
 
-\subsubsection{ZeroPoint.flux.value: double}
+\subsubsection{ZeroPoint.flux.value: ivoa:real}
 Flux of an astronomical object that produces a magnitude of reference (usually set as zero) for this particular filter and photometric system. This quantity is necessary to convert to flux a certain magnitude. 
 \par
 
@@ -833,7 +838,7 @@ See ZeroPoint.type description for other definitions.
 The flux could be expressed as $f_{\lambda}$ or $f_{\nu}$, leaving the characterization of the type of flux to the units in which this quantity is expressed. 
 \par
 
-\subsubsection{ZeroPoint.referenceMagnitude.value: double}
+\subsubsection{ZeroPoint.referenceMagnitude.value: ivoa:real}
 Most of the time, the zero point flux is defined for a magnitude=0 value. However, to give room to other cases, another reference magnitude value can be given instead of zero. The use of this reference magnitude is described in the different getMagnitudeFromFlux() and getFluxFromMagnitude() zero point extension operations. 
 \par
 
@@ -843,10 +848,10 @@ Please notice that, by default, reference magnitude will be zero unless specifie
 Reference magnitude is a dimensionless variable. It is modeled using a PhysicalQuantityDouble object type.
 \par
 
-\subsubsection{ZeroPoint.referenceMagnitude.error: double}
+\subsubsection{ZeroPoint.referenceMagnitude.error: ivoa:real}
 Total error estimated of the reference magnitude whenever applicable. Reference Magnitude error is a dimensionless variable.\par
 
-\subsubsection{ZeroPoint.type: enum}
+\subsubsection{ZeroPoint.type: ivoa:integer}
 Usual definition of magnitudes, also called Pogson magnitudes, can be improved for faint sources by replacing the usual logarithm with an inverse hyperbolic sine function. These kinds of magnitudes are called $``$asinh magnitudes$"$  or $``$luptitudes$"$  (\cite{2004A&A...422..205G})\par
 
 %%%%%%%%%%%%%%%%%%%% Table No: 17 starts here %%%%%%%%%%%%%%%%%%%%
@@ -937,7 +942,7 @@ Where $f$ is the associated flux, $f_0$ is the flux of reference, $m_R$ is the m
 Extension of ZeroPoint  to describe asinh magnitudes, a.k.a. luptitudes.
 \par
 
-\subsubsection{AsinhZeroPoint.softeningParameter: double}
+\subsubsection{AsinhZeroPoint.softeningParameter: ivoa:real}
 Parameter used to correct the calculation of magnitudes for faint sources. Usually called b. See (\cite{1999AJ....118.1406L}) for a formal explanation. 
 \par
 
@@ -1009,7 +1014,8 @@ Where $m$ is the relative observed measurement, $m_R$ is the measurement of refe
 The main difference between magnitude systems is the reference spectrum used to evaluate the magnitudes. In some occasions, the magnitude system will have a real spectrum of an existing source to calibrate all the magnitudes. In other occasions, a synthetic spectrum will be used.
 \par
 
-\subsubsection{MagnitudeSystem.type: String}
+\mynotes{Here we have changed from string to one enumeration}
+\subsubsection{MagnitudeSystem.type: Phot:TypeOfMagSystem}
 Photometric system type used to calculate the associated zero point. Possible values are:
 \par
 
@@ -1040,7 +1046,7 @@ STMag \\
 The list is not exhaustive. The principal difference between these photometric systems is the reference spectrum used to calculate the zero point. See section 2.2.3 for a detailed description.
 \par
 
-\subsubsection{MagnitudeSystem.referenceSpectrum: URI}
+\subsubsection{MagnitudeSystem.referenceSpectrum: ivoa:anyURI}
 This describes the spectrum of an astronomical object used as reference to perform photometric calibration.
 \par
 
@@ -1233,7 +1239,7 @@ Although, as can be seen in the previous calculation, the use in code of the gen
 \multicolumn{1}{p{0.87in}}{{\fontsize{10pt}{12.0pt}\selectfont meta.id }} & 
 \multicolumn{1}{p{0.91in}}{{\fontsize{10pt}{12.0pt}\selectfont Data Model Identification }} & 
 \multicolumn{1}{p{0.74in}}{{\fontsize{10pt}{12.0pt}\selectfont PhotCalDM-v1.0}} & 
-\multicolumn{1}{p{0.35in}}{{\fontsize{10pt}{12.0pt}\selectfont string}} \\
+\multicolumn{1}{p{0.35in}}{{\fontsize{10pt}{12.0pt}\selectfont ivoa:string}} \\
 \hline
 %row no:4
 \multicolumn{5}{p{\dimexpr6.59in+8\tabcolsep\relax}}{\centering {\fontsize{10pt}{12.0pt}\selectfont \textbf{Photometric System Metadata}}} \\
@@ -1250,14 +1256,14 @@ Although, as can be seen in the previous calculation, the use in code of the gen
 \multicolumn{1}{p{0.87in}}{{\fontsize{10pt}{12.0pt}\selectfont meta.note }} & 
 \multicolumn{1}{p{0.91in}}{{\fontsize{10pt}{12.0pt}\selectfont String representation Photometric } \par {\fontsize{10pt}{12.0pt}\selectfont System}} & 
 \multicolumn{1}{p{0.74in}}{} & 
-\multicolumn{1}{p{0.35in}}{{\fontsize{10pt}{12.0pt}\selectfont string}} \\
+\multicolumn{1}{p{0.35in}}{{\fontsize{10pt}{12.0pt}\selectfont ivoa:string}} \\
 \hline
 %row no:7
 \multicolumn{1}{p{5in}}{{\fontsize{10pt}{12.0pt}\selectfont photDM:PhotometricSystem.detectorType}} & 
 \multicolumn{1}{p{0.87in}}{{\fontsize{10pt}{12.0pt}\selectfont meta.code }} & 
 \multicolumn{1}{p{0.91in}}{{\fontsize{10pt}{12.0pt}\selectfont Type of detector (e.g energy or photon counter). Possible values defined by enumeration}} & 
 \multicolumn{1}{p{0.74in}}{{\fontsize{10pt}{12.0pt}\selectfont 0\  (Energy Counter)}} & 
-\multicolumn{1}{p{0.35in}}{{\fontsize{10pt}{12.0pt}\selectfont int}} \\
+\multicolumn{1}{p{0.35in}}{{\fontsize{10pt}{12.0pt}\selectfont ivoa:integer}} \\
 \hline
 \end{tabular}
 \end{adjustbox}
@@ -1285,28 +1291,28 @@ Although, as can be seen in the previous calculation, the use in code of the gen
 \multicolumn{1}{p{0.87in}}{{\fontsize{10pt}{12.0pt}\selectfont meta.ref.ivorn }} & 
 \multicolumn{1}{p{0.91in}}{{\fontsize{10pt}{12.0pt}\selectfont Unique identifer of filter within a Filter Profile Service (FPS)}} & 
 \multicolumn{1}{p{0.74in}}{} & 
-\multicolumn{1}{p{0.35in}}{{\fontsize{10pt}{12.0pt}\selectfont string}} \\
+\multicolumn{1}{p{0.35in}}{{\fontsize{10pt}{12.0pt}\selectfont ivoa:string}} \\
 \hline
 %row no:11
-\multicolumn{1}{p{5in}}{{\fontsize{10pt}{12.0pt}\selectfont photDM:PhotometryFilter.fpsIdentifier}} & 
+\multicolumn{1}{p{5in}}{{\fontsize{10pt}{12.0pt}\selectfont photDM:PhotometryFilter.fpsidentifier}} & 
 \multicolumn{1}{p{0.87in}}{{\fontsize{10pt}{12.0pt}\selectfont meta.ref.ivorn }} & 
 \multicolumn{1}{p{0.91in}}{{\fontsize{10pt}{12.0pt}\selectfont IVOA identifier of the Filter Profile Service}} & 
 \multicolumn{1}{p{0.74in}}{} & 
-\multicolumn{1}{p{0.35in}}{{\fontsize{10pt}{12.0pt}\selectfont string}} \\
+\multicolumn{1}{p{0.35in}}{{\fontsize{10pt}{12.0pt}\selectfont ivoa:string}} \\
 \hline
 %row no:12
 \multicolumn{1}{p{5in}}{{\fontsize{10pt}{12.0pt}\selectfont photDM:PhotometryFilter.name}} & 
 \multicolumn{1}{p{0.87in}}{{\fontsize{10pt}{12.0pt}\selectfont meta.id;instr.filter }} & 
 \multicolumn{1}{p{0.91in}}{{\fontsize{10pt}{12.0pt}\selectfont Filter Name in the instrumental } \par {\fontsize{10pt}{12.0pt}\selectfont configuration\  }} & 
 \multicolumn{1}{p{0.74in}}{} & 
-\multicolumn{1}{p{0.35in}}{{\fontsize{10pt}{12.0pt}\selectfont string}} \\
+\multicolumn{1}{p{0.35in}}{{\fontsize{10pt}{12.0pt}\selectfont ivoa:string}} \\
 \hline
 %row no:13
 \multicolumn{1}{p{5in}}{{\fontsize{10pt}{12.0pt}\selectfont photDM:PhotometryFilter.description}} & 
 \multicolumn{1}{p{0.87in}}{{\fontsize{10pt}{12.0pt}\selectfont meta.note }} & 
 \multicolumn{1}{p{0.91in}}{{\fontsize{10pt}{12.0pt}\selectfont Text description of the filter band}} & 
 \multicolumn{1}{p{0.74in}}{} & 
-\multicolumn{1}{p{0.35in}}{{\fontsize{10pt}{12.0pt}\selectfont string}} \\
+\multicolumn{1}{p{0.35in}}{{\fontsize{10pt}{12.0pt}\selectfont ivoa:string}} \\
 \hline
 
 \end{tabular}
@@ -1344,28 +1350,28 @@ Although, as can be seen in the previous calculation, the use in code of the gen
 \multicolumn{1}{p{0.87in}}{{\fontsize{8pt}{8pt}\selectfont meta.ref.ivorn }} & 
 \multicolumn{1}{p{0.91in}}{{\fontsize{8pt}{8pt}\selectfont URI to the effective transmission curve}} & 
 \multicolumn{1}{p{0.74in}}{} & 
-\multicolumn{1}{p{0.35in}}{{\fontsize{8pt}{8pt}\selectfont URI type}} \\
+\multicolumn{1}{p{0.35in}}{{\fontsize{8pt}{8pt}\selectfont ivoa:anyURI}} \\
 \hline
 %row no:4
 \multicolumn{1}{p{5in}}{{\fontsize{8pt}{8pt}\selectfont photDM:PhotometryFilter.transmissionCurve.access.format}} & 
 \multicolumn{1}{p{0.87in}}{{\fontsize{8pt}{8pt}\selectfont meta.code}} & 
 \multicolumn{1}{p{0.91in}}{{\fontsize{8pt}{8pt}\selectfont File format of the pointed transmission curve}} & 
 \multicolumn{1}{p{0.74in}}{} & 
-\multicolumn{1}{p{0.35in}}{{\fontsize{8pt}{8pt}\selectfont string}} \\
+\multicolumn{1}{p{0.35in}}{{\fontsize{8pt}{8pt}\selectfont ivoa:string}} \\
 \hline
 %row no:5
 \multicolumn{1}{p{5in}}{{\fontsize{8pt}{8pt}\selectfont photDM.PhotometryFilter.transmissionCurve.transmissionPoint.spectralValue.value}} & 
 \multicolumn{1}{p{0.87in}}{{\fontsize{8pt}{8pt}\selectfont em.wl}} & 
 \multicolumn{1}{p{0.91in}}{{\fontsize{8pt}{8pt}\selectfont Spectral value of one element of the transmission curve representation}} & 
 \multicolumn{1}{p{0.74in}}{} & 
-\multicolumn{1}{p{0.35in}}{{\fontsize{8pt}{8pt}\selectfont double}} \\
+\multicolumn{1}{p{0.35in}}{{\fontsize{8pt}{8pt}\selectfont ivoa:real}} \\
 \hline
 %row no:6
 \multicolumn{1}{p{5in}}{{\fontsize{8pt}{8pt}\selectfont photDM.PhotometryFilter.transmissionCurve.transmissionPoint.transmissionValue.value}} & 
 \multicolumn{1}{p{0.87in}}{{\fontsize{8pt}{8pt}\selectfont phys.transmission\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \  }} & 
 \multicolumn{1}{p{0.91in}}{{\fontsize{8pt}{8pt}\selectfont Transmission value of one element of the transmission curve representation}} & 
 \multicolumn{1}{p{0.74in}}{} & 
-\multicolumn{1}{p{0.35in}}{{\fontsize{8pt}{8pt}\selectfont double}} \\
+\multicolumn{1}{p{0.35in}}{{\fontsize{8pt}{8pt}\selectfont ivoa:real}} \\
 \hline
 
 \end{tabular}
@@ -1403,35 +1409,35 @@ Although, as can be seen in the previous calculation, the use in code of the gen
 \multicolumn{1}{p{0.87in}}{{\fontsize{8pt}{8pt}\selectfont instr.bandpass }} & 
 \multicolumn{1}{p{2in}}{{\fontsize{8pt}{8pt}\selectfont Generic name for the filter spectral band}} & 
 \multicolumn{1}{p{0.74in}}{} & 
-\multicolumn{1}{p{0.35in}}{{\fontsize{8pt}{8pt}\selectfont string}} \\
+\multicolumn{1}{p{0.35in}}{{\fontsize{8pt}{8pt}\selectfont ivoa:string}} \\
 \hline
 %row no:10
 \multicolumn{1}{p{5in}}{{\fontsize{8pt}{8pt}\selectfont photDM:PhotometryFilter.spectralLocation.value}} & 
 \multicolumn{1}{p{0.87in}}{{\fontsize{8pt}{8pt}\selectfont em.wl;meta.main }} & 
 \multicolumn{1}{p{2in}}{{\fontsize{8pt}{8pt}\selectfont Reference position along the spectral axis. Spectral coordinate of the Zero Point }} & 
 \multicolumn{1}{p{0.74in}}{} & 
-\multicolumn{1}{p{0.35in}}{{\fontsize{8pt}{8pt}\selectfont double}} \\
+\multicolumn{1}{p{0.35in}}{{\fontsize{8pt}{8pt}\selectfont ivoa:real}} \\
 \hline
 %row no:11
 \multicolumn{1}{p{5in}}{{\fontsize{8pt}{8pt}\selectfont photDM:PhotometryFilter.spectralLocation.unit.expression}} & 
 \multicolumn{1}{p{0.87in}}{{\fontsize{8pt}{8pt}\selectfont meta.unit }} & 
 \multicolumn{1}{p{2in}}{{\fontsize{8pt}{8pt}\selectfont Unit of the spectral axis used to characterize it}} & 
 \multicolumn{1}{p{0.74in}}{{\fontsize{8pt}{8pt}\selectfont angstrom}} & 
-\multicolumn{1}{p{0.35in}}{{\fontsize{8pt}{8pt}\selectfont string}} \\
+\multicolumn{1}{p{0.35in}}{{\fontsize{8pt}{8pt}\selectfont ivoa:string}} \\
 \hline
 %row no:12
 \multicolumn{1}{p{5in}}{{\fontsize{8pt}{8pt}\selectfont photDM:PhotometryFilter.spectralLocation.UCD}} & 
 \multicolumn{1}{p{0.87in}}{{\fontsize{8pt}{8pt}\selectfont meta.ucd }} & 
 \multicolumn{1}{p{2in}}{{\fontsize{8pt}{8pt}\selectfont UCD for the nature of spectral axis wl, freq, energy}} & 
 \multicolumn{1}{p{0.74in}}{{\fontsize{8pt}{8pt}\selectfont em.wl}} & 
-\multicolumn{1}{p{0.35in}}{{\fontsize{8pt}{8pt}\selectfont string}} \\
+\multicolumn{1}{p{0.35in}}{{\fontsize{8pt}{8pt}\selectfont ivoa:string}} \\
 \hline
 %row no:13
 \multicolumn{1}{p{5in}}{{\fontsize{8pt}{8pt}\selectfont photDM:PhotometryFilter.bandwidth.unit.expression}} & 
 \multicolumn{1}{p{0.87in}}{{\fontsize{8pt}{8pt}\selectfont meta.unit}} & 
 \multicolumn{1}{p{2in}}{{\fontsize{8pt}{8pt}\selectfont Unit of the spectral extent used to characterize the bandwidth object}} & 
 \multicolumn{1}{p{0.74in}}{{\fontsize{10pt}{12.0pt}\selectfont angstrom}} & 
-\multicolumn{1}{p{0.35in}}{{\fontsize{8pt}{8pt}\selectfont string}} \\
+\multicolumn{1}{p{0.35in}}{{\fontsize{8pt}{8pt}\selectfont ivoa:string}} \\
 \hline
 %row no:14
 \multicolumn{1}{p{5in}}{
@@ -1439,28 +1445,28 @@ Although, as can be seen in the previous calculation, the use in code of the gen
 \multicolumn{1}{p{0.87in}}{{\fontsize{8pt}{8pt}\selectfont meta.ucd }} & 
 \multicolumn{1}{p{2in}}{{\fontsize{8pt}{8pt}\selectfont UCD for the nature of spectral bandwidth wl, freq, energy}} & 
 \multicolumn{1}{p{0.74in}}{{\fontsize{8pt}{8pt}\selectfont em.wl}} & 
-\multicolumn{1}{p{0.35in}}{{\fontsize{8pt}{8pt}\selectfont string}} \\
+\multicolumn{1}{p{0.35in}}{{\fontsize{8pt}{8pt}\selectfont ivoa:string}} \\
 \hline
 %row no:15
 \multicolumn{1}{p{5in}}{{\fontsize{8pt}{8pt}\selectfont photDM:PhotometryFilter.bandwidth.extent.value}} & 
 \multicolumn{1}{p{0.87in}}{{\fontsize{8pt}{8pt}\selectfont instr.bandwidth}} & 
 \multicolumn{1}{p{2in}}{{\fontsize{8pt}{8pt}\selectfont Spectral axis extent of the filter}} & 
 \multicolumn{1}{p{0.74in}}{} & 
-\multicolumn{1}{p{0.35in}}{{\fontsize{8pt}{8pt}\selectfont double}} \\
+\multicolumn{1}{p{0.35in}}{{\fontsize{8pt}{8pt}\selectfont ivoa:real}} \\
 \hline
 %row no:16
 \multicolumn{1}{p{5in}}{{\fontsize{8pt}{8pt}\selectfont photDM:PhotometryFilter.bandwidth.start.value}} & 
 \multicolumn{1}{p{0.87in}}{{\fontsize{8pt}{8pt}\selectfont em.wl;start}} & 
 \multicolumn{1}{p{2in}}{{\fontsize{8pt}{8pt}\selectfont Minimum value of the filter spectral coverage}} & 
 \multicolumn{1}{p{0.74in}}{} & 
-\multicolumn{1}{p{0.35in}}{{\fontsize{8pt}{8pt}\selectfont double}} \\
+\multicolumn{1}{p{0.35in}}{{\fontsize{8pt}{8pt}\selectfont ivoa:real}} \\
 \hline
 %row no:17
 \multicolumn{1}{p{5in}}{{\fontsize{8pt}{8pt}\selectfont photDM:PhotometryFilter.bandwidth.stop.value}} & 
 \multicolumn{1}{p{0.87in}}{{\fontsize{8pt}{8pt}\selectfont em.wl;stop}} & 
 \multicolumn{1}{p{2in}}{{\fontsize{8pt}{8pt}\selectfont Maximum value of the filter spectral coverage}} & 
 \multicolumn{1}{p{0.74in}}{} & 
-\multicolumn{1}{p{0.35in}}{{\fontsize{8pt}{8pt}\selectfont double}} \\
+\multicolumn{1}{p{0.35in}}{{\fontsize{8pt}{8pt}\selectfont ivoa:real}} \\
 \hline
 %row no:18
 \end{tabular}
@@ -1498,91 +1504,91 @@ Although, as can be seen in the previous calculation, the use in code of the gen
 \multicolumn{1}{p{0.87in}}{{\fontsize{8pt}{8pt}\selectfont time.start}} & 
 \multicolumn{1}{p{2in}}{{\fontsize{8pt}{8pt}\selectfont Time stamp for Start of validity for this filter in ISOTime format }} & 
 \multicolumn{1}{p{1in}}{} & 
-\multicolumn{1}{p{0.25in}}{{\fontsize{8pt}{8pt}\selectfont string }} \\
+\multicolumn{1}{p{0.25in}}{{\fontsize{8pt}{8pt}\selectfont ivoa:string }} \\
 \hline
 %row no:21
 \multicolumn{1}{p{3in}}{{\fontsize{8pt}{8pt}\selectfont photDM:PhotometryFilter.dateValidityTo}} & 
 \multicolumn{1}{p{0.87in}}{{\fontsize{8pt}{8pt}\selectfont time.end}} & 
 \multicolumn{1}{p{2in}}{{\fontsize{8pt}{8pt}\selectfont Time stamp for Stop of validity for this filter in ISOTime format }} & 
 \multicolumn{1}{p{1in}}{} & 
-\multicolumn{1}{p{0.25in}}{{\fontsize{8pt}{8pt}\selectfont string }} \\
+\multicolumn{1}{p{0.25in}}{{\fontsize{8pt}{8pt}\selectfont ivoa:string }} \\
 \hline
 %row no:24
 \multicolumn{1}{p{3in}}{{\fontsize{8pt}{8pt}\selectfont photDM:PhotCal.identifier}} & 
 \multicolumn{1}{p{0.87in}}{{\fontsize{8pt}{8pt}\selectfont meta.ref.ivorn }} & 
 \multicolumn{1}{p{2in}}{{\fontsize{8pt}{8pt}\selectfont Unique identifier of the Photometry } \par {\fontsize{8pt}{8pt}\selectfont Calibration instance within a FPS}} & 
 \multicolumn{1}{p{1in}}{} & 
-\multicolumn{1}{p{0.25in}}{{\fontsize{8pt}{8pt}\selectfont string}} \\
+\multicolumn{1}{p{0.25in}}{{\fontsize{8pt}{8pt}\selectfont ivoa:string}} \\
 \hline
 %row no:25
 \multicolumn{1}{p{3in}}{{\fontsize{8pt}{8pt}\selectfont photDM:PhotCal.zeroPoint.flux.unit.expression}} & 
 \multicolumn{1}{p{0.87in}}{{\fontsize{8pt}{8pt}\selectfont meta.unit }} & 
 \multicolumn{1}{p{2in}}{{\fontsize{8pt}{8pt}\selectfont unit for Zero point flux}} & 
 \multicolumn{1}{p{1in}}{{\fontsize{8pt}{8pt}\selectfont Jy}} & 
-\multicolumn{1}{p{0.25in}}{{\fontsize{8pt}{8pt}\selectfont string}} \\
+\multicolumn{1}{p{0.25in}}{{\fontsize{8pt}{8pt}\selectfont ivoa:string}} \\
 \hline
 %row no:26
 \multicolumn{1}{p{3in}}{{\fontsize{8pt}{8pt}\selectfont photDM:PhotCal.zeroPoint.flux.UCD}} & 
 \multicolumn{1}{p{0.87in}}{{\fontsize{8pt}{8pt}\selectfont meta.ucd }} & 
 \multicolumn{1}{p{2in}}{{\fontsize{8pt}{8pt}\selectfont ucd for Zero point flux}} & 
 \multicolumn{1}{p{1in}}{{\fontsize{8pt}{8pt}\selectfont phot.flux.density}} & 
-\multicolumn{1}{p{0.25in}}{{\fontsize{8pt}{8pt}\selectfont string}} \\
+\multicolumn{1}{p{0.25in}}{{\fontsize{8pt}{8pt}\selectfont ivoa:string}} \\
 \hline
 %row no:27
 \multicolumn{1}{p{3in}}{{\fontsize{8pt}{8pt}\selectfont photDM:PhotCal.zeroPoint.flux.value}} & 
 \multicolumn{1}{p{0.87in}}{{\fontsize{8pt}{8pt}\selectfont phot.flux.density }} & 
 \multicolumn{1}{p{2in}}{{\fontsize{8pt}{8pt}\selectfont flux value at Zero point associated to this filter}} & 
 \multicolumn{1}{p{1in}}{} & 
-\multicolumn{1}{p{0.25in}}{{\fontsize{8pt}{8pt}\selectfont double}} \\
+\multicolumn{1}{p{0.25in}}{{\fontsize{8pt}{8pt}\selectfont ivoa:real}} \\
 \hline
 %row no:28
 \multicolumn{1}{p{3in}}{{\fontsize{8pt}{8pt}\selectfont photDM:PhotCal.zeroPoint.flux.error}} & 
 \multicolumn{1}{p{0.87in}}{{\fontsize{8pt}{8pt}\selectfont phot.flux.density; stat.error}} & 
 \multicolumn{1}{p{2in}}{{\fontsize{8pt}{8pt}\selectfont Error in the flux value at Zero point associated to this filter}} & 
 \multicolumn{1}{p{1in}}{} & 
-\multicolumn{1}{p{0.25in}}{{\fontsize{8pt}{8pt}\selectfont double}} \\
+\multicolumn{1}{p{0.25in}}{{\fontsize{8pt}{8pt}\selectfont ivoa:real}} \\
 \hline
 %row no:29
 \multicolumn{1}{p{3in}}{{\fontsize{8pt}{8pt}\selectfont photDM:PhotCal zeroPoint.referenceMagnitude.value}} & 
 \multicolumn{1}{p{0.87in}}{{\fontsize{8pt}{8pt}\selectfont phot.mag}} & 
 \multicolumn{1}{p{2in}}{{\fontsize{8pt}{8pt}\selectfont Reference magnitude used for zero point}} & 
 \multicolumn{1}{p{1in}}{{\fontsize{8pt}{8pt}\selectfont 0.0}} & 
-\multicolumn{1}{p{0.25in}}{{\fontsize{8pt}{8pt}\selectfont double} \par } \\
+\multicolumn{1}{p{0.25in}}{{\fontsize{8pt}{8pt}\selectfont ivoa:real} \par } \\
 \hline
 %row no:30
 \multicolumn{1}{p{3in}}{{\fontsize{8pt}{8pt}\selectfont photDM:PhotCal.zeroPoint.referenceMagnitude.error}} & 
 \multicolumn{1}{p{0.87in}}{{\fontsize{8pt}{8pt}\selectfont phot.mag;stat.error}} & 
 \multicolumn{1}{p{2in}}{{\fontsize{8pt}{8pt}\selectfont Error in the reference magnitude used for zero point}} & 
 \multicolumn{1}{p{1in}}{{\fontsize{8pt}{8pt}\selectfont 0.0}} & 
-\multicolumn{1}{p{0.25in}}{{\fontsize{8pt}{8pt}\selectfont double} \par } \\
+\multicolumn{1}{p{0.25in}}{{\fontsize{8pt}{8pt}\selectfont ivoa:real} \par } \\
 \hline
 %row no:31
 \multicolumn{1}{p{3in}}{{\fontsize{8pt}{8pt}\selectfont photDM:PhotCal.zeroPoint.type}} & 
 \multicolumn{1}{p{0.87in}}{{\fontsize{8pt}{8pt}\selectfont meta.code }} & 
 \multicolumn{1}{p{2in}}{{\fontsize{8pt}{8pt}\selectfont Type of zero point}} & 
 \multicolumn{1}{p{1in}}{{\fontsize{8pt}{8pt}\selectfont 0}} & 
-\multicolumn{1}{p{0.25in}}{{\fontsize{8pt}{8pt}\selectfont int}} \\
+\multicolumn{1}{p{0.25in}}{{\fontsize{8pt}{8pt}\selectfont ivoa:integer}} \\
 \hline
 %row no:32
 \multicolumn{1}{p{3in}}{{\fontsize{8pt}{8pt}\selectfont photDM:PhotCal.magnitudeSystem.type}} & 
 \multicolumn{1}{p{0.87in}}{{\fontsize{8pt}{8pt}\selectfont meta.code }} & 
 \multicolumn{1}{p{2in}}{{\fontsize{8pt}{8pt}\selectfont Type of magnitude system}} & 
 \multicolumn{1}{p{1in}}{{\fontsize{8pt}{8pt}\selectfont VEGAMag}} & 
-\multicolumn{1}{p{0.25in}}{{\fontsize{8pt}{8pt}\selectfont string}} \\
+\multicolumn{1}{p{0.25in}}{{\fontsize{8pt}{8pt}\selectfont ivoa:string}} \\
 \hline
 %row no:33
 \multicolumn{1}{p{3in}}{{\fontsize{8pt}{8pt}\selectfont photDM:PhotCal.magnitudeSystem.ReferenceSpectrumURI}} & 
 \multicolumn{1}{p{0.87in}}{{\fontsize{8pt}{8pt}\selectfont meta.ref.ivorn }} & 
 \multicolumn{1}{p{2in}}{{\fontsize{8pt}{8pt}\selectfont Reference SED or spectrum for this magnitude system}} & 
 \multicolumn{1}{p{1in}}{} & 
-\multicolumn{1}{p{0.25in}}{{\fontsize{8pt}{8pt}\selectfont uri type}} \\
+\multicolumn{1}{p{0.25in}}{{\fontsize{8pt}{8pt}\selectfont ivoa:anyURI}} \\
 \hline
 %row no:34
 \multicolumn{1}{p{3in}}{{\fontsize{8pt}{8pt}\selectfont photDM:AsinhZeroPoint.softeningParameter}} & 
 \multicolumn{1}{p{0.87in}}{{\fontsize{8pt}{8pt}\selectfont obs.param }} & 
 \multicolumn{1}{p{2in}}{{\fontsize{8pt}{8pt}\selectfont  Correction parameter for luptitudes}} & 
 \multicolumn{1}{p{1in}}{{\fontsize{8pt}{8pt}\selectfont 0.0}} & 
-\multicolumn{1}{p{0.25in}}{{\fontsize{8pt}{8pt}\selectfont double}} \\
+\multicolumn{1}{p{0.25in}}{{\fontsize{8pt}{8pt}\selectfont ivoa:real}} \\
 \hline
 
 \hline
@@ -1619,7 +1625,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
  
   <RESOURCE type="results">
     
-        <PARAM name="fpsID" 	utype="photDM:PhotometryFilter.fpsIdentifier" 
+        <PARAM name="fpsID" 	utype="photDM:PhotometryFilter.fpsidentifier" 
         										value="ivo://svo.cab/fps" datatype="char" arraysize="*"/>
         										
         <PARAM name="filID" 	utype="photDM:PhotometryFilter.identifier" 

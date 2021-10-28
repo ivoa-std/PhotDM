@@ -241,7 +241,7 @@ A Spectrum would have a Characterization Coordsys element that will have associa
 %%%%%%%%%%%%%%%%%%%% Figure/Image No: 22 starts here %%%%%%%%%%%%%%%%%%%%
 
 \begin{figure}[H]
-\includegraphics[angle=90,width=5.98in,height=7.19in]{./schema/PhotDMv1-1.png}
+\includegraphics[angle=90,width=5.in,height=7.19in]{"./schema/PhotDMv1-1-overview diagram-2021-04-12.png"}
 \caption{Class diagram of the Photometry Calibration Data Model: All classes are defined in VO/DML view at: \url{https://github.com/ivoa-std/PhotDM/tree/master/schema}}
 \end{figure}
 
@@ -483,8 +483,7 @@ Where U,B,V corresponds to ultraviolet, blue and visible respectively.
 \subsubsection{PhotometryFilter Time Validity Range}
 The following fields will be used to characterize the validity range of this specific photometry filter configuration. This is particularly useful for ground based telescopes where filter, electronics, etc could easily change generating versions of the same photometry filter.
 \par
-\mynotes{Change to ISOTime to ivoa:datetime... is the format equivalent?}
-\paragraph{PhotometryFilter.dateValidityFrom: ivoa:datetime}
+\paragraph{PhotometryFilter.dateValidityFrom: ISOTime}
 Start time of the time coverage when this filter configuration is applicable. String time format accepted, ISO8601:\par
 
 %%%%%%%%%%%%%%%%%%%% Table No: 11 starts here %%%%%%%%%%%%%%%%%%%%
@@ -501,9 +500,7 @@ YYYY-MM-DD[T[hh[:mm[:ss[.s]]]]]
 
 
 %%%%%%%%%%%%%%%%%%%% Table No: 11 ends here %%%%%%%%%%%%%%%%%%%%
-\mynotes{Change to ISOTime to ivoa:datetime... is the format equivalent?}
-
-\paragraph{PhotometryFilter.dateValidityTo: ivoa:datetime}
+\paragraph{PhotometryFilter.dateValidityTo: ivoa:ISOTime}
 End time of the time coverage when this filter configuration is applicable. String time format accepted, ISO8601:\par
 
 %%%%%%%%%%%%%%%%%%%% Table No: 12 starts here %%%%%%%%%%%%%%%%%%%%
@@ -671,7 +668,6 @@ transmissionPoint.spectralValue}}\par}
 transmissionPoint.transmissionValu}e}\par}
 \end{center}\par
 
-\mynotes{Phot.UCD?}
 \subparagraph{3.2.9.2.1
 PhotometryFilter.transmissionCurve.transmissionPoint.
 spectralValue.UCD: Phot:UCD} \hspace{0pt} \\
@@ -1014,7 +1010,6 @@ Where $m$ is the relative observed measurement, $m_R$ is the measurement of refe
 The main difference between magnitude systems is the reference spectrum used to evaluate the magnitudes. In some occasions, the magnitude system will have a real spectrum of an existing source to calibrate all the magnitudes. In other occasions, a synthetic spectrum will be used.
 \par
 
-\mynotes{Here we have changed from string to one enumeration}
 \subsubsection{MagnitudeSystem.type: Phot:TypeOfMagSystem}
 Photometric system type used to calculate the associated zero point. Possible values are:
 \par

@@ -1217,7 +1217,8 @@ Although, as can be seen in the previous calculation, the use in code of the gen
 
 
 %%%%%%%%%%%%%%%%%%%% Table No: 20 starts here %%%%%%%%%%%%%%%%%%%%
-
+% Mireille : some UCDs need to be changed : 
+% meta.ref.ivorn  is now deprecated  --> change to meta.ref.ivoid
 
 \begin{table}[H]
  			\centering
@@ -1287,14 +1288,18 @@ Although, as can be seen in the previous calculation, the use in code of the gen
 \hline
 %row no:10
 \multicolumn{1}{p{5in}}{{\fontsize{10pt}{12.0pt}\selectfont photDM:PhotometryFilter.identifer}} & 
-\multicolumn{1}{p{0.87in}}{{\fontsize{10pt}{12.0pt}\selectfont meta.ref.ivorn }} & 
+%\multicolumn{1}{p{0.87in}}{{\fontsize{10pt}{12.0pt}\selectfont meta.ref.ivorn }} & 
+\multicolumn{1}{p{0.87in}}{{\fontsize{10pt}{12.0pt}\selectfont meta.ref.ivoid }} & 
+
 \multicolumn{1}{p{0.91in}}{{\fontsize{10pt}{12.0pt}\selectfont Unique identifer of filter within a Filter Profile Service (FPS)}} & 
 \multicolumn{1}{p{0.74in}}{} & 
 \multicolumn{1}{p{0.35in}}{{\fontsize{10pt}{12.0pt}\selectfont string}} \\
 \hline
 %row no:11
 \multicolumn{1}{p{5in}}{{\fontsize{10pt}{12.0pt}\selectfont photDM:PhotometryFilter.fpsIdentifier}} & 
-\multicolumn{1}{p{0.87in}}{{\fontsize{10pt}{12.0pt}\selectfont meta.ref.ivorn }} & 
+%\multicolumn{1}{p{0.87in}}{{\fontsize{10pt}{12.0pt}\selectfont meta.ref.ivorn }} & 
+\multicolumn{1}{p{0.87in}}{{\fontsize{10pt}{12.0pt}\selectfont meta.ref.ivoid }} & 
+
 \multicolumn{1}{p{0.91in}}{{\fontsize{10pt}{12.0pt}\selectfont IVOA identifier of the Filter Profile Service}} & 
 \multicolumn{1}{p{0.74in}}{} & 
 \multicolumn{1}{p{0.35in}}{{\fontsize{10pt}{12.0pt}\selectfont string}} \\
@@ -1329,6 +1334,8 @@ Although, as can be seen in the previous calculation, the use in code of the gen
 
 %%%%%%%%%%%%%%%%%%%% Table No: 21 starts here %%%%%%%%%%%%%%%%%%%%
 %Photometry Filter Access Metadata 
+% Mireille : some UCDs need to be changed : 
+% meta.ref.ivorn  is now deprecated  --> change to meta.ref.ivoid
 
 \begin{table}[H]
 \centering
@@ -1346,7 +1353,9 @@ Although, as can be seen in the previous calculation, the use in code of the gen
 \hline
 %row no:3
 \multicolumn{1}{p{5in}}{{\fontsize{8pt}{8pt}\selectfont photDM:PhotometryFilter.transmissionCurve.access.reference}} & 
-\multicolumn{1}{p{0.87in}}{{\fontsize{8pt}{8pt}\selectfont meta.ref.ivorn }} & 
+%\multicolumn{1}{p{0.87in}}{{\fontsize{8pt}{8pt}\selectfont meta.ref.ivorn }} & 
+\multicolumn{1}{p{0.87in}}{{\fontsize{8pt}{8pt}\selectfont meta.ref.ivoid }} & 
+
 \multicolumn{1}{p{0.91in}}{{\fontsize{8pt}{8pt}\selectfont URI to the effective transmission curve}} & 
 \multicolumn{1}{p{0.74in}}{} & 
 \multicolumn{1}{p{0.35in}}{{\fontsize{8pt}{8pt}\selectfont URI type}} \\
@@ -1455,14 +1464,18 @@ Although, as can be seen in the previous calculation, the use in code of the gen
 \hline
 %row no:16
 \multicolumn{1}{p{5in}}{{\fontsize{8pt}{8pt}\selectfont photDM:PhotometryFilter.bandwidth.start.value}} & 
-\multicolumn{1}{p{0.87in}}{{\fontsize{8pt}{8pt}\selectfont em.wl;start}} & 
+%\multicolumn{1}{p{0.87in}}{{\fontsize{8pt}{8pt}\selectfont em.wl;start}} & 
+% mireille: start : invalid UCD 
+\multicolumn{1}{p{0.87in}}{{\fontsize{8pt}{8pt}\selectfont em.wl;stat.min}} & 
 \multicolumn{1}{p{2in}}{{\fontsize{8pt}{8pt}\selectfont Minimum value of the filter spectral coverage}} & 
 \multicolumn{1}{p{0.74in}}{} & 
 \multicolumn{1}{p{0.35in}}{{\fontsize{8pt}{8pt}\selectfont double}} \\
 \hline
 %row no:17
 \multicolumn{1}{p{5in}}{{\fontsize{8pt}{8pt}\selectfont photDM:PhotometryFilter.bandwidth.stop.value}} & 
-\multicolumn{1}{p{0.87in}}{{\fontsize{8pt}{8pt}\selectfont em.wl;stop}} & 
+%\multicolumn{1}{p{0.87in}}{{\fontsize{8pt}{8pt}\selectfont em.wl;stop}} & 
+% mireille: stop : invalid UCD 
+\multicolumn{1}{p{0.87in}}{{\fontsize{8pt}{8pt}\selectfont em.wl;stat.max}} & 
 \multicolumn{1}{p{2in}}{{\fontsize{8pt}{8pt}\selectfont Maximum value of the filter spectral coverage}} & 
 \multicolumn{1}{p{0.74in}}{} & 
 \multicolumn{1}{p{0.35in}}{{\fontsize{8pt}{8pt}\selectfont double}} \\
@@ -1514,7 +1527,8 @@ Although, as can be seen in the previous calculation, the use in code of the gen
 \hline
 %row no:24
 \multicolumn{1}{p{3in}}{{\fontsize{8pt}{8pt}\selectfont photDM:PhotCal.identifier}} & 
-\multicolumn{1}{p{0.87in}}{{\fontsize{8pt}{8pt}\selectfont meta.ref.ivorn }} & 
+%\multicolumn{1}{p{0.87in}}{{\fontsize{8pt}{8pt}\selectfont meta.ref.ivorn }} & 
+\multicolumn{1}{p{0.87in}}{{\fontsize{8pt}{8pt}\selectfont meta.ref.ivoid }} &
 \multicolumn{1}{p{2in}}{{\fontsize{8pt}{8pt}\selectfont Unique identifier of the Photometry } \par {\fontsize{8pt}{8pt}\selectfont Calibration instance within a FPS}} & 
 \multicolumn{1}{p{1in}}{} & 
 \multicolumn{1}{p{0.25in}}{{\fontsize{8pt}{8pt}\selectfont string}} \\
@@ -1542,7 +1556,9 @@ Although, as can be seen in the previous calculation, the use in code of the gen
 \hline
 %row no:28
 \multicolumn{1}{p{3in}}{{\fontsize{8pt}{8pt}\selectfont photDM:PhotCal.zeroPoint.flux.error}} & 
-\multicolumn{1}{p{0.87in}}{{\fontsize{8pt}{8pt}\selectfont phot.flux.density; stat.error}} & 
+% Mireille: invalid UCD combination 
+%\multicolumn{1}{p{0.87in}}{{\fontsize{8pt}{8pt}\selectfont phot.flux.density; stat.error}} & 
+\multicolumn{1}{p{0.87in}}{{\fontsize{8pt}{8pt}\selectfont stat.error;phot.flux.density}} & 
 \multicolumn{1}{p{2in}}{{\fontsize{8pt}{8pt}\selectfont Error in the flux value at Zero point associated to this filter}} & 
 \multicolumn{1}{p{1in}}{} & 
 \multicolumn{1}{p{0.25in}}{{\fontsize{8pt}{8pt}\selectfont double}} \\
@@ -1556,7 +1572,10 @@ Although, as can be seen in the previous calculation, the use in code of the gen
 \hline
 %row no:30
 \multicolumn{1}{p{3in}}{{\fontsize{8pt}{8pt}\selectfont photDM:PhotCal.zeroPoint.referenceMagnitude.error}} & 
-\multicolumn{1}{p{0.87in}}{{\fontsize{8pt}{8pt}\selectfont phot.mag;stat.error}} & 
+% mireille: invalid UCD concatenation
+%\multicolumn{1}{p{0.87in}}{{\fontsize{8pt}{8pt}\selectfont phot.mag;stat.error}} & 
+\multicolumn{1}{p{0.87in}}{{\fontsize{8pt}{8pt}\selectfont stat.error;phot.mag}} & 
+
 \multicolumn{1}{p{2in}}{{\fontsize{8pt}{8pt}\selectfont Error in the reference magnitude used for zero point}} & 
 \multicolumn{1}{p{1in}}{{\fontsize{8pt}{8pt}\selectfont 0.0}} & 
 \multicolumn{1}{p{0.25in}}{{\fontsize{8pt}{8pt}\selectfont double} \par } \\
@@ -1577,7 +1596,9 @@ Although, as can be seen in the previous calculation, the use in code of the gen
 \hline
 %row no:33
 \multicolumn{1}{p{3in}}{{\fontsize{8pt}{8pt}\selectfont photDM:PhotCal.magnitudeSystem.ReferenceSpectrumURI}} & 
-\multicolumn{1}{p{0.87in}}{{\fontsize{8pt}{8pt}\selectfont meta.ref.ivorn }} & 
+% mireille 
+%\multicolumn{1}{p{0.87in}}{{\fontsize{8pt}{8pt}\selectfont meta.ref.ivorn }} & 
+\multicolumn{1}{p{0.87in}}{{\fontsize{8pt}{8pt}\selectfont meta.ref.ivoid }} & 
 \multicolumn{1}{p{2in}}{{\fontsize{8pt}{8pt}\selectfont Reference SED or spectrum for this magnitude system}} & 
 \multicolumn{1}{p{1in}}{} & 
 \multicolumn{1}{p{0.25in}}{{\fontsize{8pt}{8pt}\selectfont uri type}} \\

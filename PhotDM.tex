@@ -1,5 +1,5 @@
 \documentclass[11pt,a4paper]{ivoa}
-\input tthdefs
+\input{ivoatex/tthdefs}
 
 \usepackage{listings}
 \lstloadlanguages{sh,make,[latex]tex}
@@ -20,6 +20,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{float}
 \usepackage[titletoc]{appendix}
+\usepackage{listings}
 
 
 \usepackage{booktabs,xcolor}
@@ -40,6 +41,7 @@
 
 \author{Jesús Salgado}
 \author{Mireille Louys}
+\author{Laurent Michel}
 \author{Carlos Rodrigo}
 \author{Pedro Osuna}
 \author{Mark Allen}
@@ -47,7 +49,7 @@
 \author{Deborah Baines}
 \author{Jesús Maíz Apellániz}
 \author{Evanthia Hatziminaoglou}
-\author{Sebastien Derriere}
+\author{Sebastien \mbox{Derriere}}
 \author{Gerard Lemson}
 
 
@@ -1863,7 +1865,13 @@ utype="spec:Data.FluxAxis.Accuracy.StatError" />
 Exact details on how to serialize the response are contained in (\cite{derriere}).
 \par
 
-\par
+\subsection{Serialization using VO/DML model}
+The VO/DML view of the PhotDM allows the serialization of the PhotDM elements using mapping techniques into, e.g. VOTable formats. We show one of the possible serializations in line with the mapping efforts of the IVOA DM working group. This serialization describes the PhotCal Vega calibration of the 2MASS Ks filter.
+
+%%%%%%%%%%%%%%%%%%%% Table No: starts here %%%%%%%%%%%%%%%%%%%%
+\lstinputlisting[language=XML]{./photdm-2MASS-Ks.xml}
+%%%%%%%%%%%%%%%%%%%% Table No:  ends here %%%%%%%%%%%%%%%%%%%%
+
 \end{appendices}
 
 \bibliography{bibliography,ivoatex/ivoabib,ivoatex/docrepo}

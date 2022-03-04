@@ -5,6 +5,7 @@ XML serialization of Photometry Filter
  -->
 <!-- Photometric System -->
 <dm-mapping:INSTANCE dmtype="photdm:PhotometricSystem" dmid="_2MASS_J">
+    <dm-mapping:ATTRIBUTE dmrole="photdm:PhotometricSystem.description" dmtype="ivoa:string" value="2MASS" />
     <dm-mapping:ATTRIBUTE dmrole="photdm:PhotometricSystem.detectorType" dmtype="ivoa:integer" value="0" />
 </dm-mapping:INSTANCE>
 

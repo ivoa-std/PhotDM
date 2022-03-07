@@ -22,6 +22,12 @@
 \usepackage{float}
 \usepackage[titletoc]{appendix}
 \usepackage{listings}
+% define colors for syntax XML 
+% include listing settings 
+\include{syntaxXML}
+
+% end define colors 
+
 
 
 \usepackage{booktabs,xcolor}
@@ -1695,6 +1701,37 @@ Transmission curves are also only considered using the Access class to a remote 
 The following serialization is an example of a response of a filter profile service making use of the Photometry Filter DM through utypes:
 \par
 
+
+
+
+
+----------begin test syntax highlight 
+\section{test listing in XML}
+\lstset{
+    language=xml,
+    tabsize=3,
+    %frame=lines,
+    caption=Test,
+    label=code:sample,
+    frame=shadowbox,
+    rulesepcolor=\color{gray},
+    xleftmargin=20pt,
+    framexleftmargin=15pt,
+    keywordstyle=\color{black}\bf,
+    commentstyle=\color{OliveGreen},
+    stringstyle=\color{red},
+    numbers=left,
+    numberstyle=\tiny,
+    numbersep=2pt,
+    breaklines=true,
+    showstringspaces=false,
+    basicstyle=\footnotesize,
+    emph={dmid,dmtype,dmrole,value},emphstyle={\color{magenta}}}
+    \lstinputlisting{./serialisations/2MASS_PhotSys.xml}
+
+
+
+-----------end test --------
 \begin{verbatim}
 <?xml version="1.0"?>
 <VOTABLE version="1.1" xsi:schemaLocation="http://www.ivoa.net/xml/VOTable/v1.1"

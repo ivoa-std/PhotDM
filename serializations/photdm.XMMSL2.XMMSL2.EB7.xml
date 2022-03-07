@@ -1,13 +1,15 @@
 <!-- 
 
 XML serialization of Photometry Filter
+ 2022/03/07 MLouys:  dmids + photsys description 
+
 
  -->
 <!-- Photometric System -->
-<dm-mapping:INSTANCE dmtype="photdm:PhotometricSystem" dmid="_XMMSL2_EB7">
-    <dm-mapping:ATTRIBUTE dmrole="photdm:PhotometricSystem.detectorType" dmtype="ivoa:integer" value="1" />
+<dm-mapping:INSTANCE dmtype="photdm:PhotometricSystem" dmid="_XMM_Photsys">
+   <dm-mapping:ATTRIBUTE dmrole="photdm:PhotometricSystem.description" dmtype="ivoa:string" value="XMM" />
+   <dm-mapping:ATTRIBUTE dmrole="photdm:PhotometricSystem.detectorType" dmtype="ivoa:integer" value="1" />
 </dm-mapping:INSTANCE>
-
 
 <!-- Photometric Calibration -->
 <dm-mapping:INSTANCE dmtype="photdm:PhotCal"  dmid="_XMMSL2_EB7">

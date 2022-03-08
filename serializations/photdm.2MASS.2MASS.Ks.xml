@@ -4,13 +4,14 @@ XML serialization of Photometry Filter
 
  -->
 <!-- Photometric System -->
-<dm-mapping:INSTANCE dmtype="photdm:PhotometricSystem" dmid="_2MASS_Ks">
-    <dm-mapping:ATTRIBUTE dmrole="photdm:PhotometricSystem.detectorType" dmtype="ivoa:integer" value="0" />
+<dm-mapping:INSTANCE dmtype="photdm:PhotometricSystem" dmid="_2MASS_PhotSys">
+  <dm-mapping:ATTRIBUTE dmrole="photdm:PhotometricSystem.description" dmtype="ivoa:string" value="2MASS" />
+  <dm-mapping:ATTRIBUTE dmrole="photdm:PhotometricSystem.detectorType" dmtype="ivoa:integer" value="0" />
 </dm-mapping:INSTANCE>
 
 
 <!-- Photometric Calibration -->
-<dm-mapping:INSTANCE dmtype="photdm:PhotCal" dmid="_2MASS_Ks">
+<dm-mapping:INSTANCE dmtype="photdm:PhotCal" dmid="_2MASS_Ks_cal_vega">
     <dm-mapping:ATTRIBUTE dmrole="photdm:PhotCal.identifier" dmtype="ivoa:string" value="2MASS/2MASS.Ks/Vega" />
     <!-- Magnitude System -->
     <dm-mapping:INSTANCE dmtype="photdm:MagnitudeSystem" dmrole="photdm:PhotCal.magnitudeSystem">
@@ -30,8 +31,8 @@ XML serialization of Photometry Filter
         </dm-mapping:INSTANCE>
     </dm-mapping:INSTANCE>
     
-    <!--  Filter -->
-    <dm-mapping:INSTANCE dmtype="photdm:PhotometryFilter" dmrole="photdm:PhotCal.photometryFilter">
+    <!--  Filter 2MASS Ks-->
+    <dm-mapping:INSTANCE dmtype="photdm:PhotometryFilter" dmrole="photdm:PhotCal.photometryFilter" dmid="_2MASS_KS_filter_">
         <dm-mapping:ATTRIBUTE dmrole="photdm:PhotometryFilter.fpsidentifier" dmtype="ivoa:string" value="ivo://svo/fps" />
         <dm-mapping:ATTRIBUTE dmrole="photdm:PhotometryFilter.identifier" dmtype="ivoa:string" value="2MASS/2MASS.Ks" />
         <dm-mapping:ATTRIBUTE dmrole="photdm:PhotometryFilter.name" dmtype="ivoa:string" value="2MASS Ks" />

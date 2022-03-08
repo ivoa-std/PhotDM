@@ -22,6 +22,12 @@
 \usepackage{float}
 \usepackage[titletoc]{appendix}
 \usepackage{listings}
+% define colors for syntax XML 
+% include listing settings 
+\include{syntaxXML}
+
+% end define colors 
+
 
 
 \usepackage{booktabs,xcolor}
@@ -1695,6 +1701,35 @@ Transmission curves are also only considered using the Access class to a remote 
 The following serialization is an example of a response of a filter profile service making use of the Photometry Filter DM through utypes:
 \par
 
+
+
+
+
+----------begin test syntax highlight 
+\section{test listing in XML}
+\lstset{
+    language=xml,
+    tabsize=3,
+    %frame=lines,
+    caption=Test,
+    label=code:sample,
+    frame=shadowbox,
+    rulesepcolor=\color{gray},
+    xleftmargin=20pt,
+    framexleftmargin=15pt,
+    keywordstyle=\color{black}\bf,
+    commentstyle=\color{OliveGreen},
+    stringstyle=\color{red},
+    numbers=left,
+    numberstyle=\tiny,
+    numbersep=2pt,
+    breaklines=true,
+    showstringspaces=false,
+    basicstyle=\footnotesize,
+    emph={dmid,dmtype,dmrole,value},emphstyle={\color{magenta}}}
+    \lstinputlisting{./serializations/2MASS_PhotSys.xml}
+
+-----------end test --------
 \begin{verbatim}
 <?xml version="1.0"?>
 <VOTABLE version="1.1" xsi:schemaLocation="http://www.ivoa.net/xml/VOTable/v1.1"
@@ -1804,6 +1839,9 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
 \end{verbatim}
 
+%%%%%%%%%%%%%%%%%%%% listing phot system 2Mass : starts here %%%%%%%%%%%%%%%%%%%%
+%\lstinputlisting[language=XML,breaklines]{./serializations/2MASS_PhotSys.xml}
+%%%%%%%%%%%%%%%%%%%% Table No:  ends here %%%%%%%%%%%%%%%%%%%%
 
 \subsection{Photometric Data in Cone Search}
 Catalogs could include photometric measurements in some columns. In order to allow the publication of these measurements in a. e.g., cone search service, the creation of a new capability has been proposed.
@@ -1882,7 +1920,7 @@ Exact details on how to serialize the response are contained in (\cite{derriere}
 The VO/DML view of the PhotDM allows the serialization of the PhotDM elements using mapping techniques into, e.g. VOTable formats. We show one of the possible serializations in line with the mapping efforts of the IVOA DM working group. This serialization describes the PhotCal Vega calibration of the 2MASS Ks filter.
 
 %%%%%%%%%%%%%%%%%%%% Table No: starts here %%%%%%%%%%%%%%%%%%%%
-\lstinputlisting[language=XML]{./serializations/photdm.2MASS.2MASS.Ks.xml}
+\lstinputlisting[language=XML,breaklines]{./serializations/photdm.2MASS.2MASS.Ks.xml}
 %%%%%%%%%%%%%%%%%%%% Table No:  ends here %%%%%%%%%%%%%%%%%%%%
 
 \end{appendices}

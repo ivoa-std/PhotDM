@@ -14,7 +14,7 @@ Evanthia Hatziminaoglou, Sebastien Derriere, Gerard Lemson</author>
   <lastModified>2022-01-06T11:20:20</lastModified>
   <import>
     <name>ivoa</name>
-    <url>http://www.ivoa.net/xml/VODML/IVOA-v1.vo-dml.xml</url>
+    <url>IVOA-v1.0.vo-dml.xml</url>
     <documentationURL>https://github.com/ivoa/vo-dml/blob/master/models/ivoa/vo-dml/IVOA-v1.0.html</documentationURL>
   </import>
   <primitiveType>

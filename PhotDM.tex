@@ -67,7 +67,7 @@
 \begin{document}
 
 \begin{abstract}
-The Photometry Data Model (\textbf{PhotDM}) standard describes photometry filters, photometric systems, magnitude systems, zero points and its interrelation with the other IVOA data models through a simple data model. Particular attention is given necessarily to optical photometry where specifications of magnitude systems and photometric zero points are required to convert photometric measurements into physical flux density units.
+The Photometry Data Model (\textbf{PhotDM}) standard describes photometry filters, photometric systems, magnitude systems, zero points and their interrelation with the other IVOA data models through a simple data model. Particular attention is given necessarily to optical photometry where specifications of magnitude systems and photometric zero points are required to convert photometric measurements into physical flux density units.
 \end{abstract}
 
 \section*{Acknowledgments}
@@ -325,7 +325,7 @@ A Spectrum would have a Characterization Coordsys element that will have associa
  %%%%%%%%%%%%  Starting New Page here %%%%%%%%%%%%%%
 
 \newpage
-In order to fully describe values of the magnitudes inside photometry point instances, the class diagram makes use of physical quantity classes. These classes glue all the basic fields that compose a physical measurement: value, error, units, etc. However, within the present specification, we will describe individual attributes of the different quantities and as a consequence. All the utypes will be also generated from individual physical quantity attributes what will facilitate the use within IVOA Data Access Layer protocols.
+In order to fully describe values of the magnitudes inside photometry point instances, the class diagram makes use of physical quantity classes. These classes glue all the basic fields that compose a physical measurement: value, error, units, etc. However, within the present specification, we will describe individual attributes of the different quantities and as a consequence. All the utypes will be also generated from individual physical quantity attributes that will facilitate the use within IVOA Data Access Layer protocols.
 \par
 
 \subsection{PhotometricSystem Class}
@@ -524,7 +524,7 @@ This String contains a verbose human readable string description of the filter. 
 \par
 
 \subsubsection{PhotometryFilter.bandName: String}
-This String contains a standard representation of the spectral band associated to this filter (if any). This information is useful for human interpretation but it is discourage to use it for discovery purposes. The reason is that a filter is not always properly represented by a standard band so filters could be lost in a query response.
+This String contains a standard representation of the spectral band associated to this filter (if any). This information is useful for human interpretation but it is discouraged to use it for discovery purposes. The reason is that a filter is not always properly represented by a standard band so filters could be lost in a query response.
 \par
 
 Examples:
@@ -799,7 +799,7 @@ PhotometryFilter.bandwith.extent: double} \hspace{0pt} \\
 For square filters (100$\%$  between the minimum and maximum wavelength and 0$\%$  otherwise), the bandwidth could be described as $\lambda_{max} - \lambda_{min}$.
 \par
 
-However, for real filters, the bandwidth is not very usable to describe the band-pass of the filter, but the effective width, that can be described as follow:
+However, for real filters, the bandwidth is not very usable to describe the band-pass of the filter, but the effective width, that can be described as follows:
 \par
 \[
 w = \frac{\int T(\lambda)d\lambda}{Max(T(\lambda))}

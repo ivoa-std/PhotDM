@@ -810,7 +810,7 @@ where $w$ is the effective width, $T(\lambda)$ is the transmission curve (see be
 
 \paragraph{3.2.10.4
 PhotometryFilter.bandwith.start: double } \hspace{0pt} \\
-Also called in the rest of the document, this is a spectral value that better describes the minimum value of the spectral range of the filter band-pass. In general, although this will not be imposed in order to allow a better description for different types of transmission curves, this quantity will be close to:
+Also called $\lambda_{min}$ in the rest of the document, this is a spectral value that better describes the minimum value of the spectral range of the filter band-pass. In general, although this will not be imposed in order to allow a better description for different types of transmission curves, this quantity will be close to:
 \par
 \[
 \lambda_{min} = \lambda_{mean} - \frac{w}{2}
@@ -1134,13 +1134,13 @@ Some typical types of photometric systems are:
 	\item ABmag: Makes use of a reference spectrum of constant flux density per unit frequency $f_\nu $:
 \end{itemize}\par
 \[
-f_0^{AB} = 3.631 \times 10^{-20} erg\, s^-1 cm^{-2} Hz^{-1}
+f_0^{AB} = 3.631 \times 10^{-20} erg\, s^{-1} cm^{-2} Hz^{-1}
 \]
 
 \begin{itemize}
 	\item STmag: Introduced for the HST project, it makes use of a reference spectrum of constant flux density per unit of wavelength:\par
 \[
-f_0^{ST} = 3.631 \times 10^{-9} erg\, s^-1 cm^{-2} \angstrom ^{-1}
+f_0^{ST} = 3.631 \times 10^{-9} erg\, s^{-1} cm^{-2} \angstrom ^{-1}
 \]
 \end{itemize}
 \section{Use Cases}
@@ -1187,7 +1187,7 @@ Flux could be then calculated as (for Pogson magnitudes, i.e. Zeropoint.type=0 a
 \[
 f = f_0 10^{-m/2.5}
 \]
-Where $f_0$ is the ZeroPoint.flux.value, is the magnitude associated to the measurement and $f$ is the associated flux. The type of flux ($f_\lambda $ or $f_\nu $) and the associated units, although they can be indirectly deduced from the field MagnitudeSystem, will be the same as those for the ZeroPoint.flux.
+Where $f_0$ is the ZeroPoint.flux.value, $m$ is the magnitude associated to the measurement and $f$ is the associated flux. The type of flux ($f_\lambda $ or $f_\nu $) and the associated units, although they can be indirectly deduced from the field MagnitudeSystem, will be the same as those for the ZeroPoint.flux.
 \par
 In case ZeroPoint.type=1 (asinh magnitudes) the value of AsinhZeroPoint.softeningParameter.value should also be used to modify the conversion formula to:
 \par
@@ -1221,7 +1221,7 @@ f_{R}^{AB}=3.63 \times 10^{-20} erg\, s^{-1} cm^{-2} Hz^{-1}
 As:
 \par
 \[
-m_R = 2.5\log_{10} (f_{0}^{AB})=2.5 log_10(3.63\times 10^{-20})=-48.6
+m_R = 2.5\log_{10} (f_{0}^{AB})=2.5 log_{10}(3.63\times 10^{-20})=-48.6
 \]
 
 Other systems usually define the zero point flux as a $f_\lambda $ flux, as it is usually done by, e.g., STMag systems. For these systems, the reference flux would be a monochromatic $f_\lambda $ flux:
@@ -1248,7 +1248,7 @@ as:
 m_R =2.5\log_{10} (f_0 ^{ST})=2.5\log_{10} (3.63\times 10^{-9})=-21.1
 \]
 
-In the present model and in order to provide a uniform treatment for all the different photometric systems, we have used the zero point flux as the quantity to characterize the photometry filter. The type of flux ($f_\nu $ or $f_lambda $) and the units of any converted to flux magnitude would coincide with the ones used to express the zero point flux, i.e., the zero point flux contains information lost in the zero point magnitude.
+In the present model and in order to provide a uniform treatment for all the different photometric systems, we have used the zero point flux as the quantity to characterize the photometry filter. The type of flux ($f_\nu $ or $f_\lambda $) and the units of any converted to flux magnitude would coincide with the ones used to express the zero point flux, i.e., the zero point flux contains information lost in the zero point magnitude.
 \par
 
 \subsection{Interrelation between Pogson and Asinh magnitudes}

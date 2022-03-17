@@ -32,6 +32,8 @@
 \def\cm{\textrm{cm}}
 \def\second{\textrm{s}}
 \def\Hz{\textrm{Hz}}
+\def\sinh{\textrm{sinh}}
+\def\ln{\textrm{ln}}
 
 \usepackage{booktabs,xcolor}
 \definecolor{texcolor}{rgb}{0.4,0.1,0.1}
@@ -245,23 +247,17 @@ f_\lambda = 3.63\times 10^{-9}\,\erg\,\cm^{-2}\,\second^{-1}\,\angstrom^{-1}
 \]
 
 
-A convenient graphical representation of these systems is shown in Figure 3.1 of the Synphot user’s manual:
-\par
+A convenient graphical representation of these systems is shown in Figure 3.1 of the Synphot user’s manual\footnote{\url{http://www.stsci.edu/resources/software_hardware/stsdas/synphot/SynphotManual.pdf}}.
 
-\url{http://www.stsci.edu/resources/software_hardware/stsdas/synphot/SynphotManual.pdf}.
-\par
+For a photometric system that uses Vega magnitudes, the zero point flux for each filter is the average flux density of Vega over that bandpass $f_{Vega}$. Some typical values of $f_{Vega}$ are tabulated in \citep{2001eaa..book.....M} for the Johnson photometric system. Although the agreed Vega spectrum has changed historically, the commonly referred to spectrum of Vega in digital form described in \citet{2004AJ....127.3508B} is available as file at alpha\_lyr\_stis\_002.fits online\footnote{\url{http://www.stsci.edu/instruments/observatory/cdbs/calspec}}.
 
-For a photometric system that uses Vega magnitudes, the zero point flux for each filter is the average flux density of Vega over that bandpass $f_{Vega}$. Some typical values of $f_{Vega}$ are tabulated in \citep{2001eaa..book.....M} for the Johnson photometric system. Although the agreed Vega spectrum has changed historically, the commonly referred to spectrum of Vega in digital form described in \citet{2004AJ....127.3508B} is available as file at alpha\_lyr\_stis\_002.fits at:\par
-\url{http://www.stsci.edu/instruments/observatory/cdbs/calspec}
-\par
-
-In the AB system, the flux density (in units of $\erg\, \cm^{_2}\, \second^{-1}\, \Hz^{-1}$) corresponding to a given magnitude is simply obtained via:
+In the AB system, the flux density (in units of $\erg\, \cm^{2}\, \second^{-1}\, \Hz^{-1}$) corresponding to a given magnitude is simply obtained via:
 \par
 \[
 f_{\nu} = 10^{-0.4(m_{AB}+48.6)}
 \]
 
-And, in the same way, in the ST system, the flux density (in units of $\erg\, \cm^{_2}\, \second^{-1}\, \angstrom^{-1}$) corresponding to a given magnitude is:
+And, in the same way, in the ST system, the flux density (in units of $\erg\, \cm^{2}\, \second^{-1}\, \angstrom^{-1}$) corresponding to a given magnitude is:
 \par
 \[
 f_{\lambda} = 10^{-0.4(m_{ST}+21.1)}
@@ -270,7 +266,7 @@ f_{\lambda} = 10^{-0.4(m_{ST}+21.1)}
 Another magnitude system is the Asinh magnitude system in which magnitudes are defined as
 \par
 \[
-m = \frac{2.5}{ln(10)} \left[ sinh^{-1}(\frac{f}{2bf_0}) +ln(b) \right]
+m = \frac{2.5}{\ln(10)} \left[ \sinh^{-1}\left(\frac{f}{2bf_0}\right) +\ln(b) \right]
 \]
 
 
@@ -278,7 +274,7 @@ where b is known as the softening parameter. Details of the Asinh magnitude syst
 \par
 
 \section{Photometry Data Model} \label{datamodel}
-The model shown in Figure 1, organizes the structure and detailed metadata fields of the Photometry Data Model in a logical manner, and shows the relationship to other IVOA data models. The metadata fields for each class specify the essential elements required to describe a photometric measurement.
+The model shown in Figure 1 organizes the structure and detailed metadata fields of the Photometry Data Model in a logical manner, and shows the relationship to other IVOA data models. The metadata fields for each class specify the essential elements required to describe a photometric measurement.
 \par
 
 The main class in this diagram is Photometry Filter. This class contains all the attributes necessary to describe a filter from the data discovery point of view.
@@ -1050,7 +1046,7 @@ Where $f$ is the flux of the observed source, $f_0$ is the zero point flux value
 \subsubsection{AsinhZeroPoint.getMagnitudeFromFlux()}
 For asinh magnitudes, the operator to be used is:\par
 \[
-m = m_R - \frac{-2.5}{ln(10)}\left[ sinh^{-1}\left (\frac{f}{2bf_0}\right) + ln(b) \right]
+m = m_R - \frac{-2.5}{\ln(10)}\left[ \sinh^{-1}\left (\frac{f}{2bf_0}\right) + \ln(b) \right]
 \]
 
 Where $m$ is the magnitude assigned to this source, $m_R$ is the reference magnitude (default value to zero unless specified otherwise), $f$ is the flux of the observed source, $f_0$ is the zero point flux value, and a new parameter appears, $b$ , called the softening parameter, which is referenced in this data model as the AsihnZeroPoint.softeningParameter.
@@ -1261,16 +1257,16 @@ It can be proved that, if b=0, Pogson and Asinh magnitudes are the same:\par
 \]
 and\par
 \[
-m=\frac{-2.5}{ln(10)}\left[ sinh^{-1} \left(\frac{f}{2bf_0}\right) + ln(b)\right] \text{\textbar}_{b=0} =
+m=\frac{-2.5}{\ln(10)}\left[ \sinh^{-1} \left(\frac{f}{2bf_0}\right) + \ln(b)\right] \text{\textbar}_{b=0} =
 \]
 \[
-\frac{-2.5}{ln(10)}\left[ ln\left(\frac{f}{2bf_0}\right) + \sqrt{1+\frac{f^2}{4b^2 f_0^2}} + ln(b)\right] \text{\textbar}_{b=0} =
+\frac{-2.5}{\ln(10)}\left[ \ln\left(\frac{f}{2bf_0}\right) + \sqrt{1+\frac{f^2}{4b^2 f_0^2}} + \ln(b)\right] \text{\textbar}_{b=0} =
 \]
 \[
-\frac{-2.5}{ln(10)}\left[ ln\left(\frac{f}{2f_0}\right) + \sqrt{b^2+\frac{f^2}{4 f_0^2}}\right] \text{\textbar}_{b=0} =
+\frac{-2.5}{\ln(10)}\left[ ln\left(\frac{f}{2f_0}\right) + \sqrt{b^2+\frac{f^2}{4 f_0^2}}\right] \text{\textbar}_{b=0} =
 \]
 \[
-\frac{-2.5}{ln(10)}\left[ ln(\frac{f}{f_0}) \right] =
+\frac{-2.5}{\ln(10)}\left[ \ln(\frac{f}{f_0}) \right] =
 \]
 \[
 -2.5\log{\frac{f}{f_0}}

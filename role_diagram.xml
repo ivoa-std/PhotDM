@@ -12,17 +12,15 @@ with missing dependencies.
 
 <archdiag xmlns="http://ivoa.net/archdiag">
 
-	<rec name="UCD" x="160" y="310"/>
-	<rec name="VOTable" x="350" y="400"/>
-	<rec name="CharDM" x="450" y="255"/>
-	<rec name="ProvDM" x="450" y="330"/>
-	<thisrec name="PhotDM" x="550" y="330"/>
-	<rec name="VOUnits" x="160" y="250"/>
-	<rec name="STC" x="550" y="230"/>
+	<rec name="UCD" x="189" y="310" w="32"/>
+	<rec name="VOTable" x="270" y="325" w="50"/>
+	<rec name="CharDM" x="470.5" y="255" w="49"/>
+	<rec name="ProvDM" x="571" y="330" w="48"/>
+	<thisrec name="ProvDM" x="571" y="330" w="48"/>
+	<rec name="VOUnits" x="220" y="250" w="50"/>
+	<rec name="STC" x="580" y="255" w="30"/>
 	<rec name="UTypes" x="550" y="205"/>
-	<rec name="TAP" x="655" y="355"/>
-	<rec name="SSAP" x="655" y="230"/>
-	<rec name="SpectrumDM" x="550" y="180"/>
-
-	<!-- TD -->
+  <rec name="TAP" x="686" y="255" w="28"/>
+	<rec name="SSAP" x="682" y="180" w="36"/>
+	<rec name="SpectralDM" x="461.5" y="280" w="67"/>
 </archdiag>

@@ -149,7 +149,7 @@ The figure below shows where IVOA Photometry Data Model fits within the IVOA arc
 \pagebreak
 
 \section{Introduction}
-A key role of the VO is to help astronomers find data and to combine that data in a scientifically meaningful way. A Spectral Energy Distribution (SED) is an example of combining data whereby flux density measurements of an astrophysical source at different spectral energy coordinates (wavelengths/frequencies/energy)(\cite{doi:10.1146/annurev.astro.41.082801.100251}, \cite{longo}, \cite{connell}, \cite{brujine}) are plotted as a graph of flux density versus a spectral energy coordinate. SEDs that cover a wide range of the electromagnetic spectrum are particularly useful for identifying the underlying physical processes operating in the astrophysical source, and the use of SEDs is becoming more prevalent as astronomy takes an increasingly multi-wavelength approach. To combine individual flux density measurements and their spectral energy coordinates into an SED, these ‘photometry’ measurements must be described in sufficient detail to allow for the conversion to compatible flux density and spectral energy units,  taking into account the nature of the spectral energy bandpass of the measurements, as well as the apertures and other details of  the measurements. This document outlines a photometry data model to describe photometric measurements in a standard way.
+A key role of the VO is to help astronomers find data and to combine that data in a scientifically meaningful way. A Spectral Energy Distribution (SED) is an example of combining data whereby flux density measurements of an astrophysical source at different spectral energy coordinates (wavelengths/frequencies/energy) \citep{doi:10.1146/annurev.astro.41.082801.100251, longo, connell, brujine} are plotted as a graph of flux density versus a spectral energy coordinate. SEDs that cover a wide range of the electromagnetic spectrum are particularly useful for identifying the underlying physical processes operating in the astrophysical source, and the use of SEDs is becoming more prevalent as astronomy takes an increasingly multi-wavelength approach. To combine individual flux density measurements and their spectral energy coordinates into an SED, these ‘photometry’ measurements must be described in sufficient detail to allow for the conversion to compatible flux density and spectral energy units,  taking into account the nature of the spectral energy bandpass of the measurements, as well as the apertures and other details of  the measurements. This document outlines a photometry data model to describe photometric measurements in a standard way.
 \par
 
 The photometry data model aims to describe the essential elements of flux density measurements made within all spectral energy domains across the electromagnetic spectrum. In some domains this is relatively straight forward, such as in radio astronomy where measurements are commonly expressed in flux density units, and where data are readily combined into SEDs. The data model fields required to describe such a radio flux density measurement includes a specification of the bandpass, the units of the measurement and the associated uncertainties. Optical photometry measurements are however commonly expressed in magnitudes, and a greater level of description of the magnitude systems and bandpasses are required to support the conversion of these measurements into flux densities that could be combined into an SED. As such, much of this document is necessarily devoted to defining the data model fields required to describe optical photometry measurements.
@@ -248,7 +248,7 @@ A convenient graphical representation of these systems is shown in Figure 3.1 of
 \url{http://www.stsci.edu/resources/software_hardware/stsdas/synphot/SynphotManual.pdf}.
 \par
 
-For a photometric system that uses Vega magnitudes, the zero point flux for each filter is the average flux density of Vega over that bandpass $f_{Vega}$. Some typical values of $f_{Vega}$ are tabulated in (\cite{2001eaa..book.....M}) for the Johnson photometric system. Although the agreed Vega spectrum has changed historically, the commonly referred to spectrum of Vega in digital form described in (\cite{2004AJ....127.3508B}) is available as file at alpha\_lyr\_stis\_002.fits at:\par
+For a photometric system that uses Vega magnitudes, the zero point flux for each filter is the average flux density of Vega over that bandpass $f_{Vega}$. Some typical values of $f_{Vega}$ are tabulated in \citep{2001eaa..book.....M} for the Johnson photometric system. Although the agreed Vega spectrum has changed historically, the commonly referred to spectrum of Vega in digital form described in \citet{2004AJ....127.3508B} is available as file at alpha\_lyr\_stis\_002.fits at:\par
 \url{http://www.stsci.edu/instruments/observatory/cdbs/calspec}
 \par
 
@@ -441,7 +441,7 @@ SDSS/SDSS.G/G
 IVOA identifier of the filter profile service where this photometry filter is registered to be used in the discovery of all the relevant photometry filter properties.
 \par
 
-This identifier follows the IVOA syntax defined for IVOA identifiers (\cite{plante}) which gives a string built up as:
+This identifier follows the IVOA syntax defined for IVOA identifiers \citep{2016ivoa.spec.0523D} which gives a string built up as:
 \par
 
 %%%%%%%%%%%%%%%%%%%% Table No: 6 starts here %%%%%%%%%%%%%%%%%%%%
@@ -612,7 +612,7 @@ It is composed of a spectral coordinate in the x-axis and a scalar in the y-axis
 
 \par
 
-This curve can be used, e.g. for the creation of synthetic photometry (\cite{1996BaltA...5..459S},\cite{2004A&A...422..205G}) from an observational or a theoretical spectrum by applying it to the spectrum in the filter band-pass. Taking as input a certain flux, the effective flux as seen using a certain filter would be, for energy counters (\cite{2007ASPC..364..227M}):
+This curve can be used, e.g. for the creation of synthetic photometry \citep{1996BaltA...5..459S, 2004A&A...422..205G} from an observational or a theoretical spectrum by applying it to the spectrum in the filter band-pass. Taking as input a certain flux, the effective flux as seen using a certain filter would be, for energy counters \citep{2007ASPC..364..227M}:
 \par
 
 \[
@@ -636,7 +636,7 @@ Spectral and transmission coordinates can be gathered directly as a table using 
 \par
 
 \subsubsection{PhotometryFilter.spectralLocation.value: double}
-A spectral coordinate value that can be considered by the data provider as the most representative for this specific filter band-pass. The selection of this value should take into account the filter transmission curve profile and in general should be close to the wavelength mean value, defined (\cite{1982AJ.....87..670O}) as:
+A spectral coordinate value that can be considered by the data provider as the most representative for this specific filter band-pass. The selection of this value should take into account the filter transmission curve profile and in general should be close to the wavelength mean value, defined \citep{1982AJ.....87..670O} as:
 \par
 \[
 \lambda_{mean} = \frac{\int T(\lambda)\lambda d\lambda}{\int T(\lambda)d\lambda}
@@ -684,7 +684,7 @@ but these source dependent definitions have two caveats:
 This data model field stores points of the curve in place in a simple table using spectrum data fields as shown above. \par
 
 \paragraph{3.2.9.1 PhotometryFilter.transmissionCurve.access} \hspace{0pt} \\
-If the transmission curve is hooked as an external file, we use the \textit{Access} class defined in the Observation CoreComponents data model (\cite{louys2011ivoa}) and inherited from the SSA specification (\cite{2012ivoatody}).
+If the transmission curve is hooked as an external file, we use the \textit{Access} class defined in the Observation CoreComponents data model \citep{2017ivoa.spec.0509L} and inherited from the SSA specification \citep{2012ivoa.spec.0210T}.
 \par
 
 \subparagraph{3.2.9.1.1 PhotometryFilter.transmissionCurve.access.reference} \hspace{0pt} \\
@@ -740,7 +740,7 @@ transmissionPoint.transmissionValu}e}\par}
 \subparagraph{3.2.9.2.1
 PhotometryFilter.transmissionCurve.transmissionPoint.
 spectralValue.UCD: String} \hspace{0pt} \\
-This data model field contains a Unified Content Description string (UCD) (\cite{2007ivoa.spec.0402M}) that specifies the nature of the spectral axis for this filter. This applies to the full spectral axis description of the filter.
+This data model field contains a Unified Content Description string (UCD) \citep{2007ivoa.spec.0402M} that specifies the nature of the spectral axis for this filter. This applies to the full spectral axis description of the filter.
 \par
 
 Example:
@@ -917,7 +917,7 @@ Reference magnitude is a dimensionless variable. It is modeled using a PhysicalQ
 Total error estimated of the reference magnitude whenever applicable. Reference Magnitude error is a dimensionless variable.\par
 
 \subsubsection{ZeroPoint.type: enum}
-Usual definition of magnitudes, also called Pogson magnitudes, can be improved for faint sources by replacing the usual logarithm with an inverse hyperbolic sine function. These kinds of magnitudes are called $``$asinh magnitudes$"$  or $``$luptitudes$"$  (\cite{2004A&A...422..205G})\par
+Usual definition of magnitudes, also called Pogson magnitudes, can be improved for faint sources by replacing the usual logarithm with an inverse hyperbolic sine function. These kinds of magnitudes are called $``$asinh magnitudes$"$  or $``$luptitudes$"$  \citep{2004A&A...422..205G}\par
 
 %%%%%%%%%%%%%%%%%%%% Table No: 17 starts here %%%%%%%%%%%%%%%%%%%%
 
@@ -1008,7 +1008,7 @@ Extension of ZeroPoint  to describe asinh magnitudes, a.k.a. luptitudes.
 \par
 
 \subsubsection{AsinhZeroPoint.softeningParameter: double}
-Parameter used to correct the calculation of magnitudes for faint sources. Usually called b. See (\cite{1999AJ....118.1406L}) for a formal explanation.
+Parameter used to correct the calculation of magnitudes for faint sources. Usually called b. See \citep{1999AJ....118.1406L} for a formal explanation.
 \par
 
 Example:
@@ -1114,7 +1114,7 @@ The list is not exhaustive. The principal difference between these photometric s
 This describes the spectrum of an astronomical object used as reference to perform photometric calibration.
 \par
 
-This points to a Spectrum object as defined in the IVOA spectrum data model (\cite{mcdowell2012ivoa}). Instead of having the whole spectrum attached, we define a link to it as referenceSpectrumURI.
+This points to a Spectrum object as defined in the IVOA spectrum data model \citep{2007ivoa.spec.1029M}. Instead of having the whole spectrum attached, we define a link to it as referenceSpectrumURI.
 \par
 
 This is a URL, pointing to a published IVOA resource location containing the reference spectrum used.
@@ -1812,7 +1812,7 @@ utype="spec:Data.FluxAxis.Accuracy.StatError" />
 
 
 \vspace{\baselineskip}
-Exact details on how to serialize the response are contained in (\cite{derriere}).
+Exact details on how to serialize the response are contained in \citep{derriere}.
 \par
 
 \end{appendices}

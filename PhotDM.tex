@@ -28,7 +28,10 @@
 
 % end define colors 
 
-
+\def\erg{\textrm{erg}}
+\def\cm{\textrm{cm}}
+\def\second{\textrm{s}}
+\def\Hz{\textrm{Hz}}
 
 \usepackage{booktabs,xcolor}
 \definecolor{texcolor}{rgb}{0.4,0.1,0.1}
@@ -180,7 +183,7 @@ As with most of the VO Data Models, PhotDM makes use of STC, Utypes, Units and U
 \par
 
 \section{Astronomical Photometry}
-Astronomical photometry refers to measuring the brightness, flux or intensity of an astrophysical object. Consider an astronomical source with a flux density at the observer $F(x)$, where $x$ is a spectral coordinate (wavelength, frequency or energy).  The photometry measurement will be related to $<F>$ a flux weighted integral of this flux density over an observed band with a relative spectral response $T(x)$. The flux weighted integral in its most simple form is defined as
+Astronomical photometry refers to measuring the brightness, flux or intensity of an astrophysical object. Consider an astronomical source with a flux density at the observer $F(x)$, where $x$ is a spectral coordinate (wavelength, frequency or energy).  The photometry measurement will be related to $<F>$, a flux weighted integral of this flux density over an observed band with a relative spectral response $T(x)$. The flux weighted integral in its most simple form is defined as
 \par
 
 \[ <F> = \int F(x)T(x)dx \]
@@ -216,7 +219,7 @@ As explained above, this is equivalent to:
 
 so that
 \par
-\[ f = f_0 10^{-0.4(m - m_{R})} \]
+\[ f = f_0\, 10^{-0.4(m - m_{R})} \]
 
 
 Using this expression a measurement in magnitudes can be converted to a flux density, given the zero point flux of the reference spectrum.  The magnitude of reference $m_{R}$ and the zero point $f_0$ will be defined in the document. $m_{R}$ is most often chosen to be zero (or one for linear photometric systems) in most of the photometric systems although, usually, continuous recalibration of the photometric system usually produces a deviation of this value.
@@ -232,13 +235,13 @@ $m_{ST,\lambda } =0$ have been chosen to be the mean flux density of Vega in the
 m_{AB,\nu } = 0
 \]
 \[
-f_\nu = 3.63\times 10^{-20}\,erg\,cm^{-2}\,s^{-1}\,Hz^{-1}
+f_\nu = 3.63\times 10^{-20}\,\erg\,\cm^{-2}\,\second^{-1}\,\Hz^{-1}
 \]
 \[
 m_{ST,\lambda } = 0
 \]
 \[
-f_\lambda = 3.63\times 10^{-9}\,erg\,cm^{-2}\,s^{-1}\,\angstrom^{-1}
+f_\lambda = 3.63\times 10^{-9}\,\erg\,\cm^{-2}\,\second^{-1}\,\angstrom^{-1}
 \]
 
 
@@ -252,13 +255,13 @@ For a photometric system that uses Vega magnitudes, the zero point flux for each
 \url{http://www.stsci.edu/instruments/observatory/cdbs/calspec}
 \par
 
-In the AB system, the flux density (in units of $erg\, cm^{_2}\, s^{-1}\, Hz^{-1}$) corresponding to a given magnitude is simply obtained via:
+In the AB system, the flux density (in units of $\erg\, \cm^{_2}\, \second^{-1}\, \Hz^{-1}$) corresponding to a given magnitude is simply obtained via:
 \par
 \[
 f_{\nu} = 10^{-0.4(m_{AB}+48.6)}
 \]
 
-And, in the same way, in the ST system, the flux density (in units of $erg\, cm^{_2}\, s^{-1}\, \angstrom^{-1}$) corresponding to a given magnitude is:
+And, in the same way, in the ST system, the flux density (in units of $\erg\, \cm^{_2}\, \second^{-1}\, \angstrom^{-1}$) corresponding to a given magnitude is:
 \par
 \[
 f_{\lambda} = 10^{-0.4(m_{ST}+21.1)}
@@ -1140,7 +1143,7 @@ f_0^{AB} = 3.631 \times 10^{-20} erg\, s^{-1} cm^{-2} Hz^{-1}
 \begin{itemize}
 	\item STmag: Introduced for the HST project, it makes use of a reference spectrum of constant flux density per unit of wavelength:\par
 \[
-f_0^{ST} = 3.631 \times 10^{-9} erg\, s^{-1} cm^{-2} \angstrom ^{-1}
+f_0^{ST} = 3.631 \times 10^{-9} \erg\, \second^{-1} \cm^{-2} \angstrom ^{-1}
 \]
 \end{itemize}
 \section{Use Cases}
@@ -1215,7 +1218,7 @@ m_{AB,\nu } = -2.5\log_{10} (f_\nu ) - 48.6
 Which is consistent with the definition of a zero point flux of the monochromatic $f_\nu $ flux:
 \par
 \[
-f_{R}^{AB}=3.63 \times 10^{-20} erg\, s^{-1} cm^{-2} Hz^{-1}
+f_{R}^{AB}=3.63 \times 10^{-20} \erg\, \second^{-1} \cm^{-2} \Hz^{-1}
 \]
 
 As:

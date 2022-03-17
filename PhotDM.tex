@@ -274,7 +274,7 @@ where b is known as the softening parameter. Details of the Asinh magnitude syst
 \par
 
 \section{Photometry Data Model} \label{datamodel}
-The model shown in Figure 1 organizes the structure and detailed metadata fields of the Photometry Data Model in a logical manner, and shows the relationship to other IVOA data models. The metadata fields for each class specify the essential elements required to describe a photometric measurement.
+The model shown in Figure \ref{fig:model} organizes the structure and detailed metadata fields of the Photometry Data Model in a logical manner, and shows the relationship to other IVOA data models. The metadata fields for each class specify the essential elements required to describe a photometric measurement.
 \par
 
 The main class in this diagram is Photometry Filter. This class contains all the attributes necessary to describe a filter from the data discovery point of view.
@@ -283,7 +283,7 @@ The main class in this diagram is Photometry Filter. This class contains all the
 A Photometric System is a grouping of individual Photometry Filters. This may represent a particular set of filters that are related in some way.
 \par
 
-A magnitude system is characterized for a certain reference spectrum that will produce a certain zero point for a certain photometry filter. This reference spectrum could be an ideal one (as in STmag and ABmag systems), a Vega-like spectrum (as in Vegamag systems) (please notice that different Vega spectrum versions have been historically used) or any other. In many cases, the reference spectrum has been calculated as an average of spectra from several astronomical objects. This would be characterized by a set of Source instances.
+A magnitude system is characterized for a certain reference spectrum that will produce a certain zero point for a certain photometry filter. This reference spectrum could be an ideal one (as in STmag and ABmag systems), a Vega-like spectrum (as in Vegamag systems; please note that different Vega spectrum versions have been historically used) or any other. In many cases, the reference spectrum has been calculated as an average of spectra from several astronomical objects. This would be characterized by a set of Source instances.
 \par
 
 A zero point would then be a flux value that can be considered as zero magnitude, so its value will allow conversions from fluxes to magnitudes and the other way around. It has associated a photometry filter and it also depends on the magnitude system (reference spectrum) used to calculate this magnitude.
@@ -292,7 +292,7 @@ A zero point would then be a flux value that can be considered as zero magnitude
 There are different types of zero points (Pogson, asinh, linear etc) that will essentially differ in the way that getFluxFromMagnitude and getMagnitudeFromFlux operators are implemented plus extra information that could be needed to do these conversions.
 \par
 
-An intermediate class, PhotCal, can be understood as a certain photometry filter instance, i.e., a certain photometry filter using a certain magnitude system and linked to a certain zero point class. PhotCal is the class node where SpectralDM v2.0 interacts. It binds the filter and zeropoint information to the Flux Axis calibration in SpectralDM v2.0. It can be understood as the calibration configuration used , bringing together a specific photometry filter instance with magnitude system and zeropoint. It leverages the handling of photometric data through IVOA protocols e.g. SSAP or TAP services.
+An intermediate class, PhotCal, can be understood as a certain photometry filter instance, i.e., a certain photometry filter using a certain magnitude system and linked to a certain zero point class. PhotCal is the class node where SpectralDM v2.0 interacts. It binds the filter and zeropoint information to the Flux Axis calibration in SpectralDM v2.0. It can be understood as the calibration configuration used, bringing together a specific photometry filter instance with magnitude system and zeropoint. It leverages the handling of photometric data through IVOA protocols, e.g., SSAP or TAP services.
 \par
 
 A Spectrum would have a Characterization Coordsys element that will have associated a certain PhotCal element in the case of photometry data. Using this information, magnitudes from different photometric systems could be compared between them or compared to spectroscopic data expressed in flux.
@@ -305,25 +305,18 @@ A Spectrum would have a Characterization Coordsys element that will have associa
 % the generated VO-DML xml file
 % the file for replacement will be "./schema/PhotDMv1-1-overview diagram-2021-04-12.png"
 % -- Mireille Louys
-\begin{figure}[H]
+\begin{figure}[tph]
 %\includegraphics[angle=90,width=5.98in,height=7.19in]{./schema/PhotDMv1-1.png}
 % update Mireille new diagram
 \includegraphics[angle=90,width=5.98in,height=7.19in]{./schema/PhotometryOverviewDiagram_jan22.png}
 \caption{Class diagram of the Photometry Calibration Data Model: All classes are defined in VO/DML view at: \url{https://github.com/ivoa-std/PhotDM/schema/}}
+\label{fig:model}
 \end{figure}
 
 
 %%%%%%%%%%%%%%%%%%%% Figure/Image No: 22 Ends here %%%%%%%%%%%%%%%%%%%%
 
 
-
- %%%%%%%%%%%%  Starting New Page here %%%%%%%%%%%%%%
-
-\newpage
-
- %%%%%%%%%%%%  Starting New Page here %%%%%%%%%%%%%%
-
-\newpage
 In order to fully describe values of the magnitudes inside photometry point instances, the class diagram makes use of physical quantity classes. These classes glue all the basic fields that compose a physical measurement: value, error, units, etc. However, within the present specification, we will describe individual attributes of the different quantities and as a consequence. All the utypes will be also generated from individual physical quantity attributes that will facilitate the use within IVOA Data Access Layer protocols.
 \par
 
@@ -547,7 +540,7 @@ Where U,B,V corresponds to ultraviolet, blue and visible respectively.
 \par
 
 \subsubsection{PhotometryFilter Time Validity Range}
-The following fields will be used to characterize the validity range of this specific photometry filter configuration. This is particularly useful for ground based telescopes where filter, electronics, etc could easily change generating versions of the same photometry filter.
+The following fields will be used to characterize the validity range of this specific photometry filter configuration. This is particularly useful for ground based telescopes where filter, electronics, etc could easily change, generating new versions of the same photometry filter.
 \par
 
 \paragraph{PhotometryFilter.dateValidityFrom: ISOTime}
@@ -596,7 +589,7 @@ This means that within the same data collection most observations will point to 
 The effective transmission curve may be represented as a 2-D graph that describes the transmission properties of the filter over a wavelength range defined by the filter bandpass.
 \par
 
-It is composed of a spectral coordinate in the x-axis and a scalar in the y-axis. This effective response curve encloses all the possible components that modifies the energy/photon collection, including detector, telescope and even atmosphere for transmission curves referenced in measurements. Most modern surveys try to reduce everything according to a given airmass (e.g. 1.3) and this is particularly important for ground-based filters with $\lambda < 4000 \angstrom $ or  $\lambda > 7000 \angstrom $.
+It is composed of a spectral coordinate in the x-axis and a scalar in the y-axis. This effective response curve encloses all the possible components that modifies the energy/photon collection, including detector, telescope and even atmosphere for transmission curves referenced in measurements. Most modern surveys try to reduce everything according to a given airmass (e.g. 1.3) and this is particularly important for ground-based filters with $\lambda < 4000\, \angstrom $ or  $\lambda > 7000\,\angstrom $.
 \par
 
 %%%%%%%%%%%%%%%%%%%% Figure/Image No: 3 starts here %%%%%%%%%%%%%%%%%%%%
@@ -625,62 +618,63 @@ And for photon counters (like CCDs or photomultipliers):
 f(\lambda_{eff}) = \frac{\int T(\lambda)F(\lambda)\lambda d\lambda}{\int T(\lambda)\lambda d\lambda}
 \]
 
-Where $T(\lambda)$ is the transmission curve, $f(\lambda)$ is the flux of the spectrum. As the transmission curve is defined only in the filter band-pass, the limits of the integrals corresponds to the spectral range where the transmission curve is defined (stored as \textit{PhotometryFilter.bandwidth} in this data model)
+Where $T(\lambda)$ is the transmission curve, $f(\lambda)$ is the flux of the spectrum. As the transmission curve is defined only in the filter band-pass, the limits of the integrals corresponds to the spectral range where the transmission curve is defined (stored as \textit{PhotometryFilter.bandwidth} in this data model).
 \par
 
 The transmission curve can be closely (although not fully) identified as an array of points as in a spectrum. There are various ways to provide this information either directly in an embedded table, or using a reference to a serialized table file.
 \par
 
-Spectral and transmission coordinates can be gathered directly as a table using TransmissionPoint utypes (see 3.3.3)\textit{.}.
+Spectral and transmission coordinates can be gathered directly as a table using TransmissionPoint utypes (see sect.~\ref{sect:transmissionPoint}).
 \par
 
 \subsubsection{PhotometryFilter.spectralLocation.value: double}
-A spectral coordinate value that can be considered by the data provider as the most representative for this specific filter band-pass. The selection of this value should take into account the filter transmission curve profile and in general should be close to the wavelength mean value, defined \citep{1982AJ.....87..670O} as:
+A spectral coordinate value that can be considered by the data provider as the most representative for this specific filter band-pass. The selection of this value should take into account the filter transmission curve profile and in general should be close to the wavelength mean value, defined as \citep{1982AJ.....87..670O}:
 \par
 \[
-\lambda_{mean} = \frac{\int T(\lambda)\lambda d\lambda}{\int T(\lambda)d\lambda}
+\lambda_\textrm{mean} = \frac{\int T(\lambda)\lambda d\lambda}{\int T(\lambda)d\lambda}
 \]
 
-where $\lambda_{mean}$ is the spectral bounds mean value, $T(\lambda)$ is the transmission curve (see below), $\lambda$ is the wavelength. Please notice that, since the transmission curve will only be defined in a specific spectral range, the integrals will also be effectively defined in this spectral range.
+where $\lambda_\textrm{mean}$ is the spectral bounds mean value, $T(\lambda)$ is the transmission curve (see below), $\lambda$ is the wavelength. Please notice that, since the transmission curve will only be defined in a specific spectral range, the integrals will also be effectively defined in this spectral range.
 \par
 
 Another convenient definition of an effective wavelength is the $``$pivot wavelength$"$  defined as follows:
 \par
 
 \[
-\lambda_{pivot} = \sqrt{\frac{\int T(\lambda)\lambda d\lambda}{\int T(\lambda)\frac{d\lambda}{\lambda}}}
+\lambda_\textrm{pivot} = \sqrt{\frac{\int T(\lambda)\lambda d\lambda}{\int T(\lambda)\frac{d\lambda}{\lambda}}}
 \]
 
 It can be proved that the pivot wavelength fulfills the following relation between the $f_\lambda$ and  $f_\nu $:
 \par
 
 \[
-<f_\nu >=<f_\lambda >\lambda^2_{pivot}/c
+<f_\nu >=<f_\lambda >\lambda^2_\textrm{pivot}/c
 \]
 
 Other definitions for effective wavelengths commonly used in the literature are source dependent as, e.g., the isophotal wavelength:
 \par
 \[
-\lambda_{mean} = \frac{\int \lambda F_\lambda(\lambda)T(\lambda)d\lambda}{\int F_\lambda(\lambda)T(\lambda)d\lambda}
+\lambda_\textrm{mean} = \frac{\int \lambda F_\lambda(\lambda)T(\lambda)d\lambda}{\int F_\lambda(\lambda)T(\lambda)d\lambda}
 \]
 
 Or the photon distribution based effective wavelength:
 \par
 \[
-\lambda_{mean} = \frac{\int \lambda^2 F_\lambda(\lambda)T(\lambda)d\lambda}{\int \lambda F_\lambda(\lambda)T(\lambda)d\lambda}
+\lambda_\textrm{mean} = \frac{\int \lambda^2 F_\lambda(\lambda)T(\lambda)d\lambda}{\int \lambda F_\lambda(\lambda)T(\lambda)d\lambda}
 \]
 
 but these source dependent definitions have two caveats:
 \par
 
 \begin{itemize}
-	\item Real spectra do not necessarily satisfy the requirements of the mean value theorem, which could produce multiple values for the wavelength
+	\item Real spectra do not necessarily satisfy the requirements of the mean value theorem, which could produce multiple values for the wavelength.
 
 	\item Calculation of these wavelengths implies the knowledge of $F_\lambda $ (usually what you want to measure) and it does not look like an intrinsic property of the photometry filter.
 \end{itemize}\par
 
 \subsubsection{PhotometryFilter.transmissionCurve}
-This data model field stores points of the curve in place in a simple table using spectrum data fields as shown above. \par
+
+This data model field stores points of the curve in place in a simple table using spectrum data fields as shown above. See serialization example in appendix~\ref{serializationfilter}.\par
 
 \paragraph{3.2.9.1 PhotometryFilter.transmissionCurve.access} \hspace{0pt} \\
 If the transmission curve is hooked as an external file, we use the \textit{Access} class defined in the Observation CoreComponents data model \citep{2017ivoa.spec.0509L} and inherited from the SSA specification \citep{2012ivoa.spec.0210T}.
@@ -716,7 +710,7 @@ The file content will be a spectrum serialization with \textit{PhotometryFilter.
 \subparagraph{3.2.9.1.3 PhotometryFilter.transmissionCurve.access.size} \hspace{0pt} \\
 Approximate estimated size of the dataset, specified in kilobytes. This would help the client estimate download times and storage requirements when generating execution plans. Only an approximate, order of magnitude value is required (a value rounded up to the nearest hundred kB would be sufficient).\par
 
-\paragraph{3.2.9.2 PhotometryFilter.transmissionCurve.transmissionPoint} \hspace{0pt} \\
+\paragraph{3.2.9.2 PhotometryFilter.transmissionCurve.transmissionPoint} \hspace{0pt} \label{sect:transmissionPoint}\\
 The transmission curve is a mathematical function that describes the transmission fraction of a certain filter in a defined spectral range. This function can be discretized as a set of transmission points and every point will be composed by two attributes:
 \par
 
@@ -795,16 +789,16 @@ Field that specifies the units of the bandwidth object.
 
 \paragraph{3.2.10.3
 PhotometryFilter.bandwith.extent: double} \hspace{0pt} \\
-For square filters (100$\%$  between the minimum and maximum wavelength and 0$\%$  otherwise), the bandwidth could be described as $\lambda_{max} - \lambda_{min}$.
+For square filters (100$\%$  between the minimum and maximum wavelength and 0$\%$  otherwise), the bandwidth could be described as $\lambda_\textrm{max} - \lambda_\textrm{min}$.
 \par
 
 However, for real filters, the bandwidth is not very usable to describe the band-pass of the filter, but the effective width, that can be described as follows:
 \par
 \[
-w = \frac{\int T(\lambda)d\lambda}{Max(T(\lambda))}
+w = \frac{\int T(\lambda)d\lambda}{\textrm{Max}(T(\lambda))}
 \]
 
-where $w$ is the effective width, $T(\lambda)$ is the transmission curve (see below) and $Max(T(\lambda))$ the maximum value of the transmission curve. As in previous points, please notice that, since the transmission curve will be only defined in a specific spectral range, the integrals will also be defined in this spectral range.
+where $w$ is the effective width, $T(\lambda)$ is the transmission curve (see below) and $\textrm{Max}(T(\lambda))$ the maximum value of the transmission curve. As in previous points, please notice that, since the transmission curve will be only defined in a specific spectral range, the integrals will also be defined in this spectral range.
 \par
 
 \paragraph{3.2.10.4
@@ -812,16 +806,16 @@ PhotometryFilter.bandwith.start: double } \hspace{0pt} \\
 Also called $\lambda_{min}$ in the rest of the document, this is a spectral value that better describes the minimum value of the spectral range of the filter band-pass. In general, although this will not be imposed in order to allow a better description for different types of transmission curves, this quantity will be close to:
 \par
 \[
-\lambda_{min} = \lambda_{mean} - \frac{w}{2}
+\lambda_\textrm{min} = \lambda_\textrm{mean} - \frac{w}{2}
 \]
 In practice, this could be taken as the minimum value of the filter transmission curve.
 \par
 
 \paragraph{PhotometryFilter.bandwith.stop: double} \hspace{0pt} \\
-Also called $\lambda_{max}$ in the rest of the document, this is a spectral value that better describes the maximum value of the spectral range of the filter band-pass. In general, although this will not be imposed in order to allow a better description for different types of transmission curves, this quantity will be close to:
+Also called $\lambda_\textrm{max}$ in the rest of the document, this is a spectral value that better describes the maximum value of the spectral range of the filter band-pass. In general, although this will not be imposed in order to allow a better description for different types of transmission curves, this quantity will be close to:
 \par
 \[
-\lambda_{min} = \lambda_{mean} + \frac{w}{2}
+\lambda_\textrm{min} = \lambda_\textrm{mean} + \frac{w}{2}
 \]
 In practice, this could be taken as the maximum value of the filter transmission curve.\par
 

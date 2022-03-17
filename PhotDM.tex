@@ -175,7 +175,7 @@ The proposed model is based on the description of the photometry filters, and th
 Information on the properties of filters is not always easily available, and is sometimes only specified in manuals or in the literature and often not in digital form. To aid the use of filters information, in particular as part of the Photometry Data Model metadata fields, we propose a mechanism for referencing external filter information. Such a \textit{Filter Profile Service} would expose this information so software client applications could discover it. This document proposes a standardization of a protocol to be used by Filter Profile Services.
 \par
 
-The following sections of this document summarize some key points about astronomical photometry (Section 2). The detailed metadata structure of the data model is presented in Section 3. Section 4 describes use cases in which the model description could be used in making photometry data available through VO protocols, and, very briefly, how scientific tools could use this information.
+The following sections of this document summarize some key points about astronomical photometry (Section~\ref{sect:astphot}). The detailed metadata structure of the data model is presented in Section~ref{datamodel}. Section~\ref{sect:usecases} describes use cases in which the model description could be used in making photometry data available through VO protocols, and, very briefly, how scientific tools could use this information.
 \par
 
 PhotDM is related to other IVOA Data models (Spectrum DM, Characterization DM, Observation and Provenance DM),  and is intended to provide photometry metadata for data that would be accessed via the IVOA Data Access Protocols such as SSAP (Simple Spectra Access Protocol) or TAP (Table Access Protocol).
@@ -185,6 +185,8 @@ As with most of the VO Data Models, PhotDM makes use of STC, Utypes, Units and U
 \par
 
 \section{Astronomical Photometry}
+\label{sect:astphot}
+
 Astronomical photometry refers to measuring the brightness, flux or intensity of an astrophysical object. Consider an astronomical source with a flux density at the observer $F(x)$, where $x$ is a spectral coordinate (wavelength, frequency or energy).  The photometry measurement will be related to $<F>$, a flux weighted integral of this flux density over an observed band with a relative spectral response $T(x)$. The flux weighted integral in its most simple form is defined as
 \par
 
@@ -778,17 +780,17 @@ concept of the Characterization Data Model, the basic elements of this object ar
 \par
 
 \paragraph{3.2.10.1
-PhotometryFilter.bandwith.UCD: String} \hspace{0pt} \\
+PhotometryFilter.bandwidth.UCD: String} \hspace{0pt} \\
 Unified Content Description (UCD) string that specifies the nature of the bandwidth object.
 \par
 
 \paragraph{3.2.10.2
-PhotometryFilter.bandwith.unit: IVOA.Unit} \hspace{0pt} \\
+PhotometryFilter.bandwidth.unit: IVOA.Unit} \hspace{0pt} \\
 Field that specifies the units of the bandwidth object.
 \par
 
 \paragraph{3.2.10.3
-PhotometryFilter.bandwith.extent: double} \hspace{0pt} \\
+PhotometryFilter.bandwidth.extent: double} \hspace{0pt} \\
 For square filters (100$\%$  between the minimum and maximum wavelength and 0$\%$  otherwise), the bandwidth could be described as $\lambda_\textrm{max} - \lambda_\textrm{min}$.
 \par
 
@@ -802,8 +804,8 @@ where $w$ is the effective width, $T(\lambda)$ is the transmission curve (see be
 \par
 
 \paragraph{3.2.10.4
-PhotometryFilter.bandwith.start: double } \hspace{0pt} \\
-Also called $\lambda_{min}$ in the rest of the document, this is a spectral value that better describes the minimum value of the spectral range of the filter band-pass. In general, although this will not be imposed in order to allow a better description for different types of transmission curves, this quantity will be close to:
+PhotometryFilter.bandwidth.start: double } \hspace{0pt} \\
+Also called $\lambda_\textrm{min}$ in the rest of the document, this is a spectral value that better describes the minimum value of the spectral range of the filter band-pass. In general, although this will not be imposed in order to allow a better description for different types of transmission curves, this quantity will be close to:
 \par
 \[
 \lambda_\textrm{min} = \lambda_\textrm{mean} - \frac{w}{2}
@@ -811,7 +813,7 @@ Also called $\lambda_{min}$ in the rest of the document, this is a spectral valu
 In practice, this could be taken as the minimum value of the filter transmission curve.
 \par
 
-\paragraph{PhotometryFilter.bandwith.stop: double} \hspace{0pt} \\
+\paragraph{PhotometryFilter.bandwidth.stop: double} \hspace{0pt} \\
 Also called $\lambda_\textrm{max}$ in the rest of the document, this is a spectral value that better describes the maximum value of the spectral range of the filter band-pass. In general, although this will not be imposed in order to allow a better description for different types of transmission curves, this quantity will be close to:
 \par
 \[
@@ -884,10 +886,10 @@ This class is used to characterize a zero point flux obtained during the calibra
 Flux of an astronomical object that produces a magnitude of reference (usually set as zero) for this particular filter and photometric system. This quantity is necessary to convert to flux a certain magnitude.
 \par
 
-For Pogson magnitudes (see section 3.2.5) it will be used in the following way:
+For Pogson magnitudes (see section~\ref{sect:Pogson}) it will be used in the following way:
 \par
 \[
-f = f_0 10^{-(m-m_R )/2.5}
+f = f_0\, 10^{-(m-m_R )/2.5}
 \]
 
 See ZeroPoint.type description for other definitions.
@@ -974,6 +976,7 @@ In the ZeroPoint class we define two conversion functions; getMagnitudeFromFlux(
 
 
 \subsection{PogsonZeroPoint Class}
+\label{sect:Pogson}
 Extension of ZeroPoint to accommodate standard logarithm magnitudes. It has no supplementary attributes but specific conversion functions.
 \par
 
@@ -981,7 +984,7 @@ Extension of ZeroPoint to accommodate standard logarithm magnitudes. It has no s
 Operator to convert from a flux to a magnitude for Pogson magnitudes. For Pogson magnitudes, the usual definition should be used:
 \par
 \[
-f = f_0 10^{-(m-m_R)/2.5}
+f = f_0\,10^{-(m-m_R)/2.5}
 \]
 Where $f$ is the associated flux, $f_0$ is the flux of reference, $m_0$ is the magnitude of reference (by default equals to zero) and $m$ is the observed magnitude.
 \par
@@ -1032,7 +1035,7 @@ Band & Softening Parameters (b coefficients) \\
 \subsubsection{AsinhZeroPoint.getFluxFromMagnitude()}
 For asinh magnitudes, the operator to be used is:\par
 \[
-f = f_0 10^{-(m-m_R )/2.5} \left[ 1-b^2 10^{2(m-m_R )/2.5}\right]
+f = f_0\, 10^{-(m-m_R )/2.5} \left[ 1-b^2 10^{2(m-m_R )/2.5}\right]
 \]
 Where $f$ is the flux of the observed source, $f_0$ is the zero point flux value, $m$ is the magnitude assigned to this source, $m_0$ is the reference magnitude (default value to zero unless specified otherwise) and a new parameter appears, $b$, called the softening parameter which is referenced in this data model as the AsihnZeroPoint.softeningParameter.
 \par
@@ -1046,7 +1049,7 @@ m = m_R - \frac{-2.5}{\ln(10)}\left[ \sinh^{-1}\left (\frac{f}{2bf_0}\right) + \
 Where $m$ is the magnitude assigned to this source, $m_R$ is the reference magnitude (default value to zero unless specified otherwise), $f$ is the flux of the observed source, $f_0$ is the zero point flux value, and a new parameter appears, $b$ , called the softening parameter, which is referenced in this data model as the AsihnZeroPoint.softeningParameter.
 \par
 
-It can be seen that Pogson and Asinh magnitudes are the same if b=0 although, numerically it is recommended to use different equations to prevent infinites. See \ref{a.1conversion}
+It can be seen that Pogson and Asinh magnitudes are the same if b=0, although in practice it is recommended to use different equations to prevent infinites. See \ref{a.1conversion}
 \par
 
 \subsection{LinearFluxZeroPoint Class}
@@ -1100,7 +1103,7 @@ STMag \\
 
 %%%%%%%%%%%%%%%%%%%% Table No: 19 ends here %%%%%%%%%%%%%%%%%%%%
 
-The list is not exhaustive. The principal difference between these photometric systems is the reference spectrum used to calculate the zero point. See section 2.2.3 for a detailed description.
+The list is not exhaustive. The principal difference between these photometric systems is the reference spectrum used to calculate the zero point. See section~\ref{sect:astphot} for a detailed description.
 \par
 
 \subsubsection{MagnitudeSystem.referenceSpectrum: URI}
@@ -1137,6 +1140,7 @@ f_0^{ST} = 3.631 \times 10^{-9} \erg\, \second^{-1} \cm^{-2} \angstrom ^{-1}
 \]
 \end{itemize}
 \section{Use Cases}
+\label{sect:usecases}
 \subsection{Conversion from magnitude to flux, using a Filter Profile Service}
 The following fields are the minimal information needed in a DAL service response (SSAP or TAP) or into a serialization of the magnitude information in a catalog in order to allow the conversion from magnitudes to fluxes if a filter profile service is used:
 \par

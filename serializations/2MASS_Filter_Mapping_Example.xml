@@ -67,12 +67,12 @@ XML serialization of Photometry Filter expressed as a mapping block in ModelInVo
   </dm-mapping:INSTANCE>
 
   <!-- Band width -->
-  <dm-mapping:INSTANCE dmtype="photdm:Bandwith" dmrole="photdm:PhotometryFilter.spectralLocation">
-    <dm-mapping:ATTRIBUTE dmrole="photdm:Bandwith.ucd" dmtype="ivoa:UCD" value="instr.bandwidth;stat.fwhm" />
-    <dm-mapping:ATTRIBUTE dmrole="photdm:Bandwith.unitexpression" dmtype="ivoa:Unit" value="Angstrom" />
-    <dm-mapping:ATTRIBUTE dmrole="photdm:Bandwith.extent" dmtype="ivoa:real" value="2509.4034987068" />
-    <dm-mapping:ATTRIBUTE dmrole="photdm:Bandwith.start" dmtype="ivoa:real" value="14787.378640179" />
-    <dm-mapping:ATTRIBUTE dmrole="photdm:Bandwith.stop" dmtype="ivoa:real" value="18231.020407164" />
+  <dm-mapping:INSTANCE dmtype="photdm:Bandwidth" dmrole="photdm:PhotometryFilter.spectralLocation">
+    <dm-mapping:ATTRIBUTE dmrole="photdm:Bandwidth.ucd" dmtype="ivoa:UCD" value="instr.bandwidth;stat.fwhm" />
+    <dm-mapping:ATTRIBUTE dmrole="photdm:Bandwidth.unitexpression" dmtype="ivoa:Unit" value="Angstrom" />
+    <dm-mapping:ATTRIBUTE dmrole="photdm:Bandwidth.extent" dmtype="ivoa:real" value="2509.4034987068" />
+    <dm-mapping:ATTRIBUTE dmrole="photdm:Bandwidth.start" dmtype="ivoa:real" value="14787.378640179" />
+    <dm-mapping:ATTRIBUTE dmrole="photdm:Bandwidth.stop" dmtype="ivoa:real" value="18231.020407164" />
   </dm-mapping:INSTANCE>
 
   <!-- Transmission Curve -->

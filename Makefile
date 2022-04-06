@@ -7,7 +7,7 @@ DOCNAME = PhotDM
 DOCVERSION = 1.1
 
 # Publication date, ISO format; update manually for "releases"
-DOCDATE = 2022-02-04
+DOCDATE = 2022-04-06
 
 # What is it you're writing: NOTE, WD, PR, REC, PEN, or EN
 DOCTYPE = WD

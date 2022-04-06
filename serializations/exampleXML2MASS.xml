@@ -33,7 +33,7 @@ L.Michel, M.Louys  -->
         </dm-mapping:INSTANCE>
 
         <!-- Transmision Curve -->
-        <dm-mapping:INSTANCE dmtype="photdm:TransmissionCurve" dmrole="photdm:Bandwith.transmissionCurve">
+        <dm-mapping:INSTANCE dmtype="photdm:TransmissionCurve" dmrole="photdm:Bandwidth.transmissionCurve">
             <dm-mapping:INSTANCE dmtype="photdm:Access" dmrole="photdm:TransmissionCurve.access">
                 <dm-mapping:ATTRIBUTE dmrole="photdm:Access.reference" dmtype="ivoa:anyURI" value="http://svo2.cab.inta-csic.es/theory/fps/fps.php?PhotCalID=2MASS/2MASS.H/Vega" />
                 <dm-mapping:ATTRIBUTE dmrole="photdm:Access.size" dmtype="ivoa:integer" value="-1" />
@@ -58,12 +58,12 @@ L.Michel, M.Louys  -->
         </dm-mapping:INSTANCE>
 
         <!-- Band width -->
-        <dm-mapping:INSTANCE dmtype="photdm:Bandwith" dmrole="photdm:PhotometryFilter.spectralLocation">
-            <dm-mapping:ATTRIBUTE dmrole="photdm:Bandwith.ucd" dmtype="ivoa:UCD" value="instr.bandwidth;stat.fwhm" />
-            <dm-mapping:ATTRIBUTE dmrole="photdm:Bandwith.unitexpression" dmtype="ivoa:Unit" value="Angstrom" />
-            <dm-mapping:ATTRIBUTE dmrole="photdm:Bandwith.extent" dmtype="ivoa:real" value="1624.3190191027" />
-            <dm-mapping:ATTRIBUTE dmrole="photdm:Bandwith.start" dmtype="ivoa:real" value="10806.470589792" />
-            <dm-mapping:ATTRIBUTE dmrole="photdm:Bandwith.stop" dmtype="ivoa:real" value="14067.974683578" />
+        <dm-mapping:INSTANCE dmtype="photdm:Bandwidth" dmrole="photdm:PhotometryFilter.spectralLocation">
+            <dm-mapping:ATTRIBUTE dmrole="photdm:Bandwidth.ucd" dmtype="ivoa:UCD" value="instr.bandwidth;stat.fwhm" />
+            <dm-mapping:ATTRIBUTE dmrole="photdm:Bandwidth.unitexpression" dmtype="ivoa:Unit" value="Angstrom" />
+            <dm-mapping:ATTRIBUTE dmrole="photdm:Bandwidth.extent" dmtype="ivoa:real" value="1624.3190191027" />
+            <dm-mapping:ATTRIBUTE dmrole="photdm:Bandwidth.start" dmtype="ivoa:real" value="10806.470589792" />
+            <dm-mapping:ATTRIBUTE dmrole="photdm:Bandwidth.stop" dmtype="ivoa:real" value="14067.974683578" />
         </dm-mapping:INSTANCE>
 
         <!-- Transmission Curve -->
@@ -92,16 +92,16 @@ L.Michel, M.Louys  -->
         </dm-mapping:INSTANCE>
 
         <!-- Band width -->
-        <dm-mapping:INSTANCE dmtype="photdm:Bandwith" dmrole="photdm:PhotometryFilter.spectralLocation">
-            <dm-mapping:ATTRIBUTE dmrole="photdm:Bandwith.ucd" dmtype="ivoa:UCD" value="instr.bandwidth;stat.fwhm" />
-            <dm-mapping:ATTRIBUTE dmrole="photdm:Bandwith.unitexpression" dmtype="ivoa:Unit" value="Angstrom" />
-            <dm-mapping:ATTRIBUTE dmrole="photdm:Bandwith.extent" dmtype="ivoa:real" value="2618.8695332218" />
-            <dm-mapping:ATTRIBUTE dmrole="photdm:Bandwith.start" dmtype="ivoa:real" value="19543.692304348" />
-            <dm-mapping:ATTRIBUTE dmrole="photdm:Bandwith.stop" dmtype="ivoa:real" value="23552.400005256" />
+        <dm-mapping:INSTANCE dmtype="photdm:Bandwidth" dmrole="photdm:PhotometryFilter.spectralLocation">
+            <dm-mapping:ATTRIBUTE dmrole="photdm:Bandwidth.ucd" dmtype="ivoa:UCD" value="instr.bandwidth;stat.fwhm" />
+            <dm-mapping:ATTRIBUTE dmrole="photdm:Bandwidth.unitexpression" dmtype="ivoa:Unit" value="Angstrom" />
+            <dm-mapping:ATTRIBUTE dmrole="photdm:Bandwidth.extent" dmtype="ivoa:real" value="2618.8695332218" />
+            <dm-mapping:ATTRIBUTE dmrole="photdm:Bandwidth.start" dmtype="ivoa:real" value="19543.692304348" />
+            <dm-mapping:ATTRIBUTE dmrole="photdm:Bandwidth.stop" dmtype="ivoa:real" value="23552.400005256" />
         </dm-mapping:INSTANCE>
 
         <!-- Transmission Curve -->
-        <dm-mapping:INSTANCE dmtype="photdm:TransmissionCurve" dmrole="photdm:Bandwith.transmissionCurve">
+        <dm-mapping:INSTANCE dmtype="photdm:TransmissionCurve" dmrole="photdm:Bandwidth.transmissionCurve">
             <dm-mapping:INSTANCE dmtype="photdm:Access" dmrole="photdm:TransmissionCurve.access">
                 <dm-mapping:ATTRIBUTE dmrole="photdm:Access.reference" dmtype="ivoa:anyURI" value="http://svo2.cab.inta-csic.es/theory/fps/fps.php?PhotCalID=2MASS/2MASS.Ks/Vega" />
                 <dm-mapping:ATTRIBUTE dmrole="photdm:Access.size" dmtype="ivoa:integer" value="-1" />

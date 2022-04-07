@@ -1,7 +1,6 @@
 
 plugins {
-    id("net.ivoa.vo-dml.vodmltools") version "0.3.4"
-    java
+    id("net.ivoa.vo-dml.vodmltools") version "0.3.6"
 }
 
 vodml {
@@ -12,7 +11,7 @@ vodml {
 
 
 dependencies {
-    implementation("org.javastro.ivoa.vo-dml:ivoa-base:1.0-SNAPSHOT")
+    implementation("org.javastro.ivoa.vo-dml:ivoa-base:1.0-SNAPSHOT") //IMPL the "standard" base library
     // Use JUnit Jupiter for testing.
     testImplementation("org.junit.jupiter:junit-jupiter:5.7.2")
 }

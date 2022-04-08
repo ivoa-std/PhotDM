@@ -18,7 +18,6 @@ with missing dependencies.
 	<rec name="ProvDM" x="571" y="330" w="48"/>
 	<thisrec name="ProvDM" x="571" y="330" w="48"/>
 	<rec name="VOUnits" x="220" y="250" w="50"/>
-	<rec name="STC" x="580" y="255" w="30"/>
 	<rec name="UTypes" x="550" y="205"/>
   <rec name="TAP" x="686" y="255" w="28"/>
 	<rec name="SSAP" x="682" y="180" w="36"/>

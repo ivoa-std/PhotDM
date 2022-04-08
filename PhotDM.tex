@@ -809,7 +809,7 @@ Spectral and transmission coordinates can be gathered directly as a table using
 TransmissionPoint utypes (see \ref{serializationfilter})\textit{.}.
 \par
 
-\subsubsection{PhotometryFilter.spectralLocation.value: double}
+\subsubsection{PhotometryFilter.spectralLocation.value: real}
 A spectral coordinate value that can be considered by the data provider as the 
 most representative for this specific filter band-pass. The selection of this 
 value should take into account the filter transmission curve profile and in 
@@ -1092,7 +1092,7 @@ configuration. This object includes references to the relevant Photometric
 System and Photometry Filter objects.
 \par
 
-\subsubsection{ZeroPoint.flux.value: double}
+\subsubsection{ZeroPoint.flux.value: real}
 Flux of an astronomical object that produces a magnitude of reference 
 (usually set as zero) for this particular filter and photometric system. 
 This quantity is necessary to convert to flux a certain magnitude.
@@ -1112,7 +1112,7 @@ characterization of the type of flux to the units in which this quantity
 is expressed.
 \par
 
-\subsubsection{ZeroPoint.referenceMagnitude.value: double}
+\subsubsection{ZeroPoint.referenceMagnitude.value: real}
 Most of the time, the zero point flux is defined for a magnitude=0 value. 
 However, to give room to other cases, another reference magnitude value can 
 be given instead of zero. The use of this reference magnitude is described in 
@@ -1128,11 +1128,11 @@ The reference magnitude is a dimensionless variable. It is modeled using a
 PhysicalQuantityDouble object type.
 \par
 
-\subsubsection{ZeroPoint.referenceMagnitude.error: double}
+\subsubsection{ZeroPoint.referenceMagnitude.error: real}
 Total error estimated of the reference magnitude whenever applicable. Reference 
 Magnitude error is a dimensionless variable.\par
 
-\subsubsection{ZeroPoint.type: enum}
+\subsubsection{ZeroPoint.type: integer}
 Usual definition of magnitudes, also called Pogson magnitudes, can be improved 
 for faint sources by replacing the usual logarithm with an inverse hyperbolic 
 sine function. These kinds of magnitudes are called $``$asinh magnitudes$"$  
@@ -1197,7 +1197,7 @@ getMagnitudeFromFlux() and getFluxFromMagnitude() defined as:\par
 	\item  getFluxFromMagnitude()\par
 
 \begin{itemize}
-	\item{Input Parameters: Magnitude in double\par}
+	\item{Input Parameters: Magnitude as real number\par}
 
 	\item{Output Result: Corresponding flux given in units defined in 
 	the ZeroPoint.unit data model field.}
@@ -1240,7 +1240,7 @@ $m$ is the observed magnitude.
 Extension of ZeroPoint  to describe asinh magnitudes, a.k.a. luptitudes.
 \par
 
-\subsubsection{AsinhZeroPoint.softeningParameter: double}
+\subsubsection{AsinhZeroPoint.softeningParameter: real}
 Parameter used to correct the calculation of magnitudes for faint 
 sources. Usually called b. See (\citep{1999AJ....118.1406L}) for 
 a formal explanation.
@@ -1752,7 +1752,7 @@ effective transmission curve}} &
 \multicolumn{1}{p{0.91in}}{{\fontsize{8pt}{8pt}\selectfont Spectral value 
 of one element of the transmission curve representation}} &
 \multicolumn{1}{p{0.74in}}{} &
-\multicolumn{1}{p{0.35in}}{{\fontsize{8pt}{8pt}\selectfont double}} \\
+\multicolumn{1}{p{0.35in}}{{\fontsize{8pt}{8pt}\selectfont real}} \\
 \hline
 %row no:6
 \multicolumn{1}{p{5in}}{{\fontsize{8pt}{8pt}
@@ -1762,7 +1762,7 @@ of one element of the transmission curve representation}} &
 \multicolumn{1}{p{0.91in}}{{\fontsize{8pt}{8pt}\selectfont Transmission value of 
 one element of the transmission curve representation}} &
 \multicolumn{1}{p{0.74in}}{} &
-\multicolumn{1}{p{0.35in}}{{\fontsize{8pt}{8pt}\selectfont double}} \\
+\multicolumn{1}{p{0.35in}}{{\fontsize{8pt}{8pt}\selectfont real}} \\
 \hline
 
 \end{tabular}
@@ -1845,8 +1845,8 @@ used to characterize the bandwidth object}} &
 {\fontsize{8pt}{8pt}\selectfont photDM:PhotometryFilter.bandwidth.UCD}} &
 \multicolumn{1}{p{0.87in}}{{\fontsize{8pt}{8pt}\selectfont meta.ucd }} &
 \multicolumn{1}{p{2in}}{{\fontsize{8pt}{8pt}\selectfont UCD for the nature of 
-spectral bandwidth wl, freq, energy}} &
-\multicolumn{1}{p{0.74in}}{{\fontsize{8pt}{8pt}\selectfont em.wl}} &
+spectral bandwidth: wl, freq, energy, wave number, ...}} &
+\multicolumn{1}{p{0.74in}}{{\fontsize{8pt}{8pt}\selectfont em.*, as appropriate}} &
 \multicolumn{1}{p{0.35in}}{{\fontsize{8pt}{8pt}\selectfont string}} \\
 \hline
 %row no:15
@@ -1855,7 +1855,7 @@ spectral bandwidth wl, freq, energy}} &
 \multicolumn{1}{p{0.87in}}{{\fontsize{8pt}{8pt}\selectfont instr.bandwidth}} &
 \multicolumn{1}{p{2in}}{{\fontsize{8pt}{8pt}\selectfont Spectral axis extent of the filter}} &
 \multicolumn{1}{p{0.74in}}{} &
-\multicolumn{1}{p{0.35in}}{{\fontsize{8pt}{8pt}\selectfont double}} \\
+\multicolumn{1}{p{0.35in}}{{\fontsize{8pt}{8pt}\selectfont real}} \\
 \hline
 %row no:16
 \multicolumn{1}{p{5in}}{{\fontsize{8pt}{8pt}
@@ -1866,7 +1866,7 @@ spectral bandwidth wl, freq, energy}} &
 \multicolumn{1}{p{2in}}{{\fontsize{8pt}{8pt}\selectfont Minimum value of the filter 
 spectral coverage}} &
 \multicolumn{1}{p{0.74in}}{} &
-\multicolumn{1}{p{0.35in}}{{\fontsize{8pt}{8pt}\selectfont double}} \\
+\multicolumn{1}{p{0.35in}}{{\fontsize{8pt}{8pt}\selectfont real}} \\
 \hline
 %row no:17
 \multicolumn{1}{p{5in}}{{\fontsize{8pt}{8pt}
@@ -1877,7 +1877,7 @@ spectral coverage}} &
 \multicolumn{1}{p{2in}}{{\fontsize{8pt}{8pt}\selectfont Maximum value of the 
 filter spectral coverage}} &
 \multicolumn{1}{p{0.74in}}{} &
-\multicolumn{1}{p{0.35in}}{{\fontsize{8pt}{8pt}\selectfont double}} \\
+\multicolumn{1}{p{0.35in}}{{\fontsize{8pt}{8pt}\selectfont real}} \\
 \hline
 %row no:18
 \end{tabular}
@@ -1958,7 +1958,7 @@ for this filter in ISOTime format }} &
 \multicolumn{1}{p{2in}}{{\fontsize{8pt}{8pt}\selectfont flux value at Zero point associated 
 to this filter}} &
 \multicolumn{1}{p{1in}}{} &
-\multicolumn{1}{p{0.25in}}{{\fontsize{8pt}{8pt}\selectfont double}} \\
+\multicolumn{1}{p{0.25in}}{{\fontsize{8pt}{8pt}\selectfont real}} \\
 \hline
 %row no:28
 \multicolumn{1}{p{3in}}{{\fontsize{8pt}{8pt}\selectfont photDM:PhotCal.zeroPoint.flux.error}} &
@@ -1968,7 +1968,7 @@ to this filter}} &
 \multicolumn{1}{p{2in}}{{\fontsize{8pt}{8pt}\selectfont Error in the flux value at Zero point 
 associated to this filter}} &
 \multicolumn{1}{p{1in}}{} &
-\multicolumn{1}{p{0.25in}}{{\fontsize{8pt}{8pt}\selectfont double}} \\
+\multicolumn{1}{p{0.25in}}{{\fontsize{8pt}{8pt}\selectfont real}} \\
 \hline
 %row no:29
 \multicolumn{1}{p{3in}}{{\fontsize{8pt}{8pt}
@@ -1976,7 +1976,7 @@ associated to this filter}} &
 \multicolumn{1}{p{0.87in}}{{\fontsize{8pt}{8pt}\selectfont phot.mag}} &
 \multicolumn{1}{p{2in}}{{\fontsize{8pt}{8pt}\selectfont Reference magnitude used for zero point}} &
 \multicolumn{1}{p{1in}}{{\fontsize{8pt}{8pt}\selectfont 0.0}} &
-\multicolumn{1}{p{0.25in}}{{\fontsize{8pt}{8pt}\selectfont double} \par } \\
+\multicolumn{1}{p{0.25in}}{{\fontsize{8pt}{8pt}\selectfont real} \par } \\
 \hline
 %row no:30
 \multicolumn{1}{p{3in}}{{\fontsize{8pt}{8pt}
@@ -1988,7 +1988,7 @@ associated to this filter}} &
 \multicolumn{1}{p{2in}}{{\fontsize{8pt}{8pt}\selectfont Error in the reference magnitude 
 used for zero point}} &
 \multicolumn{1}{p{1in}}{{\fontsize{8pt}{8pt}\selectfont 0.0}} &
-\multicolumn{1}{p{0.25in}}{{\fontsize{8pt}{8pt}\selectfont double} \par } \\
+\multicolumn{1}{p{0.25in}}{{\fontsize{8pt}{8pt}\selectfont real} \par } \\
 \hline
 %row no:31
 \multicolumn{1}{p{3in}}{{\fontsize{8pt}{8pt}\selectfont photDM:PhotCal.zeroPoint.type}} &
@@ -2022,7 +2022,7 @@ this magnitude system}} &
 \multicolumn{1}{p{2in}}{{\fontsize{8pt}{8pt}\selectfont  Correction parameter 
 for luptitudes}} &
 \multicolumn{1}{p{1in}}{{\fontsize{8pt}{8pt}\selectfont 0.0}} &
-\multicolumn{1}{p{0.25in}}{{\fontsize{8pt}{8pt}\selectfont double}} \\
+\multicolumn{1}{p{0.25in}}{{\fontsize{8pt}{8pt}\selectfont real}} \\
 \hline
 
 \hline

@@ -1393,7 +1393,7 @@ Some typical types of photometric systems are:
 \par
 
 \begin{itemize}
-	\item{VEGmag: Makes use of Vega ($\alpha $Lyr) as the primary calibrating 
+	\item{VEGAmag: Makes use of Vega ($\alpha $Lyr) as the primary calibrating 
 	star. PhotometricSystem.referenceSpectrum would be the Vega SED\par}
 
 	\item{ABmag: Makes use of a reference spectrum of constant flux 
@@ -2004,7 +2004,9 @@ used for zero point}} &
 \selectfont photDM:PhotCal.magnitudeSystem.ReferenceSpectrumURI}} &
 % mireille
 %\multicolumn{1}{p{0.87in}}{{\fontsize{8pt}{8pt}\selectfont meta.ref.ivorn }} &
-\multicolumn{1}{p{0.87in}}{{\fontsize{8pt}{8pt}\selectfont meta.ref.ivoid }} &
+% \multicolumn{1}{p{0.87in}}{{\fontsize{8pt}{8pt}\selectfont meta.ref.ivoid }} & %MD corr. simple url  
+\multicolumn{1}{p{0.87in}}{{\fontsize{8pt}{8pt}\selectfont meta.ref.url }} &
+
 \multicolumn{1}{p{2in}}{{\fontsize{8pt}{8pt}\selectfont Reference SED or spectrum for 
 this magnitude system}} &
 \multicolumn{1}{p{1in}}{} &
@@ -2013,7 +2015,8 @@ this magnitude system}} &
 %row no:34
 \multicolumn{1}{p{3in}}{{\fontsize{8pt}{8pt}
 \selectfont photDM:AsinhZeroPoint.softeningParameter}} &
-\multicolumn{1}{p{0.87in}}{{\fontsize{8pt}{8pt}\selectfont obs.param }} &
+%\multicolumn{1}{p{0.87in}}{{\fontsize{8pt}{8pt}\selectfont obs.param }} &% MD update UCD ??
+\multicolumn{1}{p{0.87in}}{{\fontsize{8pt}{8pt}\selectfont phot.calib }} &
 \multicolumn{1}{p{2in}}{{\fontsize{8pt}{8pt}\selectfont  Correction parameter 
 for luptitudes}} &
 \multicolumn{1}{p{1in}}{{\fontsize{8pt}{8pt}\selectfont 0.0}} &

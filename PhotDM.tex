@@ -621,7 +621,7 @@ photometry filter properties.
 \par
 
 This identifier follows the IVOA syntax defined for IVOA 
-identifiers (\citep{plante}) which gives a string built up as:
+identifiers (\citep{2016ivoa.spec.0523D}) which gives a string built up as:
 \par
 
 %%%%%%%%%%%%%%%%%%%% Table No: 6 starts here %%%%%%%%%%%%%%%%%%%%
@@ -629,24 +629,22 @@ ivo://<ivoa authority id>/<resource key>
 \bigskip
 
 
-
 %%%%%%%%%%%%%%%%%%%% Table No: 6 ends here %%%%%%%%%%%%%%%%%%%%
-
 Example:
 \par
 
 %%%%%%%%%%%%%%%%%%%% Table No: 7 starts here %%%%%%%%%%%%%%%%%%%%
-ivo://svo/fps
+ivo://svo.cab/fps
 \bigskip
 
 
 
 %%%%%%%%%%%%%%%%%%%% Table No: 7 ends here %%%%%%%%%%%%%%%%%%%%
 
-where svo is the authority id, fps is the resource key of the service.
+where svo.cab is the authority id, fps is the resource key of the service.
 \par
 
-Whenever the definition of the FPS filter profile service is standarised,
+Whenever the definition of the FPS filter profile service is standardised,
 the service url of the filter profile service could be obtained 
 from the registry by requesting the associated information of this 
 registry resource, e.g., once registered the service URL associated 
@@ -706,35 +704,24 @@ Where U,B,V corresponds to ultraviolet, blue and visible respectively.
 \par
 
 \subsubsection{PhotometryFilter Time Validity Range}
-The following fields will be used to characterize the validity range of 
+The following fields will be used to characterize the validity time range of 
 this specific photometry filter configuration. This is particularly useful 
-for ground based telescopes where filter, electronics, etc could easily 
+for ground based telescopes where filter, electronics, etc. could easily 
 change generating versions of the same photometry filter.
-\par
-
-\paragraph{PhotometryFilter.dateValidityFrom: ISOTime}
-Start time of the time coverage when this filter configuration is 
-applicable. The value is specified as in DALI \citep{2017ivoa.spec.0517D} 
-timestamps\par
-
+Validity time stamps are expressed as ISOTime as specified in DALI \citep{2017ivoa.spec.0517D} 
+timestamps\par 
 %%%%%%%%%%%%%%%%%%%% Table No: 11 starts here %%%%%%%%%%%%%%%%%%%%
 YYYY-MM-DD[T[hh[:mm[:ss[.s]]]]]
 \bigskip
-
-
 %%%%%%%%%%%%%%%%%%%% Table No: 11 ends here %%%%%%%%%%%%%%%%%%%%
+
+\paragraph{PhotometryFilter.dateValidityFrom: ISOTime}
+Start time of the time coverage when this filter configuration is 
+applicable. 
 
 \paragraph{PhotometryFilter.dateValidityTo: ISOTime}
 End time of the time coverage when this filter configuration is 
-applicable. The value is specified as in DALI \citep{2017ivoa.spec.0517D} 
-timestamps\par
-
-
-%%%%%%%%%%%%%%%%%%%% Table No: 12 starts here %%%%%%%%%%%%%%%%%%%%
-YYYY-MM-DD[T[hh[:mm[:ss[.s]]]]]
-\bigskip
-
-%%%%%%%%%%%%%%%%%%%% Table No: 12 ends here %%%%%%%%%%%%%%%%%%%%
+applicable.
 
 \subsubsection{PhotometryFilter.transmissionCurve}
 Here we consider how wavelengths/frequencies are filtered in the whole 
@@ -934,14 +921,12 @@ transmissionPoint.transmissionValu}e}\par}
 PhotometryFilter.transmissionCurve.transmissionPoint.
 spectralValue.UCD: String} \hspace{0pt} \\
 This data model field contains a Unified Content Description string (UCD) 
-(\citep{2007ivoa.spec.0402M}) that specifies the nature of the spectral axis for this filter. 
+(\citep{2018ivoa.spec.0527P}) that specifies the nature of the spectral axis for this filter. 
 This applies to the full spectral axis description of the filter.
 \par
 
 Example:
 \par
-
-
 
 %%%%%%%%%%%%%%%%%%%% Table No: 14 starts here %%%%%%%%%%%%%%%%%%%%
 em.wl
@@ -980,7 +965,7 @@ Field that specifies the units of the bandwidth object.
 \par
 
 \paragraph{3.2.10.3
-PhotometryFilter.bandwith.extent: double} \hspace{0pt} \\
+PhotometryFilter.bandwith.extent: real} \hspace{0pt} \\
 For square filters (100$\%$  between the minimum and maximum wavelength and 0$\%$  otherwise), 
 the bandwidth could be described as $\lambda_{max} - \lambda_{min}$.
 \par
@@ -998,7 +983,7 @@ range, the integrals will also be defined in this spectral range.
 \par
 
 \paragraph{3.2.10.4
-PhotometryFilter.bandwith.start: double } \hspace{0pt} \\
+PhotometryFilter.bandwith.start: real } \hspace{0pt} \\
 Also called in the rest of the document, this is a spectral value that better describes 
 the reasonable minimum value of the spectral range of the filter band-pass. In general,
 although this 
@@ -1012,7 +997,7 @@ In practice, this could be taken as the minimum value of the filter transmission
 \par
 
 \paragraph{3.2.10.5
-PhotometryFilter.bandwith.stop: double} \hspace{0pt} \\
+PhotometryFilter.bandwith.stop: real} \hspace{0pt} \\
 Also called $\lambda_{max}$ in the rest of the document, this is a spectral value that 
 better describes the reasonable maximum value of the spectral range of the filter band-pass. 
 In general, 
@@ -1118,7 +1103,7 @@ specified otherwise.
 \par
 
 The reference magnitude is a dimensionless variable. It is modeled using a 
-PhysicalQuantityDouble object type.
+PhysicalQuantity object type of appropriate precision(float,double).
 \par
 
 \subsubsection{ZeroPoint.referenceMagnitude.error: real}
@@ -2070,7 +2055,7 @@ service making use of the Photometry Filter DM through utypes:
 \par
 %%%%%%%%%%%%%%%%%%%% listing phot system 2Mass : starts here %%%%%%%%%%%%%%%%%%%%
 \lstinputlisting[language=XML,breaklines, caption={SVO Filter Profile 
-Service output: Simple VOtable Format}]{./serializations/fpsFilterExample.xml}
+Service output: Simple VOTable Format}]{./serializations/fpsFilterExample.xml}
 %%%%%%%%%%%%%%%%%%%% Table No:  ends here %%%%%%%%%%%%%%%%%%%%
 
 \subsection{Photometric Data in Cone Search}

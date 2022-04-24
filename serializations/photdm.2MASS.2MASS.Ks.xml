@@ -8,10 +8,8 @@
   <dm-mapping:COLLECTION dmrole="photdm:PhotCal.photometryFilter">
     <!-- Others filter references can be added here -->
     <dm-mapping:REFERENCE dmref="_filter_2MASS_Ks"/>
-  </dm-mapping:COLLECTION>
-    
+  </dm-mapping:COLLECTION>    
 </dm-mapping:INSTANCE>
-
 
 <!-- Photometric Calibration -->
 <dm-mapping:INSTANCE dmtype="photdm:PhotCal" dmid="_cal_2MASS_Ks">

@@ -462,8 +462,10 @@ these conversions.
 
 An intermediate class, PhotCal, can be understood as a certain photometry 
 filter instance, i.e., a certain photometry filter using a certain magnitude 
-system and linked to a certain zero point class. PhotCal is the class node 
-where data model describing spectral data interacts. It binds the filter and 
+system and linked to a certain zero point class. 
+%mir as suggested by MCD 
+PhotCal is the class node where a spectral data model interacts. 
+It binds the filter and 
 zeropoint information to the Flux Axis calibration. It can be understood as the 
 calibration configuration used , bringing together a specific photometry filter 
 instance with magnitude system and zeropoint. It leverages the handling of 
@@ -574,8 +576,10 @@ values are:
 
 This will be used in order to decide how to calculate the 
 flux average in, e.g., the synthetic photometry calculations. 
-At current state, this list is exhaustive. See photometry filter 
-transmission curve description to understand how to use this field.
+% mir MCD Suggestion 
+At present, this list is exhaustive. 
+See the description of photometry filter 
+transmission curve to understand how to use this field.
 \par
 
 \subsection{PhotometryFilter Class}
@@ -785,7 +789,7 @@ in this data model)
 
 The transmission curve can be closely (although not fully) identified as an array 
 of points as in a spectrum. There are various ways to provide this information 
-either directly in an embedded table, or using a reference to a serialised table 
+either directly in an embedded table, or using a reference to a serialized table 
 file.
 \par
 
@@ -984,12 +988,14 @@ range, the integrals will also be defined in this spectral range.
 
 \paragraph{3.2.10.4
 PhotometryFilter.bandwith.start: real } \hspace{0pt} \\
-Also called in the rest of the document, this is a spectral value that better describes 
+%mir suggestion from MCD review
+Also called $\lambda_{min}$ in the rest of the document, this is a spectral value that better describes 
 the reasonable minimum value of the spectral range of the filter band-pass. In general,
 although this 
 will not be imposed in order to allow a better description for different types of 
 transmission curves, this quantity will be close to:
 \begin{equation} \label{eq:22}
+%mir suggestion from MCD review
 \lambda_{min} = \lambda_{mean} - \frac{w}{2}
 \end{equation}
 
@@ -1004,7 +1010,7 @@ In general,
 although this will not be imposed in order to allow a better description for different 
 types of transmission curves, this quantity will be close to:
 \begin{equation} \label{eq:23}
-\lambda_{min} = \lambda_{mean} + \frac{w}{2}
+\lambda_{max} = \lambda_{mean} + \frac{w}{2}
 \end{equation}
 
 In practice, this could be taken as the maximum value of the filter transmission 
@@ -1231,7 +1237,7 @@ Example:
 
 \begin{table}[ht]
 \centering
-    \begin{tabular}{m{2.7cm}m{8cm}}
+    \begin{tabular}{|m{2.7cm}|m{8cm}|}
 	\hline %inserts double horizontal lines
 Band & Softening Parameters (b coefficients) \\
 \hline
@@ -1331,7 +1337,7 @@ Some example values are:
 
 \begin{table}[H]
  			\centering
-\begin{tabular}{p{2.42in}}
+\begin{tabular}{|p{2.42in}|}
 \hline
 MagnitudeSystem Type \\
 \hline
@@ -1753,7 +1759,7 @@ one element of the transmission curve representation}} &
 
 %%%%%%%%%%%%%%%%%%%% Table No: 21 starts here %%%%%%%%%%%%%%%%%%%%
 %Photometry Filter Spectral Axis Coverage
-
+%mir changed photDM: in photdm: as MCD suggestion 
 \begin{table}[H]
 \centering
 \begin{adjustbox}{angle=90}
@@ -1779,7 +1785,7 @@ filter spectral band}} &
 \hline
 %row no:10
 \multicolumn{1}{p{2.5in}}{{\fontsize{8pt}{8pt}
-\selectfont photDM:PhotometryFilter.spectralLocation.\ value}} &
+\selectfont photdm:PhotometryFilter.spectralLocation.\ value}} &
 \multicolumn{1}{p{1.5in}}{{\fontsize{8pt}{8pt}\selectfont em.wl;meta.main }} &
 \multicolumn{1}{p{2in}}{{\fontsize{8pt}{8pt}\selectfont Reference position along the 
 spectral axis. Spectral coordinate of the Zero Point }} &
@@ -1788,7 +1794,7 @@ spectral axis. Spectral coordinate of the Zero Point }} &
 \hline
 %row no:11
 \multicolumn{1}{p{2.5in}}{{\fontsize{8pt}{8pt}
-\selectfont photDM:PhotometryFilter.spectralLocation.\ unit.expression}} &
+\selectfont photdm:PhotometryFilter.spectralLocation.\ unit.expression}} &
 \multicolumn{1}{p{1.5in}}{{\fontsize{8pt}{8pt}\selectfont meta.unit }} &
 \multicolumn{1}{p{2in}}{{\fontsize{8pt}{8pt}\selectfont Unit of the spectral axis used 
 to characterize it}} &
@@ -1797,7 +1803,7 @@ to characterize it}} &
 \hline
 %row no:12
 \multicolumn{1}{p{2.5in}}{{\fontsize{8pt}{8pt}
-\selectfont photDM:PhotometryFilter.spectralLocation.\ UCD}} &
+\selectfont photdm:PhotometryFilter.spectralLocation.\ UCD}} &
 \multicolumn{1}{p{1.5in}}{{\fontsize{8pt}{8pt}\selectfont meta.ucd }} &
 \multicolumn{1}{p{2in}}{{\fontsize{8pt}{8pt}\selectfont UCD for the nature of 
 spectral axis wl, freq, energy}} &
@@ -1806,7 +1812,7 @@ spectral axis wl, freq, energy}} &
 \hline
 %row no:13
 \multicolumn{1}{p{2.5in}}{{\fontsize{8pt}{8pt}
-\selectfont photDM:PhotometryFilter.bandwidth.unit.\ expression}} &
+\selectfont photdm:PhotometryFilter.bandwidth.unit.\ expression}} &
 \multicolumn{1}{p{1.5in}}{{\fontsize{8pt}{8pt}\selectfont meta.unit}} &
 \multicolumn{1}{p{2in}}{{\fontsize{8pt}{8pt}\selectfont Unit of the spectral extent 
 used to characterize the bandwidth object}} &
@@ -1815,7 +1821,7 @@ used to characterize the bandwidth object}} &
 \hline
 %row no:14
 \multicolumn{1}{p{2.5in}}{
-{\fontsize{8pt}{8pt}\selectfont photDM:PhotometryFilter.\ bandwidth.UCD}} &
+{\fontsize{8pt}{8pt}\selectfont photdm:PhotometryFilter.\ bandwidth.UCD}} &
 \multicolumn{1}{p{1.5in}}{{\fontsize{8pt}{8pt}\selectfont meta.ucd }} &
 \multicolumn{1}{p{2in}}{{\fontsize{8pt}{8pt}\selectfont UCD for the nature of 
 spectral bandwidth: wl, freq, energy, wave number, ...}} &
@@ -1823,7 +1829,7 @@ spectral bandwidth: wl, freq, energy, wave number, ...}} &
 \multicolumn{1}{p{0.35in}}{{\fontsize{8pt}{8pt}\selectfont string}} \\
 \hline
 %row no:15
-\multicolumn{1}{p{2.5in}}{{\fontsize{8pt}{8pt}\selectfont photDM:PhotometryFilter.bandwidth.extent.\ value}} &
+\multicolumn{1}{p{2.5in}}{{\fontsize{8pt}{8pt}\selectfont photdm:PhotometryFilter.bandwidth.extent.\ value}} &
 \multicolumn{1}{p{1.5in}}{{\fontsize{8pt}{8pt}\selectfont instr.bandwidth}} &
 \multicolumn{1}{p{2in}}{{\fontsize{8pt}{8pt}\selectfont Spectral axis extent of the filter}} &
 \multicolumn{1}{p{0.74in}}{} &
@@ -1831,7 +1837,7 @@ spectral bandwidth: wl, freq, energy, wave number, ...}} &
 \hline
 %row no:16
 \multicolumn{1}{p{2.5in}}{{\fontsize{8pt}{8pt}
-\selectfont photDM:PhotometryFilter.bandwidth.\ start.value}} &
+\selectfont photdm:PhotometryFilter.bandwidth.\ start.value}} &
 \multicolumn{1}{p{1.5in}}{{\fontsize{8pt}{8pt}\selectfont em.wl;stat.min}} &
 \multicolumn{1}{p{2in}}{{\fontsize{8pt}{8pt}\selectfont Minimum value of the filter 
 spectral coverage}} &
@@ -1840,7 +1846,7 @@ spectral coverage}} &
 \hline
 %row no:17
 \multicolumn{1}{p{2.5in}}{{\fontsize{8pt}{8pt}
-\selectfont photDM:PhotometryFilter.bandwidth.\ stop.value}} &
+\selectfont photdm:PhotometryFilter.bandwidth.\ stop.value}} &
 \multicolumn{1}{p{1.5in}}{{\fontsize{8pt}{8pt}\selectfont em.wl;stat.max}} &
 \multicolumn{1}{p{2in}}{{\fontsize{8pt}{8pt}\selectfont Maximum value of the 
 filter spectral coverage}} &
@@ -1880,7 +1886,7 @@ filter spectral coverage}} &
 \multicolumn{1}{p{0.35in}}{{\fontsize{8pt}{8pt}\selectfont \textbf{Data type}}} \\
 \hline
 %row no:20
-\multicolumn{1}{p{2.5in}}{{\fontsize{8pt}{8pt}\selectfont photDM:PhotometryFilter.dateValidityFrom}} &
+\multicolumn{1}{p{2.5in}}{{\fontsize{8pt}{8pt}\selectfont photdm:PhotometryFilter.dateValidityFrom}} &
 \multicolumn{1}{p{1.5in}}{{\fontsize{8pt}{8pt}\selectfont time.start}} &
 \multicolumn{1}{p{2in}}{{\fontsize{8pt}{8pt}\selectfont Time stamp for Start of validity for 
 this filter in ISOTime format }} &
@@ -1889,7 +1895,7 @@ this filter in ISOTime format }} &
 \hline
 %row no:21
 \multicolumn{1}{p{2.5in}}{{\fontsize{8pt}{8pt}
-\selectfont photDM:PhotometryFilter.dateValidityTo}} &
+\selectfont photdm:PhotometryFilter.dateValidityTo}} &
 \multicolumn{1}{p{1.5in}}{{\fontsize{8pt}{8pt}\selectfont time.end}} &
 \multicolumn{1}{p{2in}}{{\fontsize{8pt}{8pt}\selectfont Time stamp for Stop of validity 
 for this filter in ISOTime format }} &
@@ -1897,7 +1903,7 @@ for this filter in ISOTime format }} &
 \multicolumn{1}{p{0.35in}}{{\fontsize{8pt}{8pt}\selectfont string }} \\
 \hline
 %row no:24
-\multicolumn{1}{p{2.5in}}{{\fontsize{8pt}{8pt}\selectfont photDM:PhotCal.identifier}} &
+\multicolumn{1}{p{2.5in}}{{\fontsize{8pt}{8pt}\selectfont photdm:PhotCal.identifier}} &
 \multicolumn{1}{p{1.5in}}{{\fontsize{8pt}{8pt}\selectfont meta.ref.ivoid }} &
 \multicolumn{1}{p{2in}}{{\fontsize{8pt}{8pt}\selectfont Unique identifier of the Photometry } 
 \par {\fontsize{8pt}{8pt}\selectfont Calibration instance within a FPS}} &
@@ -1906,21 +1912,21 @@ for this filter in ISOTime format }} &
 \hline
 %row no:25
 \multicolumn{1}{p{2.5in}}{{\fontsize{8pt}{8pt}
-\selectfont photDM:PhotCal.zeroPoint.\-flux.unit.expression}} &
+\selectfont photdm:PhotCal.zeroPoint.\-flux.unit.expression}} &
 \multicolumn{1}{p{1.5in}}{{\fontsize{8pt}{8pt}\selectfont meta.unit }} &
 \multicolumn{1}{p{2in}}{{\fontsize{8pt}{8pt}\selectfont unit for Zero point flux}} &
 \multicolumn{1}{p{0.74in}}{{\fontsize{8pt}{8pt}\selectfont Jy}} &
 \multicolumn{1}{p{0.35in}}{{\fontsize{8pt}{8pt}\selectfont string}} \\
 \hline
 %row no:26
-\multicolumn{1}{p{2.5in}}{{\fontsize{8pt}{8pt}\selectfont photDM:PhotCal.zeroPoint.\-flux.UCD}} &
+\multicolumn{1}{p{2.5in}}{{\fontsize{8pt}{8pt}\selectfont photdm:PhotCal.zeroPoint.\-flux.UCD}} &
 \multicolumn{1}{p{1.5in}}{{\fontsize{8pt}{8pt}\selectfont meta.ucd }} &
 \multicolumn{1}{p{2in}}{{\fontsize{8pt}{8pt}\selectfont ucd for Zero point flux}} &
 \multicolumn{1}{p{0.74in}}{{\fontsize{8pt}{8pt}\selectfont phot.flux.density}} &
 \multicolumn{1}{p{0.35in}}{{\fontsize{8pt}{8pt}\selectfont string}} \\
 \hline
 %row no:27
-\multicolumn{1}{p{2.5in}}{{\fontsize{8pt}{8pt}\selectfont photDM:PhotCal.zeroPoint.\-flux.value}} &
+\multicolumn{1}{p{2.5in}}{{\fontsize{8pt}{8pt}\selectfont photdm:PhotCal.zeroPoint.\-flux.value}} &
 \multicolumn{1}{p{1.5in}}{{\fontsize{8pt}{8pt}\selectfont phot.flux.density }} &
 \multicolumn{1}{p{2in}}{{\fontsize{8pt}{8pt}\selectfont flux value at Zero point associated 
 to this filter}} &
@@ -1928,7 +1934,7 @@ to this filter}} &
 \multicolumn{1}{p{0.35in}}{{\fontsize{8pt}{8pt}\selectfont real}} \\
 \hline
 %row no:28
-\multicolumn{1}{p{2.5in}}{{\fontsize{8pt}{8pt}\selectfont photDM:PhotCal.zeroPoint.\-flux.error}} &
+\multicolumn{1}{p{2.5in}}{{\fontsize{8pt}{8pt}\selectfont photdm:PhotCal.zeroPoint.\-flux.error}} &
 \multicolumn{1}{p{1.5in}}{{\fontsize{8pt}{8pt}\selectfont stat.error;phot.flux.density}} &
 \multicolumn{1}{p{2in}}{{\fontsize{8pt}{8pt}\selectfont Error in the flux value at Zero point 
 associated to this filter}} &
@@ -1937,7 +1943,7 @@ associated to this filter}} &
 \hline
 %row no:29
 \multicolumn{1}{p{2.5in}}{{\fontsize{8pt}{8pt}
-\selectfont photDM:PhotCal.zeroPoint.\newline referenceMagnitude.value}} &
+\selectfont photdm:PhotCal.zeroPoint.\newline referenceMagnitude.value}} &
 \multicolumn{1}{p{1.5in}}{{\fontsize{8pt}{8pt}\selectfont phot.mag}} &
 \multicolumn{1}{p{2in}}{{\fontsize{8pt}{8pt}\selectfont Reference magnitude used for zero point}} &
 \multicolumn{1}{p{0.74in}}{{\fontsize{8pt}{8pt}\selectfont 0.0}} &
@@ -1945,7 +1951,7 @@ associated to this filter}} &
 \hline
 %row no:30
 \multicolumn{1}{p{2.5in}}{{\fontsize{8pt}{8pt}
-\selectfont photDM:PhotCal.zeroPoint.\newline referenceMagnitude.error}} &
+\selectfont photdm:PhotCal.zeroPoint.\newline referenceMagnitude.error}} &
 \multicolumn{1}{p{1.5in}}{{\fontsize{8pt}{8pt}\selectfont stat.error;phot.mag}} &
 \multicolumn{1}{p{2in}}{{\fontsize{8pt}{8pt}\selectfont Error in the reference magnitude 
 used for zero point}} &
@@ -1953,14 +1959,14 @@ used for zero point}} &
 \multicolumn{1}{p{0.35in}}{{\fontsize{8pt}{8pt}\selectfont real} \par } \\
 \hline
 %row no:31
-\multicolumn{1}{p{2.5in}}{{\fontsize{8pt}{8pt}\selectfont photDM:PhotCal.zeroPoint.type}} &
+\multicolumn{1}{p{2.5in}}{{\fontsize{8pt}{8pt}\selectfont photdm:PhotCal.zeroPoint.type}} &
 \multicolumn{1}{p{1.5in}}{{\fontsize{8pt}{8pt}\selectfont meta.code }} &
 \multicolumn{1}{p{2in}}{{\fontsize{8pt}{8pt}\selectfont Type of zero point}} &
 \multicolumn{1}{p{0.74in}}{{\fontsize{8pt}{8pt}\selectfont 0}} &
 \multicolumn{1}{p{0.35in}}{{\fontsize{8pt}{8pt}\selectfont int}} \\
 \hline
 %row no:32
-\multicolumn{1}{p{2.5in}}{{\fontsize{8pt}{8pt}\selectfont photDM:PhotCal.magnitudeSystem.type}} &
+\multicolumn{1}{p{2.5in}}{{\fontsize{8pt}{8pt}\selectfont photdm:PhotCal.magnitudeSystem.type}} &
 \multicolumn{1}{p{1.5in}}{{\fontsize{8pt}{8pt}\selectfont meta.code }} &
 \multicolumn{1}{p{2in}}{{\fontsize{8pt}{8pt}\selectfont Type of magnitude system}} &
 \multicolumn{1}{p{0.74in}}{{\fontsize{8pt}{8pt}\selectfont VEGAMag}} &
@@ -1968,7 +1974,7 @@ used for zero point}} &
 \hline
 %row no:33
 \multicolumn{1}{p{2.5in}}{{\fontsize{8pt}{8pt}
-\selectfont photDM:PhotCal.magnitudeSystem.\-ReferenceSpectrumURI}} &
+\selectfont photdm:PhotCal.magnitudeSystem.\-ReferenceSpectrumURI}} &
 \multicolumn{1}{p{1.5in}}{{\fontsize{8pt}{8pt}\selectfont meta.ref.url }} &
 \multicolumn{1}{p{2in}}{{\fontsize{8pt}{8pt}\selectfont Reference SED or spectrum for 
 this magnitude system}} &
@@ -1977,7 +1983,7 @@ this magnitude system}} &
 \hline
 %row no:34
 \multicolumn{1}{p{2.5in}}{{\fontsize{8pt}{8pt}
-\selectfont photDM:AsinhZeroPoint.softeningParameter}} &
+\selectfont photdm:AsinhZeroPoint.softeningParameter}} &
 \multicolumn{1}{p{1.5in}}{{\fontsize{8pt}{8pt}\selectfont phot.calib }} &
 \multicolumn{1}{p{2in}}{{\fontsize{8pt}{8pt}\selectfont  Correction parameter 
 for luptitudes}} &

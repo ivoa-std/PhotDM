@@ -107,7 +107,7 @@ IVOA architecture:
 \caption{PhotDM can be used to enhance and abstract SSAP and TAP access, in particular 
 to help on the automatic translation of magnitudes to fluxes and to add provenance 
 metadata to these magnitudes. Also it can be used to generate SEDs using the SpectralDM.
-PhotDM makes use of utypes from different IVOA data models, including CharDM and UCDs and
+PhotDM makes use of Utypes from different IVOA data models, including CharDM and UCDs and
 also express quantities in line with the VOUnits definition.
 PhotDM also adds serialization examples in VOTable.
 }
@@ -170,6 +170,12 @@ correction of UCD tags} &
 \multicolumn{1}{|p{0.72in}}{All} &
 \multicolumn{1}{|p{0.9in}|}{{\fontsize{10pt}{12.0pt}\selectfont 
 2022/03/01}} \\
+\hline
+%row no:7
+\multicolumn{1}{|p{3.75in}}{v1.1 PR / answer to RFC comments } &
+\multicolumn{1}{|p{0.72in}}{All} &
+\multicolumn{1}{|p{0.9in}|}{{\fontsize{10pt}{12.0pt}\selectfont 
+2022/05/23}} \\
 
 \hline
 \end{tabular}
@@ -487,21 +493,17 @@ compared between them or compared to spectroscopic data expressed in flux.
 \par
 
 %%%%%%%%%%%%%%%%%%%% Figure/Image No: 22 starts here %%%%%%%%%%%%%%%%%%%%
-% -- MireilleLouys
-% I would prefer to use the diagram I provided in Modelio,
-% because it traces more details on the associations, and contains the 
-% descriptions inserted in
-% the generated VO-DML xml file
-% the file for replacement will be 
-% "./schema/PhotDMv1-1-overview diagram-2021-04-12.png"
-% -- Mireille Louys
 \begin{figure}[H]
-%\includegraphics[angle=90,width=5.98in,height=7.19in]{./schema/PhotDMv1-1.png}
-% update Mireille new diagram
-\includegraphics[angle=90,width=5.98in,height=7.19in]{./schema/PhotometryOverviewDiagram_jan22.png}
+% update Mireille new diagram Proposed REC MCD comments 
+\includegraphics[angle=90,width=5.98in,height=7.19in]{./schema/PhotometryOverviewDiagram_20220520.png} 
 \caption{Overview class diagram of the Photometry Data Model maintained with Modelio 3.8.}
 \end{figure}
 
+\begin{figure}[H]
+% update Mireille new diagram Proposed REC MCD comments : explain base types and derived types UCD and ISOTime
+\includegraphics[angle=90,width=5.98in,height=7.19in]{./schema/BaseDataTypesDiagram_PR_20220520.png} 
+\caption{Attributes in the PHOTDM classes belong to the base data types defined in the ivoa: VODML template model which is extended here by two classes : UCD for the UCD semantic tag, and ISOTime for time stamps defined and formatted following the DALI specification \citep{2017ivoa.spec.0517D} .} 
+\end{figure}
 
 %%%%%%%%%%%%%%%%%%%% Figure/Image No: 22 Ends here %%%%%%%%%%%%%%%%%%%%
 
@@ -514,13 +516,18 @@ compared between them or compared to spectroscopic data expressed in flux.
  %%%%%%%%%%%%  Starting New Page here %%%%%%%%%%%%%%
 
 \newpage
+%In order to fully describe values of the magnitudes inside photometry point instances, the class diagram makes use of physical quantity classes. 
+%These classes glue all the basic fields that compose a physical measurement: value, error, units, etc. However, within the present specification, we will describe individual attributes of the different quantities and as a consequence. All the utypes will be also generated from individual physical quantity attributes what will facilitate the use within IVOA Data Access Layer protocols.
+
+proposal Mireille: 
 In order to fully describe values of the magnitudes inside photometry point 
-instances, the class diagram makes use of physical quantity classes. These 
-classes glue all the basic fields that compose a physical measurement: value, 
+instances, the former PhotDM v1.0 used  physical quantity classes which used to 
+aggregate all the basic fields that compose a physical measurement: value, 
 error, units, etc. However, within the present specification, we will describe 
-individual attributes of the different quantities and as a consequence. All 
-the utypes will be also generated from individual physical quantity 
-attributes what will facilitate the use within IVOA Data Access Layer protocols.
+individual attributes of the different quantities separately. 
+This is due to the fact that the granularity of quantities as defined in the former PhotDM 1.0 did not match the one proposed in the 
+VODML ivoa template.  As a consequence,
+the Utypes are also generated from individual attributes to facilitate the use within IVOA Data Access Layer protocols.
 \par
 
 \subsection{PhotometricSystem Class}
@@ -801,8 +808,9 @@ either directly in an embedded table, or using a reference to a serialized table
 file.
 \par
 
-Spectral and transmission coordinates can be gathered directly as a table using 
-TransmissionPoint utypes (see \ref{serializationfilter}).
+%mireille proposal / MCD RFC comments
+Spectral and transmission coordinates can also be organized  in an explicit table using 
+Utypes of TransmissionPoint attributes (see \ref{serializationfilter}).
 \par
 
 \subsubsection{PhotometryFilter.spectralLocation.value: real}
@@ -904,31 +912,29 @@ rounded up to the nearest hundred kB would be sufficient).\par
 
 \paragraph{PhotometryFilter.transmissionCurve.transmissionPoint} 
 The transmission curve is a mathematical function that describes the transmission 
-fraction of a certain filter in a defined spectral range. This function can be discretised 
+fraction of a certain filter in a defined spectral range. This function can be discretized 
 as a set of transmission points and every point will be composed by two attributes:
 \par
 
 \begin{itemize}
-	\item One spectral coordinate (wavelength, energy or frequency) value, of type 
-	PhysicalQuantity, and utype:\par
+	\item One spectral coordinate (wavelength, energy or frequency) value, and utype:\par
 
 \begin{center}
 {\fontsize{10pt}{12.0pt}\selectfont 
 \textbf{\textit{photDM:PhotometryFilter.transmissionCurve.
-transmissionPoint.spectralValue}}\par}
+transmissionPoint.spectralValue}}
+and related attributes like \textit{spectralErrorValue} and \textit{unit} }
 \end{center}\par
 
 	\item One transmission unitless real value between 0 and 1 and associated with
-	utype:{\fontsize{11pt}{13.2pt}\selectfont \textit{ }\par}
-\end{itemize}\par
-
+	utype:\par
 \begin{center}
 {\fontsize{10pt}{12.0pt}\selectfont \textbf{\textit{photDM:PhotometryFilter.transmissionCurve.
-transmissionPoint.transmissionValu}e}\par}
+transmissionPoint.transmissionValue}}}
 \end{center}\par
 
-\subparagraph{PhotometryFilter.transmissionCurve.transmissionPoint.
-spectralValue.UCD: String}
+\end{itemize}\par
+\subparagraph{PhotometryFilter.transmissionCurve.transmissionPoint.spectralValue.UCD: String}
 This data model field contains a Unified Content Description string (UCD) 
 \citep{2018ivoa.spec.0527P} that specifies the nature of the spectral axis for this filter. 
 This applies to the full spectral axis description of the filter.
@@ -1565,9 +1571,16 @@ Although, as can be seen in the previous calculation, Asinh magnitudes are equiv
 when b=0, it is recommended to use different implementation conversion codes for both types of magnitudes as a general implementation both for Pogson (b=0) and asinh (b>0) could easily produce numerical infinites during the evaluation.
 \par
 
+\section{Data Model VODML documentation}
+
+The VODML description of this model is available at \\ \url{http://ivoa.net/xml/}.
+
+The documentation page generated from this reference XML document is available on the Phot DM v1.1 RFC discussion page : \\
+\url{https://wiki.ivoa.net/internal/IVOA/PhotDM11RFC/Photv1_1_PR_20220520.html}
 
 \section{Data Model Summary}
-
+Here is the table summary  of the model, backward compatible to PhotDM v1.0. 
+It shows the Utypes and UCDs used for each data model element. 
 
 %%%%%%%%%%%%%%%%%%%% Table No: 20 starts here %%%%%%%%%%%%%%%%%%%%
 % Mireille : some UCDs need to be changed :

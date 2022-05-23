@@ -182,8 +182,8 @@ combine that data in a scientifically meaningful way. A Spectral
 Energy Distribution (SED) is an example of combining data whereby 
 flux density measurements of an astrophysical source at different 
 spectral energy coordinates (wavelengths/frequencies/energy)
-(\citep{doi:10.1146/annurev.astro.41.082801.100251}, 
-\citep{longo}, \citep{connell}, \citep{brujine}) are plotted as a 
+\citep{doi:10.1146/annurev.astro.41.082801.100251,longo,connell,brujine}
+are plotted as a 
 graph of flux density versus a spectral energy coordinate. SEDs that 
 cover a wide range of the electromagnetic spectrum are particularly 
 useful for identifying the underlying physical processes operating 
@@ -397,9 +397,9 @@ Figure 3.1 of the Synphot manual:
 For a photometric system that uses Vega magnitudes, the zero point 
 flux for each filter is the average flux density of Vega over that 
 bandpass $f_{Vega}$. Some typical values of $f_{Vega}$ are tabulated in 
-(\citep{2001eaa..book.....M}) for the Johnson photometric system. Although 
+\citep{2001eaa..book.....M} for the Johnson photometric system. Although 
 the agreed Vega spectrum has changed historically, the commonly referred to 
-spectrum of Vega in digital form described in (\citep{2004AJ....127.3508B}) 
+spectrum of Vega in digital form described in \citep{2004AJ....127.3508B} 
 is available as file at \emph{alpha\_lyr\_stis\_002.fits} at:\par
 \url{http://www.stsci.edu/instruments/observatory/cdbs/calspec}
 \par
@@ -633,7 +633,7 @@ photometry filter properties.
 \par
 
 This identifier follows the IVOA syntax defined for IVOA 
-identifiers (\citep{2016ivoa.spec.0523D}) which gives a string built up as:
+identifiers \citep{2016ivoa.spec.0523D} which gives a string built up as:
 \par
 
 %%%%%%%%%%%%%%%%%%%% Table No: 6 starts here %%%%%%%%%%%%%%%%%%%%
@@ -773,10 +773,10 @@ with $\lambda < 4000 \angstrom $ or  $\lambda > 7000 \angstrom $.
 \par
 
 This curve can be used, e.g. for the creation of synthetic photometry 
-(\citep{1996BaltA...5..459S},\citep{2004A&A...422..205G}) from an observational 
+\citep{1996BaltA...5..459S,2004A&A...422..205G} from an observational 
 or a theoretical spectrum by applying it to the spectrum in the filter band-pass. 
 Taking as input a certain flux, the effective flux as seen using a certain 
-filter would be, for energy counters (\citep{2007ASPC..364..227M}):
+filter would be, for energy counters \citep{2007ASPC..364..227M}:
 
 \begin{equation} \label{eq:14}
 f(\lambda_{eff}) = \frac{\int T(\lambda)F(\lambda)d\lambda}{\int T(\lambda)d\lambda}
@@ -810,7 +810,7 @@ A spectral coordinate value that can be considered by the data provider as the
 most representative for this specific filter band-pass. The selection of this 
 value should take into account the filter transmission curve profile and in 
 general should be close to the wavelength mean value, defined 
-(\citep{1982AJ.....87..670O}) as:
+in \citet{1982AJ.....87..670O} as:
 \par
 \begin{equation} \label{eq:16}
 \lambda_{mean} = \frac{\int T(\lambda)\lambda d\lambda}{\int T(\lambda)d\lambda}
@@ -866,8 +866,8 @@ data fields as shown above. See serialization example in section
 
 \paragraph{PhotometryFilter.transmissionCurve.access}
 If the transmission curve is hooked as an external file, we use the \textit{Access} class 
-defined in the Observation Core Components data model (\citep{2017ivoa.spec.0509L}) and inherited 
-from the SSA specification (\citep{2012ivoatody}).
+defined in the Observation Core Components data model \citep{2017ivoa.spec.0509L} and inherited 
+from the SSA specification \citep{2012ivoatody}.
 \par
 
 \subparagraph{PhotometryFilter.transmissionCurve.access.reference} 
@@ -930,7 +930,7 @@ transmissionPoint.transmissionValu}e}\par}
 \subparagraph{PhotometryFilter.transmissionCurve.transmissionPoint.
 spectralValue.UCD: String}
 This data model field contains a Unified Content Description string (UCD) 
-(\citep{2018ivoa.spec.0527P}) that specifies the nature of the spectral axis for this filter. 
+\citep{2018ivoa.spec.0527P} that specifies the nature of the spectral axis for this filter. 
 This applies to the full spectral axis description of the filter.
 \par
 
@@ -1120,7 +1120,7 @@ Magnitude error is a dimensionless variable.\par
 Usual definition of magnitudes, also called Pogson magnitudes, can be improved 
 for faint sources by replacing the usual logarithm with an inverse hyperbolic 
 sine function. These kinds of magnitudes are called $``$asinh magnitudes$"$  
-or $``$luptitudes$"$  (\citep{2004A&A...422..205G})\par
+or $``$luptitudes$"$  \citep{2004A&A...422..205G}.\par
 
 %%%%%%%%%%%%%%%%%%%% Table No: 17 starts here %%%%%%%%%%%%%%%%%%%%
 
@@ -1226,7 +1226,7 @@ Extension of ZeroPoint  to describe asinh magnitudes, a.k.a. luptitudes.
 
 \subsubsection{AsinhZeroPoint.softeningParameter: real}
 Parameter used to correct the calculation of magnitudes for faint 
-sources. Usually called b. See (\citep{1999AJ....118.1406L}) for 
+sources. Usually called b. See \citep{1999AJ....118.1406L} for 
 a formal explanation.
 \par
 
@@ -2017,7 +2017,6 @@ of the softening parameter attached to the Asinh case.
     language=xml,
     tabsize=3,
     frame=lines,
-    label=code:sample,
     %frame=shadowbox,
     rulesepcolor=\color{gray},
     xleftmargin=20pt,

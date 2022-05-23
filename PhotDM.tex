@@ -16,6 +16,14 @@
 \usepackage[font=footnotesize,labelfont=bf]{caption}
 \usepackage{titlesec}
 
+\setcounter{secnumdepth}{6}
+\titleformat{\paragraph}{\normalfont\normalsize\sffamily\bfseries}
+  {\theparagraph}{1ex}{}
+\titlespacing*{\paragraph}{0pt}{6pt plus 4pt}{4pt}
+\titleformat{\subparagraph}{\normalfont\normalsize\sffamily\itshape}
+  {\thesubparagraph}{1ex}{}
+\titlespacing*{\subparagraph}{0pt}{4pt plus 2pt}{4pt}
+
 \usepackage[utf8]{inputenc}
 \usepackage{float}
 \usepackage[titletoc]{appendix}
@@ -856,18 +864,18 @@ This data model field stores points of the curve in place in a simple table usin
 data fields as shown above. See serialization example in section 
 \ref{serializationfilter} \par
 
-\paragraph{3.2.9.1 PhotometryFilter.transmissionCurve.access} \hspace{0pt} \\
+\paragraph{PhotometryFilter.transmissionCurve.access}
 If the transmission curve is hooked as an external file, we use the \textit{Access} class 
 defined in the Observation Core Components data model (\citep{2017ivoa.spec.0509L}) and inherited 
 from the SSA specification (\citep{2012ivoatody}).
 \par
 
-\subparagraph{3.2.9.1.1 PhotometryFilter.transmissionCurve.access.reference} 
-\hspace{0pt} \\
+\subparagraph{PhotometryFilter.transmissionCurve.access.reference} 
+
 The access reference is a URI (typically a URL) which can be used to retrieve the 
 specific dataset described in a row of the query table response. \par
 
-\subparagraph{3.2.9.1.2 PhotometryFilter.transmissionCurve.access.format} \hspace{0pt} \\
+\subparagraph{PhotometryFilter.transmissionCurve.access.format}
 The PhotometryFilter.transmissionCurve.access.format data model field tells the MIME 
 type of the file pointed to and used to store the curve points. Values for this 
 string can generally be:\par
@@ -888,15 +896,13 @@ $``$Spectrum1.1$"$  for instance, and all necessary fields for the spectral and
 flux coordinates.
 \par
 
-\subparagraph{3.2.9.1.3 PhotometryFilter.transmissionCurve.access.size} 
-\hspace{0pt} \\
+\subparagraph{PhotometryFilter.transmissionCurve.access.size} 
 Approximate estimated size of the dataset, specified in kilobytes. This would 
 help the client estimate download times and storage requirements when generating 
 execution plans. Only an approximate, order of magnitude value is required (a value 
 rounded up to the nearest hundred kB would be sufficient).\par
 
-\paragraph{3.2.9.2 PhotometryFilter.transmissionCurve.transmissionPoint} 
-\hspace{0pt} \\
+\paragraph{PhotometryFilter.transmissionCurve.transmissionPoint} 
 The transmission curve is a mathematical function that describes the transmission 
 fraction of a certain filter in a defined spectral range. This function can be discretised 
 as a set of transmission points and every point will be composed by two attributes:
@@ -921,9 +927,8 @@ transmissionPoint.spectralValue}}\par}
 transmissionPoint.transmissionValu}e}\par}
 \end{center}\par
 
-\subparagraph{3.2.9.2.1
-PhotometryFilter.transmissionCurve.transmissionPoint.
-spectralValue.UCD: String} \hspace{0pt} \\
+\subparagraph{PhotometryFilter.transmissionCurve.transmissionPoint.
+spectralValue.UCD: String}
 This data model field contains a Unified Content Description string (UCD) 
 (\citep{2018ivoa.spec.0527P}) that specifies the nature of the spectral axis for this filter. 
 This applies to the full spectral axis description of the filter.
@@ -954,40 +959,36 @@ Although this will partially reuse the
 Char.SpectralAxis.Coverage.Location.Bounds
 \end{center}\par
 
-concept of the Characterization Data Model, the basic elements of this object are described 
+\noindent concept of the Characterization Data Model, 
+the basic elements of this object are described 
 within the context of a photometry filter as follows.
 \par
 
-\paragraph{3.2.10.1
-PhotometryFilter.bandwith.UCD: String} \hspace{0pt} \\
+\paragraph{PhotometryFilter.bandwith.UCD: String}
 Unified Content Description (UCD) string that specifies the nature of the bandwidth object.
 \par
 
-\paragraph{3.2.10.2
-PhotometryFilter.bandwith.unit: IVOA.Unit} \hspace{0pt} \\
+\paragraph{PhotometryFilter.bandwith.unit: IVOA.Unit}
 Field that specifies the units of the bandwidth object.
 \par
 
-\paragraph{3.2.10.3
-PhotometryFilter.bandwith.extent: real} \hspace{0pt} \\
+\paragraph{PhotometryFilter.bandwith.extent: real}
 For square filters (100$\%$  between the minimum and maximum wavelength and 0$\%$  otherwise), 
 the bandwidth could be described as $\lambda_{max} - \lambda_{min}$.
 \par
 
 However, for real filters, the bandwidth is not very usable to describe the band-pass of the 
-filter, but the effective width, that can be described as follow:
+filter, but the effective width, that can be described as follows:
 \begin{equation} \label{eq:21}
 w = \frac{\int T(\lambda)d\lambda}{Max(T(\lambda))}
 \end{equation}
-
 where $w$ is the effective width, $T(\lambda)$ is the transmission curve (see below) 
 and $Max(T(\lambda))$ the maximum value of the transmission curve. As in previous points, 
 please notice that, since the transmission curve will be only defined in a specific spectral 
 range, the integrals will also be defined in this spectral range.
 \par
 
-\paragraph{3.2.10.4
-PhotometryFilter.bandwith.start: real } \hspace{0pt} \\
+\paragraph{PhotometryFilter.bandwith.start: real}
 %mir suggestion from MCD review
 Also called $\lambda_{min}$ in the rest of the document, this is a spectral value that better describes 
 the reasonable minimum value of the spectral range of the filter band-pass. In general,
@@ -1002,8 +1003,7 @@ transmission curves, this quantity will be close to:
 In practice, this could be taken as the minimum value of the filter transmission curve.
 \par
 
-\paragraph{3.2.10.5
-PhotometryFilter.bandwith.stop: real} \hspace{0pt} \\
+\paragraph{PhotometryFilter.bandwith.stop: real}
 Also called $\lambda_{max}$ in the rest of the document, this is a spectral value that 
 better describes the reasonable maximum value of the spectral range of the filter band-pass. 
 In general, 

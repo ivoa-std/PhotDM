@@ -260,7 +260,7 @@ not in digital form. To aid the use of filters information, in particular
 as part of the Photometry Data Model metadata fields, we propose a 
 mechanism for referencing external filter information. Such a 
 \textit{Filter Profile Service} has been implemented in the Spanish Virtual Observatory
-\citep{FPS_AP_ivoa_Note}, \citep{2020sea..confE.182R} and exposes this information so software 
+\citep{2012ivoa.rept.1015R}, \citep{2020sea..confE.182R} and exposes this information so software 
 client applications could discover it. 
 
 The following sections of this document summarize some key points 
@@ -867,7 +867,7 @@ data fields as shown above. See serialization example in section
 \paragraph{PhotometryFilter.transmissionCurve.access}
 If the transmission curve is hooked as an external file, we use the \textit{Access} class 
 defined in the Observation Core Components data model \citep{2017ivoa.spec.0509L} and inherited 
-from the SSA specification \citep{2012ivoatody}.
+from the SSA specification \citep{2012ivoa.spec.0210T}.
 \par
 
 \subparagraph{PhotometryFilter.transmissionCurve.access.reference} 
@@ -1365,7 +1365,7 @@ reference to perform photometric calibration.
 \par
 
 This points to a Spectrum object as defined in the IVOA spectrum data 
-model \citep{mcdowell2012ivoa}. Instead of having the whole spectrum 
+model \citep{2011ivoa.spec.1120M}. Instead of having the whole spectrum 
 attached, we define a link to it as referenceSpectrumURI. 
 The spectrum will be retrieved by invoking the URI. For example:
 \par

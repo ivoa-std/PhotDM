@@ -14,11 +14,11 @@ L.Michel, M.Louys
 
     <!--  Filter 2MASS.H -->
     <dm-mapping:INSTANCE dmtype="photdm:PhotometryFilter" dmrole="photdm:PhotCal.photometryFilter dmid=_2MASS_H_filter">
-        <dm-mapping:ATTRIBUTE dmrole="photdm:PhotometryFilter.fpsidentifier" dmtype="ivoa:string" value="ivo://svo/fps" />
+        <dm-mapping:ATTRIBUTE dmrole="photdm:PhotometryFilter.fpsIdentifier" dmtype="ivoa:string" value="ivo://svo/fps" />
         <dm-mapping:ATTRIBUTE dmrole="photdm:PhotometryFilter.identifier" dmtype="ivoa:string" value="2MASS/2MASS.H" />
         <dm-mapping:ATTRIBUTE dmrole="photdm:PhotometryFilter.name" dmtype="ivoa:string" value="2MASS H" />
         <dm-mapping:ATTRIBUTE dmrole="photdm:PhotometryFilter.description" dmtype="ivoa:string" value="2MASS H" />
-        <dm-mapping:ATTRIBUTE dmrole="photdm:PhotometryFilter.bandname" dmtype="ivoa:string" value="H" />
+        <dm-mapping:ATTRIBUTE dmrole="photdm:PhotometryFilter.bandName" dmtype="ivoa:string" value="H" />
 
         <!-- Spectral Location -->
         <dm-mapping:INSTANCE dmtype="photdm:SpectralLocation" dmrole="photdm:PhotometryFilter.spectralLocation">
@@ -48,11 +48,11 @@ L.Michel, M.Louys
 
 <!--  Filter 2MASS.J -->
     <dm-mapping:INSTANCE dmtype="photdm:PhotometryFilter" dmrole="photdm:PhotCal.photometryFilter" dmid="_2MASS_J_filter">
-        <dm-mapping:ATTRIBUTE dmrole="photdm:PhotometryFilter.fpsidentifier" dmtype="ivoa:string" value="ivo://svo/fps" />
+        <dm-mapping:ATTRIBUTE dmrole="photdm:PhotometryFilter.fpsIdentifier" dmtype="ivoa:string" value="ivo://svo/fps" />
         <dm-mapping:ATTRIBUTE dmrole="photdm:PhotometryFilter.identifier" dmtype="ivoa:string" value="2MASS/2MASS.J" />
         <dm-mapping:ATTRIBUTE dmrole="photdm:PhotometryFilter.name" dmtype="ivoa:string" value="2MASS J" />
         <dm-mapping:ATTRIBUTE dmrole="photdm:PhotometryFilter.description" dmtype="ivoa:string" value="2MASS J" />
-        <dm-mapping:ATTRIBUTE dmrole="photdm:PhotometryFilter.bandname" dmtype="ivoa:string" value="J" />
+        <dm-mapping:ATTRIBUTE dmrole="photdm:PhotometryFilter.bandName" dmtype="ivoa:string" value="J" />
 
         <!-- Spectral Location -->
         <dm-mapping:INSTANCE dmtype="photdm:SpectralLocation" dmrole="photdm:PhotometryFilter.spectralLocation">
@@ -82,11 +82,11 @@ L.Michel, M.Louys
       
     <!--  Filter 2MASS Ks-->
     <dm-mapping:INSTANCE dmtype="photdm:PhotometryFilter" dmrole="photdm:PhotCal.photometryFilter" dmid="_2MASS_KS_filter">
-        <dm-mapping:ATTRIBUTE dmrole="photdm:PhotometryFilter.fpsidentifier" dmtype="ivoa:string" value="ivo://svo/fps" />
+        <dm-mapping:ATTRIBUTE dmrole="photdm:PhotometryFilter.fpsIdentifier" dmtype="ivoa:string" value="ivo://svo/fps" />
         <dm-mapping:ATTRIBUTE dmrole="photdm:PhotometryFilter.identifier" dmtype="ivoa:string" value="2MASS/2MASS.Ks" />
         <dm-mapping:ATTRIBUTE dmrole="photdm:PhotometryFilter.name" dmtype="ivoa:string" value="2MASS Ks" />
         <dm-mapping:ATTRIBUTE dmrole="photdm:PhotometryFilter.description" dmtype="ivoa:string" value="2MASS Ks" />
-        <dm-mapping:ATTRIBUTE dmrole="photdm:PhotometryFilter.bandname" dmtype="ivoa:string" value="Ks" />
+        <dm-mapping:ATTRIBUTE dmrole="photdm:PhotometryFilter.bandName" dmtype="ivoa:string" value="Ks" />
 
         <!-- Spectral Location -->
         <dm-mapping:INSTANCE dmtype="photdm:SpectralLocation" dmrole="photdm:PhotometryFilter.spectralLocation">

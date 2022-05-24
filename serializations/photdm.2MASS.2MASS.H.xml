@@ -45,7 +45,7 @@
 
 <!-- Filter -->
 <dm-mapping:INSTANCE dmtype="photdm:PhotometryFilter" dmid="_filter_2MASS_H">
-  <dm-mapping:ATTRIBUTE dmrole="photdm:PhotometryFilter.fpsidentifier" dmtype="ivoa:string"
+  <dm-mapping:ATTRIBUTE dmrole="photdm:PhotometryFilter.fpsIdentifier" dmtype="ivoa:string"
     value="ivo://svo/fps" />
   <dm-mapping:ATTRIBUTE dmrole="photdm:PhotometryFilter.identifier" dmtype="ivoa:string"
     value="2MASS/2MASS.H" />
@@ -53,7 +53,7 @@
     value="2MASS H" />
   <dm-mapping:ATTRIBUTE dmrole="photdm:PhotometryFilter.description" dmtype="ivoa:string"
     value="2MASS H" />
-  <dm-mapping:ATTRIBUTE dmrole="photdm:PhotometryFilter.bandname" dmtype="ivoa:string" value="H" />
+  <dm-mapping:ATTRIBUTE dmrole="photdm:PhotometryFilter.bandName" dmtype="ivoa:string" value="H" />
 
   <!-- Spectral Location -->
   <dm-mapping:INSTANCE dmtype="photdm:SpectralLocation" dmrole="photdm:PhotometryFilter.spectralLocation">

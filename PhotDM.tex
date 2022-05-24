@@ -109,7 +109,7 @@ to help on the automatic translation of magnitudes to fluxes and to add provenan
 metadata to these magnitudes. Also it can be used to generate SEDs using the SpectralDM.
 PhotDM makes use of utypes from different IVOA data models, including CharDM and UCDs and
 also express quantities in line with the VOUnits definition.
-PhotDM also adds serialization examples in VOTable.
+PhotDM also adds serialisation examples in VOTable.
 }
 \label{fig:archdiag}
 \end{figure}
@@ -170,6 +170,12 @@ correction of UCD tags} &
 \multicolumn{1}{|p{0.72in}}{All} &
 \multicolumn{1}{|p{0.9in}|}{{\fontsize{10pt}{12.0pt}\selectfont 
 2022/03/01}} \\
+\hline
+%row no:7
+\multicolumn{1}{|p{3.75in}}{v1.1 PR / answer to RFC comments } &
+\multicolumn{1}{|p{0.72in}}{All} &
+\multicolumn{1}{|p{0.9in}|}{{\fontsize{10pt}{12.0pt}\selectfont 
+2022/05/23}} \\
 
 \hline
 \end{tabular}
@@ -276,8 +282,8 @@ Observation and Provenance DM),  and is intended to provide photometry
 metadata for data that would be accessed via the IVOA Data Access Protocols 
 such as SSAP (Simple Spectra Access Protocol) or TAP (Table Access Protocol).
 
-As with most of the VO Data Models, PhotDM makes use of STC, Utypes, Units 
-and UCDs. PhotDM will be serializable with a VOTable.
+As with most of the VO Data Models, PhotDM makes use of utypes, units 
+and UCDs. PhotDM can be serialised with a VOTable using  either with the simple Fields 
 
 \section{Astronomical Photometry}
 Astronomical photometry refers to measuring the brightness, flux or 
@@ -287,7 +293,6 @@ with a flux density at the observer $F(x)$, where $x$ is a spectral coordinate
 to $<F>$ a flux weighted integral of this flux density over an observed band 
 with a relative spectral response $T(x)$. The flux weighted integral in its most 
 simple form is defined as
-
 
 \begin{equation} \label{eq:1}
 \langle F\rangle = \int F(x)T(x)dx 
@@ -487,21 +492,17 @@ compared between them or compared to spectroscopic data expressed in flux.
 \par
 
 %%%%%%%%%%%%%%%%%%%% Figure/Image No: 22 starts here %%%%%%%%%%%%%%%%%%%%
-% -- MireilleLouys
-% I would prefer to use the diagram I provided in Modelio,
-% because it traces more details on the associations, and contains the 
-% descriptions inserted in
-% the generated VO-DML xml file
-% the file for replacement will be 
-% "./schema/PhotDMv1-1-overview diagram-2021-04-12.png"
-% -- Mireille Louys
 \begin{figure}[H]
-%\includegraphics[angle=90,width=5.98in,height=7.19in]{./schema/PhotDMv1-1.png}
-% update Mireille new diagram
-\includegraphics[angle=90,width=5.98in,height=7.19in]{./schema/PhotometryOverviewDiagram_jan22.png}
+% update Mireille new diagram Proposed REC MCD comments 
+\includegraphics[angle=90,width=5.98in,height=7.19in]{./schema/PhotometryOverviewDiagram_20220520.png} 
 \caption{Overview class diagram of the Photometry Data Model maintained with Modelio 3.8.}
 \end{figure}
 
+\begin{figure}[H]
+% update Mireille new diagram Proposed REC MCD comments : explain base types and derived types UCD and ISOTime
+\includegraphics[angle=0,width=5.98in ]{./schema/BaseDataTypesDiagram_PR_20220520.png} 
+\caption{Attributes in the PHOTDM classes belong to the base data types defined in the ivoa: VODML template model which is extended here by two classes : UCD for the UCD semantic tag, and ISOTime for time stamps defined and formatted following the DALI specification \citep{2017ivoa.spec.0517D} .} 
+\end{figure}
 
 %%%%%%%%%%%%%%%%%%%% Figure/Image No: 22 Ends here %%%%%%%%%%%%%%%%%%%%
 
@@ -514,13 +515,15 @@ compared between them or compared to spectroscopic data expressed in flux.
  %%%%%%%%%%%%  Starting New Page here %%%%%%%%%%%%%%
 
 \newpage
+
 In order to fully describe values of the magnitudes inside photometry point 
-instances, the class diagram makes use of physical quantity classes. These 
-classes glue all the basic fields that compose a physical measurement: value, 
+instances, the former PhotDM v1.0 used  physical quantity classes which used to 
+aggregate all the basic fields that compose a physical measurement: value, 
 error, units, etc. However, within the present specification, we will describe 
-individual attributes of the different quantities and as a consequence. All 
-the utypes will be also generated from individual physical quantity 
-attributes what will facilitate the use within IVOA Data Access Layer protocols.
+individual attributes of the different quantities separately. 
+This is due to the fact that the granularity of quantities as defined in the former PhotDM 1.0 did not match the one proposed in the 
+VODML ivoa template.  As a consequence,
+the Utypes are also generated from individual attributes to facilitate the use within IVOA Data Access Layer protocols.
 \par
 
 \subsection{PhotometricSystem Class}
@@ -797,12 +800,13 @@ in this data model)
 
 The transmission curve can be closely (although not fully) identified as an array 
 of points as in a spectrum. There are various ways to provide this information 
-either directly in an embedded table, or using a reference to a serialized table 
+either directly in an embedded table, or using a reference to a serialised table 
 file.
 \par
 
-Spectral and transmission coordinates can be gathered directly as a table using 
-TransmissionPoint utypes (see \ref{serializationfilter}).
+%mireille proposal / MCD RFC comments
+Spectral and transmission coordinates can also be organized  in an explicit table using 
+Utypes of TransmissionPoint attributes (see \ref{serialisationfilter}).
 \par
 
 \subsubsection{PhotometryFilter.spectralLocation.value: real}
@@ -861,8 +865,8 @@ but these source dependent definitions have two caveats:
 
 \subsubsection{PhotometryFilter.transmissionCurve}
 This data model field stores points of the curve in place in a simple table using spectrum 
-data fields as shown above. See serialization example in section 
-\ref{serializationfilter} \par
+data fields as shown above. See serialisation example in section 
+\ref{serialisationfilter} \par
 
 \paragraph{PhotometryFilter.transmissionCurve.access}
 If the transmission curve is hooked as an external file, we use the \textit{Access} class 
@@ -890,7 +894,7 @@ text/xml
 
 %%%%%%%%%%%%%%%%%%%% Table No: 13 ends here %%%%%%%%%%%%%%%%%%%%
 
-The file content will be a spectrum serialization with 
+The file content will be a spectrum serialisation with 
 \textit{PhotometryFilter.transmissionCurve.spectrum.Dataset.DataModel} set to 
 $``$Spectrum1.1$"$  for instance, and all necessary fields for the spectral and 
 flux coordinates.
@@ -909,26 +913,24 @@ as a set of transmission points and every point will be composed by two attribut
 \par
 
 \begin{itemize}
-	\item One spectral coordinate (wavelength, energy or frequency) value, of type 
-	PhysicalQuantity, and utype:\par
+	\item One spectral coordinate (wavelength, energy or frequency) value, and utype:\par
 
 \begin{center}
 {\fontsize{10pt}{12.0pt}\selectfont 
 \textbf{\textit{photDM:PhotometryFilter.transmissionCurve.
-transmissionPoint.spectralValue}}\par}
+transmissionPoint.spectralValue}}
+and related attributes like \textit{spectralErrorValue} and \textit{unit} }
 \end{center}\par
 
 	\item One transmission unitless real value between 0 and 1 and associated with
-	utype:{\fontsize{11pt}{13.2pt}\selectfont \textit{ }\par}
-\end{itemize}\par
-
+	utype:\par
 \begin{center}
 {\fontsize{10pt}{12.0pt}\selectfont \textbf{\textit{photDM:PhotometryFilter.transmissionCurve.
-transmissionPoint.transmissionValu}e}\par}
+transmissionPoint.transmissionValue}}}
 \end{center}\par
 
-\subparagraph{PhotometryFilter.transmissionCurve.transmissionPoint.
-spectralValue.UCD: String}
+\end{itemize}\par
+\subparagraph{PhotometryFilter.transmissionCurve.transmissionPoint.spectralValue.UCD: String}
 This data model field contains a Unified Content Description string (UCD) 
 \citep{2018ivoa.spec.0527P} that specifies the nature of the spectral axis for this filter. 
 This applies to the full spectral axis description of the filter.
@@ -1405,7 +1407,7 @@ f_0^{ST} = 3.631 \times 10^{-9} erg\, s^-1 cm^{-2} \angstrom ^{-1}
 \end{itemize}
 \section{Use Case: Conversion from magnitude to flux, using a Filter Profile Service}
 The following fields are the minimal information needed in a DAL service response (SSAP 
-or TAP) or into a serialization of the magnitude information in a catalogue in order to 
+or TAP) or into a serialisation of the magnitude information in a catalogue in order to 
 allow the conversion from magnitudes to fluxes if a filter profile service is used:
 \par
 
@@ -1452,10 +1454,10 @@ data, as, e.g. the Photometry Filter related information.
 \par
 
 Please notice that all the information of the Filter Profile Service can be overwritten 
-either in the DAL service or in the data serialization. As an example, it could be 
+either in the DAL service or in the data serialisation. As an example, it could be 
 decided that the ZeroPoint.flux to be used was not the general one for this filter 
 within the filter profile service but the night one. In this case, this corrected 
-value would appear in the DAL response or in the data serialization so this value, 
+value would appear in the DAL response or in the data serialisation so this value, 
 and not the one on the FPS will be used for the conversions.
 \par
 
@@ -1565,9 +1567,16 @@ Although, as can be seen in the previous calculation, Asinh magnitudes are equiv
 when b=0, it is recommended to use different implementation conversion codes for both types of magnitudes as a general implementation both for Pogson (b=0) and asinh (b>0) could easily produce numerical infinites during the evaluation.
 \par
 
+\section{Data Model VODML documentation}
+
+The VODML description of this model is available at \\ \url{http://ivoa.net/xml/}.
+
+The documentation page generated from this reference XML document is available on the Phot DM v1.1 RFC discussion page : \\
+\url{https://wiki.ivoa.net/internal/IVOA/PhotDM11RFC/Photv1_1_PR_20220520.html}
 
 \section{Data Model Summary}
-
+Here is the table summary  of the model, backward compatible to PhotDM v1.0. 
+It shows the utypes and UCDs used for each data model element. 
 
 %%%%%%%%%%%%%%%%%%%% Table No: 20 starts here %%%%%%%%%%%%%%%%%%%%
 % Mireille : some UCDs need to be changed :
@@ -1999,7 +2008,7 @@ for luptitudes}} &
 
 %%%%%%%%%%%%%%%%%%%% Table No: 21 ends here %%%%%%%%%%%%%%%%%%%%
 
-The Utypes given here are to be considered opaque strings pointing to data model
+The utypes given here are to be considered opaque strings pointing to data model
 elements that can be used by consumers of instance documents.
 
 ZeroPoints may belong to one of three categories: Pogson, Asinh or LinearFlux 
@@ -2010,8 +2019,8 @@ of the softening parameter attached to the Asinh case.
 
 \par
 
-\section{Data Model Serializations} \label{serialization}
-\subsection{Filter Profile Service Serialization} \label{serializationfilter}
+\section{Data Model serialisations} \label{serialisation}
+\subsection{Filter Profile Service serialisation} \label{serialisationfilter}
 
 \lstset{
     language=xml,
@@ -2034,7 +2043,7 @@ of the softening parameter attached to the Asinh case.
     emph={dmid,dmtype,dmrole,value},emphstyle={\color{magenta}}
     }
     
-The following serialization is an example of a response of a filter profile 
+The following serialisation is an example of a response of a filter profile 
 service making use of the Photometry Filter DM through utypes:
 \par
 %%%%%%%%%%%%%%%%%%%% listing phot system 2Mass : starts here %%%%%%%%%%%%%%%%%%%%
@@ -2065,7 +2074,7 @@ The workflow to make use of this capability will be as follows:
 	conversion from magnitude to fluxes.}
 \end{itemize}\par
 
-As an example, the serialization of the 2MASS catalogue in a cone search service, 
+As an example, the serialisation of the 2MASS catalogue in a cone search service, 
 could have the following information in the VOTable header:
 \par
 %%%%%%%%%%%%%%%%%%%% Table No: starts here %%%%%%%%%%%%%%%%%%%%
@@ -2073,13 +2082,13 @@ could have the following information in the VOTable header:
 from Cone Search service}]{./serializations/conesearch_ex.xml}
 %%%%%%%%%%%%%%%%%%%% Table No:  ends here %%%%%%%%%%%%%%%%%%%%
 
-Exact details on how to serialize the response are contained in \citep{derriere}.
+Exact details on how to serialise the response are contained in \citep{derriere}.
 
-\subsection{Serialization using VO/DML model} \label{appendixmapping}
-The VO/DML view of the PhotDM allows the serialization of the PhotDM elements
+\subsection{Serialisation using VO/DML model} \label{appendixmapping}
+The VO/DML view of the PhotDM allows the serialisation of the PhotDM elements
 using mapping techniques into, e.g. VOTable formats. We show one of the possible 
-serializations in line with the mapping efforts of the IVOA DM working group. 
-This serialization describes the PhotCal Vega calibration of the 2MASS Ks filter.
+serialisations in line with the mapping efforts of the IVOA DM working group. 
+This serialisation describes the PhotCal Vega calibration of the 2MASS Ks filter.
 \par 
 %%%%%%%%%%%%%%%%%%%% Table No: starts here %%%%%%%%%%%%%%%%%%%%
 \lstinputlisting[language=XML,breaklines, caption={XML mapping block for the 

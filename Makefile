@@ -7,7 +7,7 @@ DOCNAME = PhotDM
 DOCVERSION = 1.1
 
 # Publication date, ISO format; update manually for "releases"
-DOCDATE = 2022-05-23
+DOCDATE = 2022-06-10
 
 # What is it you're writing: NOTE, WD, PR, REC, PEN, or EN
 DOCTYPE = PR
@@ -26,10 +26,10 @@ FIGURES = role_diagram.svg
 
 # List of PDF figures (figures that must be converted to pixel images to
 # work in web browsers).
-VECTORFIGURES =
+VECTORFIGURES = role_diagram.pdf
 
 # Additional files to distribute (e.g., CSS, schema files, examples...)
-AUX_FILES =
+AUX_FILES = PhotometryOverviewDiagram_20220520.png BaseDataTypesDiagram_PR_20220520
 
 -include ivoatex/Makefile
 

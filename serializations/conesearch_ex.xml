@@ -2,38 +2,38 @@
 <DESCRIPTION>2MASS J magnitude.</DESCRIPTION>
 
 <PARAM name="ID" ucd="meta.id;instr.filter"
-utype="photDM:PhotometryFilter.identifier"
+utype="photdm:PhotometryFilter.identifier"
 unit="" datatype="char" arraysize="*" value="2MASS/2MASS.J" />
 
 <PARAM name="WavelengthMean" ucd="em.wl.effective"
-utype="photDM:PhotometryFilter.spectralLocation.value"
+utype="photdm:PhotometryFilter.spectralLocation.value"
 unit="Angstrom"
 datatype="float" value="12410.5176673" />
 
 <PARAM name="WavelengthMin" ucd="em.wl;stat.min"
-utype="photDM:PhotometryFilter.bandwidth.start.value" unit="Angstrom"
+utype="photdm:PhotometryFilter.bandwidth.start.value" unit="Angstrom"
 datatype="float" value="10660" />
 
 <PARAM name="WavelengthMax" ucd="em.wl;stat.max"
-utype="photDM:PhotometryFilter.bandwidth.stop.value" unit="Angstrom"
+utype="photdm:PhotometryFilter.bandwidth.stop.value" unit="Angstrom"
 datatype="float" value="14420" />
 
-<PARAM name="PhotSystem" ucd="" utype="photDM:PhotometricSystem.description" unit=""
+<PARAM name="PhotSystem" ucd="" utype="photdm:PhotometricSystem.description" unit=""
 datatype="char" arraysize="*" value="2MASS" />
 
 <PARAM name="WidthEff" ucd="instr.bandwidth"
-utype="photDM:PhotometryFilter.bandwidth.extent.value" unit="Angstrom"
+utype="photdm:PhotometryFilter.bandwidth.extent.value" unit="Angstrom"
 datatype="float" value="1624.31986357" />
 
-<PARAM name="ZeroPoint" ucd="phot.mag;arith.zp" utype="photDM:PhotCal.zeroPoint.flux"
+<PARAM name="ZeroPoint" ucd="phot.mag;arith.zp" utype="photdm:PhotCal.zeroPoint.flux"
 unit="Jy" datatype="float" value="1614.45260952" />
 
 <PARAM name="Description" ucd="meta.note"
-utype="photDM:PhotometryFilter.description" unit="" datatype="char" arraysize="*"
+utype="photdm:PhotometryFilter.description" unit="" datatype="char" arraysize="*"
 value="2MASS J" />
 
 <PARAM name="TransmissionCurve" ucd="meta.ref.url"
-utype="photDM:PhotometryFilter.transmissionCurve.access.reference"
+utype="photdm:PhotometryFilter.transmissionCurve.access.reference"
 datatype="char" arraysize="*"
 value="http://svo.laeff.inta.es//theory/fr/fps.php?ID=2MASS/2MASS.J" />
 <FIELDref ref="phot_m1" ucd="phot.mag;em.IR.J"

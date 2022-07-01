@@ -14,7 +14,6 @@ with missing dependencies.
 
 	<rec name="UCD" x="189" y="310" w="32"/>
 	<rec name="VOTable" x="270" y="325" w="50"/>
-	<rec name="ProvDM" x="571" y="330" w="48"/>
 	<thisrec name="PhotDM" x="571" y="330" w="48"/>
 	<rec name="VOUnits" x="220" y="250" w="50"/>
 	<rec name="UTypes" x="550" y="205"/>

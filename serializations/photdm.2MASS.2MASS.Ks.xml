@@ -30,37 +30,29 @@
 
     <INSTANCE dmtype="photdm:Flux" dmrole="photdm:ZeroPoint.flux">
       <ATTRIBUTE dmrole="photdm:Flux.ucd" dmtype="ivoa:UCD" value="phot.flux;meta.modelled" />
-      <ATTRIBUTE dmrole="photdm:Flux.unitexpression" dmtype="ivoa:Unit"
-        value="Jy" />
+      <ATTRIBUTE dmrole="photdm:Flux.unitexpression" dmtype="ivoa:Unit" value="Jy" />
       <ATTRIBUTE dmrole="photdm:Flux.value" dmtype="ivoa:real" value="666.8" />
     </INSTANCE>
   </INSTANCE>
 
-  <!-- Filter -->
+  <!-- Filter reference-->
   <REFERENCE dmref="_filter_2MASS_Ks" dmrole="photdm:PhotCal.photometryFilter" />
 
 </INSTANCE>
 
-<!-- Filter -->
+<!-- Filter instance -->
 <INSTANCE dmtype="photdm:PhotometryFilter" dmid="_filter_2MASS_Ks">
-  <ATTRIBUTE dmrole="photdm:PhotometryFilter.fpsIdentifier" dmtype="ivoa:string"
-    value="ivo://svo/fps" />
-  <ATTRIBUTE dmrole="photdm:PhotometryFilter.identifier" dmtype="ivoa:string"
-    value="2MASS/2MASS.Ks" />
-  <ATTRIBUTE dmrole="photdm:PhotometryFilter.name" dmtype="ivoa:string"
-    value="2MASS Ks" />
-  <ATTRIBUTE dmrole="photdm:PhotometryFilter.description" dmtype="ivoa:string"
-    value="2MASS Ks" />
+  <ATTRIBUTE dmrole="photdm:PhotometryFilter.fpsIdentifier" dmtype="ivoa:string" value="ivo://svo/fps" />
+  <ATTRIBUTE dmrole="photdm:PhotometryFilter.identifier" dmtype="ivoa:string" value="2MASS/2MASS.Ks" />
+  <ATTRIBUTE dmrole="photdm:PhotometryFilter.name" dmtype="ivoa:string" value="2MASS Ks" />
+  <ATTRIBUTE dmrole="photdm:PhotometryFilter.description" dmtype="ivoa:string" value="2MASS Ks" />
   <ATTRIBUTE dmrole="photdm:PhotometryFilter.bandName" dmtype="ivoa:string" value="Ks" />
 
   <!-- Spectral Location -->
   <INSTANCE dmtype="photdm:SpectralLocation" dmrole="photdm:PhotometryFilter.spectralLocation">
-    <ATTRIBUTE dmrole="photdm:SpectralLocation.ucd" dmtype="ivoa:UCD"
-      value="em.wl.effective" />
-    <ATTRIBUTE dmrole="photdm:SpectralLocation.unitexpression" dmtype="ivoa:Unit"
-      value="Angstrom" />
-    <ATTRIBUTE dmrole="photdm:SpectralLocation.value" dmtype="ivoa:real"
-      value="21590.0" />
+    <ATTRIBUTE dmrole="photdm:SpectralLocation.ucd" dmtype="ivoa:UCD" value="em.wl.effective" />
+    <ATTRIBUTE dmrole="photdm:SpectralLocation.unitexpression" dmtype="ivoa:Unit" value="Angstrom" />
+    <ATTRIBUTE dmrole="photdm:SpectralLocation.value" dmtype="ivoa:real" value="21590.0" />
   </INSTANCE>
 
   <!-- Band width -->

@@ -397,7 +397,7 @@ f_\lambda = 3.63\times 10^{-9}\,erg\,cm^{-2}\,s^{-1}\,\angstrom^{-1}
 A convenient graphical representation of these systems is shown in
 Figure 3.1 of the Synphot manual:
 
-\url{http://www.stsci.edu/resources/software_hardware/stsdas/synphot/SynphotManual.pdf}.
+\url{http://stsdas.stsci.edu/Files/SynphotManual.pdf}.
 \par
 
 For a photometric system that uses Vega magnitudes, the zero point
@@ -406,8 +406,8 @@ bandpass $f_{Vega}$. Some typical values of $f_{Vega}$ are tabulated in
 \citep{2001eaa..book.....M} for the Johnson photometric system. Although
 the agreed Vega spectrum has changed historically, the commonly referred to
 spectrum of Vega in digital form described in \citep{2004AJ....127.3508B}
-is available as file at \emph{alpha\_lyr\_stis\_002.fits} at:\par
-\url{http://www.stsci.edu/instruments/observatory/cdbs/calspec}
+is available as file at \emph{alpha\_lyr\_stis\_010.fits} at:\par
+\url{https://archive.stsci.edu/hlsps/reference-atlases/cdbs/current_calspec/}
 \par
 
 In the AB system, the flux density (in units of $erg\, cm^{_2}\, s^{-1}\, Hz^{-1}$)
@@ -658,7 +658,7 @@ ivo://svo.cab/fps
 where svo.cab is the authority id, fps is the resource key of the service.
 \par
 
-Whenever the definition of the FPS filter profile service is standardised,
+Whenever the definition of the Filter Profile Service (FPS) is standardised,
 the service url of the filter profile service could be obtained
 from the registry by requesting the associated information of this
 registry resource, e.g., once registered the service URL associated
@@ -804,8 +804,76 @@ file.
 \par
 
 Spectral and transmission coordinates can be gathered directly as a table using
-UTypes of TransmissionPoint attributes (see \ref{serialisationfilter}).
+UTypes of TransmissionPoint attributes (see \ref{serialisationfilter}). Transmission points 
+of the curve are stored into a simple table using spectrum data fields.
 \par
+
+\paragraph{PhotometryFilter.transmissionCurve.access}
+If the transmission curve is hooked as an external file, we use the \textit{Access} class
+defined in the Observation Core Components data model \citep{2017ivoa.spec.0509L} and inherited
+from the SSA specification \citep{2012ivoa.spec.0210T}.
+\par
+
+\subparagraph{PhotometryFilter.transmissionCurve.access.reference}
+
+The access reference is a URI (typically a URL) which can be used to retrieve the
+specific dataset described in a row of the query table response. \par
+
+\subparagraph{PhotometryFilter.transmissionCurve.access.format}
+The PhotometryFilter.transmissionCurve.access.format data model field tells the MIME
+type of the file pointed to and used to store the curve points. Values for this
+string can generally be:\par
+
+%%%%%%%%%%%%%%%%%%%% Table No: 13 starts here %%%%%%%%%%%%%%%%%%%%
+application/fits \par
+application/x-votable+xml \par
+text/csv \par
+text/xml
+\bigskip
+
+
+%%%%%%%%%%%%%%%%%%%% Table No: 13 ends here %%%%%%%%%%%%%%%%%%%%
+
+The file content will be a spectrum serialisation with
+\textit{PhotometryFilter.transmissionCurve.spectrum.Dataset.DataModel} set to
+$``$Spectrum1.1$"$  for instance, and all necessary fields for the spectral and
+flux coordinates.
+\par
+
+\subparagraph{PhotometryFilter.transmissionCurve.access.size}
+Approximate estimated size of the dataset, specified in kilobytes. This would
+help the client estimate download times and storage requirements when generating
+execution plans. Only an approximate, order of magnitude value is required (a value
+rounded up to the nearest hundred kB would be sufficient).\par
+
+\paragraph{PhotometryFilter.transmissionCurve.transmissionPoint}
+The transmission curve is a mathematical function that describes the transmission
+fraction of a certain filter in a defined spectral range. This function can be discretised
+as a set of transmission points and every point will be composed by five attributes:
+\par
+
+\begin{itemize}
+	\item{spectralValue, type real, with the spectral coordinate (wavelength, energy or frequency) value}
+	\item{spectralErrorValue, type real, with the error on the spectral coordinate}
+	\item{unit, type Unit, with the unit used for the spectralValue. This is also linked to the type of spectral coordinate used}
+	\item{ucd, type UCD, used to indicates the type of spectral coordinate from the ontological point of view}
+	\item{One transmissionValue, unitless real, with a value between 0 and 1}
+\end{itemize}
+
+One example for PhotometryFilter.transmissionCurve.transmissionPoint.ucd could be, for example:
+\par
+
+%%%%%%%%%%%%%%%%%%%% Table No: 14 starts here %%%%%%%%%%%%%%%%%%%%
+em.wl
+%%%%%%%%%%%%%%%%%%%% Table No: 14 ends here %%%%%%%%%%%%%%%%%%%%
+
+Where \textit{em.wl }indicates that the spectral coordinate is provided in wavelength.
+\par
+
+The Unit and UCD strings follow specific constraints defined in the IVOA standards and are
+implemented using type restrictions on strings.
+\par
+
 
 \subsubsection{PhotometryFilter.spectralLocation.value: real}
 A spectral coordinate value that can be considered by the data provider as the
@@ -860,77 +928,6 @@ but these source dependent definitions have two caveats:
 	what you want to measure) and it does not look like an intrinsic property of the
 	photometry filter.}
 \end{itemize}\par
-
-\subsubsection{PhotometryFilter.transmissionCurve}
-This data model field stores points of the curve in place in a simple table using spectrum
-data fields as shown above. See serialisation example in section
-\ref{serialisationfilter} \par
-
-\paragraph{PhotometryFilter.transmissionCurve.access}
-If the transmission curve is hooked as an external file, we use the \textit{Access} class
-defined in the Observation Core Components data model \citep{2017ivoa.spec.0509L} and inherited
-from the SSA specification \citep{2012ivoa.spec.0210T}.
-\par
-
-\subparagraph{PhotometryFilter.transmissionCurve.access.reference}
-
-The access reference is a URI (typically a URL) which can be used to retrieve the
-specific dataset described in a row of the query table response. \par
-
-\subparagraph{PhotometryFilter.transmissionCurve.access.format}
-The PhotometryFilter.transmissionCurve.access.format data model field tells the MIME
-type of the file pointed to and used to store the curve points. Values for this
-string can generally be:\par
-
-%%%%%%%%%%%%%%%%%%%% Table No: 13 starts here %%%%%%%%%%%%%%%%%%%%
-application/fits \par
-application/x-votable+xml \par
-text/csv \par
-text/xml
-\bigskip
-
-
-%%%%%%%%%%%%%%%%%%%% Table No: 13 ends here %%%%%%%%%%%%%%%%%%%%
-
-The file content will be a spectrum serialisation with
-\textit{PhotometryFilter.transmissionCurve.spectrum.Dataset.DataModel} set to
-$``$Spectrum1.1$"$  for instance, and all necessary fields for the spectral and
-flux coordinates.
-\par
-
-\subparagraph{PhotometryFilter.transmissionCurve.access.size}
-Approximate estimated size of the dataset, specified in kilobytes. This would
-help the client estimate download times and storage requirements when generating
-execution plans. Only an approximate, order of magnitude value is required (a value
-rounded up to the nearest hundred kB would be sufficient).\par
-
-\paragraph{PhotometryFilter.transmissionCurve.transmissionPoint}
-The transmission curve is a mathematical function that describes the transmission
-fraction of a certain filter in a defined spectral range. This function can be discretised
-as a set of transmission points and every point will be composed by five attributes:
-\par
-
-\begin{itemize}
-	\item{spectralValue, type real, with the spectral coordinate (wavelength, energy or frequency) value}
-	\item{spectralErrorValue, type real, with the error on the spectral coordinate}
-	\item{unit, type Unit, with the unit used for the specralValue. This is also linked to the type of spectral coordinate used}
-	\item{ucd, type UCD, used to indicates the type of spectral coordinate from the ontological point of view}
-	\item{One transmissionValue, unitless real, with a value between 0 and 1}
-\end{itemize}
-
-One example for PhotometryFilter.transmissionCurve.transmissionPoint.ucd could be, for example:
-\par
-
-%%%%%%%%%%%%%%%%%%%% Table No: 14 starts here %%%%%%%%%%%%%%%%%%%%
-em.wl
-%%%%%%%%%%%%%%%%%%%% Table No: 14 ends here %%%%%%%%%%%%%%%%%%%%
-
-Where \textit{em.wl }indicates that the spectral coordinate is provided in wavelength.
-\par
-
-The Unit and UCD strings follow specific constraints defined in the IVOA standards and are
-implemented using type restrictions on strings.
-\par
 
 \subsubsection{PhotometryFilter.bandwidth: Bandwidth}
 A reference position along the spectral axis coverage of the referenced photometry filter.
@@ -1439,7 +1436,7 @@ either in the DAL service or in the data serialisation. As an example, it could 
 decided that the ZeroPoint.flux to be used was not the general one for this filter
 within the filter profile service but the night one. In this case, this corrected
 value would appear in the DAL response or in the data serialisation so this value,
-and not the one on the FPS will be used for the conversions.
+and not the one on the Filter Profile Service will be used for the conversions.
 \par
 
 Flux could be then calculated as (for Pogson magnitudes, i.e. Zeropoint.type=0 and
@@ -2030,8 +2027,8 @@ service making use of the Photometry Filter DM through UTypes:
 Service output: Simple VOTable Format}]{./serializations/fpsFilterExample.xml}
 %%%%%%%%%%%%%%%%%%%% Table No:  ends here %%%%%%%%%%%%%%%%%%%%
 
-\subsection{Photometric Data in Cone Search}
-Catalogs could include photometric measurements in some columns. In order
+\subsection{Photometric Data in Cone Search and TAP}
+Catalogues could include photometric measurements in some columns. In order
 to allow the publication of these measurements in a. e.g., cone search
 service, the creation of a new capability has been proposed.
 \par

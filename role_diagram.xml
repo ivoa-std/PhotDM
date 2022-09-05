@@ -20,4 +20,6 @@ with missing dependencies.
   <rec name="TAP" x="686" y="255" w="28"/>
 	<rec name="SSAP" x="682" y="180" w="36"/>
 	<rec name="SpectralDM" x="461.5" y="280" w="67"/>
+    <rec name="VODML" x="512" y="250" w="46"/>
+    
 </archdiag>

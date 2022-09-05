@@ -1,6 +1,7 @@
 <!-- 2022-03-11 M.Louys, L. Michel
 XML serialization of Photometry Filter expressed as a mapping block in ModelInVotable syntax -->
 <!-- Photometric System -->
+
 <INSTANCE dmtype="photdm:PhotometricSystem" dmid="_sys_2MASS">
   <ATTRIBUTE dmrole="photdm:PhotometricSystem.description" dmtype="ivoa:string"
     value="2MASS" />

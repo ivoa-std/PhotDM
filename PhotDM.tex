@@ -499,8 +499,12 @@ compared between them or compared to spectroscopic data expressed in flux.
 %%%%%%%%%%%%%%%%%%%% Figure/Image No: 22 starts here %%%%%%%%%%%%%%%%%%%%
 \begin{figure}[H]
 \includegraphics[angle=90,width=5.98in,height=7.19in]{./schema/PhotometryOverviewDiagram_20220520.png} 
+<<<<<<< HEAD
 \caption{Overview class diagram of the Photometry Data Model maintained with Modelio 3.8.}
 \label{fig:overview}
+=======
+\caption{Overview class diagram of the Photometry Data Model maintained with Modelio 3.8.. Blue boxes indicate PhotDM pure classes and yellow ones indicate classes that have been reused from other IVOA data models, connected to them by Roles}
+>>>>>>> 1a6c2e1 (Comments from DAL chairs)
 \end{figure}
 
 \begin{figure}[H]
@@ -1657,6 +1661,37 @@ Filter Profile Service}} &
 \multicolumn{1}{p{0.74in}}{} &
 \multicolumn{1}{p{0.35in}}{{\fontsize{8pt}{8pt}\selectfont string}} \\
 \hline
+%row no:13
+\multicolumn{1}{p{2.5in}}{{\fontsize{8pt}{8pt}\selectfont photdm:PhotometryFilter.description}} &
+\multicolumn{1}{p{1.5in}}{{\fontsize{8pt}{8pt}\selectfont meta.note }} &
+\multicolumn{1}{p{2in}}{{\fontsize{8pt}{8pt}\selectfont Text description of the filter band}} &
+\multicolumn{1}{p{0.74in}}{} &
+\multicolumn{1}{p{0.35in}}{{\fontsize{8pt}{8pt}\selectfont string}} \\
+\hline
+%row no:14
+\multicolumn{1}{p{2.5in}}{{\fontsize{8pt}{8pt}\selectfont photdm:PhotometryFilter.bandName}} &
+\multicolumn{1}{p{1.5in}}{{\fontsize{8pt}{8pt}\selectfont meta.note }} &
+\multicolumn{1}{p{2in}}{{\fontsize{8pt}{8pt}\selectfont Standard representation of the spectral band
+associated to this filter (if any)}} &
+\multicolumn{1}{p{0.74in}}{} &
+\multicolumn{1}{p{0.35in}}{{\fontsize{8pt}{8pt}\selectfont string}} \\
+\hline
+%row no:15
+\multicolumn{1}{p{2.5in}}{{\fontsize{8pt}{8pt}\selectfont photdm:PhotometryFilter.dateValidityFrom}} &
+\multicolumn{1}{p{1.5in}}{{\fontsize{8pt}{8pt}\selectfont instr.filter;time.start }} &
+\multicolumn{1}{p{2in}}{{\fontsize{8pt}{8pt}\selectfont Start time of the time coverage when this filter
+configuration is applicable}} &
+\multicolumn{1}{p{0.74in}}{} &
+\multicolumn{1}{p{0.35in}}{{\fontsize{8pt}{8pt}\selectfont ISOTime}} \\
+\hline
+%row no:16
+\multicolumn{1}{p{2.5in}}{{\fontsize{8pt}{8pt}\selectfont photdm:PhotometryFilter.dateValidityTo}} &
+\multicolumn{1}{p{1.5in}}{{\fontsize{8pt}{8pt}\selectfont instr.filter;time.end }} &
+\multicolumn{1}{p{2in}}{{\fontsize{8pt}{8pt}\selectfont End time of the time coverage when this filter
+configuration is applicable}} &
+\multicolumn{1}{p{0.74in}}{} &
+\multicolumn{1}{p{0.35in}}{{\fontsize{8pt}{8pt}\selectfont ISOTime}} \\
+\hline
 \end{tabular}
 \end{adjustbox}
  \end{table}
@@ -1710,7 +1745,15 @@ effective transmission curve}} &
 \hline
 %row no:5
 \multicolumn{1}{p{2.5in}}{{\fontsize{8pt}{8pt}
-\selectfont photDM.PhotometryFilter.transmissionCurve.\ transmissionPoint.spectralValue.value}} &
+\selectfont photdm:PhotometryFilter.transmissionCurve.\ access.size}} &
+\multicolumn{1}{p{1.5in}}{{\fontsize{8pt}{8pt}\selectfont }} &
+\multicolumn{1}{p{2in}}{{\fontsize{8pt}{8pt}\selectfont Size in kilobytes of the pointed transmission curve}} &
+\multicolumn{1}{p{0.74in}}{} &
+\multicolumn{1}{p{0.35in}}{{\fontsize{8pt}{8pt}\selectfont int}} \\
+\hline
+%row no:5
+\multicolumn{1}{p{2.5in}}{{\fontsize{8pt}{8pt}
+\selectfont photDM.PhotometryFilter.transmissionCurve.\ transmissionPoint.spectralValue}} &
 \multicolumn{1}{p{1.5in}}{{\fontsize{8pt}{8pt}\selectfont em.wl}} &
 \multicolumn{1}{p{2in}}{{\fontsize{8pt}{8pt}\selectfont Spectral value
 of one element of the transmission curve representation}} &
@@ -1719,7 +1762,34 @@ of one element of the transmission curve representation}} &
 \hline
 %row no:6
 \multicolumn{1}{p{2.5in}}{{\fontsize{8pt}{8pt}
-\selectfont photDM.PhotometryFilter.transmissionCurve.\ transmissionPoint.transmissionValue.value}} &
+\selectfont photDM.PhotometryFilter.transmissionCurve.\ transmissionPoint.spectralErrorValue}} &
+\multicolumn{1}{p{1.5in}}{{\fontsize{8pt}{8pt}\selectfont em.wl}} &
+\multicolumn{1}{p{2in}}{{\fontsize{8pt}{8pt}\selectfont Error of the spectral value
+of one element of the transmission curve representation}} &
+\multicolumn{1}{p{0.74in}}{} &
+\multicolumn{1}{p{0.35in}}{{\fontsize{8pt}{8pt}\selectfont real}} \\
+\hline
+%row no:7
+\multicolumn{1}{p{2.5in}}{{\fontsize{8pt}{8pt}
+\selectfont photDM.PhotometryFilter.transmissionCurve.\ transmissionPoint.unit}} &
+\multicolumn{1}{p{1.5in}}{{\fontsize{8pt}{8pt}\selectfont }} &
+\multicolumn{1}{p{2in}}{{\fontsize{8pt}{8pt}\selectfont Unit of the spectral value
+of one element of the transmission curve representation}} &
+\multicolumn{1}{p{0.74in}}{} &
+\multicolumn{1}{p{0.35in}}{{\fontsize{8pt}{8pt}\selectfont string}} \\
+\hline
+%row no:8
+\multicolumn{1}{p{2.5in}}{{\fontsize{8pt}{8pt}
+\selectfont photDM.PhotometryFilter.transmissionCurve.\ transmissionPoint.ucd}} &
+\multicolumn{1}{p{1.5in}}{{\fontsize{8pt}{8pt}\selectfont }} &
+\multicolumn{1}{p{2in}}{{\fontsize{8pt}{8pt}\selectfont UCD of the spectral value
+of one element of the transmission curve representation}} &
+\multicolumn{1}{p{0.74in}}{} &
+\multicolumn{1}{p{0.35in}}{{\fontsize{8pt}{8pt}\selectfont UCD}} \\
+\hline
+%row no:9
+\multicolumn{1}{p{2.5in}}{{\fontsize{8pt}{8pt}
+\selectfont photDM.PhotometryFilter.transmissionCurve.\ transmissionPoint.transmissionValue}} &
 \multicolumn{1}{p{1.5in}}{{\fontsize{8pt}{8pt}
 \selectfont phys.transmission}} &
 \multicolumn{1}{p{2in}}{{\fontsize{8pt}{8pt}\selectfont Transmission value of
@@ -1958,7 +2028,7 @@ used for zero point}} &
 %row no:33
 \multicolumn{1}{p{2.5in}}{{\fontsize{8pt}{8pt}
 \selectfont photdm:PhotCal.magnitudeSystem.\-ReferenceSpectrumURI}} &
-\multicolumn{1}{p{1.5in}}{{\fontsize{8pt}{8pt}\selectfont meta.ref.url }} &
+\multicolumn{1}{p{1.5in}}{{\fontsize{8pt}{8pt}\selectfont meta.ref.uri }} &
 \multicolumn{1}{p{2in}}{{\fontsize{8pt}{8pt}\selectfont Reference SED or spectrum for
 this magnitude system}} &
 \multicolumn{1}{p{0.74in}}{} &

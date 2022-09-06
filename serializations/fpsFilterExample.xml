@@ -42,6 +42,7 @@
             datatype="char" arraysize="*"/>
 
 
+
 <!--Here the points of the response curve are stored directly in an attached table-->
     <TABLE utype="photDM:PhotometryFilter.transmissionCurve">
 

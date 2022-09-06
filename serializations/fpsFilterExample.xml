@@ -41,6 +41,7 @@
             value="http://adsabs.harvard.edu/cgi-bin/nph-bib_query?bibcode=2003AJ....126.1090C"
             datatype="char" arraysize="*"/>
 
+
 <!--Here the points of the response curve are stored directly in an attached table-->
     <TABLE utype="photDM:PhotometryFilter.transmissionCurve">
 

@@ -49,7 +49,7 @@
          ucd="em.wl" unit="Angstrom" datatype="float"/>
 
         <FIELD name="Transmission"
-        utype= "photDM:TransmissionPoint.transmission"
+        utype= "photDM:TransmissionPoint.transmissionValue"
         ucd="phys.transmission" datatype="float"/>
 
         <DATA>

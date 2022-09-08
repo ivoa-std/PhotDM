@@ -4,7 +4,7 @@
 \lstloadlanguages{sh,make,[latex]tex}
 \lstset{flexiblecolumns=true,numberstyle=\small,showstringspaces=False,
   identifierstyle=\texttt,defaultdialect=[latex]tex,language=tex}
- 
+
 \usepackage{todonotes}
 \usepackage{float}
 \usepackage{adjustbox}
@@ -85,8 +85,8 @@ to convert photometric measurements into physical flux density units.
 We acknowledge the support of EuroVO Science Advisory Committee for the review of the
 initial versions of PhotDMv1.0 , and the Spanish VO developers who have contributed
 to the data model reference implementations.
-The design changes and the modeling for the translation to VODML was supported in part by the  
-the ESCAPE project (the European Science Cluster of Astronomy and Particle Physics ESFRI Research Infrastructures) 
+The design changes and the modeling for the translation to VODML was supported in part by the
+ESCAPE project (the European Science Cluster of Astronomy and Particle Physics ESFRI Research Infrastructures)
 that has received funding from the European Union?s Horizon 2020 research and innovation programme under the Grant Agreement n. 824064.
 
 
@@ -113,7 +113,7 @@ IVOA architecture:
 to help on the automatic translation of magnitudes to fluxes and to add provenance
 metadata to these magnitudes. Also it can be used to generate SEDs using the SpectralDM.
 PhotDMv1.1 makes use of UTypes, for backward compatibility to PhotDMv1.0 , and of UCDs as well as VOUnits.
-PhotDM can have  serialisation in the VOTable format. This version relies on the VODML modeling principles and 
+PhotDM can have  serialisations in the VOTable format. This version relies on the VODML modeling principles and
 is described in a VODML xml reference document .}
 \label{fig:archdiag}
 \end{figure}
@@ -498,7 +498,7 @@ compared between them or compared to spectroscopic data expressed in flux.
 
 %%%%%%%%%%%%%%%%%%%% Figure/Image No: 22 starts here %%%%%%%%%%%%%%%%%%%%
 \begin{figure}[H]
-\includegraphics[angle=90,width=5.98in,height=7.19in]{./schema/PhotometryOverviewDiagram_20220520.png} 
+\includegraphics[angle=90,width=5.98in,height=7.19in]{./schema/PhotometryOverviewDiagram_20220520.png}
 \caption{Overview class diagram of the Photometry Data Model maintained with Modelio 3.8.
 Blue boxes indicate PhotDM pure classes and yellow ones indicate classes that have been reused from other
 IVOA data models, connected to them by roles.}
@@ -506,8 +506,8 @@ IVOA data models, connected to them by roles.}
 \end{figure}
 
 \begin{figure}[H]
-\includegraphics[angle=0,width=5.98in ]{./schema/BaseDataTypesDiagram_PR_20220520.png} 
-\caption{Attributes in the PHOTDM classes belong to the base data types defined in the ivoa: VODML template model which is extended here by two classes : UCD for the UCD semantic tag, and ISOTime for time stamps defined and formatted following the DALI specification \citep{2017ivoa.spec.0517D} .} 
+\includegraphics[angle=0,width=5.98in ]{./schema/BaseDataTypesdiagram.png}
+\caption{Attributes in the PHOTDM classes belong to the base data types defined in the ivoa: VODML template model which is extended here by two classes : UCD for the UCD semantic tag, and ISOTime for time stamps defined and formatted following the DALI specification \citep{2017ivoa.spec.0517D} .}
 \end{figure}
 
 %%%%%%%%%%%%%%%%%%%% Figure/Image No: 22 Ends here %%%%%%%%%%%%%%%%%%%%
@@ -522,11 +522,11 @@ IVOA data models, connected to them by roles.}
 
 \newpage
 In order to fully describe values of the magnitudes inside photometry point
-instances, the former PhotDM v1.0 used  physical quantity classes which used to 
-aggregate all the basic fields that compose a physical measurement: value, 
+instances, the former PhotDM v1.0 used  physical quantity classes which used to
+aggregate all the basic fields that compose a physical measurement: value,
 error, units, etc. However, within the present specification, we will describe
-individual attributes of the different quantities separately. 
-This is due to the fact that the granularity of quantities as defined in the former PhotDM 1.0 
+individual attributes of the different quantities separately.
+This is due to the fact that the granularity of quantities as defined in the former PhotDM 1.0
 did not match the one proposed in the VODML ivoa template. The new UTypes for PhotDM1.1 are also
 generated from these individual attributes to facilitate the use within IVOA Data Access Layer protocols.
 
@@ -745,7 +745,7 @@ End time of the time coverage when this filter configuration is
 applicable.
 
 \subsubsection{PhotometryFilter.transmissionCurve}
-\label{sec:transmissioncurve} 
+\label{sec:transmissioncurve}
 Here we consider how wavelengths/frequencies are filtered in the whole
 acquisition chain for a calibrated observation stemming from a given
 data collection.
@@ -812,7 +812,7 @@ file.
 \par
 
 Spectral and transmission coordinates can be gathered directly as a table using
- TransmissionPoint attributes (see \ref{serialisationfilter}). Transmission points 
+ TransmissionPoint attributes (see \ref{serialisationfilter}). Transmission points
 of the curve are stored into a simple table using spectrum data fields with their utypes, ucds and units.
 \par
 
@@ -1460,6 +1460,14 @@ f = f_0 10^{-m/2.5}\left[ 1 - b^2 10^{2m/2.5}\right]
 \begin{appendices}
 \section{Conversions}
 \subsection{Zero point magnitude and zero point flux} \label{a.1conversion}
+In the present model and in order to provide a uniform treatment for all the
+different photometric systems, we have used the zero point flux as the quantity
+to characterise the photometry filter. The type of flux ($f_\nu $ or $f_{lambda}$)
+and the units of any converted flux from a magnitude would coincide with the ones
+used to express the zero point flux. The zero point flux contains information
+about the type of flux that is lost in the zero point magnitude. To show this, we
+provide here a couple of conversion examples to illustrate the problem.
+\par
 The zero point flux can also be interpreted as a magnitude in the following way.
 Taking the equation \ref{eq:33} and clearing the magnitude:
 \begin{equation} \label{eq:35}
@@ -1472,59 +1480,50 @@ the zero point flux:
 m_R = 2.5\log_{10} (f_0 )
 \end{equation}
 
-e.g. for ABmag photometric systems, the magnitudes are usually defined as:
+For ABmag photometric systems, the magnitudes are usually defined as:
 \begin{equation} \label{eq:37}
 m_{AB,\nu } = -2.5\log_{10} (f_\nu ) - 48.6
 \end{equation}
 
-Which is consistent with the definition of a zero point flux of the
-monochromatic $f_\nu $ flux:
+As per (\ref{eq:32}), the monochromatic $f_\nu $ flux for ABmag magnitudes is:
 \begin{equation} \label{eq:38}
 f_{R}^{AB}=3.63 \times 10^{-20} erg\, s^{-1} cm^{-2} Hz^{-1}
 \end{equation}
-
-As:
+so the magnitude of reference is:
 \begin{equation} \label{eq:39}
 m_R = 2.5\log_{10} (f_{0}^{AB})=2.5 log_10(3.63\times 10^{-20})=-48.6
 \end{equation}
 
 Other systems usually define the zero point flux as a $f_\lambda $ flux, as
-it is usually done by, e.g., STMag systems. For these systems, the reference
-flux would be a monochromatic $f_\lambda $ flux:
+it is usually done by, e.g., STMag systems. The usual definition of magnitudes for this photometric system is:
 \begin{equation} \label{eq:40}
-f_0 ^{ST} = 3.631 \times 10^{-9} erg\, s^{-1} cm^{-2} \angstrom ^{-1}
-\end{equation}
-
-The usual definition of magnitudes for this photometric system is:
-\begin{equation} \label{eq:41}
 m_{ST,\lambda }=-2.5\log_{10} (f_\lambda )-21.1
 \end{equation}
 
-Which corresponds to, as in the previous example, a zero point flux of
-\begin{equation} \label{eq:42}
-f_0 ^{ST}=3.631 \times 10^{-9} erg\, s^{-1} cm^{-2} \angstrom ^{-1}
+As per (\ref{eq:33}), the monochromatic
+$f_\lambda $ flux for these systems is:
+\begin{equation} \label{eq:41}
+f_0 ^{ST} = 3.631 \times 10^{-9} erg\, s^{-1} cm^{-2} \angstrom ^{-1}
 \end{equation}
 
-as:
-\begin{equation} \label{eq:43}
+what is consistent with the usual definition of magnitudes as:
+\begin{equation} \label{eq:42}
 m_R =2.5\log_{10} (f_0 ^{ST})=2.5\log_{10} (3.63\times 10^{-9})=-21.1
 \end{equation}
-
-In the present model and in order to provide a uniform treatment for all the
-different photometric systems, we have used the zero point flux as the quantity
-to characterize the photometry filter. The type of flux ($f_\nu $ or $f_lambda $)
-and the units of any converted to flux magnitude would coincide with the ones
-used to express the zero point flux, i.e., the zero point flux contains information
-lost in the zero point magnitude.
 \par
+Both cases are physically different but the magnitude of reference does not
+reflect information by itself this difference. Setting the zero point flux as the
+property to characterise the photometric system, the data model contains a 
+self-consistent metadata and a more general way to describe all the photometric
+systems.
 
 \subsection{Interrelation between Pogson and Asinh magnitudes}
 It can be proved that, if b=0, Pogson and Asinh magnitudes are the same:
-\begin{equation} \label{eq:44}
+\begin{equation} \label{eq:43}
 \frac{f}{f_0}=10^{-m/2.5}\left[ 1-b^2 10^{2m/2.5}\right] \text{\textbar}_{b=0} =10^{-m/2.5}
 \end{equation}
 and
-\begin{equation} \label{eq:45}
+\begin{equation} \label{eq:44}
 m=\frac{-2.5}{ln(10)}\left[ sinh^{-1} \left(\frac{f}{2bf_0}\right) + ln(b)\right] \text{\textbar}_{b=0} =
 \end{equation}
 \[
@@ -1552,8 +1551,8 @@ The documentation page generated from this reference XML document is available o
 \url{https://wiki.ivoa.net/internal/IVOA/PhotDM11RFC/Photv1_1_PR_20220520.html}
 
 \section{Data Model Summary}
-Here is the table summary  of the model, backward compatible to PhotDM v1.0. 
-It shows the UTypes and UCDs used for each data model element. 
+Here is the table summary  of the model, backward compatible to PhotDM v1.0.
+It shows the UTypes and UCDs used for each data model element.
 
 %%%%%%%%%%%%%%%%%%%% Table No: 20 starts here %%%%%%%%%%%%%%%%%%%%
 % Mireille : some UCDs need to be changed :

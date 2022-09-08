@@ -45,11 +45,11 @@
     <TABLE utype="photDM:PhotometryFilter.transmissionCurve">
 
         <FIELD name="Wavelength"
-         utype="photDM:TransmissionPoint.spectralValue.value"
+         utype="photDM:TransmissionPoint.spectralValue"
          ucd="em.wl" unit="Angstrom" datatype="float"/>
 
         <FIELD name="Transmission"
-        utype= "photDM:TransmissionPoint.transmission.value"
+        utype= "photDM:TransmissionPoint.transmissionValue"
         ucd="phys.transmission" datatype="float"/>
 
         <DATA>

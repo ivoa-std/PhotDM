@@ -2061,28 +2061,11 @@ service making use of the Photometry Filter DM through UTypes:
 Service output: Simple VOTable Format}]{./serializations/fpsFilterExample.xml}
 %%%%%%%%%%%%%%%%%%%% Table No:  ends here %%%%%%%%%%%%%%%%%%%%
 
-\subsection{Photometric Data in Cone Search and TAP}
-Catalogues could include photometric measurements in some columns. In order
-to allow the publication of these measurements in a. e.g., cone search
-service, the creation of a new capability has been proposed.
-\par
+\subsection{Photometric Data in Cone Search and TAP services}
+Cone Search and TAP services delivering photometric data 
+also provide the photometric filter metadata as well as zero point and other calibration information.
 
-The workflow to make use of this capability will be as follows:
-\par
-
-\begin{itemize}
-	\item{A cone search (or a future TAP service) will be registered with a
-	certain agreed capability, e.g., Photometry.\par}
-
-	\item{The response of this service will contain some VOTable groups that
-	make use of Photometry, Spectral and Characterization data model UTypes
-	(it could also make use of links to a Filter Profile Service).\par}
-
-	\item{Client applications able to process this photometric information
-	will first look for services with this capability and make use of the
-	information attached in the VOTable groups to handle it, e.g. by the
-	conversion from magnitude to fluxes.}
-\end{itemize}\par
+Various ways have been proposed and used using PARAM and GROUP elements for the PhotDM class attributes. 
 
 As an example, the serialisation of the 2MASS catalogue in a cone search service,
 could have the following information in the VOTable header:
@@ -2092,24 +2075,27 @@ could have the following information in the VOTable header:
 from Cone Search service}]{./serializations/conesearch_ex.xml}
 %%%%%%%%%%%%%%%%%%%% Table No:  ends here %%%%%%%%%%%%%%%%%%%%
 
-Exact details on how to serialize the response are contained in \citep{derriere}.
+More details on how to serialise the response are contained in the IVOA Note \citep{derriere} and used in catalog services .
 
 \subsection{Serialisation using VODML model} \label{appendixmapping}
-The VODML view of the PhotDM allows the serialisation of the PhotDM elements
-using mapping techniques into, e.g. VOTable formats. We show one of the possible
-serialisations in line with the mapping efforts of the IVOA DM working group.
+The VODML view of the PhotDM also allows the serialisation of the PhotDM elements
+using mapping techniques into, e.g. VOTable formats. We show some of the possible
+serialisations in line with the MIVOT mapping effort of the IVOA DM working group.
+
+\subsubsection{Photometric calibration:  example 1}
 This example describes the PhotCal Vega calibration of the 2MASS Ks filter.
 \par
 %%%%%%%%%%%%%%%%%%%% Table No: starts here %%%%%%%%%%%%%%%%%%%%
 \lstinputlisting[language=XML,breaklines, caption={XML mapping block for the
-2MASS Ks Filter}]{./serializations/photdm.2MASS.2MASS.Ks.xml}
+2MASS Ks Filter, based on the VODML representation of PhotDM1.1 .}]{./serializations/photdm.2MASS.2MASS.Ks.xml}
 
 %%%%%%%%%%%%%%%%%%%% Table No:  ends here %%%%%%%%%%%%%%%%%%%%
 
- Example for the full 2MASS photometric system with all filters.
+ \subsubsection{The full 2MASS photometric system with all filters: example 2}
 
-\lstinputlisting[language=XML,caption={XML mapping block for the 2MASS Photometric
-system, as annotation block for e.g. a SED data set}]{./serializations/exampleXML2MASS.xml}
+
+\lstinputlisting[language=XML,caption={Annotation of a SED data set using a PHOTDM1.1 XML mapping block for the 2MASS Photometric
+system.}] {./serializations/exampleXML2MASS.xml}
 
 \end{appendices}
 

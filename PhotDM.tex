@@ -287,7 +287,7 @@ metadata for data that would be accessed via the IVOA Data Access Protocols
 such as SSAP (Simple Spectra Access Protocol) or TAP (Table Access Protocol).
 
 As with most of the VO Data Models, PhotDM makes use of STC, UTypes, Units
-and UCDs. PhotDM will be serialisable with a VOTable.
+and UCDs. PhotDM is serialisable with a VOTable.
 
 \section{Astronomical Photometry}
 Astronomical photometry refers to measuring the brightness, flux or
@@ -868,20 +868,19 @@ as a set of transmission points and every point will be composed by five attribu
 	\item{One transmissionValue, unitless real, with a value between 0 and 1}
 \end{itemize}
 
-One example for PhotometryFilter.transmissionCurve.transmissionPoint.ucd could be, for example:
+One example for a (unit, ucd) combination applied to the PhotometryFilter.transmissionCurve.transmissionPoint could be, for example:
+(\texttt{angstrom}, \texttt{em.wl})
+indicating that the spectral coordinate is provided as wavelength and in angstroms . 
+
 \par
 
-%%%%%%%%%%%%%%%%%%%% Table No: 14 starts here %%%%%%%%%%%%%%%%%%%%
-em.wl
-%%%%%%%%%%%%%%%%%%%% Table No: 14 ends here %%%%%%%%%%%%%%%%%%%%
-
-Where \textit{em.wl }indicates that the spectral coordinate is provided in wavelength.
-\par
+Although the PhotDM1.0 enforced the usage of (\texttt{angstrom}, \texttt{em.wl}), other adequate combinations of units and ucds are supported by this data model version 
+according to which spectral regime the spectral values apply. This is up to the data provider to use a consistent combination.
 
 The Unit and UCD strings follow specific constraints defined in the IVOA standards and are
-implemented using type restrictions on strings.
+implemented using type restrictions on strings in VODML.
+The  serialisation of the transmission curve factorises the (unit, ucd) pair for all points of course.
 \par
-
 
 \subsubsection{PhotometryFilter.spectralLocation.value: real}
 A spectral coordinate value that can be considered by the data provider as the
@@ -981,7 +980,7 @@ transmission curves, this quantity will be close to:
 \lambda_{min} = \lambda_{mean} - \frac{w}{2}
 \end{equation}
 
-In practice, this could be taken as the minimum value of the filter transmission curve.
+In practice, this could be taken as the minimum spectral value of the filter transmission curve.
 \par
 
 \paragraph{PhotometryFilter.bandwith.stop: real}
@@ -994,7 +993,7 @@ types of transmission curves, this quantity will be close to:
 \lambda_{max} = \lambda_{mean} + \frac{w}{2}
 \end{equation}
 
-In practice, this could be taken as the maximum value of the filter transmission
+In practice, this could be taken as the maximum spectral value of the filter transmission
 curve.\par
 
 \subsection{PhotCal Class}
@@ -1555,8 +1554,6 @@ Here is the table summary  of the model, backward compatible to PhotDM v1.0.
 It shows the UTypes and UCDs used for each data model element.
 
 %%%%%%%%%%%%%%%%%%%% Table No: 20 starts here %%%%%%%%%%%%%%%%%%%%
-% Mireille : some UCDs need to be changed :
-% meta.ref.ivorn  is now deprecated  --> change to meta.ref.ivoid
 
 \begin{table}[H]
  			\centering
@@ -1673,9 +1670,6 @@ Filter Profile Service}} &
 
 %%%%%%%%%%%%%%%%%%%% Table No: 21 starts here %%%%%%%%%%%%%%%%%%%%
 %Photometry Filter Access Metadata
-% Mireille : some UCDs need to be changed :
-% meta.ref.ivorn  is now deprecated  --> change to meta.ref.ivoid
-
 \begin{table}[H]
 \centering
 \begin{adjustbox}{angle=90}
@@ -1694,7 +1688,7 @@ Filter Profile Service}} &
 %row no:3
 \multicolumn{1}{p{2.5in}}{{\fontsize{8pt}{8pt}
 \selectfont photdm:PhotometryFilter.transmissionCurve.\ access.reference}} &
-\multicolumn{1}{p{1.5in}}{{\fontsize{8pt}{8pt}\selectfont meta.ref.ivoid }} &
+\multicolumn{1}{p{1.5in}}{{\fontsize{8pt}{8pt}\selectfont meta.ref.uri }} &
 
 \multicolumn{1}{p{2in}}{{\fontsize{8pt}{8pt}\selectfont URI to the
 effective transmission curve}} &
@@ -1720,7 +1714,7 @@ effective transmission curve}} &
 %row no:6
 \multicolumn{1}{p{2.5in}}{{\fontsize{8pt}{8pt}
 \selectfont photDM.PhotometryFilter.transmissionCurve.\ transmissionPoint.spectralValue}} &
-\multicolumn{1}{p{1.5in}}{{\fontsize{8pt}{8pt}\selectfont em.wl}} &
+\multicolumn{1}{p{1.5in}}{{\fontsize{8pt}{8pt}\selectfont em.*}} &
 \multicolumn{1}{p{2in}}{{\fontsize{8pt}{8pt}\selectfont Spectral value
 of one element of the transmission curve representation}} &
 \multicolumn{1}{p{0.74in}}{} &
@@ -1729,9 +1723,9 @@ of one element of the transmission curve representation}} &
 %row no:7
 \multicolumn{1}{p{2.5in}}{{\fontsize{8pt}{8pt}
 \selectfont photDM.PhotometryFilter.transmissionCurve.\ transmissionPoint.spectralErrorValue}} &
-\multicolumn{1}{p{1.5in}}{{\fontsize{8pt}{8pt}\selectfont em.wl}} &
+\multicolumn{1}{p{1.5in}}{{\fontsize{8pt}{8pt}\selectfont em.*}} &
 \multicolumn{1}{p{2in}}{{\fontsize{8pt}{8pt}\selectfont Error of the spectral value
-of one element of the transmission curve representation}} &
+of each element of the transmission curve representation}} &
 \multicolumn{1}{p{0.74in}}{} &
 \multicolumn{1}{p{0.35in}}{{\fontsize{8pt}{8pt}\selectfont real}} \\
 \hline
@@ -1740,7 +1734,7 @@ of one element of the transmission curve representation}} &
 \selectfont photDM.PhotometryFilter.transmissionCurve.\ transmissionPoint.unit}} &
 \multicolumn{1}{p{1.5in}}{{\fontsize{8pt}{8pt}\selectfont }} &
 \multicolumn{1}{p{2in}}{{\fontsize{8pt}{8pt}\selectfont Unit of the spectral value
-of one element of the transmission curve representation}} &
+of each element of the transmission curve representation}} &
 \multicolumn{1}{p{0.74in}}{} &
 \multicolumn{1}{p{0.35in}}{{\fontsize{8pt}{8pt}\selectfont string}} \\
 \hline
@@ -1749,7 +1743,7 @@ of one element of the transmission curve representation}} &
 \selectfont photDM.PhotometryFilter.transmissionCurve.\ transmissionPoint.ucd}} &
 \multicolumn{1}{p{1.5in}}{{\fontsize{8pt}{8pt}\selectfont }} &
 \multicolumn{1}{p{2in}}{{\fontsize{8pt}{8pt}\selectfont UCD of the spectral value
-of one element of the transmission curve representation}} &
+of each element of the transmission curve representation}} &
 \multicolumn{1}{p{0.74in}}{} &
 \multicolumn{1}{p{0.35in}}{{\fontsize{8pt}{8pt}\selectfont UCD}} \\
 \hline
@@ -1805,7 +1799,7 @@ filter spectral band}} &
 %row no:10
 \multicolumn{1}{p{2.5in}}{{\fontsize{8pt}{8pt}
 \selectfont photdm:PhotometryFilter.spectralLocation.\ value}} &
-\multicolumn{1}{p{1.5in}}{{\fontsize{8pt}{8pt}\selectfont em.wl;meta.main }} &
+\multicolumn{1}{p{1.5in}}{{\fontsize{8pt}{8pt}\selectfont em.*;meta.main as appropriate}} &
 \multicolumn{1}{p{2in}}{{\fontsize{8pt}{8pt}\selectfont Reference position along the
 spectral axis. Spectral coordinate of the Zero Point }} &
 \multicolumn{1}{p{0.74in}}{} &
@@ -1817,7 +1811,7 @@ spectral axis. Spectral coordinate of the Zero Point }} &
 \multicolumn{1}{p{1.5in}}{{\fontsize{8pt}{8pt}\selectfont meta.unit }} &
 \multicolumn{1}{p{2in}}{{\fontsize{8pt}{8pt}\selectfont Unit of the spectral axis used
 to characterize it}} &
-\multicolumn{1}{p{0.74in}}{{\fontsize{8pt}{8pt}\selectfont angstrom}} &
+\multicolumn{1}{p{0.74in}}{{\fontsize{8pt}{8pt}\selectfont }} &
 \multicolumn{1}{p{0.35in}}{{\fontsize{8pt}{8pt}\selectfont string}} \\
 \hline
 %row no:12
@@ -1826,7 +1820,7 @@ to characterize it}} &
 \multicolumn{1}{p{1.5in}}{{\fontsize{8pt}{8pt}\selectfont meta.ucd }} &
 \multicolumn{1}{p{2in}}{{\fontsize{8pt}{8pt}\selectfont UCD for the nature of
 spectral axis wl, freq, energy}} &
-\multicolumn{1}{p{0.74in}}{{\fontsize{8pt}{8pt}\selectfont em.wl}} &
+\multicolumn{1}{p{0.74in}}{{\fontsize{8pt}{8pt}\selectfont em.*\ as appropriate}} &
 \multicolumn{1}{p{0.35in}}{{\fontsize{8pt}{8pt}\selectfont string}} \\
 \hline
 %row no:13
@@ -1835,7 +1829,7 @@ spectral axis wl, freq, energy}} &
 \multicolumn{1}{p{1.5in}}{{\fontsize{8pt}{8pt}\selectfont meta.unit}} &
 \multicolumn{1}{p{2in}}{{\fontsize{8pt}{8pt}\selectfont Unit of the spectral extent
 used to characterize the bandwidth object}} &
-\multicolumn{1}{p{0.74in}}{{\fontsize{8pt}{8pt}\selectfont angstrom}} &
+\multicolumn{1}{p{0.74in}}{{\fontsize{8pt}{8pt}\selectfont }} &
 \multicolumn{1}{p{0.35in}}{{\fontsize{8pt}{8pt}\selectfont string}} \\
 \hline
 %row no:14
@@ -1857,7 +1851,7 @@ spectral bandwidth: wl, freq, energy, wave number, ...}} &
 %row no:16
 \multicolumn{1}{p{2.5in}}{{\fontsize{8pt}{8pt}
 \selectfont photdm:PhotometryFilter.bandwidth.\ start.value}} &
-\multicolumn{1}{p{1.5in}}{{\fontsize{8pt}{8pt}\selectfont em.wl;stat.min}} &
+\multicolumn{1}{p{1.5in}}{{\fontsize{8pt}{8pt}\selectfont em.*;stat.min}} &
 \multicolumn{1}{p{2in}}{{\fontsize{8pt}{8pt}\selectfont Minimum value of the filter
 spectral coverage}} &
 \multicolumn{1}{p{0.74in}}{} &
@@ -1866,7 +1860,7 @@ spectral coverage}} &
 %row no:17
 \multicolumn{1}{p{2.5in}}{{\fontsize{8pt}{8pt}
 \selectfont photdm:PhotometryFilter.bandwidth.\ stop.value}} &
-\multicolumn{1}{p{1.5in}}{{\fontsize{8pt}{8pt}\selectfont em.wl;stat.max}} &
+\multicolumn{1}{p{1.5in}}{{\fontsize{8pt}{8pt}\selectfont em.*;stat.max}} &
 \multicolumn{1}{p{2in}}{{\fontsize{8pt}{8pt}\selectfont Maximum value of the
 filter spectral coverage}} &
 \multicolumn{1}{p{0.74in}}{} &

@@ -74,7 +74,7 @@
 
 \begin{abstract}
 The Photometry Data Model (\textbf{PhotDM}) standard describes photometry
-filters, photometric systems, magnitude systems, zero points and its
+filters, photometric systems, magnitude systems, zero points and their
 interrelation with the other IVOA data models through a simple data model.
 Particular attention is given necessarily to optical photometry where
 specifications of magnitude systems and photometric zero points are required
@@ -1371,14 +1371,14 @@ Some typical types of photometric systems are:
 	density per unit frequency $f_\nu $:}
 \end{itemize}
 \begin{equation} \label{eq:31}
-f_0^{AB} = 3.631 \times 10^{-20} erg\, s^-1 cm^{-2} Hz^{-1}
+f_0^{AB} = 3.631 \times 10^{-20} erg\, s^{-1} cm^{-2} Hz^{-1}
 \end{equation}
 
 \begin{itemize}
 	\item{STmag: Introduced for the HST project, it makes use of a reference spectrum of
 	constant flux density per unit of wavelength:
 \begin{equation} \label{eq:32}
-f_0^{ST} = 3.631 \times 10^{-9} erg\, s^-1 cm^{-2} \angstrom ^{-1}
+f_0^{ST} = 3.631 \times 10^{-9} erg\, s^{-1} cm^{-2} \angstrom ^{-1}
 \end{equation}}
 
 \end{itemize}
@@ -1444,7 +1444,7 @@ reference magnitude = 0)
 f = f_0 10^{-m/2.5}
 \end{equation}
 
-Where $f_0$ is the ZeroPoint.flux.value, is the magnitude associated to the
+Where $f_0$ is the ZeroPoint.flux.value, $m$ is the magnitude associated to the
 measurement and $f$ is the associated flux. The type of flux ($f_\lambda $ or $f_\nu $)
 and the associated units, although they can be indirectly deduced from the field
 MagnitudeSystem, will be the same as those for the ZeroPoint.flux.
@@ -1461,7 +1461,7 @@ f = f_0 10^{-m/2.5}\left[ 1 - b^2 10^{2m/2.5}\right]
 \subsection{Zero point magnitude and zero point flux} \label{a.1conversion}
 In the present model and in order to provide a uniform treatment for all the
 different photometric systems, we have used the zero point flux as the quantity
-to characterise the photometry filter. The type of flux ($f_\nu $ or $f_{lambda}$)
+to characterise the photometry filter. The type of flux ($f_\nu $ or $f_\lambda$)
 and the units of any converted flux from a magnitude would coincide with the ones
 used to express the zero point flux. The zero point flux contains information
 about the type of flux that is lost in the zero point magnitude. To show this, we
@@ -1490,7 +1490,7 @@ f_{R}^{AB}=3.63 \times 10^{-20} erg\, s^{-1} cm^{-2} Hz^{-1}
 \end{equation}
 so the magnitude of reference is:
 \begin{equation} \label{eq:39}
-m_R = 2.5\log_{10} (f_{0}^{AB})=2.5 log_10(3.63\times 10^{-20})=-48.6
+m_R = 2.5\log_{10} (f_{0}^{AB})=2.5 log_{10}(3.63\times 10^{-20})=-48.6
 \end{equation}
 
 Other systems usually define the zero point flux as a $f_\lambda $ flux, as

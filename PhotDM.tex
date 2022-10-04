@@ -83,7 +83,7 @@ to convert photometric measurements into physical flux density units.
 
 \section*{Acknowledgments}
 We acknowledge the support of EuroVO Science Advisory Committee for the review of the
-initial versions of PhotDMv1.0 , and the Spanish VO developers who have contributed
+initial versions of PhotDM-1.0 , and the Spanish VO developers who have contributed
 to the data model reference implementations.
 The design changes and the modeling for the translation to VODML was supported in part by the
 ESCAPE project (the European Science Cluster of Astronomy and Particle Physics ESFRI Research Infrastructures)
@@ -93,7 +93,7 @@ that has received funding from the European Horizon 2020 research and innovation
 \pagebreak
 
 \section*{Link to IVOA Architecture}
-The figure below shows where IVOA Photometry Data Model fits within the
+The figure below shows where the IVOA Photometry Data Model fits within the
 IVOA architecture:
 
 
@@ -112,7 +112,7 @@ IVOA architecture:
 \caption{PhotDM can be used to enhance and abstract SSAP and TAP access, in particular
 to help on the automatic translation of magnitudes to fluxes and to add provenance
 metadata to these magnitudes. Also it can be used to generate SEDs using the SpectralDM.
-PhotDMv1.1 makes use of UTypes, for backward compatibility to PhotDMv1.0 , and of UCDs as well as VOUnits.
+PhotDM-1.1 makes use of UTypes, for backward compatibility to PhotDM-1.0 , and of UCDs as well as VOUnits.
 PhotDM can have  serialisations in the VOTable format. This version relies on the VODML modeling principles and
 is described in a VODML xml reference document .}
 \label{fig:archdiag}
@@ -208,7 +208,7 @@ as well as the apertures and other details of  the measurements.
 This document outlines a photometry data model to describe photometric
 measurements in a standard way.
 
-The photometry data model aims to describe the essential elements
+The Photometry Data Model aims to describe the essential elements
 of flux density measurements made within all spectral energy domains
 across the electromagnetic spectrum. In some domains this is
 relatively straight forward, such as in radio astronomy where
@@ -234,9 +234,9 @@ for the spectral energy coordinates of the bandpasses. Fitting to
 stellar models or science that employs photometric measurements to
 derive photometric redshifts requires a much greater level of accuracy.
 To manage the different levels of description we take the overall
-approach that the photometry data model should include the most
+approach that the Photometry Data Model should include the most
 generic elements required to describe photometric measurements,
-and that the photometry data model is intended to be used in
+and that the Photometry Data Model is intended to be used in
 coordination with the IVOA Spectrum Data model and the IVOA
 Characterization Data Model.
 
@@ -281,12 +281,12 @@ making photometry data available through VO protocols, and, very briefly,
 how scientific tools could use this information.
 
 
-PhotDM is related to other IVOA Data models (Spectrum DM, Characterization DM,
+The Photometry Data Model is related to other IVOA Data models (Spectrum DM, Characterization DM,
 Observation and Provenance DM),  and is intended to provide photometry
 metadata for data that would be accessed via the IVOA Data Access Protocols
 such as SSAP (Simple Spectra Access Protocol) or TAP (Table Access Protocol).
 
-As with most of the VO Data Models, PhotDM makes use of STC, UTypes, Units
+As with most of the VO Data Models, the Photometry Data Model makes use of STC, UTypes, Units
 and UCDs. PhotDM is serialisable with a VOTable.
 
 \section{Astronomical Photometry}
@@ -507,7 +507,7 @@ IVOA data models, connected to them by roles.}
 
 \begin{figure}[H]
 \includegraphics[angle=0,width=5.98in ]{./schema/BaseDataTypesdiagram.png}
-\caption{Attributes in the PHOTDM classes belong to the base data types defined in the ivoa: VODML template model which is extended here by two classes : UCD for the UCD semantic tag, and ISOTime for time stamps defined and formatted following the DALI specification \citep{2017ivoa.spec.0517D} .}
+\caption{Attributes in the PhotDM classes belong to the base data types defined in the ivoa: VODML template model which is extended here by two classes : UCD for the UCD semantic tag, and ISOTime for time stamps defined and formatted following the DALI specification \citep{2017ivoa.spec.0517D} .}
 \end{figure}
 
 %%%%%%%%%%%%%%%%%%%% Figure/Image No: 22 Ends here %%%%%%%%%%%%%%%%%%%%
@@ -522,12 +522,12 @@ IVOA data models, connected to them by roles.}
 
 \newpage
 In order to fully describe values of the magnitudes inside photometry point
-instances, the former PhotDM v1.0 used  physical quantity classes which used to
+instances, the former PhotDM-1.0 used  physical quantity classes which used to
 aggregate all the basic fields that compose a physical measurement: value,
 error, units, etc. However, within the present specification, we will describe
 individual attributes of the different quantities separately.
-This is due to the fact that the granularity of quantities as defined in the former PhotDM 1.0
-did not match the one proposed in the VODML ivoa template. The new UTypes for PhotDM1.1 are also
+This is due to the fact that the granularity of quantities as defined in the former PhotDM-1.0
+did not match the one proposed in the VODML ivoa template. The new UTypes for PhotDM-1.1 are also
 generated from these individual attributes to facilitate the use within IVOA Data Access Layer protocols.
 
 \par
@@ -874,7 +874,7 @@ indicating that the spectral coordinate is provided as wavelength and in angstro
 
 \par
 
-Although the PhotDM1.0 enforced the usage of (\texttt{angstrom}, \texttt{em.wl}), other adequate combinations of units and ucds are supported by this data model version 
+Although the PhotDM-1.0 enforced the usage of (\texttt{angstrom}, \texttt{em.wl}), other adequate combinations of units and ucds are supported by this data model version 
 according to which spectral regime the spectral values apply. This is up to the data provider to use a consistent combination.
 
 The Unit and UCD strings follow specific constraints defined in the IVOA standards and are
@@ -1546,11 +1546,11 @@ when b=0, it is recommended to use different implementation conversion codes for
 
 The VODML description of this model is available at \\ \url{http://ivoa.net/xml/}.
 
-The documentation page generated from this reference XML document is available on the Phot DM v1.1 RFC discussion page : \\
+The documentation page generated from this reference XML document is available on the PhotDM-1.1 RFC discussion page : \\
 \url{https://wiki.ivoa.net/internal/IVOA/PhotDM11RFC/Photv1_1_PR_20220520.html}
 
 \section{Data Model Summary}
-Here is the table summary  of the model, backward compatible to PhotDM v1.0.
+Here is the table summary  of the model, backward compatible to PhotDM-1.0.
 It shows the UTypes and UCDs used for each data model element.
 
 %%%%%%%%%%%%%%%%%%%% Table No: 20 starts here %%%%%%%%%%%%%%%%%%%%
@@ -2072,7 +2072,7 @@ from Cone Search service}]{./serializations/conesearch_ex.xml}
 More details on how to serialise the response are contained in the IVOA Note \citep{derriere} and used in catalog services .
 
 \subsection{Serialisation using VODML model} \label{appendixmapping}
-The VODML view of the PhotDM also allows the serialisation of the PhotDM elements
+The VODML view of PhotDM also allows the serialisation of PhotDM elements
 using mapping techniques into, e.g. VOTable formats. We show some of the possible
 serialisations in line with the MIVOT mapping effort of the IVOA DM working group.
 
@@ -2081,14 +2081,14 @@ This example describes the PhotCal Vega calibration of the 2MASS Ks filter.
 \par
 %%%%%%%%%%%%%%%%%%%% Table No: starts here %%%%%%%%%%%%%%%%%%%%
 \lstinputlisting[language=XML,breaklines, caption={XML mapping block for the
-2MASS Ks Filter, based on the VODML representation of PhotDM1.1 .}]{./serializations/photdm.2MASS.2MASS.Ks.xml}
+2MASS Ks Filter, based on the VODML representation of PhotDM-1.1 .}]{./serializations/photdm.2MASS.2MASS.Ks.xml}
 
 %%%%%%%%%%%%%%%%%%%% Table No:  ends here %%%%%%%%%%%%%%%%%%%%
 
  \subsubsection{The full 2MASS photometric system with all filters: example 2}
 
 
-\lstinputlisting[language=XML,caption={Annotation of a SED data set using a PHOTDM1.1 XML mapping block for the 2MASS Photometric
+\lstinputlisting[language=XML,caption={Annotation of a SED data set using a PhotDM-1.1 XML mapping block for the 2MASS Photometric
 system.}] {./serializations/exampleXML2MASS.xml}
 
 \end{appendices}

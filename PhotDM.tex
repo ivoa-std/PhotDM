@@ -347,7 +347,7 @@ m = m_R -2.5 \log_{10} \left(\langle F\rangle /\langle F_R \rangle \right)
 As explained above, this is equivalent to:
 
 \begin{equation} \label{eq:6}
-m = m_R - 2.5 \log_{R} (f/f_0 )
+m = m_R - 2.5 \log_{10} (f/f_0 )
 \end{equation}
 
 
@@ -968,7 +968,7 @@ please notice that, since the transmission curve will be only defined in a speci
 range, the integrals will also be defined in this spectral range.
 \par
 
-\paragraph{PhotometryFilter.bandwith.start: real}
+\paragraph{PhotometryFilter.bandwidth.start: real}
 %mir suggestion from MCD review
 Also called $\lambda_{min}$ in the rest of the document, this is a spectral value that better describes
 the reasonable minimum value of the spectral range of the filter band-pass. In general,
@@ -983,7 +983,7 @@ transmission curves, this quantity will be close to:
 In practice, this could be taken as the minimum spectral value of the filter transmission curve.
 \par
 
-\paragraph{PhotometryFilter.bandwith.stop: real}
+\paragraph{PhotometryFilter.bandwidth.stop: real}
 Also called $\lambda_{max}$ in the rest of the document, this is a spectral value that
 better describes the reasonable maximum value of the spectral range of the filter band-pass.
 In general,
@@ -1062,7 +1062,7 @@ Flux of an astronomical object that produces a magnitude of reference
 This quantity is necessary to convert to flux a certain magnitude.
 \par
 
-For Pogson magnitudes (see section 3.2.5) it will be used in the following way:
+For Pogson magnitudes (see section \ref{sect:Pogson}) it will be used in the following way:
 \par
 \begin{equation} \label{eq:24}
 f = f_0 10^{-(m-m_R )/2.5}
@@ -1170,6 +1170,7 @@ getMagnitudeFromFlux() and getFluxFromMagnitude() defined as:\par
 
 
 \subsection{PogsonZeroPoint Class}
+\label{sect:Pogson}
 Extension of ZeroPoint to accommodate standard logarithm magnitudes. It
 has no supplementary attributes but specific conversion functions.
 \par

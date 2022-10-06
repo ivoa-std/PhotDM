@@ -394,7 +394,7 @@ m_{AB,\nu } = 0
 \end{equation}
 
 \begin{equation} \label{eq:8}
-f_\nu = 3.63\times 10^{-20}\,erg\,cm^{-2}\,s^{-1}\,Hz^{-1}
+f_\nu = 3.631 \times 10^{-20}\,erg\,cm^{-2}\,s^{-1}\,Hz^{-1}
 \end{equation}
 
 \begin{equation} \label{eq:9}
@@ -402,7 +402,7 @@ m_{ST,\lambda } = 0
 \end{equation}
 
 \begin{equation} \label{eq:10}
-f_\lambda = 3.63\times 10^{-9}\,erg\,cm^{-2}\,s^{-1}\,\angstrom^{-1}
+f_\lambda = 3.631 \times 10^{-9}\,erg\,cm^{-2}\,s^{-1}\,\angstrom^{-1}
 \end{equation}
 
 
@@ -1005,14 +1005,14 @@ In practice, this could be taken as the maximum spectral value of the filter tra
 curve.\par
 
 \subsection{PhotCal Class}
-PhotDM is a class to describe the use of a photometry filter by using a certain magnitude system
+PhotCal is a class to describe the use of a photometry filter by using a certain magnitude system
 configuration. It has associated a certain zero point object.
 \par
 
 \subsubsection{PhotCal.identifier: String}
 This field identifies, in a unique way, within a certain Photometry Filter Profile
 service, a zero point assigned to a filter and a certain photometric system type.
-Although the main requirement of the uniqueIdentifier is to be unique within a Filter
+Although the main requirement of the identifier is to be unique within a Filter
 Profile Service, the suggested syntax would be:
 \par
 
@@ -1191,7 +1191,7 @@ Pogson magnitudes, the usual definition should be used:
 f = f_0 10^{-(m-m_R)/2.5}
 \end{equation}
 
-Where $f$ is the associated flux, $f_0$ is the flux of reference, $m_0$ is
+Where $f$ is the associated flux, $f_0$ is the flux of reference, $m_R$ is
 the magnitude of reference (by default equals to zero) and $m$ is the
 observed magnitude.
 \par
@@ -1427,7 +1427,7 @@ The normal workflow used by an application to do the conversion would be:
 \begin{itemize}
 	\item photdm:PhotCal.ZeroPoint.flux.value\par
 
-	\item photdm:PhotCal.ZeroPoint.flux.unit.expression\par
+	\item photdm:PhotCal.ZeroPoint.flux.unitexpression\par
 
 	\item photdm:PhotCal.ZeroPoint.type\par
 
@@ -1486,8 +1486,8 @@ Where we have defined $m_R$, zero point magnitude, as the magnitude associated t
 the zero point flux:
 \begin{equation} \label{eq:36}
 m_R = 2.5\log_{10} (f_0 )
-\end{equation}
-
+\end{equation} 
+ 
 For ABmag photometric systems, the magnitudes are usually defined as:
 \begin{equation} \label{eq:37}
 m_{AB,\nu } = -2.5\log_{10} (f_\nu ) - 48.6
@@ -1495,11 +1495,11 @@ m_{AB,\nu } = -2.5\log_{10} (f_\nu ) - 48.6
 
 As per (\ref{eq:32}), the monochromatic $f_\nu $ flux for ABmag magnitudes is:
 \begin{equation} \label{eq:38}
-f_{R}^{AB}=3.63 \times 10^{-20} erg\, s^{-1} cm^{-2} Hz^{-1}
+f_{R}^{AB}=3.631 \times 10^{-20} erg\, s^{-1} cm^{-2} Hz^{-1}
 \end{equation}
 so the magnitude of reference is:
 \begin{equation} \label{eq:39}
-m_R = 2.5\log_{10} (f_{0}^{AB})=2.5 log_{10}(3.63\times 10^{-20})=-48.6
+m_R = 2.5\log_{10} (f_{0}^{AB})=2.5 log_{10}(3.631 \times 10^{-20})=-48.6
 \end{equation}
 
 Other systems usually define the zero point flux as a $f_\lambda $ flux, as
@@ -1516,7 +1516,7 @@ f_0 ^{ST} = 3.631 \times 10^{-9} erg\, s^{-1} cm^{-2} \angstrom ^{-1}
 
 what is consistent with the usual definition of magnitudes as:
 \begin{equation} \label{eq:42}
-m_R =2.5\log_{10} (f_0 ^{ST})=2.5\log_{10} (3.63\times 10^{-9})=-21.1
+m_R =2.5\log_{10} (f_0 ^{ST})=2.5\log_{10} (3.631 \times 10^{-9})=-21.1
 \end{equation}
 \par
 Both cases are physically different but the magnitude of reference does not
@@ -1816,7 +1816,7 @@ spectral axis. Spectral coordinate of the Zero Point }} &
 \hline
 %row no:11
 \multicolumn{1}{p{2.5in}}{{\fontsize{8pt}{8pt}
-\selectfont photdm:PhotometryFilter.spectralLocation.\ unit.expression}} &
+\selectfont photdm:PhotometryFilter.spectralLocation.\ unitexpression}} &
 \multicolumn{1}{p{1.5in}}{{\fontsize{8pt}{8pt}\selectfont meta.unit }} &
 \multicolumn{1}{p{2in}}{{\fontsize{8pt}{8pt}\selectfont Unit of the spectral axis used
 to characterize it}} &
@@ -1934,7 +1934,7 @@ for this filter in ISOTime format }} &
 \hline
 %row no:25
 \multicolumn{1}{p{2.5in}}{{\fontsize{8pt}{8pt}
-\selectfont photdm:PhotCal.zeroPoint.\-flux.unit.expression}} &
+\selectfont photdm:PhotCal.zeroPoint.\-flux.unitexpression}} &
 \multicolumn{1}{p{1.5in}}{{\fontsize{8pt}{8pt}\selectfont meta.unit }} &
 \multicolumn{1}{p{2in}}{{\fontsize{8pt}{8pt}\selectfont unit for Zero point flux}} &
 \multicolumn{1}{p{0.74in}}{{\fontsize{8pt}{8pt}\selectfont Jy}} &

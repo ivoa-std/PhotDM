@@ -8,7 +8,7 @@
             value="2MASS/2MASS.H" datatype="char" arraysize="*"/>
         <PARAM name="fname" utype="photDM:PhotometryFilter.name"
             value="2MASS.H" datatype="char" arraysize="*"/>
-        <PARAM name="xunit" utype="photDM:PhotometryFilter.spectralLocation.unit.expression"
+        <PARAM name="xunit" utype="photDM:PhotometryFilter.spectralLocation.unitexpression"
             value="Angstrom" datatype="char" arraysize="*"/>
         <PARAM name="xucd"  utype="photDM:PhotometryFilter.spectralLocation.UCD"
             value="em.wl" datatype="char" arraysize="*"/>
@@ -28,7 +28,7 @@
             value="VEGAmag" datatype="char" arraysize="*"/>
         <PARAM name="zpvalue" utype="photDM:PhotCal.zeroPoint.flux.value"
             value="1024" unit="Jy" datatype="float"/>
-        <PARAM name="zpunit" utype="photDM:PhotCal.zeroPoint.flux.unit.expression"
+        <PARAM name="zpunit" utype="photDM:PhotCal.zeroPoint.flux.unitexpression"
             value="Jy" datatype="char" arraysize="*"/>
         <PARAM name="zptype" utype="photDM:PhotCal.zeroPoint.type"
             value="0" datatype="float"/>

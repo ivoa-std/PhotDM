@@ -1,6 +1,6 @@
 
 plugins {
-    id("net.ivoa.vo-dml.vodmltools") version "0.3.8"
+    id("net.ivoa.vo-dml.vodmltools") version "0.3.9"
 }
 
 vodml {

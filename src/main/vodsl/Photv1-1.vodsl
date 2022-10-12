@@ -1,0 +1,163 @@
+
+model Phot (1.1) "Data model describing Photometric properties for data sets to be used for data calibration, comparison or reprocessing. 
+"
+     
+ author "Jesús Salgado, Carlos Rodrigo, Pedro Osuna, Mark Allen, Mireille Louys, Jonathan McDowell, Deborah Baines, Jesús Maíz Apellániz,
+Evanthia Hatziminaoglou, Sebastien Derriere, Gerard Lemson"
+    primitive UCD  "Controlled vocabulary to tag measurements in table columns . See UCD IVOA Recommendation .
+"
+    primitive ISOTime  "Time stamp, represented as a string. This representaion is compliant to the DALI time stamp definition : section 3.3.3 Timestamp in
+https://www.ivoa.net/documents/DALI/20170517/REC-DALI-1.1.pdf
+This class derives from the ivoa:datetime class.
+
+It could be inserted in the ivoa: template data model for types in a next version. "
+enum TypeOfMagSystem  "The type of System used to compute magnitude for this photometric calibration procedure ."
+{
+VEGAmag  "Magnitude system related to VEGA.",
+ABmag  "AB magnitude system.",
+STmag  "ST magnitude system."
+}
+
+otype PhotometricSystem  "The reference photometric system used to interpret photometric measurements."
+  {   // constraint  One association at the time
+
+        description: ivoa:string   "This string contains a human readable short-text representation of the photometric system. This will allow client applications to display textual information to final users.";
+        detectorType: ivoa:integer   "Detector type associated to this photometric system. Possible values are: 0 for Energy counter (amplifiers), 1 for Photon counter (CCDs, Photomultipliers).";
+        photometryFilter : PhotometryFilter @+  as composition "The Photometric information is related to a Photometric system, and gathers filter descriptions, for one or several . 
+";
+  }
+
+otype PhotometryFilter  "Filter class to store ids, name and properties.
+"
+  {   // constraint  One association at the time
+
+        fpsidentifier: ivoa:string   "IVOA identifier of the filter profile service where this photometry filter is registered to be used in the discovery of all the relevant photometry filter properties.";
+        identifier: ivoa:string   "This field identifies a filter, in a unique way, within a certain Photometry Filter Profile service.
+Example to build this string : Facility/Subcategory/Band[/Suffix] like SDSS/SDSS.G/G";
+        name: ivoa:string   "A human readable string to represent the filter name.";
+        description: ivoa:string   "This string contains a verbose human readable label for the filter. This will allow client applications to display textual information to final users.";
+        bandname: ivoa:string   "A standard label representing the spectral band associated to this filter (if any).";
+        dateValidityFrom: ISOTime   "Start time of the time coverage for which this filter configuration is applicable. String time format accepted is ISO8601.
+";
+        dateValidityTo: ISOTime   "End time of the time coverage for which this filter configuration is applicable. String time format accepted is ISO8601.
+";
+        bandwidth : Bandwidth as composition "Association to the spectral band-pass of the Filter.
+
+
+";
+        transmissionCurve : TransmissionCurve @?  as composition "Link to the Transmission Curve of the Filter, when this is described.";
+        spectralLocation : SpectralLocation as composition "Association to a spectral coordinate value for locating the Filter band-pass. Usually the mean value.
+
+";
+  }
+
+otype PhotCal  "A class to bind together all  photometic calibration reference information: a photometry filter, a certain magnitude system configuration and a certain zero point object."
+  {   // constraint  One association at the time
+
+        identifier: ivoa:string   "A unique identifier of the Photometry calibration instance within the project  and a filterprofile service . Suggested syntax would be:
+Facility/Subcategory/Band/Photometric System Type[/Suffix]";
+        zeroPoint : ZeroPoint as composition "The ZeroPoint value for the flux to mag translation belongs to a Photcal element and is defined for one Filter element and one MagnitudeSystem .";
+        magnitudeSystem : MagnitudeSystem as composition "ZeroPoint values are given with one computation method corresponding to a defined Magnitude system.
+";
+        photometryFilter  references PhotometryFilter "Each PhotCal element is related to one single Filter. Some Filter object may have no calibration registered yet.";
+  }
+
+otype ZeroPoint  "This class is used to characterize a zero point flux obtained during the calibration of a certain photometry filter on a certain photometric system configuration."
+  {   // constraint  One association at the time
+
+        type: ivoa:integer   "Type describing the way the zeropoint value is defined . Is an integer value : {0=Pogson, 1=Asinh, 2=Linear} corresponding to zero point definitions.";
+        referenceMagnitudeValue: ivoa:real   "Reference magnitude value  of the calibrating object.  can be a implemented as a  double number to get the maximum precision. 
+Default value is zero, but sometimes the reference mag measured is slightly above.
+
+";
+        referenceMagnitudeError: ivoa:real   "Total error estimated on the reference magnitude value whenever applicable. 
+";
+        flux : Flux as composition "Points to the flux value associated to this ZeroPoint magnitude.
+";
+  }
+
+otype PogsonZeropoint  -> ZeroPoint "Extension of ZeroPoint to accommodate standard logarithm magnitudes. It has no supplementary attributes but specific conversion functions.
+"
+  {   
+  }
+
+otype AsinhZeropoint  -> ZeroPoint "Extension of ZeroPoint to describe asinh magnitudes, a.k.a. luptitudes."
+  {   
+        softeningParameter: ivoa:real   "Parameter used to correct the calculation of magnitudes for faint sources. Usually called 'b'. See (Lupton and Gunn et al. [1999]) for a formal explanation.";
+  }
+
+otype LinearFluxZeropoint  -> ZeroPoint "Extension of ZeroPoint to describe simple linear flux photometry, commonly used in Radio, Far Infrared and X-ray spectral ranges. Although not being magnitudes as such, relative linear flux measurements can be included as a special and trivial case of magnitude.
+"
+  {   
+  }
+
+otype MagnitudeSystem  "A class to describe the Magnitude System used , its type and the reference spectrum attached if present."
+  {   
+        type: TypeOfMagSystem   "Type of magnitude system used to compute the associated zeropoint . Typical values are : VEGAmag, ABmag, STmag .
+";
+        referenceSpectrum: ivoa:anyURI   "Link to the reference spectrum as a URI.";
+  }
+
+otype Bandwidth  "This class is used to characterize the spectral properties of a filter. 
+"
+  {   // constraint  One association at the time
+
+        ucd: UCD   "Unified Content Description (UCD) string that specifies the nature of the bandwidth object.";
+        unitexpression: ivoa:Unit   "Unit string  that specifies the spectral unit for this filter.";
+        extent: ivoa:real  @?   "Bandwidth’s extent of the filter , as length of the covered spectral interval , or effective width following appropriate filter type.
+";
+        start: ivoa:real   "In practice, this could be taken as the minimum value of the filter transmission curve.";
+        stop: ivoa:real   "In practice, this could be taken as the maximum value of the filter transmission curve.";
+  }
+
+otype TransmissionPoint  "This class is used to represent a point in the transmission function of a Filter.
+
+"
+  {   // constraint  One association at the time
+
+        ucd: UCD   "Unified Content Description (UCD) string that specifies the nature of the spectral axis in the transmission curve.";
+        unit: ivoa:Unit   "Unit string  that specifies the spectral unit for this filter.";
+        transmissionValue: ivoa:real   "Transmitted value for the filter at this point of the transmission curve. Usually between 0 and 1. 
+";
+        spectralValue: ivoa:real   "Spectral coordinate value for the transmission point.";
+        spectralErrorValue: ivoa:real  @?   "Error on the spectral coordinate value for the transmission point.";
+  }
+
+otype Access  "Gathers all properties to access a resource : uri, format and size . 
+"
+  {   
+        reference: ivoa:anyURI   "URI to access the resource.";
+        size: ivoa:integer   "Approximate estimated size of the dataset, specified in kilobytes.";
+        format: ivoa:string   "Format of the accessed resource.  Typically : application/fits, application/x-votable+xml, text/csv, text/xml.";
+  }
+
+otype TransmissionCurve  "A collection of points along the spectral axis to indicate how flux are transmitted by a filter. 
+The transmission profile can be described by an external file and accessed through the Access instance, or can be stored as a collection of transmission points stored together in the PhotometryFilter serialized instance."
+  {   
+        transmissionPoint : TransmissionPoint @+  as composition "Set of points of the transmission curve.";
+        access : Access @?  as composition "Access to an external file containing the set of Transmission Points.";
+  }
+
+otype SpectralLocation  "A spectral coordinate value for locating the Filter band-pass. Usually the mean  value (for instance in wavelength units).
+This class is used to characterize the spectral properties of a filter. 
+"
+  {   // constraint  One association at the time
+
+        ucd: UCD   "Unified Content Description (UCD) string that specifies the nature of the spectral location for this filter.";
+        unitexpression: ivoa:Unit   "Unit string  that specifies the spectral units for this filter.";
+        value: ivoa:real   "A spectral coordinate value that can be considered by the data provider as the most representative for this specific filter bandpass. 
+In the Optical regime this can represent the effective wavelength, for instance.
+";
+  }
+
+otype Flux  "This class is used to characterize the photometric calibration  Flux<—> Magnitude associated to the ZeroPoint used by a PhotCal instance.
+"
+  {   // constraint  One association at the time
+
+        ucd: UCD   "Unified Content Description (UCD) string that specifies the nature of the flux.
+";
+        unitexpression: ivoa:Unit   "Unit string  that specifies the flux unit.
+";
+        value: ivoa:real   "A flux value.";
+        error: ivoa:real   "Flux value error corresponding to the reference magnitude value  of the calibrating object. ";
+  }

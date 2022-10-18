@@ -1,8 +1,7 @@
-<m:mappedModels xmlns:m="http://www.ivoa.net/xml/vodml-binding/v0.9">
+<m:mappedModels xmlns:m="http://www.ivoa.net/xml/vodml-binding/v0.9.1">
     <!-- ========================================
-    This is a minimal sample file for mapping VO-DML models to XSD or Java using the gradle tooling
+    This is a minimal file for mapping VO-DML models to XSD or Java using the gradle tooling
      -->
-
     <model>
         <name>Phot</name>
         <file>Photv1-1.vo-dml.xml</file>

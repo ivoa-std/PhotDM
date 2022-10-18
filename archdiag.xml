@@ -53,7 +53,6 @@ with missing dependencies.
 	<prerec name="VODML" x="490" y="195"/>
 	<rec name="ObsCore" x="600" y="205"/>
 	<rec name="SimDM" x="450" y="230"/>
-	<rec name="STC" x="550" y="230"/>
 	<rec name="CharDM" x="450" y="255"/>
 	<rec name="SSLDM" x="550" y="255"/>
 	<rec name="SpectralDM" x="450" y="280"/>

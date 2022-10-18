@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<VOTABLE version="1.3" xmlns="http://www.ivoa.net/xml/VOTable/v1.3">
+  <INFO name="QUERY_STATUS" value = "OK"/>
+  <RESOURCE type="results">
+        <PARAM name="fpsID" utype="photDM:PhotometryFilter.fpsIdentifier"
+            value="ivo://svo.cab/fps" datatype="char" arraysize="*"/>
+        <PARAM name="filID" utype="photDM:PhotometryFilter.identifier"
+            value="2MASS/2MASS.H" datatype="char" arraysize="*"/>
+        <PARAM name="fname" utype="photDM:PhotometryFilter.name"
+            value="2MASS.H" datatype="char" arraysize="*"/>
+        <PARAM name="xunit" utype="photDM:PhotometryFilter.spectralLocation.unitexpression"
+            value="Angstrom" datatype="char" arraysize="*"/>
+        <PARAM name="xucd"  utype="photDM:PhotometryFilter.spectralLocation.UCD"
+            value="em.wl" datatype="char" arraysize="*"/>
+        <PARAM name="xmain" utype="photDM:PhotometryFilter.spectralLocation.value"
+                value="16620" unit="Angstrom" datatype="float"/>
+        <PARAM name="xwid" utype="photDM:PhotometryFilter.bandwidth.extent.value"
+            value="2509.40236716" datatype="float"/>
+        <PARAM name="xmin"  utype="photDM:PhotometryFilter.bandwidth.start.value"
+            value="15370" datatype="float"/>
+   		<PARAM name="xmax"  utype="photDM:PhotometryFilter.bandwidth.stop.value"
+            value="17870" datatype="float"/>
+		<PARAM name="detector" utype="photDM:PhotometricSystem.detectorType"
+            value="0" datatype="int"/>
+		<PARAM name="photcal" utype="photDM:PhotCal.identifier"
+            value="2MASS/2MASS.H:Vega" datatype="char" arraysize="*"/>
+        <PARAM name="magtype" utype="photDM:PhotCal.magnitudeSystem.type"
+            value="VEGAmag" datatype="char" arraysize="*"/>
+        <PARAM name="zpvalue" utype="photDM:PhotCal.zeroPoint.flux.value"
+            value="1024" unit="Jy" datatype="float"/>
+        <PARAM name="zpunit" utype="photDM:PhotCal.zeroPoint.flux.unitexpression"
+            value="Jy" datatype="char" arraysize="*"/>
+        <PARAM name="zptype" utype="photDM:PhotCal.zeroPoint.type"
+            value="0" datatype="float"/>
+        <PARAM name="Facility" ucd="meta.id;instr.obsty" value="2MASS"
+         datatype="char" arraysize="*"/>
+        <PARAM name="ProfileReference"
+            value="http://www.ipac.caltech.edu/2mass/releases/allsky/doc/sec6_4a.html"
+            datatype="char" arraysize="*"/>
+        <PARAM name="CalibrationReference"
+            value="http://adsabs.harvard.edu/cgi-bin/nph-bib_query?bibcode=2003AJ....126.1090C"
+            datatype="char" arraysize="*"/>
+
+<!--Here the points of the response curve are stored directly in an attached table-->
+    <TABLE utype="photDM:PhotometryFilter.transmissionCurve">
+
+        <FIELD name="Wavelength"
+         utype="photDM:TransmissionPoint.spectralValue"
+         ucd="em.wl" unit="Angstrom" datatype="float"/>
+
+        <FIELD name="Transmission"
+        utype= "photDM:TransmissionPoint.transmissionValue"
+        ucd="phys.transmission" datatype="float"/>
+
+        <DATA>
+        <TABLEDATA>
+          <TR>
+            <TD>12890.0</TD>
+            <TD>0.0000000000</TD>
+          </TR>
+          <TR>
+            <TD>13150.0</TD>
+            <TD>0.0000000000</TD>
+          </TR>
+          <TR>
+            <TD>13410.0</TD>
+            <TD>0.0000000000</TD>
+          </TR>
+          <TR>
+            <TD>18930.0</TD>
+            <TD>0.1</TD>
+          </TR>
+          <TR>
+            <TD>19140.0</TD>
+            <TD>0.2</TD>
+        ...............................
+          </TR>
+        </TABLEDATA>
+        </DATA>
+    </TABLE>
+  </RESOURCE>
+</VOTABLE>

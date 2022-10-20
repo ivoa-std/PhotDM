@@ -1,8 +1,5 @@
-<mapping >
-<!-- PhotSys 2MASS -->
-<!-- 
-
-XML serialization of a PhotSys 2MASS : 3 filters
+<!-- PhotSys 2MASS MIVOT syntax -->
+<!-- XML serialization of a PhotSys 2MASS : 3 filters 
 L.Michel, M.Louys 
  -->
  

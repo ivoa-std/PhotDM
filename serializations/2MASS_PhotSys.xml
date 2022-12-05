@@ -7,7 +7,12 @@ L.Michel, M.Louys
 <INSTANCE dmtype="photdm:PhotometricSystem" dmid="_2MASS_PhotSys">
     <ATTRIBUTE dmrole="photdm:PhotometricSystem.description" dmtype="ivoa:string" value="2MASS" />
     <ATTRIBUTE dmrole="photdm:PhotometricSystem.detectorType" dmtype="ivoa:integer" value="0" />
-
+<COLLECTION dmrole="photdm:PhotCal.photometryFilter">
+    <!-- Others filter references can be added here -->
+    <REFERENCE dmref="_2MASS_H_filter"/>
+    <REFERENCE dmref="_2MASS_KS_filter"/>
+    <REFERENCE dmref="_2MASS_J_filter"/>
+  </COLLECTION>
 
     <!--  Filter 2MASS.H -->
     <INSTANCE dmtype="photdm:PhotometryFilter" dmrole="photdm:PhotCal.photometryFilter dmid=_2MASS_H_filter">
